@@ -35,28 +35,4 @@ See the `Documenteer documentation <https://documenteer.lsst.io/technotes/index.
 .. include::   sections/gainStability.rst
 .. include::   sections/biasStability.rst
 
-.. toctree::
-   sections/persistence.rst
-   sections/sequencerOptimization.rst
-   sections/mockCalibs.rst
-   sections/darkCurrent.rst
-   sections/run7Changes.rst
-   sections/OCSIntegration.rst
-   sections/recordRuns.rst
-   sections/baselineCharacterization.rst
-   sections/thermalOptimization.rst
-   sections/persistenceOptimization.rst
-   sections/ITLDips.rst
-   sections/vampirePixels.rst
-   sections/serialRemnants.rst
-   sections/phosphorescence.rst
-   sections/projectorSpots.rst
-   sections/chillerDysfunction.rst
-   sections/guiderOperation.rst
-   sections/treeRings.rst
-   sections/fcsDevelopment.rst
-   sections/defectStability.rst
-   sections/gainStability.rst
-   sections/biasStability.rst
-
 
