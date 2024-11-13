@@ -12,6 +12,29 @@ Add content here
 
 See the `Documenteer documentation <https://documenteer.lsst.io/technotes/index.html>`_ for tips on how to write and configure your new technote.
 
+.. include::   sections/persistence.rst
+.. include::   sections/sequencerOptimization.rst
+.. include::   sections/mockCalibs.rst
+.. include::   sections/darkCurrent.rst
+.. include::   sections/run7Changes.rst
+.. include::   sections/OCSIntegration.rst
+.. include::   sections/recordRuns.rst
+.. include::   sections/baselineCharacterization.rst
+.. include::   sections/thermalOptimization.rst
+.. include::   sections/persistenceOptimization.rst
+.. include::   sections/ITLDips.rst
+.. include::   sections/vampirePixels.rst
+.. include::   sections/serialRemnants.rst
+.. include::   sections/phosphorescence.rst
+.. include::   sections/projectorSpots.rst
+.. include::   sections/chillerDysfunction.rst
+.. include::   sections/guiderOperation.rst
+.. include::   sections/treeRings.rst
+.. include::   sections/fcsDevelopment.rst
+.. include::   sections/defectStability.rst
+.. include::   sections/gainStability.rst
+.. include::   sections/biasStability.rst
+
 .. toctree::
    sections/persistence.rst
    sections/sequencerOptimization.rst
@@ -35,28 +58,5 @@ See the `Documenteer documentation <https://documenteer.lsst.io/technotes/index.
    sections/defectStability.rst
    sections/gainStability.rst
    sections/biasStability.rst
-
-.. include::   sections/persistence.rst
-.. include::   sections/sequencerOptimization.rst
-.. include::   sections/mockCalibs.rst
-.. include::   sections/darkCurrent.rst
-.. include::   sections/run7Changes.rst
-.. include::   sections/OCSIntegration.rst
-.. include::   sections/recordRuns.rst
-.. include::   sections/baselineCharacterization.rst
-.. include::   sections/thermalOptimization.rst
-.. include::   sections/persistenceOptimization.rst
-.. include::   sections/ITLDips.rst
-.. include::   sections/vampirePixels.rst
-.. include::   sections/serialRemnants.rst
-.. include::   sections/phosphorescence.rst
-.. include::   sections/projectorSpots.rst
-.. include::   sections/chillerDysfunction.rst
-.. include::   sections/guiderOperation.rst
-.. include::   sections/treeRings.rst
-.. include::   sections/fcsDevelopment.rst
-.. include::   sections/defectStability.rst
-.. include::   sections/gainStability.rst
-.. include::   sections/biasStability.rst
 
 
