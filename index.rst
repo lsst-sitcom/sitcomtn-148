@@ -18,7 +18,6 @@ See the `Documenteer documentation <https://documenteer.lsst.io/technotes/index.
 .. include::   sections/darkCurrent.rst
 .. include::   sections/run7Changes.rst
 .. include::   sections/OCSIntegration.rst
-.. include::   sections/recordRuns.rst
 .. include::   sections/baselineCharacterization.rst
 .. include::   sections/thermalOptimization.rst
 .. include::   sections/persistenceOptimization.rst
@@ -34,5 +33,5 @@ See the `Documenteer documentation <https://documenteer.lsst.io/technotes/index.
 .. include::   sections/defectStability.rst
 .. include::   sections/gainStability.rst
 .. include::   sections/biasStability.rst
-
+.. include::   sections/recordRuns.rst
 
