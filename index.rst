@@ -42,6 +42,7 @@ Sensor features
 --------------------------------
 Observatory integration
 --------------------------------
+.. include::   sections/shutterActivity.rst
 .. include::   sections/OCSIntegration.rst
 .. include::   sections/mockCalibs.rst
 .. include::   sections/chillerDysfunction.rst

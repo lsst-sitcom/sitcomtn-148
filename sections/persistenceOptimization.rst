@@ -3,4 +3,8 @@ Persistence optimization
 
 hello world.
 
-This section describes persistence optimization (might be redundant).
+- Trying new voltages
+- impact on persistence
+- impact on full-well
+- impact on other parameters
+

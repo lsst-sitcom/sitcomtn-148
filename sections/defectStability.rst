@@ -3,4 +3,7 @@ Defect stability
 
 hello world.
 
-This section describes phosphorescence.
+This section describes defect stability.
+
+- Bright defects
+- Dark defects with picture frame
