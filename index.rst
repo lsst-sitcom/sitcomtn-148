@@ -46,7 +46,8 @@ Observatory integration
 .. include::   sections/mockCalibs.rst
 .. include::   sections/chillerDysfunction.rst
 --------------------------------
-Record runs
+Conclusions
 --------------------------------
+.. include::   sections/run7OperatingParameters.rst
 .. include::   sections/recordRuns.rst
 
