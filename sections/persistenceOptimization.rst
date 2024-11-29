@@ -22,7 +22,11 @@ The voltages are defined relative to each other. Changing the parallel swing (fo
 - Lowering the parallel low voltage didn't seem to work as we expect, the going further negative voltage is probably needed.
 Note that the UCD setup didn't show up the persistence. It might be due to the characteristic of the sensor, might be due to the difference in the electronics (the long cable between CCD and REB, for example). They need to move the parallel rails up 
 
-Based on this test result, we decided to try out the new voltage with the narrower voltage swing on the main Camera focal-plane.
+Based on this test result, we decided to try out the new voltage with the narrower voltage swing on the main Camera focal-plane. Keeping the parallel low voltage at -6V in order to operate the sensor safely (very conservative limit), we change the parallel swing voltage from 9.3V to 8.0V as well as all the other voltages using the new formula. We overexposed CCDs and took 20 darks after.
+The image shown below is mean or median of pixel-by-pixel difference between the first and the last dark exposures, as a function of the parallel swing. As the parallel swing is lowered, the residual signal becomes small, it becomes rougly 10 times lower than the orignal 9.3V. Although we sampled mid points between 8.0 and 9.3V, 8.0V appears to work the best and it could be lower.
+.. image:: figs/e2v_transient_dark_vs_dp.png
+
+
 
 - impact on persistence
 - impact on full-well
