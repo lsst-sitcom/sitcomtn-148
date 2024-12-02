@@ -3,7 +3,7 @@ Vampire pixels
 
 First observations
 ^^^^^^^^^^^^^^^^^^
-- Starting with ComCam
+Vampire pixels were first observed in ComCam observations [need more info to properly give context]
 - Andy's study on Oct. 8
 - Agnes masking effort
 
@@ -22,7 +22,6 @@ Vampire features across the focal plane
 - sensor type
 - static or dynamic
 - higher concentrations? Particularly bad sensors?
-- 
 
 Current masking conditions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
