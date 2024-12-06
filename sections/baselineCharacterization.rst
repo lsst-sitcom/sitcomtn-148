@@ -16,8 +16,9 @@ Initial characterization studies performed on LSSTCam were used two primary acqu
 
 * PTCs (photon transfer curves): this acquisition sequence consists of a sequence of flat pairs taken at different flux levels. The flat acquisition sequence samples different flux levels at a higher density than the B protocol flat sequence, enabling a more precise estimate of flat pair metrics. 
 
-..
-  table here showing the density of flat pairs in a B protocol vs a dense
+.. image::   /figures/PTC_BProtocol_Comparison.jpg
+   :target:  ../figures/PTC_BProtocol_Comparison.jpg
+   :alt: Figure showing the density of sampling between PTCs (blue) and B protocols (red)
 
 All EO camera data is processed through the `calibration products <https://github.com/lsst/cp_pipe>`__ and `electro-optical <https://github.com/lsst-camera-dh/eo_pipe/tree/main>`__ pipelines to extract key metrics from the data run. The key camera metrics from Run 7, and their comparison to previous runs are discussed below.
 
