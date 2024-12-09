@@ -2,7 +2,8 @@ Bias stability
 ############################################
 Bias instabilities are of 2 kinds :
 1) ITL bias jumps
-2) e2v 2D shapes
+2) e2v 2D shapes.
+   
 Both observed in Run 6 and deeply studied. Issue 1 considered as hardware-level issue, tried to mitigate issue 2 by acquisition optimization in Run 7.
 
 For the baseline configuration (see conclusion), three stability runs were recorded :
