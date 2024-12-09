@@ -16,7 +16,7 @@ The parallel swing determines the fullwell. Depending on whether the accumulated
 
 The voltages are defined relative to each other. Changing the parallel swing (for example) also requires changes all other voltages to operate the sensor properly, for example properly reset the amplifier. The initial voltage was given in the original formula [2]_ but to go to the narrow voltage we had to switch to the new formula in order to satisfy constraints [3]_. 
 
-[Snyder et al.]_, set up the a single sensor test-stand at UC Davis. They attempted multiple different approaches aformetioned above and reported the result [4]_. The sumamry is as follows
+[S2024]_, set up the a single sensor test-stand at UC Davis. They attempted multiple different approaches aformetioned above and reported the result [4]_. The sumamry is as follows
 - The new voltages following the rule work fine. 
 - Narrowing the parallel swing eliminates the persistence
 - Lowering the parallel low voltage didn't seem to work as we expect, the going further negative voltage is probably needed.
