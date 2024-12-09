@@ -23,7 +23,7 @@ The voltages are defined relative to each other. Changing the parallel swing (fo
 Note that the UCD setup didn't show up the persistence. It might be due to the characteristic of the sensor, might be due to the difference in the electronics (the long cable between CCD and REB, for example). They need to move the parallel rails up 
 
 Persistence optimization
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Based on this test result, we decided to try out the new voltage with the narrower voltage swing on the main Camera focal-plane. Keeping the parallel low voltage at -6V in order to operate the sensor safely (very conservative limit), we change the parallel swing voltage from 9.3V to 8.0V as well as all the other voltages using the new formula. We overexposed CCDs and took 20 darks after.
 The image shown below is mean or median of pixel-by-pixel difference between the first and the last dark exposures, as a function of the parallel swing. As the parallel swing is lowered, the residual signal becomes small, it becomes rougly 10 times lower than the orignal 9.3V. Although we sampled mid points between 8.0 and 9.3V, 8.0V appears to work the best and it could be lower with the penalty of loosing the full well.
@@ -46,10 +46,10 @@ The next figure shows the same dark exposure but taken with the nallow parallel 
     The first dark exposure after a 400k flat image under the parallel swing of 8.0V. (Run E1310)
 
 Impact on full-well
--------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Impact on Brighter-Fatter effect
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Yassine will put his material here.
 
 .. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow goes too high. 
