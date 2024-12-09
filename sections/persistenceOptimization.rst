@@ -22,6 +22,9 @@ The voltages are defined relative to each other. Changing the parallel swing (fo
 - Lowering the parallel low voltage didn't seem to work as we expect, the going further negative voltage is probably needed.
 Note that the UCD setup didn't show up the persistence. It might be due to the characteristic of the sensor, might be due to the difference in the electronics (the long cable between CCD and REB, for example). They need to move the parallel rails up 
 
+Persistence optimization
+------------------------
+
 Based on this test result, we decided to try out the new voltage with the narrower voltage swing on the main Camera focal-plane. Keeping the parallel low voltage at -6V in order to operate the sensor safely (very conservative limit), we change the parallel swing voltage from 9.3V to 8.0V as well as all the other voltages using the new formula. We overexposed CCDs and took 20 darks after.
 The image shown below is mean or median of pixel-by-pixel difference between the first and the last dark exposures, as a function of the parallel swing. As the parallel swing is lowered, the residual signal becomes small, it becomes rougly 10 times lower than the orignal 9.3V. Although we sampled mid points between 8.0 and 9.3V, 8.0V appears to work the best and it could be lower with the penalty of loosing the full well.
 
@@ -29,19 +32,25 @@ The image shown below is mean or median of pixel-by-pixel difference between the
 
     When we measure the mean and standard deviation, together with the median of the red (e2v) curves above and arrange them by the swing voltage, we can select a more informed swing voltage to operate with an acceptable amount of persistence. The error bars attached to the mean are adopted from the standard deviations of each histogram.
 
+The following figures diplay how the persistence is reduced by the voltage change. The images were processed by the standard instrumental signature removal, get assembled in the full focal-plane view. The dark exposure was taken right after the 400ke- -equivalent flat exposure. The figure shows the disticnt pattern of elevated signal associated with the vendor. The inner part of the focal plane is filled by e2v sensors which has the persistence signal.
 
 .. figure:: sections/figures/E1110dp93.png
 
-    The first dark exposure after a 400k flat image under the parallel swing of 9.3V.
+    The first dark exposure after a 400k flat image under the parallel swing of 9.3V. (Run E1110)
+
+The next figure shows the same dark exposure but taken with the nallow parallel swing voltage of 8.0V. The distict pattern goes away.
 
 
 .. figure:: sections/figures/E1310dp80.png
 
-    The first dark exposure after a 400k flat image under the parallel swing of 8.0V.
+    The first dark exposure after a 400k flat image under the parallel swing of 8.0V. (Run E1310)
 
-- impact on persistence
-- impact on full-well
-- impact on other parameters
+Impact on full-well
+-------------------
+
+Impact on Brighter-Fatter effect
+--------------------------------
+Yassine will put his material here.
 
 .. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow goes too high. 
 
