@@ -9,7 +9,7 @@ Voltage conditions
 .. table:: Voltage conditions
 
    +-----------+--------------------+--------------------+
-   | Parameter | E2V Quantity       | ITL Quantity       |
+   | Parameter | dp80 (new voltage) | dp93 (Run 5)       |
    +===========+====================+====================+
    | pclkHigh  |    2.0             |    3.3             |
    +-----------+--------------------+--------------------+
