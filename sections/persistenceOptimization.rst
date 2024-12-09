@@ -28,6 +28,10 @@ The image shown below is mean or median of pixel-by-pixel difference between the
 
     When we measure the mean and standard deviation, together with the median of the red (e2v) curves above and arrange them by the swing voltage, we can select a more informed swing voltage to operate with an acceptable amount of persistence. The error bars attached to the mean are adopted from the standard deviations of each histogram.
 
+.. figure:: figures/E1110dp93.png
+
+    The first dark exposure after a 400k flat image under the parallel swing of 9.3V.
+
 .. figure:: figures/E1310dp80.png
 
     The first dark exposure after a 400k flat image under the parallel swing of 8.0V.
