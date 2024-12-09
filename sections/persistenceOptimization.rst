@@ -23,20 +23,19 @@ The voltages are defined relative to each other. Changing the parallel swing (fo
 Note that the UCD setup didn't show up the persistence. It might be due to the characteristic of the sensor, might be due to the difference in the electronics (the long cable between CCD and REB, for example). They need to move the parallel rails up 
 
 Based on this test result, we decided to try out the new voltage with the narrower voltage swing on the main Camera focal-plane. Keeping the parallel low voltage at -6V in order to operate the sensor safely (very conservative limit), we change the parallel swing voltage from 9.3V to 8.0V as well as all the other voltages using the new formula. We overexposed CCDs and took 20 darks after.
-The image shown below is mean or median of pixel-by-pixel difference between the first and the last dark exposures, as a function of the parallel swing. As the parallel swing is lowered, the residual signal becomes small, it becomes rougly 10 times lower than the orignal 9.3V. Although we sampled mid points between 8.0 and 9.3V, 8.0V appears to work the best and it could be lower.
-.. image:: figs/e2v_transient_dark_vs_dp.png
-
+The image shown below is mean or median of pixel-by-pixel difference between the first and the last dark exposures, as a function of the parallel swing. As the parallel swing is lowered, the residual signal becomes small, it becomes rougly 10 times lower than the orignal 9.3V. Although we sampled mid points between 8.0 and 9.3V, 8.0V appears to work the best and it could be lower with the penalty of loosing the full well.
+.. image:: figures/e2v_transient_dark_vs_dp.png
 
 
 - impact on persistence
 - impact on full-well
 - impact on other parameters
 
-..[1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow goes too high. 
-..[Janesick 2001] https://www.spiedigitallibrary.org/ebooks/PM/Scientific-Charge-Coupled-Devices/eISBN-9780819480392/10.1117/3.374903
-..[Doherty et al. 2014] https://ui.adsabs.harvard.edu/abs/2014SPIE.9154E..18D/abstract
-..[the original e2v voltage formula] https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py
-..[Utsumi et al. 2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..0WU/abstract
-..[the new e2v voltage formula] https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py
-..[Snyder et al. 2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..21S/abstract and 
-..[Davis testing] https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0#heading=h.frkqtvvyydkr
+.. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow goes too high. 
+.. [Janesick 2001] https://www.spiedigitallibrary.org/ebooks/PM/Scientific-Charge-Coupled-Devices/eISBN-9780819480392/10.1117/3.374903
+.. [Doherty et al. 2014] https://ui.adsabs.harvard.edu/abs/2014SPIE.9154E..18D/abstract
+.. [the original e2v voltage formula] https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py
+.. [Utsumi et al. 2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..0WU/abstract
+.. [the new e2v voltage formula] https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py
+.. [Snyder et al. 2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..21S/abstract and 
+.. [Davis testing] https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0#heading=h.frkqtvvyydkr
