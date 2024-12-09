@@ -44,10 +44,17 @@ The image shown below is mean or median of pixel-by-pixel difference between the
 - impact on other parameters
 
 .. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow goes too high. 
+
 .. [2] https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py
+
 .. [3] https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py
+
 .. [4] https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0#heading=h.frkqtvvyydkr
+
 .. [J2001] https://www.spiedigitallibrary.org/ebooks/PM/Scientific-Charge-Coupled-Devices/eISBN-9780819480392/10.1117/3.374903
+
 .. [D2014] https://ui.adsabs.harvard.edu/abs/2014SPIE.9154E..18D/abstract
+
 .. [U2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..0WU/abstract
-.. [S2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..21S/abstract and 
+
+.. [S2024] https://ui.adsabs.harvard.edu/abs/2024SPIE13103E..21S/abstract 
