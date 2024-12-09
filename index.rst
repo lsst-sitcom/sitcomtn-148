@@ -40,13 +40,6 @@ Sensor features
 .. include::   sections/serialRemnants.rst
 .. include::   sections/phosphorescence.rst
 --------------------------------
-Observatory integration
---------------------------------
-.. include::   sections/shutterActivity.rst
-.. include::   sections/OCSIntegration.rst
-.. include::   sections/mockCalibs.rst
-.. include::   sections/chillerDysfunction.rst
---------------------------------
 Conclusions
 --------------------------------
 .. include::   sections/run7OperatingParameters.rst
