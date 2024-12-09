@@ -58,7 +58,7 @@ The next figure shows the same dark exposure but taken with the narrow parallel 
 
 Impact on full-well
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Reduction of the full well is expected by narrowing the parallel swing voltage. This subsection explores how much reduction in the PTC turnoff is observed in the dense PTC run. Two runs are acquired with identical setting except for the CCD operating voltage. As the PTC turnoff is defined in ADU, it needs to be multiplied by PTC_GAIN to make the comparison. The figure below compares the PTC turnoff in electrons and their difference in ratio. The median reduction was 22% .
+Reduction of the full well is expected by narrowing the parallel swing voltage. This subsection explores how much reduction in the PTC turnoff is observed in the dense PTC run. Two runs are acquired with identical setting except for the CCD operating voltage (E1113 for 9.3V and E1335 for 8.0V). As the PTC turnoff is defined in ADU, it needs to be multiplied by PTC_GAIN to make a comparison. The figure below compares the PTC turnoff in electrons and their difference in ratio. The median reduction was 22% .
 
 .. figure:: sections/figures/PtcTurnoffRatio.png
 
