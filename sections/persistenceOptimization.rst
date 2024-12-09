@@ -24,7 +24,7 @@ The voltages are defined relative to each other. Changing the parallel swing (fo
 
 Note that the UCD setup didn't show up the persistence. It might be due to the characteristic of the sensor, or might be due to the difference in the electronics (the long cable between CCD and REB, for example). They need to move the parallel rails up. 
 
-.. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow goes too high. 
+.. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow does not go too high. 
 .. [Bipolar] https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py
 .. [PersistenceMitigationVoltage] https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py
 .. [DavisReport] https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0#heading=h.frkqtvvyydkr
@@ -70,4 +70,7 @@ Impact on Brighter-Fatter effect
 Yassine will put his material here.
 
 
+Summary
+^^^^^^^
+E2V sensors had persistence. We confirmed changing the E2V CCD operating voltage greatly reduced persistence. As penalties, we observed 22% of full well reduction, and XXXX
 
