@@ -12,25 +12,30 @@ Electro-optical setup
 .. include::   sections/run7Changes.rst
 .. include::   sections/projectorSpots.rst
 .. include::   sections/darkCurrent.rst
+
 ----------------------------------
 Reverification
 ----------------------------------
 .. include::   sections/baselineCharacterization.rst
+
 ----------------------------------
 Camera Optimization
------------------------------------
+----------------------------------
 .. include::   sections/persistenceOptimization.rst
 .. include::   sections/sequencerOptimization.rst
 .. include::   sections/thermalOptimization.rst
+
 -----------------------------------
 Characterization & Camera stability
 -----------------------------------
 The final result of B protocol and PTC need to be presented here.
+
 .. include::   sections/finalCharacterization.rst
 .. include::   sections/guiderOperation.rst
 .. include::   sections/defectStability.rst
 .. include::   sections/biasStability.rst
 .. include::   sections/gainStability.rst
+
 ----------------------------------
 Sensor features
 ----------------------------------
@@ -39,6 +44,7 @@ Sensor features
 .. include::   sections/vampirePixels.rst
 .. include::   sections/serialRemnants.rst
 .. include::   sections/phosphorescence.rst
+
 ----------------------------------
 Conclusions
 ----------------------------------
