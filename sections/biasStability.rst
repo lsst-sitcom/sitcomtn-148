@@ -17,10 +17,10 @@ eo_pipe bias stability task : bias +  serial overscan correction, mean of the im
 
 Plots:
 
-.. figure:: figures/E2136_R23_S22.png
+.. figure:: sections/figures/E2136_R23_S22.png
 
-.. figure:: figures/E2136_R21_S21.png	   
-
+.. figure:: sections/figures/E2136_R21_S21.png
+	    
 #. Examples : 1 stable CCD / 1 instable CCD
 #. Instable CCD : comparison of the 3 runs
 #. Some yellow corner images (bias, 15-s exposure, 30-s exposure)
