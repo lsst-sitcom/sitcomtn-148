@@ -21,3 +21,14 @@ orcid = "https://orcid.org/0000-0001-5326-3486"
 name = "SLAC National Accelerator Laboratory"
 internal_id = "SLAC"
 address = "2575 Sand Hill Rd., Menlo Park, CA 94025, USA"
+
+[[technote.authors]]
+name.given = "Yousuke"
+name.family = "Utsumi"
+internal_id = "youtsumi"
+orcid = "https://orcid.org/0000-0001-6161-8988"
+[[technote.authors.affiliations]]
+name = "National Astronomical Observatory of Japan"
+internal_id = "NAOJ"
+address = "2-21-1 Osawa, Mitaka, Tokyo, 181-8588, Japan"
+
