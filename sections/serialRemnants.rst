@@ -39,8 +39,10 @@ The localisation of these uncleared electrons in the first lines of the
 CCDs, spot the interface between the image area and the serial register , as the location of those pockets.
 For this reason we investigated changes in the field configuration of
 the serial register during the clear, to avoid the construction of
-pockets at this image-serial register interface. 
-  .. _image-e2vClear:
+pockets at this image-serial register interface.
+
+.. _image-e2vClear:
+
 .. image::   /figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :target:    ../figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :alt: Figure showing the impact of the various type of clear on a bias taken after a saturated flat for an E2V sensor.
