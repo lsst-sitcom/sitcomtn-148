@@ -2,7 +2,7 @@ Persistence optimization
 ############################################
 
 Leftover signal in the following dark after a blast of illumination has been observed. It is called "Persistence". 
-Persistence has been observed in an early prototype E2V sensor as early as 2014 ([D2014]_). It was confirmed that the amplitude of the persistence decreased as the parallel swing voltage got smaller. This is consistent with the Residual Surface Image [J2001]_ -- the excessive charges are being stuck at the surface layer. The level of persistence is about 10--20 ADU, and the decaying time constant is about 30 sec.
+Persistence has been observed in an early prototype E2V sensor as early as 2014 ([D2014]_). It was confirmed that the amplitude of the persistence decreased as the parallel swing voltage got smaller. This is consistent with the Residual Surface Image [J2001]_ -- the excessive charges are being stuck at the surface layer. The level of persistence is about 10--20 ADU, and the decaying time constant is about 30 sec [dmtn-276]_.
 
 During the EO testing in 2021, we also found the persistence made a streak toward the readout direction from the place where the bright spot located in a previous image. We call this trailing persistence.
 
@@ -25,6 +25,7 @@ The voltages are defined relative to each other. Changing the parallel swing (fo
 Note that the UCD setup didn't show up the persistence. It might be due to the characteristic of the sensor, or might be due to the difference in the electronics (the long cable between CCD and REB, for example). They need to move the parallel rails up. 
 
 .. [1] We note that ITL operates at the parallel low voltage of -8V. We have observed the increased current flow. But we have the software protection so that the current flow does not go too high. 
+.. [dmtn-276] https://dmtn-276.lsst.io
 .. [Bipolar] https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py
 .. [PersistenceMitigationVoltage] https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py
 .. [DavisReport] https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0#heading=h.frkqtvvyydkr
