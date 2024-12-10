@@ -47,14 +47,14 @@ The following figures display how the persistence is reduced by the voltage chan
 
 .. figure:: sections/figures/E1110dp93.png
 
-    The first dark exposure after a 400k flat image under the parallel swing of 9.3V. (Run E1110)
+    The first dark exposure after a 400k flat image under the parallel swing of 9.3V (Run E1110).
 
 The next figure shows the same dark exposure but taken with the narrow parallel swing voltage of 8.0V. The distinct pattern goes away. This demonstrates the persistence in e2v sensors becomes the level of ITL's ones.
 
 
 .. figure:: sections/figures/E1310dp80.png
 
-    The first dark exposure after a 400k flat image under the parallel swing of 8.0V. (Run E1310)
+    The first dark exposure after a 400k flat image under the parallel swing of 8.0V (Run E1310). The figure shows no distinct patterns from persistence in e2v sensors anymore.
 
 Impact on full-well
 ^^^^^^^^^^^^^^^^^^^^^^^^
