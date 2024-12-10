@@ -14,6 +14,7 @@ of the effect :
   
     the first CCD line of the following exposure is ~ saturated and signal is also present in the 2nd line read of the CCD.
 - in e2v CCD :
+  
     the effect is slightly amplifier dependent , still  in most of
     the device a saturation is observed in the first xx CCD line read of
     the following exposure, and a
@@ -40,9 +41,12 @@ pockets at this image-serial register interface.
 
 .. image::   /figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :target:  ../figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
-   :alt: Figure showing the impact of the various type of clear on a bias taken after a saturated flat for an E2V sensor. We present for 3 types of sequencer ( from left to right : V29 , NoP and NopSF), a zoom on the first lines of an e2v amplifier ( here R12_S20 C10) shown as a 2D image ( top
-	 plots) and presented as the mean signal per line (bottom plots).  A bias taken just after a saturated flat in a e2v CCD will show a residual signal in the first lines when using the default clear (left images,clear=v29 ) : the first line has an almost saturated signal ( ~ 100 kADU here),
-	 and a significant signal is seen up to the line ~50 here. In practice, in  function of the amplifier, signal can be seen up to line 20-50. When using the NoP clear (central plots), we can already see a strong reduction of the unclear charges still present in the first acquired bias after a saturated flat. The NoPSF clear fully clear the saturated flat , and no uncleared charges are observed  in the following bias.    
+   :alt: Figure showing the impact of the various type of clear on a bias taken after a saturated flat for an E2V sensor.
+
+
+
+	 In the above image , we present for 3 types of sequencer ( from left to right : V29 , NoP and NopSF), a zoom on the first lines of an e2v amplifier ( here R12_S20 C10) shown as a 2D image ( top
+	 plots) and presented as the mean signal per line (bottom plots).  A bias taken just after a saturated flat in a e2v CCD will show a residual signal in the first lines when using the default clear (left images,clear=v29 ) : the first line has an almost saturated signal ( ~ 100 kADU here), and a significant signal is seen up to the line ~50 here. In practice, in  function of the amplifier, signal can be seen up to line 20-50. When using the NoP clear (central plots), we can already see a strong reduction of the unclear charges still present in the first acquired bias after a saturated flat. The NoPSF clear fully clear the saturated flat , and no uncleared charges are observed  in the following bias.    
 
 
 
@@ -53,24 +57,24 @@ pockets at this image-serial register interface.
 	   far . .
 
    +------------------------+------------+----------+-------------+----------------+-----------------+-------------------------+--------+-------+ 
-    |                                                  | Default Clear    | Multi Clear    |     Multi Clear    | Deep Clear                | No Pocket  (NoP)        |  No Pocket Serial Flush (NoPSF) | Header 3  | Header 4 |
-    |                                                  |      1 Clear         |      3 Clears    |      5 Clears      |     Clear +1 Line        |    1 Clear                    |             1 Clear                           |                |                 |
-    |                                                  |   (seq. V29 )       |   (seq. V29 )   |      (seq. V29 )  |      (Seq. V23 DC)       | (seq. V29_NoP)           |   ( seq.  V29, V30 )                     |                |                 |
-    +===================+==========+==========+========+=============+==============+====================+======+======+
-    | Clear duration                            | 65.5 ms            | 196.5 ms       | 327.4 ms      |   64.69 ms                 |     65.8 ms                   |   67 ms                                       |               |                   |
-    +------------------------+------------+------------+----------+----------------+-------------+----------------------------------+-------+---------+
-    | "E2V" after saturated Flat           |                          |                         |                           |                                 |                            |                                                       |              |                     |
-    +------------------------+------------ +                        |                           +----------------+-------------+----------------------------+-------+---------+
-    | R30_S10_C10 E2V                       |                         |                         |                            |                                 |                            |                                                      |              |                     |
-    |         Bright Column (~ sat. Star) |                         |  No residual e-  | No residual e-   |                                 |                            |                                                      |              |                     |
-    +------------------------+------------+                       +                             +----------------+-------------+----------------------------------+-------+---------+
+   |                                                  | Default Clear    | Multi Clear    |     Multi Clear    | Deep Clear                | No Pocket  (NoP)        |  No Pocket Serial Flush (NoPSF) | Header 3  | Header 4 |
+   |                                                  |      1 Clear         |      3 Clears    |      5 Clears      |     Clear +1 Line        |    1 Clear                    |             1 Clear                           |                |                 |
+   |                                                  |   (seq. V29 )       |   (seq. V29 )   |      (seq. V29 )  |      (Seq. V23 DC)       | (seq. V29_NoP)           |   ( seq.  V29, V30 )                     |                |                 |
+   +===================+==========+==========+========+=============+==============+====================+======+======+
+   | Clear duration                            | 65.5 ms            | 196.5 ms       | 327.4 ms      |   64.69 ms                 |     65.8 ms                   |   67 ms                                       |               |                   |
+   +------------------------+------------+------------+----------+----------------+-------------+----------------------------------+-------+---------+
+   | "E2V" after saturated Flat           |                          |                         |                           |                                 |                            |                                                       |              |                     |
+   +------------------------+------------ +                        |                           +----------------+-------------+----------------------------+-------+---------+
+   | R30_S10_C10 E2V                       |                         |                         |                            |                                 |                            |                                                      |              |                     |
+   |         Bright Column (~ sat. Star) |                         |  No residual e-  | No residual e-   |                                 |                            |                                                      |              |                     |
+   +------------------------+------------+                       +                             +----------------+-------------+----------------------------------+-------+---------+
    | "ITL" after saturated Flat           |                        |    in following  |     in following   |                                 |                            |                                                          |              |                     |
-    +------------------------+------------+                       +                              +----------------+-------------+-----------------------------+-------+---------+
-    | R02_S20_C14 ITL                        |                         |       image  |     image             |                                 |                            |                                                          |              |                     |
-    |Bright Column (~ sat. Star)         |                            |                     |                        |                                 |                            |                                                               |              |                     |
-    +------------------------+------------+------------+----------+----------------+-------------+----------------------------------+-------+---------+
-    | R01_S10  ITL "unique"              |                        |                         |                     |                                 |                            |                                                                      |              |                     |
-    +------------------------+------------+------------+----------+----------------+-------------+----------------------------------+-------+---------+
+   +------------------------+------------+                       +                              +----------------+-------------+-----------------------------+-------+---------+
+   | R02_S20_C14 ITL                        |                         |       image  |     image             |                                 |                            |                                                          |              |                     |
+   |Bright Column (~ sat. Star)         |                            |                     |                        |                                 |                            |                                                               |              |                     |
+   +------------------------+------------+------------+----------+----------------+-------------+----------------------------------+-------+---------+
+   | R01_S10  ITL "unique"              |                        |                         |                     |                                 |                            |                                                                      |              |                     |
+   +------------------------+------------+------------+----------+----------------+-------------+----------------------------------+-------+---------+
  
 
 
