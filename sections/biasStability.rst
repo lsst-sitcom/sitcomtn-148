@@ -20,6 +20,7 @@ Plots:
 .. figure:: sections/figures/E2136_R23_S22.png
    :width: 48 %
    :align: right
+
 .. figure:: sections/figures/E2136_R21_S21.png
    :width: 48 %
 
