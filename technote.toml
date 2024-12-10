@@ -21,3 +21,13 @@ orcid = "https://orcid.org/0000-0001-5326-3486"
 name = "SLAC National Accelerator Laboratory"
 internal_id = "SLAC"
 address = "2575 Sand Hill Rd., Menlo Park, CA 94025, USA"
+
+[[technote.authors]]
+name.given = "Sean"
+name.family = "MacBride"
+internal_id = "seanmacb"
+orcid = "https://orcid.org/0000-0002-9514-7245"
+[[technote.authors.affiliations]]
+name = "Physik-Institut, University of Zurich"
+internal_id = "UZH"
+address = "Winterthurerstrasse 190, 8057, Zurich, Switzerland"
