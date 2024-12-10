@@ -10,13 +10,14 @@ These "hard to clear" charges , are associated to highly saturated
 flat  or column ( or stars as observed in AuxTel or ComCam), that  will  leave signal in the
 first lines of the following exposure. We have the following signature
 of the effect : 
-- in all ITL CCD , except in R01_S10 for which the effect is much more
-  significant and that will be addressed later in this section , the first CCD line of the following exposure is ~ saturated
-  and signal is also present in the 2nd line read of the CCD.
-- in e2v the effect is slightly amplifier dependent , still  in most of
-  the device a saturation is observed in the first xx CCD line read of
-  the following exposure, and a
-  significant signal is visible up to 40th line.
+- in all ITL CCD except in R01_S10 for which the effect is much more significant and that will be addressed later in this section:
+  
+    the first CCD line of the following exposure is ~ saturated and signal is also present in the 2nd line read of the CCD.
+- in e2v CCD :
+    the effect is slightly amplifier dependent , still  in most of
+    the device a saturation is observed in the first xx CCD line read of
+    the following exposure, and a
+    significant signal is visible up to 40th line.
 
 
 These left over electrons are not associated to what we usually
@@ -61,27 +62,21 @@ pockets at this image-serial register interface.
     |                                                  |   (seq. V29 )       |   (seq. V29 )   |      (seq. V29 )  |      (Seq. V23 DC)       | (seq. V29_NoP) |   ( seq.  V29, V30 )                 |                |                 |
     +===================+==========+==========+==========+==========+===========+==========+==========+==========+
     | Clear duration                            | 65.5 ms            | 196.5 ms       | 327.4 ms     |   64.69 ms                |     65.8 ms          |   67 ms                          |               |                   | 
-     +===================+==========+==========+==========+==========+===========+==========+==========+==========+
+    +===================+==========+==========+==========+==========+===========+==========+==========+==========+
     | "E2V" after saturated Flat           |                          |                         |                     |                                 |                            |                                       |              |                     |
-     +------------------------+------------ +                        +                    +----------------+-------------+-------------------+-------+---------+
+    +------------------------+------------ +                        +                    +----------------+-------------+-------------------+-------+---------+
     | R30_S10_C10 E2V                       |                         |                         |                     |                                 |                            |                                       |              |                     |
     |         Bright Column (~ sat. Star) |                         |  No residual e-  | No residual e-   |                                 |                            |                                       |              |                     |
-     +===================+==========                        +                     +==========+===========+==========+==========+==========+
+    +===================+==========                        +                     +==========+===========+==========+==========+==========+
     | "ITL" after saturated Flat           |                        |    in following  |     in following   |                                 |                            |                                       |              |                     |
-     +------------------------+------------+                       +                    +----------------+-------------+-------------------+-------+---------+
+    +------------------------+------------+                       +                    +----------------+-------------+-------------------+-------+---------+
     | R02_S20_C14 ITL                        |                         |       image  |     image              |                                 |                            |                                       |              |                     |
     |Bright Column (~ sat. Star)         |                            |                         |                     |                                 |                            |                                       |              |                     |
-     +===================+==========+==========+==========+==========+===========+==========+==========+==========+
-     | R01_S10  ITL "unique"              |                        |                         |                     |                                 |                            |                                       |              |                     |
-     +------------------------+------------+------------+----------+----------------+-------------+-------------------+-------+---------+
+    +===================+==========+==========+==========+==========+===========+==========+==========+==========+
+    | R01_S10  ITL "unique"              |                        |                         |                     |                                 |                            |                                       |              |                     |
+    +------------------------+------------+------------+----------+----------------+-------------+-------------------+-------+---------+
  
 
-
-
-
-are not associated to
-a remanent
-effect / charges trapped  
 
 
 This section describes incomplete serial flush.
