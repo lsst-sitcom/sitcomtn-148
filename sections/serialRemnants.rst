@@ -41,7 +41,7 @@ For this reason we investigated changes in the field configuration of
 the serial register during the clear, to avoid the construction of
 pockets at this image-serial register interface.
 
-.. _image-e2vclear:
+ .. _image-e2vclear:
 
 .. image::   /figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :target:    ../figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
