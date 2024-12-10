@@ -15,12 +15,17 @@ For the baseline configuration (see conclusion), three stability runs were recor
 
 eo_pipe bias stability task : bias +  serial overscan correction, mean of the image
 
-Plots:
+Plots 
 
-.. image:: sections/figures/E2136_R23_S22.png
-   :width: 48 %
-.. image:: sections/figures/E2136_R21_S21.png
-   :width: 48 %
+.. list-table:: 
+
+    * - .. figure:: sections/figures/E2136_R21_S21.png
+
+           Stable case (R21 S21)
+
+      - .. figure:: sections/figures/E2136_R23_S22.png
+
+           Instable case (R23 S22)
 
 #. Examples : 1 stable CCD / 1 instable CCD
 #. Instable CCD : comparison of the 3 runs
