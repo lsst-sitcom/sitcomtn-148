@@ -23,7 +23,7 @@ of the effect :
   
     the effect is slightly amplifier dependent, still, like in ITL, 
     the first line read in an exposure following an exposure with saturated overscan, is close to saturation, and a
-    significant signal is visible in the first 20-50 lines. ( :ref:`see left plots of clear e2v image<image-e2vclear>` )
+    significant signal is visible in the first 20-50 lines. ( :ref:`see left plots of clear e2v image<fig-image-e2vclear>` )
 
 
 These left over electrons are not associated to what we usually
@@ -41,9 +41,10 @@ For this reason we investigated changes in the field configuration of
 the serial register during the clear, to avoid the construction of
 pockets at this image-serial register interface.
 
- .. _image-e2vclear:
+
 
 .. image::   /figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
+   :name: fig-image-e2vclear
    :target:    ../figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :alt: Figure showing the impact of the various type of clear on a bias taken after a saturated flat for an E2V sensor.
 
