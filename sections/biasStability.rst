@@ -21,13 +21,9 @@ Plots:
    :width: 48 %
    :align: right
 
-   R23 S22   
-	   
 .. figure:: sections/figures/E2136_R21_S21.png
    :width: 48 %
 
-   R21 S21   
-	   
 #. Examples : 1 stable CCD / 1 instable CCD
 #. Instable CCD : comparison of the 3 runs
 #. Some yellow corner images (bias, 15-s exposure, 30-s exposure)
