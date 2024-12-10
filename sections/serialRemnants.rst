@@ -23,7 +23,7 @@ of the effect :
   
     the effect is slightly amplifier dependent, still, like in ITL, 
     the first line read in an exposure following an exposure with saturated overscan, is close to saturation, and a
-    significant signal is visible in the first 20-50 lines. ( see left plots of :ref:`image-e2vClear` )
+    significant signal is visible in the first 20-50 lines. ( :ref:`see left plots of clear e2v image<image-e2vClear>` )
 
 
 These left over electrons are not associated to what we usually
