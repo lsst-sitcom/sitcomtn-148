@@ -23,7 +23,7 @@ of the effect :
   
     the effect is slightly amplifier dependent, still, like in ITL, 
     the first line read in an exposure following an exposure with saturated overscan, is close to saturation, and a
-    significant signal is visible in the first 20-50 lines. ( :ref:`see left plots of clear e2v image<fig-image-e2vclear>` )
+    significant signal is visible in the following 20-50 lines. ( :ref:`see left plots of clear e2v image<fig-image-e2vclear>` )
 
 
 These left over electrons are not associated to what we usually
@@ -32,8 +32,9 @@ electric field configuration in the sensor and the field associated to
 saturated pixels : pocket(s) that survive to a clear, will prevent charges to be cleared. 
 A change of the electric field (ex: a change in clocks configuration) can remove the pockets, and free
 the charges, allowing them to be cleared. If charges stuck in pocket(s) are not removed by a clear, we observed that an image read (ex: a bias) 
-will fully remove them: only the first exposure taken after an image with saturated overscan is impacted: if the clocks configuration
+will fully remove them: only the first exposure taken after an image with saturated overscan is impacted. If the clocks configuration
 used in our standard clear is not able to flush away those charges, a standard readout of >~ 2000 lines does remove them.   
+
 
 The localisation of these uncleared electrons in the first lines of the
 CCDs, spot the interface between the image area and the serial register , as the location of those pockets.
@@ -42,17 +43,78 @@ the serial register during the clear, to avoid the construction of
 pockets at this image-serial register interface.
 
 
+New sequencers
+^^^^^^^^^^^^^^
+
+To addresse this clear issue, we focussed on updating the serial register field as the lines are moved to it. The constrain being that the changes introduced should not significantly increase the clear execution time.
+It should be notice that we tried in 2021 a sequencer called "Deep Clear" ( [sequencerV23_DC]_ ) as a first try to address the clear issue: it added one full line flush on top of the existing one at the end of the clear. This sequencer did improve the clear , still not fully fixing the clear issue ( see :ref:`Summary table<table-SummaryClear>`). 
+
+In the run7, We considered on top of the default clear, 2 new configurations. The changes are in the ParallelFlush function , which move the charges from the image area to the serial register :
+
+- the default clear (V29) : In the default clear, all serial clocks are kept up as the // clocks move charges from the image area to the serial register ( [sequencerV29]_ ). The charges once on the serial register will hopefully flow to the ground : the serial register clocks being all up , without pixels boundary , and with its amplifier in clear state. At the end of the clear, a full flush of the serial register is done ( ~ the serial clocks changes to read a single line ).       
+
+- the No-pocket Clear (NoP) : a clear where the serial register has the same configuration   ( S1 & S2 up , S3 low ) when the // clock P1 moves the charges to the serial register than in a standard image read . Still we keept all phases up the rest of the time for a fast clear of the charges along the serial register ( [sequencerV29_NoP]_ ) . The idea is that the S3 phase is not designed to be up when charges are transfered to the serail register, and is probably playing a major role in the pockets creation.
+
+- The No-pocket with serial flush Clear (NoPSF) : this sequencer is close to the NoP solution , except that during the transfered of 1 line to the serial register, the serial phases are also moved to transfer two pixels along teh serial register. The changes in electric field at the image-serial register interface are then even more representative to what a standard read will produce, and should further prevent the creation of pockets.  ( [sequencerV29_NoPSF]_ ).
+
+
+
+.. [sequencerV23_DC]  https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq
+.. [sequencerV29]     https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq 
+.. [sequencerV29_NoP] https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq
+.. [sequencerV29_NoPSF]  https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_NopSf.seq 
+
+Results on standard e2v and itl CCD
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 .. image::   /figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :name: fig-image-e2vclear
    :target:    ../figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
-   :alt: Figure showing the impact of the various type of clear on a bias taken after a saturated flat for an E2V sensor.
+   :alt:  Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an E2V sensor.
+      
+
+*Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an E2V sensor.*
+	  
+
+.. image::   /figures/plots_R03_S11_C14_E1812_bias_2024102800352.png
+   :name: fig-image-itlclear
+   :target:    ../figures/plots_R03_S11_C14_E1812_bias_2024102800352.png
+   :alt: Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an ITL sensor.
+      
+
+*Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an ITL sensor.*
 
 
-In the above image , we present for 3 types of sequencer ( from left to right : V29 , NoP and NopSF), a zoom on the first lines of an e2v amplifier ( here R12_S20 C10) shown as a 2D lines-columns image ( top
+
+In the above images , we present for 3 types of sequencer ( from left to right : V29 , NoP and NopSF), a zoom on the first lines of an itl or e2v amplifier ( for itl R03_S11 C14 and  for e2v  R12_S20 C10 ) shown as a 2D lines-columns image ( top
 plots) or as the mean signal per line for the first lines read of an amplifier (bottom plots).
-In an e2v CCD, a bias taken just after a saturated flat will show a residual signal in the first lines read when using the default clear (left images,clear=v29 ) : the first line has an almost saturated signal ( ~ 100 kADU here), and a
-significant signal is seen up to the line ~50. In practice, in  function of the amplifier, signal can be seen up to line 20-50. When using the NoP clear (central plots), we can already see a strong reduction of the uncleared charges in the first acquired bias after a saturated flat, still a small residual signal is visible in the first ~ 20 lines. The NoPSF clear fully clear the saturated flat, and no uncleared charges are observed in the following bias.    
+
+As seen in :ref:`see left plots of clear e2v image<fig-image-e2vclear>` for an e2v CCD, a bias taken just after a saturated flat will show a residual signal in the first lines read when using the default clear (left images,clear=v29 ) : the first line has an almost saturated signal ( ~ 100 kADU here), and a
+significant signal is seen up to the line ~50. In practice, in  function of the amplifier, signal can be seen up to line 20-50. When using the NoP clear (central plots), we can already see a strong reduction of the uncleared charges in the first acquired bias after a saturated flat, still a small residual signal is visible in the first ~ 20 lines. The NoPSF clear (right plots) fully clear the saturated flat, and no uncleared charges are observed in the following bias.    
+
+
+
+As seen in :ref:`see left plots of clear itl image<fig-image-itlclear>` for an itl CCD, a bias taken just after a saturated flat will show a residual signal in the first lines read when using the default clear (left images,clear=v29 ) : the first line has an almost saturated signal ( ~ 100 kADU here), and a
+significant signal is seen in the following line. Both NoP clear (central plots) and NoPSF clear (right plots)  fully clear the saturated flat, and no uncleared charges are observed in the following bias.    
+
+
+Results on itl R01_S10 
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image::   /figures/Clear_R01_S10.png
+   :name: fig-image-itlR01_S10clear
+   :target:    ../figures/Clear_R01_S10.png
+   :alt: Figure showing the impact of the various types of clear on ITL R01_S10.
+
+
+
+
+*Figure showing the impact of the various types of clear on ITL R01_S10 ( bias after a saturated flat), from left to right : 1 standard Clear , 3 standard Clear , 5 standard Clear , 1 NoP Clear*
+
+
+
+
 
 
 Conclusion
@@ -60,8 +122,8 @@ Conclusion
 
  .. _table-SummaryClear:
 
-.. table:: This table summaries the different clear methods used so
-	   far . .
+.. table:: *This table summaries the different clear methods used so
+	   far.*
    
      +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
      |                                          | Default Clear        | Multi Clear      | Multi Clear          | Deep Clear            | No Pocket(NoP)      |  No Pocket Serial Flush(NoPSF)  |
@@ -76,8 +138,8 @@ Conclusion
      | R30_S10_C10 E2V                          |                      |No residual       |No residual           |                       |                     |                                 |
      | Bright Column(~ sat. Star)               |                      | electrons        | electrons            |                       |                     |                                 |
      +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     | "ITL" after saturated Flat               |                      |No residual       |No residual           |                       |                     |                                 |
-     |                                          |                      | electrons        | electrons            |                       |                     |                                 |
+     | "ITL" after saturated Flat               |1st line saturated    |No residual       |No residual           |                       |  No residual        | No residual                     |
+     |                                          |signal up to 2nd line | electrons        | electrons            |                       |   electrons         |  electrons                      |
      +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
      | R02_S20_C14 ITL                          |                      |No residual       |No residual           |                       |                     |                                 |
      | Bright Column (~ sat. Star)              |                      | electrons        | electrons            |                       |                     |                                 |
