@@ -135,38 +135,33 @@ Conclusion
 
  .. _table-SummaryClear:
 
-.. table:: *This table summaries the different clear methods used so
-	   far.*
-   
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     |                                          | Default Clear        | Multi Clear      | Multi Clear          | Deep Clear            | No Pocket(NoP)      |  No Pocket Serial Flush(NoPSF)  |
-     |                                          | 1 Clear              | 3 Clears         | 5 Clears             | 1 Clear               | 1 Clear             |  1 Clear                        |
-     |                                          | (seq. V29)           | (seq. V29)       | (seq. V29 )          | (Seq. V23 DC)         | (seq. V29_NoP)      |  ( seq.  V29, V30 )             |
-     +==========================================+======================+==================+======================+=======================+=====================+=================================+
-     | Clear duration                           | 65.5 ms              | 196.5 ms         | 327.4 ms             |   64.69 ms            |     65.8 ms         |   67 ms                         |
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     | "E2V" after saturated Flat               |1st line saturated    |No residual       |No residual           |                       |signal up to line 20 | No residual                     |
-     |                                          |signal up to line 50  | electrons        | electrons            |                       |                     |  electrons                      |
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     | R30_S10_C10 E2V                          |                      |No residual       |No residual           |                       |                     |                                 |
-     | Bright Column(~ sat. Star)               |                      | electrons        | electrons            |                       |                     |                                 |
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     | "ITL" after saturated Flat               |1st line saturated    |No residual       |No residual           |                       |  No residual        | No residual                     |
-     |                                          |signal up to 2nd line | electrons        | electrons            |                       |   electrons         |  electrons                      |
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     | R02_S20_C14 ITL                          |                      |No residual       |No residual           |                       |                     |                                 |
-     | Bright Column (~ sat. Star)              |                      | electrons        | electrons            |                       |                     |                                 |
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-     | R01_S10  ITL "unique"                    |                      |                  |                      |                       |                     |                                 |
-     |                                          |                      |                  |                      |                       |                     |                                 |
-     +------------------------------------------+----------------------+------------------+----------------------+-----------------------+---------------------+---------------------------------+
-
-     
+.. table:: *This table summaries the different clear methods used so far.*
+	   
+     +------------------------------------------+----------------------+---------------------+----------------------+-----------------------+-----------------------+---------------------------------+
+     |                                          | Default Clear        | Multi Clear         | Multi Clear          | Deep Clear            | No Pocket(NoP)        |  No Pocket Serial Flush(NoPSF)  |
+     |                                          | 1 Clear              | 3 Clears            | 5 Clears             | 1 Clear               | 1 Clear               |  1 Clear                        |
+     |                                          | (seq. V29)           | (seq. V29)          | (seq. V29 )          | (Seq. V23 DC)         | (seq. V29_NoP)        |  ( seq.  V29_NoPSF, V30 )       |
+     +==========================================+======================+=====================+======================+=======================+=======================+=================================+
+     | Clear duration                           | 65.5 ms              | 196.5 ms            | 327.4 ms             |   64.69 ms            |     65.8 ms           |   67 ms                         |
+     +------------------------------------------+----------------------+---------------------+----------------------+-----------------------+-----------------------+---------------------------------+
+     | "E2V" after saturated Flat               |1st line saturated    |No residual          |No residual           |1st line saturated     |signal up to line 20   | No residual                     |
+     |                                          |signal up to line 50  | electrons           | electrons            |signal up to line <20  |                       |  electrons                      |
+     +------------------------------------------+----------------------+---------------------+----------------------+-----------------------+-----------------------+---------------------------------+
+     | "ITL" after saturated Flat               |1st line saturated    |No residual          |No residual           |tiny signal left in    |  No residual          | No residual                     |
+     |                                          |signal up to 2nd line | electrons           | electrons            |the first line         |   electrons           |  electrons                      |
+     +------------------------------------------+----------------------+---------------------+----------------------+-----------------------+-----------------------+---------------------------------+
+     | R01_S10  ITL "unique"                    |first 500 lines       |first 150 lines      |first 100 lines       | not measured          |first 1000  lines      | first 750  lines                |
+     |                                          |saturated for 4 amp.  |saturated for        |saturated for         |                       |saturated for 16 amp.  | saturated for 16 amp.           |
+     |                                          |13 amp. with signals. |2 amp.               |2 amp.                |                       |16 amp. with signals.  | 16 amp. with signals.           |
+     |                                          |                      |5 amp. with signals. |2 amp. impacted       |                       |                       |                                 |
+     +------------------------------------------+----------------------+---------------------+----------------------+-----------------------+-----------------------+---------------------------------+
 
 
- Even if NoP or NoPSF are overcoming the clear issue we had with ITL sensors, the exception of R01_S10 prevented the usage of those sequencers for ITL device for the run7. Notice that beyond R01_S10  the numbers of line potencilly  "not cleared" are small (2 first lines)in ITL device, and they correspond to a CCD area hard to use anyway ( sensor edges with low efficciency). So at this stage the default clear is still our default for ITL, and further studies to overcome the problem with R01_S10 are forseen ( ex : do a continuous serial flush during exposure  at low rate , 10^6 pixels flush in 15s).  
+
+Even if NoP or NoPSF are overcoming the clear issue we had with ITL sensors, the exception of R01_S10 prevented the usage of those sequencers for ITL device for the run7. Notice that beyond R01_S10  the numbers of line potencilly  "not cleared" are small (2 first lines)in ITL device, and they correspond to a CCD area hard to use anyway ( sensor edges with low efficciency). So at this stage the default clear is still our default for ITL, and further studies to overcome the problem with R01_S10 are forseen ( ex : do a continuous serial flush during exposure  at low rate , 10^6 pixels flush in 15s).  
 
  On the other side , after those studies in run7, we now have a good way to fully clear the e2v devices through the NopSF clear. The NoPSF clear grants that the first 50 lines of e2v device that had un-cleared electrons from the previous exposure, are now free of such contamination.
+
 
 
 From now   :
