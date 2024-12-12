@@ -5,7 +5,7 @@ Bias instabilities (typically above the 1-ADU level) are observed over a signifi
 #. The ITL bias jumps : large variation of the column-wise structure from exposure to exposure.
 #. The e2v yellow corners : residual 2D shape of the bias even after 2D-overscan correction. These residuals depend on the acquisition sequence and of the exposure time.
    
-Both issues were observed and deeply studied in Run 6 EO data and deeply studied. The ITL issue is thought to be an hardware-level issue (phase shifts between Readout Electronics Boards). We tried to mitigate the e2v issue by optimizing the acquisition configuration in Run 7.
+Both issues were observed and deeply studied in Run 6 EO data. The ITL issue is thought to be an hardware-level issue (phase shifts between Readout Electronics Boards). We tried to mitigate the e2v issue by optimizing the acquisition configuration in Run 7.
 
 For the baseline acquisition configuration (see conclusion), three relevant stability runs were recorded :
 
@@ -25,8 +25,22 @@ To process these runs, the eo_pipe bias stability task is used : for the ISR par
 
            Instable case (R23 S22)
 
-#. Examples : 1 stable CCD / 1 instable CCD
-#. Instable CCD : comparison of the 3 runs
+A comparison of the results for an instable CDD is shown below for the three runs.
+
+.. list-table::
+
+    * - .. figure:: sections/figures/E2136_R33_S02.png
+
+           Run E2136, R33 S02
+
+      - .. figure:: sections/figures/E2236_R33_S02.png
+
+           Run E2236, R33 S02
+
+      - .. figure:: sections/figures/E2330_R33_S02.png
+  	   
+	   Run E2330, R33 S02
+
 #. Some yellow corner images (bias, 15-s exposure, 30-s exposure)
 #. Mosaic of stability metric
 
