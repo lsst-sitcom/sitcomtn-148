@@ -17,6 +17,7 @@ Electro-optical setup
 Reverification
 ----------------------------------
 .. include::   sections/baselineCharacterization.rst
+.. include::   sections/finalCharacterization.rst
 
 ----------------------------------
 Camera Optimization
