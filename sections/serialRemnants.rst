@@ -110,8 +110,21 @@ Results on itl R01_S10
 
 
 
-*Figure showing the impact of the various types of clear on ITL R01_S10 ( bias after a saturated flat), from left to right : 1 standard Clear , 3 standard Clear , 5 standard Clear , 1 NoP Clear*
+*Figure showing the impact of the various types of clear on ITL R01_S10 after a saturated flat ( bias after a saturated flat), from left to right : 1 standard Clear , 3 standard Clear , 5 standard Clear , 1 NoP Clear, 1 NoPSF Clear*
 
+
+There is one ITL sensor, R01_S10, that present a specific and non-understood behavior :
+
+- It has a quite low full well (2/3 of nominal )
+
+- The 3 CCD of this REB have a gain 20% lower than all other ITL CCD ?
+
+- The images taken after a large staturation, as seen in figure :ref:`clear in itl R01_S10 <fig-image-itlR01_S10clear>`, show a large amount of uncleared charged ( with the standard clear : 4 amplifiers with ~500 lines of saturated signal !)
+
+It apears that putting S3 low during the clear as done in NoP or NoPSF , is even worse than a standard clear. This is strange as a full frame read , which does this too, manages to clear such image.
+We can notice that NoPSF is ~ 50% better than NoP , but still worse than the standard clear , in particular for the 12 amplifiers almost correct with the standard clear.
+
+At this stage we don't have a correct way to clear this sensor once it collects a saturated flat, but It's not known if a saturated star in this sensor, leaving signal in the parallele overscan, will presents the same clear issue.
 
 
 
@@ -151,4 +164,16 @@ Conclusion
      
 
 
- 
+ Even if NoP or NoPSF are overcoming the clear issue we had with ITL sensors, the exception of R01_S10 prevented the usage of those sequencers for ITL device for the run7. Notice that beyond R01_S10  the numbers of line potencilly  "not cleared" are small (2 first lines)in ITL device, and they correspond to a CCD area hard to use anyway ( sensor edges with low efficciency). So at this stage the default clear is still our default for ITL, and further studies to overcome the problem with R01_S10 are forseen ( ex : do a continuous serial flush during exposure  at low rate , 10^6 pixels flush in 15s).  
+
+ On the other side , after those studies in run7, we now have a good way to fully clear the e2v devices through the NopSF clear. The NoPSF clear grants that the first 50 lines of e2v device that had un-cleared electrons from the previous exposure, are now free of such contamination.
+
+
+From now   :
+
+- for e2v, NoPSF will be the default clear method
+
+- for ITL, the origial clear (serial phase 3 always ), slightly extended in time to match the NoPSF e2v clear execution time , will stay the default method.  
+
+
+
