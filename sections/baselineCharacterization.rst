@@ -83,7 +83,7 @@ PTC Noise
 """""""""""
 
 
-Divisidero Tearing
+Divisadero Tearing
 """""""""""""""""""""
 
 
