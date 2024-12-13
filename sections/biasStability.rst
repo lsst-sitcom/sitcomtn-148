@@ -61,4 +61,4 @@ In order to quantify the number of e2v instable amplifiers, a stability metric *
 
    Mosaic of e2v amplifiers identified as instable (white color) in run E2136 
 	   
-Further studies are still required in order to converge on the best mitigation strategies for the start of the LSST survey.
+Further studies are required in order to converge on the best mitigation strategy for the start of the LSST survey.
