@@ -15,15 +15,13 @@ For the baseline acquisition configuration (see conclusion), three relevant stab
 
 To process these runs, the eo_pipe bias stability task is used : for the ISR part, a serial ('mean_per_row') overscan correction and a bias subtraction (computed from the corresponding B-protocol run) are applied. The final data product is the mean of the per-amplifier science image over the full set of exposures of the run. Two typical examples are shown in the figures below.
 
-.. list-table:: 
+.. figure:: sections/figures/E2136_R21_S21.png
 
-    * - .. figure:: sections/figures/E2136_R21_S21.png
+   Stable case (R21 S21)
 
-           Stable case (R21 S21)
+.. figure:: sections/figures/E2136_R23_S22.png
 
-      - .. figure:: sections/figures/E2136_R23_S22.png
-
-           Instable case (R23 S22)
+   Instable case (R23 S22)
 
 A comparison of the results for an instable CDD is shown below for the three runs.
 
@@ -43,15 +41,13 @@ A comparison of the results for an instable CDD is shown below for the three run
 
 In order to highlight the 2D shape differences, a 2D-overscan correction is applied. A few exposures illustrating the variations of the 2D shape for an instable CCD are shown below.
 
-.. list-table::
-   
-      * - .. figure:: sections/figures/E1880_bias_R33_S02.png
+.. figure:: sections/figures/E1880_bias_R33_S02.png
 
-           Bias exposure, run 1880, R33 S02
+   Bias exposure, run 1880, R33 S02
 
-        - .. figure:: sections/figures/E2136_dark15_R33_S02.png
-
-           15-s dark exposure, run E2136 in 'stable' conditions, R33 S02	   
+.. figure:: sections/figures/E2136_dark15_R33_S02.png
+	    
+   15-s dark exposure, run E2136 in 'stable' conditions, R33 S02	   
 	   
 .. list-table::
 
@@ -67,10 +63,10 @@ In order to quantify the number of e2v instable amplifiers, a stability metric *
 
 .. figure:: sections/figures/E2136_distribution_d.png
 
-           Distribution of the stability metric for the 1872 e2v amplifiers in run E2136
+   Distribution of the stability metric for the 1872 e2v amplifiers in run E2136
 
 .. figure:: sections/figures/E2136_mosaic_d.png
 
-           Mosaic of e2v amplifiers identified as instable in run E2136
+   Mosaic of e2v amplifiers identified as instable in run E2136
 	   
 Further studies are still required in order to converge on the best mitigation strategies for the start of the LSST survey.
