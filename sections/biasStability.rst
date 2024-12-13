@@ -25,15 +25,15 @@ To process these runs, the eo_pipe bias stability task is used : for the ISR par
 
 A comparison of the results for an instable CDD is shown below for the three runs.
 
-- .. figure:: sections/figures/E2136_R33_S02.png
+.. figure:: sections/figures/E2136_R33_S02.png
 
   Run E2136, R33 S02
 
-- .. figure:: sections/figures/E2236_R33_S02.png
+.. figure:: sections/figures/E2236_R33_S02.png
 
   Run E2236, R33 S02
 
-- .. figure:: sections/figures/E2330_R33_S02.png
+.. figure:: sections/figures/E2330_R33_S02.png
   	   
   Run E2330, R33 S02
 
