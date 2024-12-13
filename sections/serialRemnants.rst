@@ -37,9 +37,9 @@ used in our standard clear is not able to flush away those charges, a standard r
 
 
 The localisation of these uncleared electrons in the first lines of the
-CCDs, spot the interface between the image area and the serial register , as the location of those pockets.
+CCDs, spots the interface between the image area and the serial register as the location for those pockets.
 For this reason we investigated changes in the field configuration of
-the serial register during the clear, to avoid the construction of
+the serial register during the clear, to avoid 
 pockets at this image-serial register interface.
 
 
@@ -113,7 +113,7 @@ Results on itl R01_S10
 *Figure showing the impact of the various types of clear on ITL R01_S10 after a saturated flat ( bias after a saturated flat), from left to right : 1 standard Clear , 3 standard Clear , 5 standard Clear , 1 NoP Clear, 1 NoPSF Clear*
 
 
-There is one ITL sensor, R01_S10, that present a specific and non-understood behavior :
+There is one ITL sensor, R01_S10, that presents a specific and non-understood behavior :
 
 - It has a quite low full well (2/3 of nominal )
 
