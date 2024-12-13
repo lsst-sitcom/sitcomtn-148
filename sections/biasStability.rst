@@ -13,7 +13,7 @@ For the baseline acquisition configuration (see conclusion), three relevant stab
 #. Run E2236 : 50 15-s darks, 50 biases recorded with 30-s delays between exposures
 #. Run E2330 : 15-s and 30-s darks with variables delays between exposures
 
-To process these runs, the eo_pipe bias stability task is used : for the ISR part, a serial ('mean_per_row') overscan correction and a bias subtraction (computed from the corresponding B-protocol run) are applied. The final data product is the mean of the per-amplifier science image over the full set of exposures of the run. Two typical examples are shown in the figures below. For the stable case, the variations are typically at the 0.1 ADU level ; in the instable case, the variations go up to 4 ADUs.
+To process these runs, the eo_pipe bias stability task is used : for the ISR part, a serial ('mean_per_row') overscan correction and a bias subtraction (computed from the corresponding B-protocol run) are applied. The final data product is the mean of the per-amplifier science image over the full set of exposures of the run. Two typical examples from Run E2136 are shown in the figures below. For the stable case, the variations are typically at the 0.1 ADU level ; in the instable case, the variations go up to 4 ADUs.
 
 .. figure:: sections/figures/E2136_R21_S21.png
 
