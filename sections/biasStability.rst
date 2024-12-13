@@ -27,17 +27,17 @@ A comparison of the results for an instable CDD is shown below for the three run
 
 .. figure:: sections/figures/E2136_R33_S02.png
 
-  Run E2136, R33 S02
+   Run E2136, R33 S02
 
 .. figure:: sections/figures/E2236_R33_S02.png
 
-  Run E2236, R33 S02
+   Run E2236, R33 S02
 
 .. figure:: sections/figures/E2330_R33_S02.png
-  	   
-  Run E2330, R33 S02
 
-In order to highlight the 2D shape differences, a 2D-overscan correction is applied. A few exposures illustrating the variations of the 2D shape for an instable CCD are shown below.
+   Run E2330, R33 S02
+
+In order to highlight the 2D shape differences, a 2D-overscan correction is applied. A few exposures illustrating the variations of the 2D shape for an instable CCD are shown below. The 2D shape of the image in amplifier C01 is different in the 3 cases. 
 
 .. figure:: sections/figures/E1880_bias_R33_S02.png
 
@@ -50,10 +50,6 @@ In order to highlight the 2D shape differences, a 2D-overscan correction is appl
 .. figure:: sections/figures/E2136_dark15_delay_R33_S02.png
 
    15-s dark exposure, run E2136 after a 3-minute delay, R33 S02
-
-.. figure:: sections/figures/E2330_dark30_R33_S02.png
-
-   30-s dark exposure, run E2330, R33 S02
 
 In order to quantify the number of e2v instable amplifiers, a stability metric *d* is defined from the eo_pipe stability task data products. More precisely, *d* is defined, for a given amplifier in a given run, as the difference between the 5th and 95th percentiles of the image mean over all the exposures. The distribution of *d* for run E2136 is shown below. Applying a threshold at 0.3, 51 amplifiers are identified as instable (see the corresponding mosaic).
 
