@@ -16,9 +16,11 @@ Initial characterization studies performed on LSSTCam were used two primary acqu
 
 * PTCs (photon transfer curves): this acquisition sequence consists of a sequence of flat pairs taken at different flux levels. The flat acquisition sequence samples different flux levels at a higher density than the B protocol flat sequence, enabling a more precise estimate of flat pair metrics. 
 
-.. image::   /figures/PTC_BProtocol_Comparison.jpg
-   :target:  ../figures/PTC_BProtocol_Comparison.jpg
+
+.. image::   /figures/baselineCharacterization/PTC_BProtocol_Comparison.jpg
+   :target:  ../figures/baselineCharacterization/PTC_BProtocol_Comparison.jpg
    :alt: Figure showing the density of sampling between PTCs (blue) and B protocols (red)
+
 
 All EO camera data is processed through the `calibration products <https://github.com/lsst/cp_pipe>`__ and `electro-optical <https://github.com/lsst-camera-dh/eo_pipe/tree/main>`__ pipelines to extract key metrics from the data run. The key camera metrics from Run 7, and their comparison to previous runs are discussed below.
 
@@ -64,10 +66,21 @@ Dark current is the small amount of electrical charge generated in the absence o
 In the context of LSSTCam, we measure dark current from the combined dark images across all amplifiers.
 
 
+.. image::   /figures/baselineCharacterization/13557_E1071_DARK_CURRENT_MEDIAN.png
+   :target:  ../figures/baselineCharacterization/13557_E1071_DARK_CURRENT_MEDIAN.png
+   :alt: Figure showing the comparison between dark current measurements at SLAC and at Cerro Pachon
+
+
 Bright defects
 """""""""""""""
 Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the CCD’s semiconductor material or manufacturing process. Bright defects can manifest as “hot pixels” (pixels with consistently high dark current), small clusters of pixels with elevated output, or as "hot columns" (pixels along the same parallel register that have high dark current).
 In the context of LSSTCam, we extract bright pixels from the dark current, with the threshold for a bright defect set at 5 e- / pix / s, above which the pixel is registered as a bright defect.
+
+
+.. image::   /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS.png
+   :target:  /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS.png
+   :alt: Figure showing the comparison between bright pixel measurements at SLAC and at Cerro Pachon
+
 
 
 Stability flat metrics
@@ -80,6 +93,12 @@ Stability flat metrics
 Flat pair metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+.. image::   /figures/baselineCharacterization/run7PTCsToDate.jpg
+   :target:  ../figures/baselineCharacterization/run7PTCsToDate.jpg
+   :alt: Figure showing the comparison between PTC measurements at SLAC and at Cerro Pachon
+
+
 .. 
   Add a figure of the PTC from the SLAC IR2 run and the CP run
 
@@ -88,7 +107,22 @@ Linearity and PTC turnoff
 Linearity turnoff and PTC turnoff are two closely related metrics used to characterize the upper limit of the usable signal range for accurate imaging. 
 Linearity turnoff is the point at which LSSTCam deviates from linearity in the PTC curve. In our case, the deviation threshold is 2%.
 PTC turnoff refers to the high signal region of the PTC where the PTC begins to decrease noise for higher flux. This is due to blooming and saturation within the CCDs.
-While slightly different, both metrics provide important information about the upper limits of the dynamic range in our sensors.
+While slightly different, both metrics provide important information about the upper limits of the dynamic range in our sensors. Linearity turnoff is measured in units of e-, while PTC turnoff is measured in ADU.
+
+
+.. image::   /figures/baselineCharacterization/13591_E749_LINEARITY_TURNOFF.png
+   :target:  ../figures/baselineCharacterization/13591_E749_LINEARITY_TURNOFF.png
+   :alt: Figure showing the comparison between linearity turnoff measurements at SLAC and at Cerro Pachon
+
+..
+  Write something here about linearity turnoff
+
+.. image::   /figures/baselineCharacterization/13591_E749_PTC_TURNOFF.png
+   :target:  ../figures/baselineCharacterization/13591_E749_PTC_TURNOFF.png
+   :alt: Figure showing the comparison between PTC turnoff measurements at SLAC and at Cerro Pachon
+
+..
+  Write something here about PTC turnoff
 
 Maximum observed signal
 """""""""""""""""""""""""""
@@ -100,6 +134,11 @@ PTC gain is the conversion factor between the number of electrons generated in t
 
 Brighter fatter a_00 coefficient
 """"""""""""""""""""""""""""""""""
+
+
+.. image::   /figures/baselineCharacterization/13591_E749_PTC_A00.png
+   :target:  /figures/baselineCharacterization/13591_E749_PTC_A00.png
+   :alt: Figure showing the comparison between PTC A_00 measurements at SLAC and at Cerro Pachon
 
 
 Brighter-fatter correlation
@@ -123,6 +162,19 @@ Dark defects
 Dark defects are localized regions or individual pixels that produce abnormally low signal levels, even in the presence of light. These defects are typically caused by imperfections in the CCD’s semiconductor material or manufacturing process.
 In the context of LSSTCam, we extract dark pixels from combined flats, with the threshold for a dark defect set to a 20% deviation from flatness.
 
+.. image::   /figures/baselineCharacterization/13557_E1071_DARK_PIXELS.png
+   :target:  /figures/baselineCharacterization/13557_E1071_DARK_PIXELS.png
+   :alt: Figure showing the comparison between dark pixel measurements at SLAC and at Cerro Pachon
+
+Dark pixels measures between SLAC and Cerro Pachon average ~1800 per amplifier, regardless of manufacturer. The reason for the high dark pixel counts is due to a picture-frame response near the edges of the sensors.
+
+.. 
+  Picture of the picture-frame response
+
+The configuration for generating dark defects considers a border pixel region that is masked differently from the dark pixels. The default configuration has a border of zero. The largest region allowed for the picture frame region is 9 pixels, determined by LCA-19363. When applying a uniform 9 pixel mask across SLAC IR2 runs and Run 7 runs, we get the following result.
+
+.. 
+  Picture of 9 pixel dark defect comparison
 
 
 Persistence
