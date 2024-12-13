@@ -25,19 +25,17 @@ To process these runs, the eo_pipe bias stability task is used : for the ISR par
 
 A comparison of the results for an instable CDD is shown below for the three runs.
 
-.. list-table::
+- .. figure:: sections/figures/E2136_R33_S02.png
 
-    * - .. figure:: sections/figures/E2136_R33_S02.png
+  Run E2136, R33 S02
 
-           Run E2136, R33 S02
+- .. figure:: sections/figures/E2236_R33_S02.png
 
-      - .. figure:: sections/figures/E2236_R33_S02.png
+  Run E2236, R33 S02
 
-           Run E2236, R33 S02
-
-      - .. figure:: sections/figures/E2330_R33_S02.png
+- .. figure:: sections/figures/E2330_R33_S02.png
   	   
-	   Run E2330, R33 S02
+  Run E2330, R33 S02
 
 In order to highlight the 2D shape differences, a 2D-overscan correction is applied. A few exposures illustrating the variations of the 2D shape for an instable CCD are shown below.
 
@@ -49,15 +47,13 @@ In order to highlight the 2D shape differences, a 2D-overscan correction is appl
 	    
    15-s dark exposure, run E2136 in 'stable' conditions, R33 S02	   
 	   
-.. list-table::
+.. figure:: sections/figures/E2136_dark15_delay_R33_S02.png
 
-      * - .. figure:: sections/figures/E2136_dark15_delay_R33_S02.png
+   15-s dark exposure, run E2136 after a 3-minute delay, R33 S02
 
-	   15-s dark exposure, run E2136 after a 3-minute delay, R33 S02
+.. figure:: sections/figures/E2330_dark30_R33_S02.png
 
-        - .. figure:: sections/figures/E2330_dark30_R33_S02.png
-
-           30-s dark exposure, run E2330, R33 S02
+   30-s dark exposure, run E2330, R33 S02
 
 In order to quantify the number of e2v instable amplifiers, a stability metric *d* is defined from the eo_pipe stability task data products. More precisely, *d* is defined, for a given amplifier in a given run, as the difference between the 5th and 95th percentiles of the image mean over all the exposures. The distribution of *d* for run E2136 is shown below. Applying a threshold at 0.3, 51 amplifiers are identified as instable (see the corresponding mosaic).
 
