@@ -24,6 +24,9 @@ Initial characterization studies performed on LSSTCam were used two primary acqu
 
 All EO camera data is processed through the `calibration products <https://github.com/lsst/cp_pipe>`__ and `electro-optical <https://github.com/lsst-camera-dh/eo_pipe/tree/main>`__ pipelines to extract key metrics from the data run. The key camera metrics from Run 7, and their comparison to previous runs are discussed below.
 
+
+The naming of the EO runs was established during initial camera integration and testing. The final SLAC IR2 run from November 2023 was named "Run 6", while the data acquisitions from Cerro Pachon are considered "Run 7." Additionally, individual EO acquisitions are tagged with a run identifier. This is commonly referred to a Run ID. For all SLAC runs, the run identifier was a five digit numeric code, while the Cerro Pachon runs were "E-numbers" that started with a capital E followed by a numeric code. 
+
 For comparison between Cerro Pachon EO runs and the final SLAC IR2, the following runs are used.
 
 +------------+--------------+------------------+
@@ -34,7 +37,8 @@ For comparison between Cerro Pachon EO runs and the final SLAC IR2, the followin
 |    PTC     |    13591     |       E749       |
 +------------+--------------+------------------+
 
-Among all of these measurements, there is particular concern that they have not degraded between the SLAC IR2 run in November 2023 and the Cerro Pachon run in October 2024.
+
+Among all of these measurements, primary concern is that the camera has maintained its performance standards between the SLAC IR2 run in November 2023 and the Cerro Pachon run in October 2024.
 
 
 Bias metrics
@@ -81,6 +85,14 @@ In the context of LSSTCam, we extract bright pixels from the dark current, with 
    :target:  /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS.png
    :alt: Figure showing the comparison between bright pixel measurements at SLAC and at Cerro Pachon
 
+Reviewing the differences in bright pixels, we find consistent bright defect counts between Run 6 and Run 7. There appears to be a small excess of bright defects in Run 7.
+
+
+.. image::   /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS_diff.png
+   :target:  /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS_diff.png
+   :alt: The comparison between bright pixel measurements at SLAC and at Cerro Pachon, taking the differences between measurements on a per amp basis. 
+
+Taking the difference of defect counts on each amplifier, and separating the amplifiers by the detector manufacturer shows a small excess of bright defects in run 7 when compared to run 6. For ITL sensors, we find 12% of the amplifiers with more bright pixels than run 6. For E2V sensors, we find 4% of the amplifiers with more bright pixels than run 6. Despite this, the number of bright defects between runs does not increase for most sensors.
 
 
 Stability flat metrics
