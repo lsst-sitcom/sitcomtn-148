@@ -88,8 +88,8 @@ In the context of LSSTCam, we extract bright pixels from the dark current, with 
 Reviewing the differences in bright pixels, we find consistent bright defect counts between Run 6 and Run 7. There appears to be a small excess of bright defects in Run 7.
 
 
-.. image::   /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS_diff.png
-   :target:  /figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS_diff.png
+.. image::   /figures/baselineCharacterization/BRIGHT_PIXELS_13557_E1071_diff.png
+   :target:  /figures/baselineCharacterization/BRIGHT_PIXELS_13557_E1071_diff.png
    :alt: The comparison between bright pixel measurements at SLAC and at Cerro Pachon, taking the differences between measurements on a per amp basis. 
 
 Taking the difference of defect counts on each amplifier, and separating the amplifiers by the detector manufacturer shows a small excess of bright defects in run 7 when compared to run 6. For ITL sensors, we find 12% of the amplifiers with more bright pixels than run 6. For E2V sensors, we find 4% of the amplifiers with more bright pixels than run 6. Despite this, the number of bright defects between runs does not increase for most sensors.
