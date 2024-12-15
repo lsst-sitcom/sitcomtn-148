@@ -111,10 +111,6 @@ Flat pair metrics
    :target:  ../figures/baselineCharacterization/run7PTCsToDate.jpg
    :alt: Figure showing the comparison between PTC measurements at SLAC and at Cerro Pachon
 
-
-.. 
-  Add a figure of the PTC from the SLAC IR2 run and the CP run
-
 Linearity and PTC turnoff
 """""""""""""""""""""""""""
 Linearity turnoff and PTC turnoff are two closely related metrics used to characterize the upper limit of the usable signal range for accurate imaging. 
@@ -127,12 +123,13 @@ While slightly different, both metrics provide important information about the u
    :target:  ../figures/baselineCharacterization/13591_E749_LINEARITY_TURNOFF.png
    :alt: Figure showing the comparison between linearity turnoff measurements at SLAC and at Cerro Pachon
 
-..
-  Write something here about linearity turnoff
+In our linearity turnoff measurements, we find close agreement between our Run 7 and Run 6 measurements. Both ITL and E2V sensors show tight agreement between results.
 
 .. image::   /figures/baselineCharacterization/13591_E749_PTC_TURNOFF.png
    :target:  ../figures/baselineCharacterization/13591_E749_PTC_TURNOFF.png
    :alt: Figure showing the comparison between PTC turnoff measurements at SLAC and at Cerro Pachon
+
+
 
 ..
   Write something here about PTC turnoff
@@ -148,11 +145,24 @@ PTC gain is the conversion factor between the number of electrons generated in t
 Brighter fatter a_00 coefficient
 """"""""""""""""""""""""""""""""""
 
+This redistribution causes the charge to “spill” into adjacent pixels, effectively broadening the point spread function (PSF). 
+The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatter”) than dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier/DESC paper], a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
+Since same-charge carriers repel each other, this pixel area has to shrink as charge accumulates inside the pixel, which implies a00 < 0. In eo_pipe, an absolute value is taken of the a_00 parameter, so the measurements appear positive.
+
+..
+   cite https://www.aanda.org/articles/aa/pdf/2019/09/aa35508-19.pdf
 
 .. image::   /figures/baselineCharacterization/13591_E749_PTC_A00.png
    :target:  /figures/baselineCharacterization/13591_E749_PTC_A00.png
    :alt: Figure showing the comparison between PTC A_00 measurements at SLAC and at Cerro Pachon
 
+Comparing the results on the strength of the brighter fatter effect, both runs are generally comparable. A few outliers exist across the focal plane, regardless of detector type. 
+
+.. image::   /figures/baselineCharacterization/PTC_A00_13591_E749_diff.png
+   :target:  /figures/baselineCharacterization/PTC_A00_13591_E749_diff.png
+   :alt: A histogram showing the comparison between PTC A_00 measurements at SLAC and at Cerro Pachon, separated by detector type
+
+However, the differences in brighter fatter strength between run 6 and run 7 show that the strength of the A_00 coefficient decreased for most of our outliers, which implies an improvement in focal-plane performance
 
 Brighter-fatter correlation
 """"""""""""""""""""""""""""
