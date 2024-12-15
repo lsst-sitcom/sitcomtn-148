@@ -74,6 +74,7 @@ In the context of LSSTCam, we measure dark current from the combined dark images
    :target:  ../figures/baselineCharacterization/13557_E1071_DARK_CURRENT_MEDIAN.png
    :alt: Figure showing the comparison between dark current measurements at SLAC and at Cerro Pachon
 
+Surprisingly, dark current was significantly lowered in Run 7 compared to run 6. Possible reasons for this could be improved shrouding conditions on the camera on Cerro Pachon compared to SLAC.
 
 Bright defects
 """""""""""""""
