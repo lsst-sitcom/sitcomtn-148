@@ -9,10 +9,10 @@ Initial characterization studies performed on LSSTCam were used two primary acqu
 
   * Bias images
   * Dark images
-  * Flat pairs
-  * Stability flats
-  * Wavelength flats
-  * A persistence dataset
+  * Flat pairs - flats taken at varying flux levels
+  * Stability flats - flats taken at consistent flux levels
+  * Wavelength flats - flats taken in different LEDs
+  * A persistence dataset - a saturated flat, followed by several darks
 
 * PTCs (photon transfer curves): this acquisition sequence consists of a sequence of flat pairs taken at different flux levels. The flat acquisition sequence samples different flux levels at a higher density than the B protocol flat sequence, enabling a more precise estimate of flat pair metrics. 
 
@@ -95,14 +95,6 @@ Reviewing the differences in bright pixels, we find consistent bright defect cou
 
 Taking the difference of defect counts on each amplifier, and separating the amplifiers by the detector manufacturer shows a small excess of bright defects in run 7 when compared to run 6. For ITL sensors, we find 12% of the amplifiers with more bright pixels than run 6. For E2V sensors, we find 4% of the amplifiers with more bright pixels than run 6. Despite this, the number of bright defects between runs does not increase for most sensors.
 
-
-Stability flat metrics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-..
-  Gain stability? Or would we use the gain stability runs to describe this?
-
-
 Flat pair metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -175,7 +167,19 @@ However, the differences in brighter fatter strength between run 6 and run 7 sho
 
 Divisadero Tearing
 """""""""""""""""""""
+Divisadero tearing are large signal variations at amplifier boundaries. To quantify divisadero tearing, we measure the column signal, and compare it to the mean column signal from flat fields to quantify the amplitude of the effect, measured in a percent variation relative to the mean column signal value.
 
+.. image::   /figures/baselineCharacterization/13557_E1071_DIVISADERO_TEARING.png
+   :target:  /figures/baselineCharacterization/13557_E1071_DIVISADERO_TEARING.png
+   :alt: Figure showing the comparison between divisadero tearing measurements at SLAC and at Cerro Pachon
+
+Divisadero tearing in E2V CCDs appears higher in Run 7 than Run 6. ITL sensors are very consistent between runs.
+
+.. image::   /figures/baselineCharacterization/DIVISADERO_TEARING_13557_E1071_diff.png
+   :target:  /figures/baselineCharacterization/DIVISADERO_TEARING_13557_E1071_diff.png
+   :alt: A histogram showing the difference between divisadero tearing measurements at SLAC and at Cerro Pachon
+
+Run 7 shows a ~0.3% excess in divisadero tearing for E2V sensors, compared to an excess of ~0.1% excess in run 6 divisadero tearing for ITL sensors. 
 
 Dark defects
 """"""""""""""""
