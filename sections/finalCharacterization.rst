@@ -3,6 +3,8 @@ Baseline characterization
 
 Background 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For final characterization, we compared the initial Cerro Pachon runs to our final acquistions with the camera operating parameters described in `the final operating parameters section <https://sitcomtn-148.lsst.io/v/main/index.html#run-7-final-operating-parameters>`__. 
+
 Initial characterization studies performed on LSSTCam were used two primary acquisition sequences.
 
 * B protocols: this acquisition sequence consists of the minimal set of camera acquisitions, including 
