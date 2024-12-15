@@ -142,6 +142,13 @@ PTC Gain
 """"""""""""
 PTC gain is the conversion factor between the number of electrons generated in the CCD's pixels and the digital output signal. It is one of the key parameters derived from the Photon Transfer Curve, as it is the slope from where the noise is dominated by shot noise. Gain is expressed in e- / ADU, and quantifies how effective the CCD's analog signal is digitized. 
 
+.. image::   /figures/baselineCharacterization/13591_E749_PTC_GAIN.png
+   :target:  ../figures/baselineCharacterization/13591_E749_PTC_GAIN.png
+   :alt: Figure showing the comparison between PTC gain measurements at SLAC and at Cerro Pachon
+
+PTC gain measurements agree extremely closely across all sensors in the focal plane.
+
+
 Brighter fatter a_00 coefficient
 """"""""""""""""""""""""""""""""""
 
