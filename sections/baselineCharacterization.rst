@@ -123,19 +123,18 @@ While slightly different, both metrics provide important information about the u
    :target:  ../figures/baselineCharacterization/13591_E749_LINEARITY_TURNOFF.png
    :alt: Figure showing the comparison between linearity turnoff measurements at SLAC and at Cerro Pachon
 
-In our linearity turnoff measurements, we find close agreement between our Run 7 and Run 6 measurements. Both ITL and E2V sensors show tight agreement between results.
+In our linearity turnoff measurements, we find close agreement between our Run 7 and Run 6 measurements. Both ITL and E2V sensors show tight agreement between results. 
 
-.. image::   /figures/baselineCharacterization/13591_E749_PTC_TURNOFF.png
-   :target:  ../figures/baselineCharacterization/13591_E749_PTC_TURNOFF.png
-   :alt: Figure showing the comparison between PTC turnoff measurements at SLAC and at Cerro Pachon
+.. image::   /figures/baselineCharacterization/LINEARITY_TURNOFF_E749_sensorType.png
+   :target:  ../figures/baselineCharacterization/LINEARITY_TURNOFF_E749_sensorType.png
+   :alt: Figure showing the comparison between linearity turnoff measurements at SLAC and at Cerro Pachon, separated by sensor type.
 
+..
+   PTC turnoff removed, because the results were very screwy. I suspect a processing problem
 
 
 ..
-  Write something here about PTC turnoff
-
-Maximum observed signal
-"""""""""""""""""""""""""""
+  Maximum observed signal, removed due to lack of relevance
 
 
 PTC Gain
@@ -171,17 +170,8 @@ Comparing the results on the strength of the brighter fatter effect, both runs a
 
 However, the differences in brighter fatter strength between run 6 and run 7 show that the strength of the A_00 coefficient decreased for most of our outliers, which implies an improvement in focal-plane performance
 
-Brighter-fatter correlation
-""""""""""""""""""""""""""""
-
-
-Row means variance
-""""""""""""""""""""
-
-
-PTC Noise
-"""""""""""
-
+..
+  Removed Brighter-fatter correlation, Row means variance, PTC Noise, 
 
 Divisadero Tearing
 """""""""""""""""""""
