@@ -12,6 +12,30 @@ During Run 7, several changes were implemented, as described below:
 
 This section describes sequencer optimization.
 
-- No-pocket conclusions
-- Serial flush conclusions
+- CCD clear conclusions
+
+  For a full presentation of the results see `Improvement of Clear CCD <https://sitcomtn-148.lsst.io/#serialRemnants>`__.   
+  
+  - **No Pocket** 
+
+  We introduced in the V29_NoP (No Pocket) sequencer, an improved clear with a serial register configuration that reduces the creation of pockets at the Image/Serial register interface.
+  This clear shown a factor ~2  improvement in saturated image clear for e2v, and fully solved the problem for ITL , except for R01_S11 for which the result with No Pocket appends to be worse by a factor 2 than with the default clear.
+  This ITL ccd presents for a not understood reason,  a large quantities of uncleared charges( 100's of lines) after a saturated flat. This issue prevents to use the No Pocket configuration with ITL.      
+
+  - **No Pocket with Serial flush**
+
+  We introduced in V29_NoPSF ( No Pocket with Serial Flush), an improved version of the No Pocket Clear sequencer, including a variable configuration of the Serial register during the clear (=mimic a serial flush),
+  to further prevent the formation of Pockets. This solution has demonstrated to fully prevent the presence of left over charges after the clear of a saturated inmage for e2v device.
+
+
+   **No Pocket with Serial flush** is from now ( V30) the default clear for the e2v device . Until a solution is found to clear saturated image of R01_S10, the initial Clear methode ( Serial phases always up)
+   will stay the default to clear ITL device. 
+  
+  
 - Overlap conclusions
+
+
+- e2v "No RG" conclusions
+
+
+  
