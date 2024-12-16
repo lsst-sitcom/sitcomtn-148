@@ -1,27 +1,11 @@
-Baseline characterization
+Final Characterization
 ############################################
 
 Background 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For final characterization, we compared the initial Cerro Pachon runs to our final acquistions with the camera operating parameters described in `the final operating parameters section <https://sitcomtn-148.lsst.io/v/main/index.html#run-7-final-operating-parameters>`__. 
 
-Initial characterization studies performed on LSSTCam were used two primary acquisition sequences.
-
-* B protocols: this acquisition sequence consists of the minimal set of camera acquisitions, including 
-
-  * Bias images
-  * Dark images
-  * Flat pairs
-  * Stability flats
-  * Wavelength flats
-  * A persistence dataset
-
-* PTCs (photon transfer curves): this acquisition sequence consists of a sequence of flat pairs taken at different flux levels. The flat acquisition sequence samples different flux levels at a higher density than the B protocol flat sequence, enabling a more precise estimate of flat pair metrics. 
-
-All EO camera data is processed through the `calibration products <https://github.com/lsst/cp_pipe>`__ and `electro-optical <https://github.com/lsst-camera-dh/eo_pipe/tree/main>`__ pipelines to extract key metrics from the data run. The key camera metrics from Run 7, and their comparison to previous runs are discussed below.
-
-
-For comparison between Cerro Pachon EO runs and the final SLAC IR2, the following runs are used.
+For analysis of the initial Cerro Pachon EO run and the final Cerro Pachon EO run, we used the following runs.
 
 +------------+--------------------------+--------------------------+
 |  Run Type  | Initial Cerro Pachón Run | Final Cerro Pachón Run   |
