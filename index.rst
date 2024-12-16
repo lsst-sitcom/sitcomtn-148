@@ -12,7 +12,6 @@ Electro-optical setup
 --------------------------------
 .. include::   sections/run7Changes.rst
 .. include::   sections/projectorSpots.rst
-.. include::   sections/fcsDevelopment.rst
 --------------------------------
 Characterization
 --------------------------------
