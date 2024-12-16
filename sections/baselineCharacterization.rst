@@ -47,10 +47,7 @@ Stability flat metrics
 Charge transfer inefficiency
 """""""""""""""""""""""""""""""""
 CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from the image area to the readout register during image readout. Consequences of high CTI include loss of charge, distorted signals in the direction of the parallel register, and reduced sensitivity in low light imaging.
-CTI measurements are made using the EPER method, which compares the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region. In the context of LSSTCam, we measure CTI along both the serial and parallel registers. 
-
-..
-   https://www.spiedigitallibrary.org/journals/Journal-of-Astronomical-Telescopes-Instruments-and-Systems/volume-7/issue-4/048002/Characterization-and-correction-of-serial-deferred-charge-in-LSST-camera/10.1117/1.JATIS.7.4.048002.full
+CTI measurements are made using the EPER method [EPER]_, which compares the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region. In the context of LSSTCam, we measure CTI along both the serial and parallel registers. 
 
 Serial CTI 
 """""""""""
@@ -167,11 +164,9 @@ Brighter fatter a_00 coefficient
 """"""""""""""""""""""""""""""""""
 
 This redistribution causes the charge to “spill” into adjacent pixels, effectively broadening the point spread function (PSF). 
-The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatter”) than dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier/DESC paper], a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
+The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatter”) than dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier/DESC paper]_, a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
 Since same-charge carriers repel each other, this pixel area has to shrink as charge accumulates inside the pixel, which implies a00 < 0. In eo_pipe, an absolute value is taken of the a_00 parameter, so the measurements appear positive.
 
-..
-   cite https://www.aanda.org/articles/aa/pdf/2019/09/aa35508-19.pdf
 
 .. image::   /figures/baselineCharacterization/13591_E749_PTC_A00.png
    :target:  /figures/baselineCharacterization/13591_E749_PTC_A00.png
@@ -215,22 +210,28 @@ In the context of LSSTCam, we extract dark pixels from combined flats, with the 
 
 Dark pixels measures between SLAC and Cerro Pachon average ~1800 per amplifier, regardless of manufacturer. The reason for the high dark pixel counts is due to a picture-frame response near the edges of the sensors.
 
-.. 
-  Picture of the picture-frame response
+.. image::   /figures/baselineCharacterization/detector_85.png
+   :target:  /figures/baselineCharacterization/detector_85.png
+   :alt: Figure showing the picture frame masking of a typical detector, with the mask plane showed in yellow.
 
-The configuration for generating dark defects considers a border pixel region that is masked differently from the dark pixels. The default configuration has a border of zero. The largest region allowed for the picture frame region is 9 pixels, determined by LCA-19363. 
+
+Due to the contamination of the edge frame response, it is difficult to extract useful information about the dark defects in the focal plane. The configuration for generating dark defects considers a border pixel region that is masked differently from the dark pixels. The default configuration has a border of zero. The largest region allowed for the picture frame region is 9 pixels, determined by LCA-19363. 
 Due to incompatibility with the current pipelines, a direct comparison of a 9 pixel mask using run 6 data is not currently available. However, a 9 pixel mask can be applied to the Run 7 data. 
 
 ..
   Add 9 pixel mask statistics here
 
-
+Add conclusion when pipelines on E1071 are complete
 
 Persistence
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Persistence is a feature in LSSTCam where charge is trapped in the surface layer after high flux exposures. Persistence is described in detail in many places[cite cite cite]. Here we will consider the measurements taken as part of a persistence measurement task in the typical B protocol.
-For a persistence measurement, a high flux acquisition is taken, followed by a sequence of dark images. The persistence signal has been shown to decrease in subsequent dark images [cite the dmtn-276 note]. To create a metric for persistence, one can take the difference between the residual ADU in the first dark image and the average of the residual ADU in the final dark images.
+Persistence is a feature in LSSTCam where charge is trapped in the surface layer after high flux exposures. Persistence is described in detail in the `persistence optimization section <https://sitcomtn-148.lsst.io/#persistence-optimization>`__. Here we will consider the measurements taken as part of a persistence measurement task in the typical B protocol.
+For a persistence measurement, a high flux acquisition is taken, followed by a sequence of dark images. The persistence signal has been shown to decrease in subsequent dark images [persistence]. To create a metric for persistence, one can take the difference between the residual ADU in the first dark image and the average of the residual ADU in the final dark images.
+
+..
+
+
 
 .. image::   /figures/baselineCharacterization/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1110_w_2024_35_20240926T235141Z.png
    :target:  /figures/baselineCharacterization/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1110_w_2024_35_20240926T235141Z.png
@@ -260,4 +261,11 @@ I will add this once we have agreed upon the set of parameters important for cha
 
 ..
   table here showing the metrics and their comparison to IR2 metrics
+
+
+
+.. [persistence] https://dmtn-276.lsst.io/
+.. [Astier/DESC paper] https://www.aanda.org/articles/aa/abs/2019/09/aa35508-19/aa35508-19.html  
+.. [EPER] https://www.spiedigitallibrary.org/journals/Journal-of-Astronomical-Telescopes-Instruments-and-Systems/volume-7/issue-4/048002/Characterization-and-correction-of-serial-deferred-charge-in-LSST-camera/10.1117/1.JATIS.7.4.048002.full 
+
 
