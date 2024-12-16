@@ -166,7 +166,7 @@ Brighter fatter a_00 coefficient
 """"""""""""""""""""""""""""""""""
 
 This redistribution causes the charge to “spill” into adjacent pixels, effectively broadening the point spread function (PSF). 
-The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatter”) than dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier/DESC paper]_, a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
+The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatter”) than dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier]_, a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
 Since same-charge carriers repel each other, this pixel area has to shrink as charge accumulates inside the pixel, which implies a00 < 0. In eo_pipe, an absolute value is taken of the a_00 parameter, so the measurements appear positive.
 
 
@@ -228,8 +228,8 @@ Add conclusion when pipelines on E1071 are complete
 Persistence
 ^^^^^^^^^^^^^^^^
 
-Persistence is a feature in LSSTCam where charge is trapped in the surface layer after high flux exposures [persistence]_. Persistence is described in detail in the `persistence optimization section <https://sitcomtn-148.lsst.io/#persistence-optimization>`__. Here we will consider the measurements taken as part of a persistence measurement task in the typical B protocol.
-For a persistence measurement, a high flux acquisition is taken, followed by a sequence of dark images. The persistence signal has been shown to decrease in subsequent dark images [persistence]. To create a metric for persistence, one can take the difference between the residual ADU in the first dark image and the average of the residual ADU in the final dark images.
+Persistence is a feature in LSSTCam where charge is trapped in the surface layer after high flux exposures [Persistence]_. Persistence is described in detail in the `persistence optimization section <https://sitcomtn-148.lsst.io/#persistence-optimization>`__. Here we will consider the measurements taken as part of a persistence measurement task in the typical B protocol.
+For a persistence measurement, a high flux acquisition is taken, followed by a sequence of dark images. The persistence signal has been shown to decrease in subsequent dark images. To create a metric for persistence, one can take the difference between the residual ADU in the first dark image and the average of the residual ADU in the final dark images.
 
 
 .. image::   /figures/baselineCharacterization/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1110_w_2024_35_20240926T235141Z.png
@@ -263,8 +263,10 @@ I will add this once we have agreed upon the set of parameters important for cha
 
 
 
-.. [persistence] https://dmtn-276.lsst.io/
-.. [Astier/DESC paper] https://www.aanda.org/articles/aa/abs/2019/09/aa35508-19/aa35508-19.html  
+.. [Persistence] https://dmtn-276.lsst.io/
+
+.. [Astier] https://www.aanda.org/articles/aa/abs/2019/09/aa35508-19/aa35508-19.html 
+
 .. [EPER] https://www.spiedigitallibrary.org/journals/Journal-of-Astronomical-Telescopes-Instruments-and-Systems/volume-7/issue-4/048002/Characterization-and-correction-of-serial-deferred-charge-in-LSST-camera/10.1117/1.JATIS.7.4.048002.full 
 
 
