@@ -47,19 +47,42 @@ Bias metrics
 Charge transfer inefficiency
 """""""""""""""""""""""""""""""""
 CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from the image area to the readout register during image readout. Consequences of high CTI include loss of charge, distorted signals in the direction of the parallel register, and reduced sensitivity in low light imaging.
-In the context of LSSTCam, we measure CTI along both the serial and parallel registers. 
+CTI measurements are made using the EPER method, which compares the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region. In the context of LSSTCam, we measure CTI along both the serial and parallel registers. 
+
+..
+   https://www.spiedigitallibrary.org/journals/Journal-of-Astronomical-Telescopes-Instruments-and-Systems/volume-7/issue-4/048002/Characterization-and-correction-of-serial-deferred-charge-in-LSST-camera/10.1117/1.JATIS.7.4.048002.full
 
 Serial CTI 
 """""""""""
+
+.. image::   /figures/baselineCharacterization/13557_E1071_SCTI_EF_43.png
+   :target:  ../figures/baselineCharacterization/13557_E1071_SCTI_EF_43.png
+   :alt: Figure showing the comparison between serial CTI measurements at SLAC and at Cerro Pachon
+
+The CTI along the serial register is consistent between both Run 6 and Run 7. Both sensor types show extremely low CTI on the order of 1E-3 %, and differ on the order of ~2E-5 % for E2V sensors, and by ~4E-6 % for ITL sensors.
+
+.. image::   /figures/baselineCharacterization/SCTI_13557_E1071_diff.png
+   :target:  /figures/baselineCharacterization/SCTI_13557_E1071_diff.png
+   :alt: The comparison between SCTI measurements at SLAC and at Cerro Pachon, taking the differences between measurements on a per amp basis. 
+
 
 
 Parallel CTI
 """""""""""""
 
+.. image::   /figures/baselineCharacterization/13557_E1071_PCTI_EF_43.png
+   :target:  ../figures/baselineCharacterization/13557_E1071_PCTI_EF_43.png
+   :alt: Figure showing the comparison between parallel CTI measurements at SLAC and at Cerro Pachon
 
 
-..
-  Bias Stability?
+The CTI along the parallel register is consistent between both Run 6 and Run 7. Both sensor types show extremely low CTI on the order of 1E-5 %, and differ on the order of ~2E-7 % for E2V sensors, and by ~7E-6 % for ITL sensors.
+
+
+
+.. image::   /figures/baselineCharacterization/PCTI_13557_E1071_diff.png
+   :target:  /figures/baselineCharacterization/PCTI_13557_E1071_diff.png
+   :alt: The comparison between PCTI measurements at SLAC and at Cerro Pachon, taking the differences between measurements on a per amp basis. 
+
 
 Dark metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
