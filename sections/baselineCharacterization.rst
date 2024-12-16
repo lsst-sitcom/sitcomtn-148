@@ -1,8 +1,9 @@
 Baseline characterization
-############################################
+#########################
 
 Background 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^
+
 Initial characterization studies performed on LSSTCam were used two primary acquisition sequences.
 
 * B protocols: this acquisition sequence consists of the minimal set of camera acquisitions, including 
@@ -42,15 +43,16 @@ Among all of these measurements, primary concern is that the camera has maintain
 
 
 Stability flat metrics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Charge transfer inefficiency
 """""""""""""""""""""""""""""""""
+
 CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from the image area to the readout register during image readout. Consequences of high CTI include loss of charge, distorted signals in the direction of the parallel register, and reduced sensitivity in low light imaging.
 CTI measurements are made using the EPER method [EPER]_, which compares the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region. In the context of LSSTCam, we measure CTI along both the serial and parallel registers. 
 
 Serial CTI 
-"""""""""""
+""""""""""""
 
 .. image::   /figures/baselineCharacterization/13557_E1071_SCTI_EF_43.png
    :target:  ../figures/baselineCharacterization/13557_E1071_SCTI_EF_43.png
@@ -65,7 +67,7 @@ The CTI along the serial register is consistent between both Run 6 and Run 7. Bo
 
 
 Parallel CTI
-"""""""""""""
+""""""""""""
 
 .. image::   /figures/baselineCharacterization/13557_E1071_PCTI_EF_43.png
    :target:  ../figures/baselineCharacterization/13557_E1071_PCTI_EF_43.png
@@ -210,8 +212,8 @@ In the context of LSSTCam, we extract dark pixels from combined flats, with the 
 
 Dark pixels measures between SLAC and Cerro Pachon average ~1800 per amplifier, regardless of manufacturer. The reason for the high dark pixel counts is due to a picture-frame response near the edges of the sensors.
 
-.. image::   /figures/baselineCharacterization/detector_85.png
-   :target:  /figures/baselineCharacterization/detector_85.png
+.. image::   /figures/baselineCharacterization/detector_85.jpg
+   :target:  /figures/baselineCharacterization/detector_85.jpg
    :alt: Figure showing the picture frame masking of a typical detector, with the mask plane showed in yellow.
 
 
@@ -224,13 +226,10 @@ Due to incompatibility with the current pipelines, a direct comparison of a 9 pi
 Add conclusion when pipelines on E1071 are complete
 
 Persistence
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
-Persistence is a feature in LSSTCam where charge is trapped in the surface layer after high flux exposures. Persistence is described in detail in the `persistence optimization section <https://sitcomtn-148.lsst.io/#persistence-optimization>`__. Here we will consider the measurements taken as part of a persistence measurement task in the typical B protocol.
+Persistence is a feature in LSSTCam where charge is trapped in the surface layer after high flux exposures [persistence]_. Persistence is described in detail in the `persistence optimization section <https://sitcomtn-148.lsst.io/#persistence-optimization>`__. Here we will consider the measurements taken as part of a persistence measurement task in the typical B protocol.
 For a persistence measurement, a high flux acquisition is taken, followed by a sequence of dark images. The persistence signal has been shown to decrease in subsequent dark images [persistence]. To create a metric for persistence, one can take the difference between the residual ADU in the first dark image and the average of the residual ADU in the final dark images.
-
-..
-
 
 
 .. image::   /figures/baselineCharacterization/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1110_w_2024_35_20240926T235141Z.png
