@@ -15,49 +15,49 @@ For the baseline acquisition configuration (see conclusion), three relevant stab
 
 To process these runs, the eo_pipe bias stability task is used: for the ISR part, a serial ('mean_per_row') overscan correction and a bias subtraction (computed from the corresponding B-protocol run) are applied. The final data product is the mean of the per-amplifier science image over the full set of exposures of the run. Two typical examples from Run E2136 are shown in the figures below. In the stable case, the variations are typically at the 0.1 ADU level; in the instable case, the variations go up to 4 ADUs.
 
-.. figure:: /figures/E2136_R21_S21.png
+.. figure:: sections/figures/E2136_R21_S21.png
 
    Stable case (R21 S21)
 
-.. figure:: /figures/E2136_R23_S22.png
+.. figure:: sections/figures/E2136_R23_S22.png
 
    Instable case (R23 S22)
 
 A comparison of the results for an instable CDD is shown below for the three runs.
 
-.. figure:: /figures/E2136_R33_S02.png
+.. figure:: sections/figures/E2136_R33_S02.png
 
    Run E2136, R33 S02
 
-.. figure:: /figures/E2236_R33_S02.png
+.. figure:: sections/figures/E2236_R33_S02.png
 
    Run E2236, R33 S02
 
-.. figure:: /figures/E2330_R33_S02.png
+.. figure:: sections/figures/E2330_R33_S02.png
 
    Run E2330, R33 S02
 
 In order to highlight the 2D shape differences, a 2D-overscan correction is applied. A few exposures illustrating the variations of the 2D shape for an instable CCD are shown below. The 2D shape of the image in amplifier C01 is different in the 3 cases. 
 
-.. figure:: /figures/E1880_bias_R33_S02.png
+.. figure:: sections/figures/E1880_bias_R33_S02.png
 
    Bias exposure, run 1880, R33 S02
 
-.. figure:: /figures/E2136_dark15_R33_S02.png
+.. figure:: sections/figures/E2136_dark15_R33_S02.png
 	    
    15-s dark exposure, run E2136 in 'stable' conditions, R33 S02	   
 	   
-.. figure:: /figures/E2136_dark15_delay_R33_S02.png
+.. figure:: sections/figures/E2136_dark15_delay_R33_S02.png
 
    15-s dark exposure, run E2136 after a 3-minute delay, R33 S02
 
 In order to quantify the number of e2v instable amplifiers, a stability metric *d* is defined from the eo_pipe stability task data products. More precisely, *d* is defined, for a given amplifier in a given run, as the difference between the 5th and 95th percentiles of the image mean over all the exposures. The distribution of *d* for run E2136 is shown below. Applying a threshold at 0.3, 51 amplifiers are identified as instable (see the corresponding mosaic). This corresponds to ~3% of the e2v amplifiers.
 
-.. figure:: /figures/E2136_distribution_d.png
+.. figure:: sections/figures/E2136_distribution_d.png
 
    Distribution of the stability metric for the e2v amplifiers in run E2136
 
-.. figure:: /figures/E2136_mosaic_d.png
+.. figure:: sections/figures/E2136_mosaic_d.png
 
    Mosaic of e2v amplifiers identified as instable (white color) in run E2136 
 	   

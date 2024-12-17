@@ -68,18 +68,16 @@ Results on standard e2v and itl CCD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. image::   /figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
+.. image::   sections/figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :name: fig-image-e2vclear
-   :target:    ../figures/plots_R12_S20_C15_E1880_bias_2024103000303.png
    :alt:  Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an E2V sensor.
       
 
 *Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an E2V sensor.*
 	  
 
-.. image::   /figures/plots_R03_S11_C14_E1812_bias_2024102800352.png
+.. image::   sections/figures/plots_R03_S11_C14_E1812_bias_2024102800352.png
    :name: fig-image-itlclear
-   :target:    ../figures/plots_R03_S11_C14_E1812_bias_2024102800352.png
    :alt: Figure showing the impact of the various types of clear on a bias taken after a saturated flat for an ITL sensor.
       
 
@@ -102,9 +100,8 @@ significant signal is seen in the following line. Both NoP clear (central plots)
 Results on itl R01_S10 
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image::   /figures/Clear_R01_S10.png
+.. image::   sections/figures/Clear_R01_S10.png
    :name: fig-image-itlR01_S10clear
-   :target:    ../figures/Clear_R01_S10.png
    :alt: Figure showing the impact of the various types of clear on ITL R01_S10.
 
 

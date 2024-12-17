@@ -39,9 +39,8 @@ that we had no light leak left associated to the Filter Exchange System. (:ref:`
 
 
  
-.. image::   /figures/AC_LightLeak_study.png
+.. image::   sections/figures/AC_LightLeak_study.png
    :name: fig-ac-light-leak
-   :target:    ../figuresAC_LightLeak_study.png
    :alt:  *The left plot shows the original impact of the AC light leak on 900s dark ( AC On - AC off). On the right plot, after masking the AC LED coders, no light associated to the FES is present.*  
 
 *The left plot shows the original impact of the AC light leak on 900s dark ( AC On - AC off). On the right plot, after masking the AC LED coders, no light associated to the FES is present in 900s dark difference( FES On - FES off).*  
