@@ -69,15 +69,19 @@ Reduction of the full well is expected by narrowing the parallel swing voltage. 
 Impact on Brighter-Fatter effect
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Reducing the parallel swing is expected to enhance the brighter-fatter effect (BFE), possibly in an anisotropic way. The BFE can be characterized via the evolution of the variance and covariances of flatfield exposures as a function of flux.  In order to evaluate the impact of reducing the parallel voltage swing on e2v sensors, we acquired two series of flatfield exposures with the respective voltage setups and extracted the "area" coefficients from these two data sets. The area coefficients describe by how much a unit charge stored in a pixel wil alter the area of some other pixel (or itself). We find that reducing the parallele swing from 9.3V to 8V typically increases the area coefficients by 10% (between 5 and 19% depending on distance), and the increase is almost isotropic (along serial and parallel directions). From these measurements, we anticipate that the increase of star sizes with flux will not become more isotropic at 8V than it was at 9.3V, and hence does not introduce new threats on the measurement of the PSF ellipticity
+Reducing the parallel swing is expected to enhance the brighter-fatter effect (BFE), possibly in an anisotropic way. The BFE can be characterized via the evolution of the variance and covariances of flatfield exposures as a function of flux.  In order to evaluate the impact of reducing the parallel voltage swing on e2v sensors, we acquired two series of flatfield exposures with the respective voltage setups and extracted the "area" coefficients 
+the "area" coefficients (Equation (1) in [A2023]_) from these two data sets. The area coefficients describe by how much a unit charge stored in a pixel wil alter the area of some other pixel (or itself). We find that reducing the parallele swing from 9.3V to 8V typically increases the area coefficients by 10% (between 5 and 19% depending on distance), and the increase is almost isotropic (along serial and parallel directions). From these measurements, we anticipate that the increase of star sizes with flux will not become more isotropic at 8V than it was at 9.3V, and hence does not introduce new threats on the measurement of the PSF ellipticity
 
 .. figure:: sections/figures/aScatterPlots8vs9.3.png
 
      Scatter plots of area coefficients (one entry per amplifier) measured at 8V and 9.3V. The 9 subfigures correspond to separations between the source of the area distortion and its victim, with the self interaction at the bottom left. The first neighbors increase respectively by 19% in the parallel direction by 14% in the serial direction. So the BFE is slightly larger at 8V but not significantly more anistropic. 
 
-
+.. [A2023] https://arxiv.org/pdf/2301.03274
 
 Summary
 ^^^^^^^
 E2V sensors had persistence. We confirmed changing the E2V CCD operating voltage greatly reduced persistence. As penalties, we observed 22% of full well reduction, and a ~10% increase of the brightter-fatter effect, essentially in an isotropic way.
+
+
+
 
