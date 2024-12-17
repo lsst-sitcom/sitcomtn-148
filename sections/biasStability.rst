@@ -1,19 +1,19 @@
 Bias stability
 ############################################
-Bias instabilities (typically above the 1-ADU level) are observed over a significant number of sensors for both ITL and e2v CCDs. The main issues are referred as :
+Bias instabilities (typically above the 1-ADU level) are observed over a significant number of sensors for both ITL and e2v CCDs. The main issues are referred as:
 
 #. The ITL bias jumps : large variation of the column-wise structure from exposure to exposure.
 #. The e2v yellow corners : residual 2D shape of the bias even after 2D-overscan correction. These residuals depend on the acquisition sequence and of the exposure time.
    
-Both issues were observed and deeply studied in Run 6 EO data. The ITL issue is thought to be an hardware-level issue (phase shifts between Readout Electronics Boards). We tried to mitigate the e2v issue by optimizing the acquisition configuration in Run 7.
+Both issues were observed and deeply studied in Run 6 EO data. The ITL issue is believed to be phase shifts in clocks between Readout Electronics Boards (REB) because REBs rely on the frequency converted from their natural frequency. We tried to mitigate the e2v issue by optimizing the acquisition configuration in Run 7.
 
-For the baseline acquisition configuration (see conclusion), three relevant stability runs were recorded :
+For the baseline acquisition configuration (see conclusion), three relevant stability runs were recorded:
 
-#. Run E2136 : 15-s darks with some very long delays throughout the run
-#. Run E2236 : 50 15-s darks, 50 biases recorded with 30-s delays between exposures
-#. Run E2330 : 15-s and 30-s darks with variables delays between exposures
+#. Run E2136: 15s darks with some very long delays throughout the run
+#. Run E2236: 50 15s darks, 50 biases recorded with 30s delays between exposures
+#. Run E2330: 15s and 30s darks with variables delays between exposures
 
-To process these runs, the eo_pipe bias stability task is used : for the ISR part, a serial ('mean_per_row') overscan correction and a bias subtraction (computed from the corresponding B-protocol run) are applied. The final data product is the mean of the per-amplifier science image over the full set of exposures of the run. Two typical examples from Run E2136 are shown in the figures below. In the stable case, the variations are typically at the 0.1 ADU level ; in the instable case, the variations go up to 4 ADUs.
+To process these runs, the eo_pipe bias stability task is used: for the ISR part, a serial ('mean_per_row') overscan correction and a bias subtraction (computed from the corresponding B-protocol run) are applied. The final data product is the mean of the per-amplifier science image over the full set of exposures of the run. Two typical examples from Run E2136 are shown in the figures below. In the stable case, the variations are typically at the 0.1 ADU level; in the instable case, the variations go up to 4 ADUs.
 
 .. figure:: sections/figures/E2136_R21_S21.png
 
