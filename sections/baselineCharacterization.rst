@@ -94,7 +94,7 @@ Surprisingly, dark current was significantly lowered in Run 7 compared to run 6.
 
 Bright defects
 """""""""""""""
-Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the CCD’s semiconductor material or manufacturing process. Bright defects can manifest as “hot pixels�(pixels with consistently high dark current), small clusters of pixels with elevated output, or as "hot columns" (pixels along the same parallel register that have high dark current).
+Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the CCD’s semiconductor material or manufacturing process. Bright defects can manifest as “hot pixelspixels with consistently high dark current), small clusters of pixels with elevated output, or as "hot columns" (pixels along the same parallel register that have high dark current).
 In the context of LSSTCam, we extract bright pixels from the dark current, with the threshold for a bright defect set at 5 e- / pix / s, above which the pixel is registered as a bright defect.
 
 
@@ -145,6 +145,7 @@ PTC Gain
 PTC gain is the conversion factor between the number of electrons generated in the CCD's pixels and the digital output signal. It is one of the key parameters derived from the Photon Transfer Curve, as it is the slope from where the noise is dominated by shot noise. Gain is expressed in e- / ADU, and quantifies how effective the CCD's analog signal is digitized. 
 
 .. image::   sections/figures/baselineCharacterization/13591_E749_PTC_GAIN.png
+   :target:  ..sections/figures/baselineCharacterization/13591_E749_PTC_GAIN.png
    :alt: Figure showing the comparison between PTC gain measurements at SLAC and at Cerro Pachon
 
 PTC gain measurements agree extremely closely across all sensors in the focal plane.
@@ -153,8 +154,8 @@ PTC gain measurements agree extremely closely across all sensors in the focal pl
 Brighter fatter a_00 coefficient
 """"""""""""""""""""""""""""""""""
 
-This redistribution causes the charge to “spill�into adjacent pixels, effectively broadening the point spread function (PSF). 
-The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatter� than dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier]_, a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
+This redistribution causes the charge to “spillnto adjacent pixels, effectively broadening the point spread function (PSF). 
+The brighter fatter effect is the most dominant source of variance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or “fatterthan dimmer ones. This occurs due to electrostatic interactions within the CCD, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from [Astier]_, a00 describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. 
 Since same-charge carriers repel each other, this pixel area has to shrink as charge accumulates inside the pixel, which implies a00 < 0. In eo_pipe, an absolute value is taken of the a_00 parameter, so the measurements appear positive.
 
 
