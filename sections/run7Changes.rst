@@ -1,14 +1,6 @@
 Run 7 Optical modifications
 ############################################
 
-hello world.
-
-This section describes run 7 optical changes to the CCOB, projector, etc.
-
-- refresh of setup with items the same as IR2 (CCOB, no narrow-beam)
-- diffuser install
-- projector
-
 For Run 7 there were a few changes with our setup on Level 3 as compared to Run 6 taken in IR2 at SLAC. One of the primary changes was that we did not have access to the CCOB Narrow/Thin beam. While the set up was on Level 3, we did not have the resources or expertise to get it setup. As such, the majority of the testing was done with the CCOB Wide Beam projector. We did obtain an additional projector, the 4k projector, part way through Run 7 that will be discussed later. With the CCOB Wide Beam, we used a cone attached to the L1 cover as well as shroud to create a dark environment as seen in Figure XXXX. This allowed us to operate on Level 3 with a dark current of XXX (XXX with the lights on). The initial set up of the CCOB Wide Beam was the same as Run 6, we had a minimal ND filter (10 %) attached to a C-mount lens. One change was that the F/stop of the lens was changed from 2.6 to 1.6 (fully open). While this reduced the effect of the 'weather' and the 'CMB patten' as seen in Run 6, it also caused a much steeper roll off across the focal plane. Figure XXX shows the weather pattern as compared to Run 6 and Figure XXX shows the rolloff of the light as compared to Run 6.
 
 To both reduce the effect of the 'weather' and 'CMB' but retain uniform illumination across the focal plane, we installed a filter in the cone attached to L1.
