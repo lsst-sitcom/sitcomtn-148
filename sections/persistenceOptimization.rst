@@ -53,9 +53,9 @@ The following figures display how the persistence is reduced by the voltage chan
 The next figure shows the same dark exposure but taken with the narrow parallel swing voltage of 8.0V. The distinct pattern goes away. This demonstrates the persistence in e2v sensors becomes the level of ITL's ones.
 
 
-.. figure:: sections/figures/E1310dp80.png
+.. figure:: sections/figures/E1880dp80.png
 
-    The first dark exposure after a 400k flat image under the parallel swing of 8.0V (Run E1310). The figure shows no distinct patterns from persistence in e2v sensors anymore.
+    The first dark exposure after a 400k flat image under the parallel swing of 8.0V (Run E1880). The figure shows no distinct patterns from persistence in e2v sensors anymore. Note that the guider sensors were not displayed here because they were in the guider mode. Also some of residuals in ITL caused by defects disappeared because of the employment of the new sequencer file (v30).
 
 Impact on full-well
 ^^^^^^^^^^^^^^^^^^^^^^^^

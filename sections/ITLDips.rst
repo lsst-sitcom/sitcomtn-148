@@ -1,6 +1,7 @@
 ITL Dips
 ###########
 
+
 One of the phenomenon that was stuided in the later part of Run 7 was ITL dips. 
 These were first discovered in LSST ComCam with on-sky data as bleed trails from bright stars that traversed the entire detector, jumping over the amplifier boundaries. 
 These bleed trails are unique though in that the core of the bleed trail is actually 'dark' compared to the wings of the bleed trail, with a lower flux of around 2% compared to the rest of the bleed trail.

@@ -1,14 +1,6 @@
 Run 7 Optical modifications
 ############################################
 
-hello world.
-
-This section describes run 7 optical changes to the CCOB, projector, etc.
-
-- refresh of setup with items the same as IR2 (CCOB, no narrow-beam)
-- diffuser install
-- projector
-
 For Run 7 there were a few changes with our setup on Level 3 as compared to Run 6 taken in IR2 at SLAC. 
 One of the changes was that we did not have access to the CCOB Narrow/Thin beam. 
 .. While the set up was on Level 3, we did not have the resources or expertise to get it setup. 
