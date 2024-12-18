@@ -3,11 +3,47 @@ Dark current and light leaks
 
 This section describes dark current and light leaks in Run 7 testing.
 
-One of the first tests we attempted with the camera was measuring dark current and sources of light leaks in the camera body.
 
 Light leak mitigation with shrouding the camera body
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+One of the first tests we attempted with the camera was measuring dark current and sources of light leaks in the camera body.
+This began by finding gaps between the L1 cover and the gaskets.
+This was covered up by tape where we felt comfortable applying it.
+Below shows the gaps that we could see between L1 and its cover.
 
+.. figure:: sections/figures/Camera_Shroud.jpg
+
+Once these were sealed, we took some intital measurements and then started to cover the camera body with shroud.
+We also found light leaks where the light cone attached to L1 was housed, and from the utility trunk.
+Below is the table of observations, their corressponding dark current, and comments on what changed.
+
+.. _light_leak:
+
+.. table:: Table showing the different 15 second dark exposures, the different conditions, and the resulting dark current.
+
+    +------------------------+------------+----------+
+    | Exposure            |  Dark Current  | Room Lights|Shutter|Comments|
+    | MC_C20240909_0000...| Mean ADU/sec   | On or off     |Open or closed| |        
+    +========================+============+==========+
+    |  12 |  0.158  | Off | Closed|                  |
+    +------------------------+------------+----------+
+    |  18 |  0.158  | On | Closed|                  |
+    +------------------------+------------+----------+
+    |  38 |  2.94  | On | Open| Initial Covering (just the CCOB cone and around the L1 cover)|
+    +------------------------+------------+----------+
+    |  54 |  1.34  | On | Open| Initial Covering + Blanket over the FCS|
+    +------------------------+------------+----------+
+    |  72 |  0.41  | On | Open| Initial Covering + Blanket over AND under the FCS|
+    +------------------------+------------+----------+
+   |  78 |  0.18 | Off | Open| Initial Covering + Blanket over AND under the FCS|
+    +------------------------+------------+----------+
+   |  0910_000031 |  0.033 | On | Open| Initial Covering + Blanket over AND under the FCS + UT|
+    +------------------------+------------+----------+
+
+Below is a the image of the final shroud configuration covering the camera.
+
+.. figure:: sections/figures/Camera_Shroud.jpg
+        Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
 
 Successful Autochanger Light Leaks masking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
