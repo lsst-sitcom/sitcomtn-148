@@ -8,16 +8,6 @@ As such, the majority of the testing was done with the CCOB Wide Beam projector.
 We did obtain an additional projector, the 4k projector, part way through Run 7 that will be discussed later. 
 With the CCOB Wide Beam, we used a cone attached to the L1 cover as well as shroud to create a dark environment as seen below. 
 
-.. list-table::
-
-   * - .. figure:: sections/figures/Camera_Shroud.jpg
-
-         Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
-
-     - .. figure:: sections/figures/CCOB_Wide_Shroud.jpg
-
-         CCOB Wide Beam attached to the cone and shrouded. 
-
 This allowed us to operate on Level 3 with a dark current of <0.1 ADU/sec with the shutter open. 
 The initial set up of the CCOB Wide Beam was the same as Run 6, we had a minimal ND filter (10 %) attached to a C-mount lens. 
 One change was that the f/stop of the lens was changed from 2.6 to 1.6 (fully open). 
