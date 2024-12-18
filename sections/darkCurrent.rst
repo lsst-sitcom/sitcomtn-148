@@ -36,7 +36,7 @@ Below is the table of observations, their corressponding dark current, and comme
     | MC_C20240909_000072  | 0.41          | On          | Open             | Initial Covering + Blanket over AND under the FCS         |
     +----------------------+---------------+-------------+------------------+-----------------------------------------------------------+
     | MC_C20240909_000078  | 0.18          | Off         | Open             | Initial Covering + Blanket over AND under the FCS         |
-     +----------------------+---------------+-------------+------------------+----------------------------------------------------------+
+    +----------------------+---------------+-------------+------------------+-----------------------------------------------------------+
     | MC_C20240910_000031  | 0.033         | On          | Open             | Initial Covering + Blanket over AND under the FCS + UT    |
     +----------------------+---------------+-------------+------------------+-----------------------------------------------------------+
 
@@ -44,6 +44,7 @@ Below is the table of observations, their corressponding dark current, and comme
 Below is a the image of the final shroud configuration covering the camera.
 
 .. figure:: sections/figures/Camera_Shroud.jpg
+
         Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
 
 Successful Autochanger Light Leaks masking

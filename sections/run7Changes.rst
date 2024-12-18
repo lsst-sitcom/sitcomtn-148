@@ -8,12 +8,15 @@ As such, the majority of the testing was done with the CCOB Wide Beam projector.
 We did obtain an additional projector, the 4k projector, part way through Run 7 that will be discussed later. 
 With the CCOB Wide Beam, we used a cone attached to the L1 cover as well as shroud to create a dark environment as seen below. 
 
-.. list-table:: 
-    * - .. figure:: sections/figures/Camera_Shroud.jpg
-        Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
-    
+.. list-table::
+
+   * - .. figure:: sections/figures/Camera_Shroud.jpg
+
+         Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
+
      - .. figure:: sections/figures/CCOB_Wide_Shroud.jpg
-        CCOB Wide Beam attached to the cone and shrouded.
+
+         CCOB Wide Beam attached to the cone and shrouded. 
 
 This allowed us to operate on Level 3 with a dark current of <0.1 ADU/sec with the shutter open. 
 The initial set up of the CCOB Wide Beam was the same as Run 6, we had a minimal ND filter (10 %) attached to a C-mount lens. 
@@ -23,19 +26,24 @@ While changing it did reduce the weather pattern, it also caused a much steeper 
 The below figures show the weather pattern as compared to Run 6 and the rolloff of the light as compared to Run 6.
 
 .. list-table:: 
+
     * - .. figure:: sections/figures/Camera_Shroud.jpg
-        Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
+
+         Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.
     
-     - .. figure:: sections/figures/CCOB_Wide_Shroud.jpg
-        CCOB Wide Beam attached to the cone and shrouded.
+      - .. figure:: sections/figures/CCOB_Wide_Shroud.jpg
+
+         CCOB Wide Beam attached to the cone and shrouded.
 
 .. figure:: sections/figures/Run7_DiffuserIllumination.png
+
     Illumination across the focal plane from Run 7 with the diffuser () as compared to Run 6 ().
 
 To both reduce the effect of the 'weather' and 'CMB' but retain uniform illumination across the focal plane, we installed a diffuser in the cone attached to L1.
 Below shows the placement of the diffuser along the cone. 
 
 .. figure:: sections/figures/Diffuser.jpg
+
         Diffuser installed into the light cone.
 
 The diffuser combined with a fully open F/stop effectively reduced the incoming light by roughly 35%. 
@@ -43,13 +51,17 @@ Adjusting for that, we found that it severly reduced the 'weather' and eliminate
 Below shows the effect of the diffuser in regards to the weather, CMB, and the overall illumination of the focal plane. 
 
 .. list-table:: 
+
     * - .. figure:: sections/figures/Run6_Weather.png
-        Full focal plane image showing the fractional difference in Run 6.
+
+         Full focal plane image showing the fractional difference in Run 6.
     
-     - .. figure:: sections/figures/Run7_WeatherDiffuser.png
-        Full focal plane image showing the fractional difference in Run 7.
+      - .. figure:: sections/figures/Run7_WeatherDiffuser.png
+
+         Full focal plane image showing the fractional difference in Run 7.
 
 .. figure:: sections/figures/Run7_DiffuserIllumination.png
+
     Illumination across the focal plane from Run 7 with the diffuser () as compared to Run 6 ().
 
 The diffuser was installed for all B protocol and PTC runs moving forward, only being taken out for pinhole projection and when using the 4K projector.
