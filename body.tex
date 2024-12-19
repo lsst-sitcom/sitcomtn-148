@@ -3,37 +3,91 @@
 \subsection{Run 7 Optical modifications}\label{run-7-optical-modifications}
 
 For Run 7 there were a few changes with our setup on Level 3 as compared
-to Run 6 taken in IR2 at SLAC. One of the primary changes was that we
-did not have access to the CCOB Narrow/Thin beam. While the set up was
-on Level 3, we did not have the resources or expertise to get it setup.
-As such, the majority of the testing was done with the CCOB Wide Beam
+to Run 6 taken in IR2 at SLAC. One of the changes was that we did not
+have access to the CCOB Narrow/Thin beam. .. While the set up was on
+Level 3, we did not have the resources or expertise to get it setup. As
+such, the majority of the testing was done with the CCOB Wide Beam
 projector. We did obtain an additional projector, the 4k projector, part
 way through Run 7 that will be discussed later. With the CCOB Wide Beam,
 we used a cone attached to the L1 cover as well as shroud to create a
-dark environment as seen in Figure XXXX. This allowed us to operate on
-Level 3 with a dark current of XXX (XXX with the lights on). The initial
-set up of the CCOB Wide Beam was the same as Run 6, we had a minimal ND
-filter (10 \%) attached to a C-mount lens. One change was that the
-F/stop of the lens was changed from 2.6 to 1.6 (fully open). While this
-reduced the effect of the \textquotesingle weather\textquotesingle{} and
-the \textquotesingle CMB patten\textquotesingle{} as seen in Run 6, it
-also caused a much steeper roll off across the focal plane. Figure XXX
-shows the weather pattern as compared to Run 6 and Figure XXX shows the
-rolloff of the light as compared to Run 6.
+dark environment as seen below.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{cc}
+    % 左側の画像（幅を調整）
+    \includegraphics[width=0.45\textwidth]{sections/figures/Camera_Shroud.jpg} &
+    % 右側の画像（幅を調整）
+    \includegraphics[width=0.45\textwidth]{sections/figures/CCOB_Wide_Shroud.jpg} \\
+\end{tabular}
+
+\caption{Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.}
+\caption*{CCOB Wide Beam attached to the cone and shrouded.}
+\end{table}
+
+This allowed us to operate on Level 3 with a dark current of
+\textless0.1 ADU/sec with the shutter open. The initial set up of the
+CCOB Wide Beam was the same as Run 6, we had a minimal ND filter (10 \%)
+attached to a C-mount lens. One change was that the f/stop of the lens
+was changed from 2.6 to 1.6 (fully open). This was done to try and
+reduce the effect of the \textquotesingle weather\textquotesingle{} and
+the \textquotesingle CMB patten\textquotesingle{} two effects that we
+found in Run 6 and were found to be due to our projection setup (see
+\hyperref[Banovetz2024]{{[}Banovetz2024{]}}), While changing it did
+reduce the weather pattern, it also caused a much steeper roll off
+across the focal plane. The below figures show the weather pattern as
+compared to Run 6 and the rolloff of the light as compared to Run 6.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/Run7_DiffuserIllumination.png}
+\caption{Illumination across the focal plane from Run 7 with the diffuser as compared to Run 6.}
+\end{figure}
 
 To both reduce the effect of the
 \textquotesingle weather\textquotesingle{} and
 \textquotesingle CMB\textquotesingle{} but retain uniform illumination
-across the focal plane, we installed a filter in the cone attached to
-L1. Figure XXX shows the placement of the diffuser along the cone. This
-diffuser effectively reduced the incoming light by roughly 35\%.
-Adjusting for that, we found that it severly reduced the
-\textquotesingle weather\textquotesingle{} and eliminated the CMB
-pattern, as well as fully illuminateing the focal plane. Figure XXX
-shows the effect of the diffuser in regards to the weather, CMB, and the
-overall illumination of the focal plane. The diffuser was installed for
-all B protocol and PTC runs moving forward, only being taken out for
-pinhole projection and when using the 4K projector.
+across the focal plane, we installed a diffuser in the cone attached to
+L1. Below shows the placement of the diffuser along the cone.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/Diffuser.jpg}
+\caption{Diffuser installed into the light cone.}
+\end{figure}
+
+The diffuser combined with a fully open F/stop effectively reduced the
+incoming light by roughly 35\%. Adjusting for that, we found that it
+severly reduced the \textquotesingle weather\textquotesingle{} and
+eliminated the CMB pattern, as well as fully illuminateing the focal
+plane. Below shows the effect of the diffuser in regards to the weather,
+CMB, and the overall illumination of the focal plane.
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{sections/figures/Run6_Weather.png}
+    \caption{Full focal plane image showing the fractional difference in Run 6.}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{sections/figures/Run7_WeatherDiffuser.png}
+    \caption{Full focal plane image showing the fractional difference in Run 7.}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/Run7_DiffuserIllumination.png}
+\caption{Illumination across the focal plane from Run 7 with the
+diffuser () as compared to Run 6 ().}
+\end{figure}
+
+The diffuser was installed for all B protocol and PTC runs moving
+forward, only being taken out for pinhole projection and when using the
+4K projector.
 
 The newest addition to the projectors used for EO testing was a 4K
 projector, simliar to those used in conference rooms. This projector was
@@ -75,11 +129,63 @@ leaks}\label{dark-current-and-light-leaks}
 
 This section describes dark current and light leaks in Run 7 testing.
 
-One of the first tests we attempted with the camera was measuring dark
-current and sources of light leaks in the camera body.
-
 \subsubsection{Light leak mitigation with shrouding the camera
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
+
+One of the first tests we attempted with the camera was measuring dark
+current and sources of light leaks in the camera body. This began by
+finding gaps between the L1 cover and the gaskets. This was covered up
+by tape where we felt comfortable applying it. Below shows the gaps that
+we could see between L1 and its cover.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/Camera_Shroud.jpg}
+\caption{}
+\end{figure}
+
+Once these were sealed, we took some intital measurements and then
+started to cover the camera body with shroud. We also found light leaks
+where the light cone attached to L1 was housed, and from the utility
+trunk. Below is the table of observations, their corressponding dark
+current, and comments on what changed.
+
+\phantomsection\label{light_leak}
+
+\begin{longtable}{|l|l|l|l|l|}
+\caption{Table showing the different 15 second dark exposures, the different conditions, and the resulting dark current.
+Exposure ID is preceded by "MC\_C202409".  ("Initial Covering" was just the CCOB cone and around the L1 cover)} \\
+\hline
+\textbf{Exposure} & \textbf{Dark Current} & \textbf{Room Lights} & \textbf{Shutter} & \textbf{Comments} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Exposure} & \textbf{Dark Current} & \textbf{Room Lights} & \textbf{Shutter} & \textbf{Comments} \\
+\hline
+\endhead
+\hline
+\endfoot
+\hline
+09\_000012 & 0.158 & Off & Closed & \\
+09\_000018 & 0.158 & On & Closed & \\
+09\_000038 & 2.94 & On & Open & Initial Covering  \\
+09\_000054 & 1.34 & On & Open &  + Blanket over the FCS \\
+09\_000072 & 0.41 & On & Open &  + Blanket over AND under the FCS \\
+09\_000078 & 0.18 & Off & Open & + Blanket over AND under the FCS \\
+10\_000031 & 0.033 & On & Open &  + Blanket over AND under the FCS + UT \\
+\end{longtable}
+
+
+Below is a the image of the final shroud configuration covering the
+camera.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/Camera_Shroud.jpg}
+\caption{Final shroud configuration of LSSTCam in Level 3 to reduce
+light leaks.}
+\end{figure}
+
 
 \subsubsection{Successful Autochanger Light Leaks
 masking}\label{successful-autochanger-light-leaks-masking}
@@ -593,110 +699,10 @@ comparing run 6 with run 7.
 \end{centering}
 \end{figure}
 
-\subsubsection{Differences from previous
-runs}\label{differences-from-previous-runs}
+\subsubsection{Differences from previous runs}\label{differences-from-previous-runs}
 
 I will add this once we have agreed upon the set of parameters important
 for characterization
-
-\subsection{Final Characterization}\label{final-characterization}
-
-\subsubsection{Background}\label{background-1}
-
-For final characterization, we compared the initial Cerro Pachon runs to
-our final acquistions with the camera operating parameters described in
-\href{https://sitcomtn-148.lsst.io/v/main/index.html\#run-7-final-operating-parameters}{the
-final operating parameters section}.
-
-For analysis of the initial Cerro Pachon EO run and the final Cerro
-Pachon EO run, we used the following runs.
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3750}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3750}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\begin{quote}
-Run Type
-\end{quote}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Initial Cerro Pachón Run
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Final Cerro Pachón Run
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-B Protocol & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E1071
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E1071
-\end{quote}
-\end{minipage} \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-PTC
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E749
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E749
-\end{quote}
-\end{minipage} \\
-\end{longtable}
-
-\subsubsection{Bias metrics}\label{bias-metrics}
-
-\paragraph{CTI}\label{cti}
-
-\paragraph{Bias stability}\label{bias-stability}
-
-\subsubsection{Dark metrics}\label{dark-metrics-1}
-
-\paragraph{Dark current}\label{dark-current-1}
-
-\paragraph{Bright defects}\label{bright-defects-1}
-
-\subsubsection{Stability flat metrics}\label{stability-flat-metrics-1}
-
-\paragraph{Gain stability}\label{gain-stability}
-
-\subsubsection{Flat pair metrics}\label{flat-pair-metrics-1}
-
-\paragraph{Linearity turnoff}\label{linearity-turnoff}
-
-\paragraph{PTC turnoff}\label{ptc-turnoff}
-
-\paragraph{Maximum observed signal}\label{maximum-observed-signal}
-
-\paragraph{PTC Gain}\label{ptc-gain-1}
-
-\paragraph{\texorpdfstring{Brighter fatter a{00}
-coefficient}{Brighter fatter a00 coefficient}}\label{brighter-fatter-a00-coefficient-1}
-
-\paragraph{Brighter-fatter
-correlation}\label{brighter-fatter-correlation}
-
-\paragraph{Row means variance}\label{row-means-variance}
-
-\paragraph{PTC Noise}\label{ptc-noise}
-
-\paragraph{Divisadero Tearing}\label{divisadero-tearing-1}
-
-\paragraph{Dark defects}\label{dark-defects-1}
-
-\subsubsection{Persistence}\label{persistence-1}
-
-\subsubsection{Differences from previous
-runs}\label{differences-from-previous-runs-1}
 
 
 \section{Camera Optimization}\label{camera-optimization}
@@ -899,14 +905,358 @@ direction. So the BFE is slightly larger at 8V but not significantly
 more anistropic.}
 \end{figure}
 
-\subsubsection{Summary}\label{summary}
 
+\subsection{Sequencer Optimization}\label{sequencer-optimization}
+
+
+
+Several efforts were undertaken to improve the sequencer files during this Run. The following points summarize the key investigations:
+
+\begin{itemize}
+\item Clears:  The complete discussion is provided in
+  \href{https://sitcomtn-148.lsst.io/\#serialRemnants}{Improvement of
+  Clear CCD}, but here is a summary:
+
+  \begin{itemize}
+  \item
+    \textbf{No Pocket}
+  We introduced the V29\phantomsection\label{nop}{NoP} (No Pocket)
+  sequencer, which is an improved clear method using a serial register
+  configuration that reduces the formation of pockets at the Image/Serial
+  register interface. This clear method showed an approximately 2x
+  improvement in the saturated image clear for e2v devices and completely
+  resolved the issue for ITL devices, except for R01\phantomsection\label{s11}{S11},
+  where the No Pocket method performs approximately 2x worse than the default clear. 
+  For an unknown reason, this ITL CCD exhibits a significant amount of uncleared charges 
+  (hundreds of lines) after a saturated flat. This issue prevents the use of the No
+  Pocket configuration with ITL devices.
+
+  \item
+    \textbf{No Pocket with Serial Flush}
+  We introduced V29\phantomsection\label{nopsf}{NoPSF} (No Pocket with Serial Flush), an enhanced version of the No Pocket Clear
+  sequencer, which includes a variable configuration of the Serial register
+  during the clear process (mimicking a serial flush), to further prevent the
+  formation of pockets. This solution has been shown to completely prevent the presence of leftover charges after clearing a saturated image for e2v devices.
+  \end{itemize}
+  
+
+\item Phase overlap during parallel transfer for e2v: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced. However, this overlap is known to cause trailing persistence, as reported in \ref{DavisReport}. We conducted several runs using both intermediate overlapping and non-overlapping sequencers. By optimizing the operating voltages to avoid charge trapping, the trailing persistence is no longer to be a concern.
+\end{itemize}
+
+\subsection{Improved Clear}\label{improved-clear}
+
+\subsubsection{Overview}\label{overview}
+
+In this section, we will describe the work done during Run 7 to improve
+the image clear prior to collecting a new exposure.
+
+The problem we wanted to address is the presence of residual charges in
+the first lines read for an image taken just after the clear of a saturated
+image. These "hard to clear" charges are associated with highly
+saturated flat or column(s) (or stars as observed in AuxTel or ComCam),
+which leave signal in the first lines of the following exposure. We have
+the following signature of the effect:
+
+\begin{itemize}
+\item
+  in all ITL CCD (except in R01\phantomsection\label{s10}{S10} for which
+  the effect is much more significant and that will be addressed later
+  in this section):
+
+  \begin{quote}
+  the first CCD line of an exposure read after an image with saturated
+  overscan, is close to saturation and in most of the case there is also
+  a small left over signal in the 2nd line read.
+  \end{quote}
+\item
+  in e2v CCD:
+
+  \begin{quote}
+  the effect is slightly amplifier dependent, still, like in ITL, the
+  first line read in an exposure following an exposure with saturated
+  overscan, is close to saturation, and a significant signal is visible
+  in the following 20-50 lines. (
+  \texttt{see\ left\ plots\ of\ clear\ e2v\ image\textless{}fig-image-e2vclear\textgreater{}})
+  \end{quote}
+\end{itemize}
+
+These leftover electrons are not associated to what we usually call 
+residual image or persistence. They are suspected to be associated to
+pockets, induced by the electric field configuration in the sensor and
+the field associated to saturated pixels: pocket(s) that survive to a
+clear, will prevent charges to be cleared. A change of the electric
+field (ex: a change in clocks configuration) can remove the pockets, and
+free the charges, allowing them to be cleared. If charges stuck in
+pocket(s) are not removed by a clear, we observed that an image read
+(ex: a bias) will fully remove them: only the first exposure taken after
+an image with saturated overscan is impacted. If the clocks
+configuration used in our standard clear is not able to flush away those
+charges, a standard readout of \textgreater\textasciitilde{} 2000 lines
+does remove them.
+
+The localisation of these uncleared electrons in the first lines of the
+CCDs, spots the interface between the image area and the serial register
+as the location for those pockets. For this reason we investigated
+changes in the field configuration of the serial register during the
+clear, to avoid pockets at this image-serial register interface.
+
+\subsubsection{New sequencers}\label{new-sequencers}
+
+To addresse this clear issue, we focussed on updating the serial
+register field as the lines are moved to it. The constrain being that
+the changes introduced should not significantly increase the clear
+execution time. It should be notice that we tried in 2021 a sequencer
+called "Deep Clear" ( \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}}
+) as a first try to address the clear issue: it added one full line
+flush on top of the existing one at the end of the clear. This sequencer
+did improve the clear, still not fully fixing the clear issue ( see
+\texttt{Summary\ table\textless{}table-SummaryClear\textgreater{}}).
+
+In the Run 7, We considered on top of the default clear, 2 new
+configurations. The changes are in the ParallelFlush function, which
+move the charges from the image area to the serial register:
+
+\begin{itemize}
+\tightlist
+\item
+  the default clear (V29): In the default clear, all serial clocks are
+  kept up as the parallel clocks move charges from the image area to the
+  serial register (\hyperref[sequencerV29]{{[}sequencerV29{]}}). The
+  charges once on the serial register will hopefully flow to the ground:
+  the serial register clocks being all up, without pixels boundary, and
+  with its amplifier in clear state. At the end of the clear, a full
+  flush of the serial register is done (\textasciitilde{} the serial
+  clocks changes to read a single line ).
+\item
+  the No-pocket Clear (NoP): a clear where the serial register has the
+  same configuration (S1 \& S2 up, S3 low) when the parallel clock P1
+  moves the charges to the serial register than in a standard image read
+  . Still we keept all phases up the rest of the time for a fast clear
+  of the charges along the serial register
+  (\hyperref[sequencerV29_NoP]{{[}sequencerV29\_NoP{]}}). The idea is
+  that the S3 phase is not designed to be up when charges are transfered
+  to the serail register, and is probably playing a major role in the
+  pockets creation.
+\item
+  The No-pocket with serial flush Clear (NoPSF): this sequencer is close
+  to the NoP solution , except that during the transfered of 1 line to
+  the serial register, the serial phases are also moved to transfer two
+  pixels along teh serial register. The changes in electric field at the
+  image-serial register interface are then even more representative to
+  what a standard read will produce, and should further prevent the
+  creation of pockets.
+  (\hyperref[sequencerV29_NoPSF]{{[}sequencerV29\_NoPSF{]}}).
+\end{itemize}
+
+\subsubsection{Results on standard e2v and itl
+CCD}\label{results-on-standard-e2v-and-itl-ccd}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/plots_R12_S20_C15_E1880_bias_2024103000303.png}
+\end{centering}
+\end{figure}
+
+\emph{Figure showing the impact of the various types of clear on a bias
+taken after a saturated flat for an E2V sensor.}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/plots_R03_S11_C14_E1812_bias_2024102800352.png}
+\end{centering}
+\end{figure}
+
+\emph{Figure showing the impact of the various types of clear on a bias
+taken after a saturated flat for an ITL sensor.}
+
+In the above images, we present for 3 types of sequencer (from left to
+right: V29, NoP and NopSF), a zoom on the first lines of an itl or e2v
+amplifier (for itl R03\phantomsection\label{s11}{S11} C14 and for e2v
+R12\phantomsection\label{s20}{S20} C10 ) shown as a 2D lines-columns
+image (top plots) or as the mean signal per line for the first lines
+read of an amplifier (bottom plots).
+
+As seen in
+\texttt{see\ left\ plots\ of\ clear\ e2v\ image\textless{}fig-image-e2vclear\textgreater{}}
+for an e2v CCD, a bias taken just after a saturated flat will show a
+residual signal in the first lines read when using the default clear
+(left images,clear=v29): the first line has an almost saturated signal
+(\textasciitilde{} 100 kADU here), and a significant signal is seen up
+to the line \textasciitilde50. In practice, in function of the
+amplifier, signal can be seen up to line 20-50. When using the NoP clear
+(central plots), we can already see a strong reduction of the uncleared
+charges in the first acquired bias after a saturated flat, still a small
+residual signal is visible in the first \textasciitilde20 lines. The
+NoPSF clear (right plots) fully clear the saturated flat, and no
+uncleared charges are observed in the following bias.
+
+As seen in
+\texttt{see\ left\ plots\ of\ clear\ itl\ image\textless{}fig-image-itlclear\textgreater{}}
+for an itl CCD, a bias taken just after a saturated flat will show a
+residual signal in the first lines read when using the default clear
+(left images,clear=v29) : the first line has an almost saturated signal
+(\textasciitilde{} 100 kADU here), and a significant signal is seen in
+the following line. Both NoP clear (central plots) and NoPSF clear
+(right plots) fully clear the saturated flat, and no uncleared charges
+are observed in the following bias.
+
+\subsubsection[Results on itl R01]{\texorpdfstring{Results on itl
+R01\protect\hypertarget{s10}{}{S10}}{Results on itl R01S10}}\label{results-on-itl-r01s10}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/Clear_R01_S10.png}
+\end{centering}
+\end{figure}
+
+\emph{Figure showing the impact of the various types of clear on ITL
+R01\_S10 after a saturated flat (bias after a saturated flat), from left
+to right: 1 standard Clear, 3 standard Clear, 5 standard Clear, 1 NoP
+Clear, 1 NoPSF Clear}
+
+There is one ITL sensor, R01\phantomsection\label{s10}{S10}, that
+presents a specific and non-understood behavior:
+
+\begin{itemize}
+\tightlist
+\item
+  It has a quite low full well (2/3 of nominal)
+\item
+  The 3 CCD of this REB have a gain 20\% lower than all other ITL CCD?
+\item
+  The images taken after a large staturation, as seen in figure
+  \texttt{clear\ in\ itl\ R01\_S10\ \textless{}fig-image-itlR01\_S10clear\textgreater{}},
+  show a large amount of uncleared charged (with the standard clear: 4
+  amplifiers with \textasciitilde500 lines of saturated signal!)
+\end{itemize}
+
+It apears that putting S3 low during the clear as done in NoP or NoPSF,
+is even worse than a standard clear. This is strange as a full frame
+read, which does this too, manages to clear such image. We can notice
+that NoPSF is \textasciitilde50\% better than NoP, but still worse than
+the standard clear, in particular for the 12 amplifiers almost correct
+with the standard clear.
+
+At this stage we don\textquotesingle t have a correct way to clear this
+sensor once it collects a saturated flat, but It\textquotesingle s not
+known if a saturated star in this sensor, leaving signal in the
+parallele overscan, will presents the same clear issue.
+
+\subsubsection{Conclusion}\label{conclusion}
+
+
+{\small
+\begin{longtable}{|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|}
+\caption{\emph{This table summarizes the different clear methods used so far.}} \\
+\hline
+\textbf{Clear Type} & \textbf{Clear duration} & \textbf{"E2V" after saturated Flat} & \textbf{"ITL" after saturated Flat} & \textbf{R01 ITL "unique"} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Clear Type} & \textbf{Clear duration} & \textbf{"E2V" after saturated Flat} & \textbf{"ITL" after saturated Flat} & \textbf{R01 ITL "unique"} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\textbf{Default Clear} 1 Clear (seq. V29) & 65.5 ms & 1st line saturated signal up to line 50 & 1st line saturated signal up to 2nd line & first 500 lines saturated for 4 amp, 13 amp with signals \\
+\textbf{Multi Clear} 3 Clears (seq. V29) & 196.5 ms & No residual electrons & No residual electrons & first 150 lines saturated for 2 amp, 5 amp with signals \\
+\textbf{Multi Clear} 5 Clears (seq. V29) & 327.4 ms & No residual electrons & No residual electrons & first 100 lines saturated for 2 amp, 2 amp impacted \\
+\textbf{Deep Clear} 1 Clear (Seq. V23 DC) & 64.69 ms & 1st line saturated signal up to line <20 & tiny signal left in the first line & not measured \\
+\textbf{No Pocket (NoP)} 1 Clear (seq. V29) & 65.8 ms & signal up to line 20 & No residual electrons & first 1000 lines saturated for 16 amp, 16 amp with signals \\
+\textbf{No Pocket Serial Flush (NoPSF)} 1 Clear (seq. V29, V30) & 67 ms & No residual electrons & No residual electrons & first 750 lines saturated for 16 amp, 16 amp with signals \\
+\end{longtable}
+}
+
+
+%\begin{longtable}{|p{0.18\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.16\linewidth}|}
+%\caption{\emph{This table summarizes the different clear methods used so far.}} \\
+%\hline
+%\textbf{} & \textbf{Default Clear 1 Clear (seq. V29)} & \textbf{Multi Clear 3 Clears (seq. V29)} & \textbf{Multi Clear 5 Clears (seq. V29)} & \textbf{Deep Clear 1 Clear (Seq. V23 DC)} & \textbf{No Pocket (NoP) 1 Clear (seq. V29)} & \textbf{No Pocket Serial Flush (NoPSF) 1 Clear (seq. V29, V30)} \\
+%\hline
+%\endfirsthead
+%
+%\hline
+%\textbf{} & \textbf{Default Clear 1 Clear (seq. V29)} & \textbf{Multi Clear 3 Clears (seq. V29)} & \textbf{Multi Clear 5 Clears (seq. V29)} & \textbf{Deep Clear 1 Clear (Seq. V23 DC)} & \textbf{No Pocket (NoP) 1 Clear (seq. V29)} & \textbf{No Pocket Serial Flush (NoPSF) 1 Clear (seq. V29, V30)} \\
+%\hline
+%\endhead
+%
+%\hline
+%\endfoot
+%
+%\hline
+%\endlastfoot
+%
+%Clear duration & 65.5 ms & 196.5 ms & 327.4 ms & 64.69 ms & 65.8 ms & 67 ms \\
+%"E2V" after saturated Flat & 1st line saturated signal up to line 50 & No residual electrons & No residual electrons & 1st line saturated signal up to line <20 & signal up to line 20 & No residual electrons \\
+%"ITL" after saturated Flat & 1st line saturated signal up to 2nd line & No residual electrons & No residual electrons & tiny signal left in the first line & No residual electrons & No residual electrons \\
+%R01 ITL "unique" & first 500 lines saturated for 4 amp, 13 amp with signals & first 150 lines saturated for 2 amp, 5 amp with signals & first 100 lines saturated for 2 amp, 2 amp impacted & not measured & first 1000 lines saturated for 16 amp, 16 amp with signals & first 750 lines saturated for 16 amp, 16 amp with signals \\
+%\end{longtable}
+
+
+Even if NoP or NoPSF are overcoming the clear issue we had with ITL
+sensors, the exception of R01\phantomsection\label{s10}{S10} prevented
+the usage of those sequencers for ITL device for the Run 7. Notice that
+beyond R01\phantomsection\label{s10}{S10} the numbers of line potencilly
+"not cleared" are small (2 first lines) in ITL device, and they
+correspond to a CCD area hard to use anyway (sensor edges with low
+efficciency). So at this stage the default clear is still our default
+for ITL, and further studies to overcome the problem with
+R01\phantomsection\label{s10}{S10} are forseen (ex: do a continuous
+serial flush during exposure at low rate, 10\^{}6 pixels flush in 15s).
+
+\begin{quote}
+On the other side, after those studies in Run 7, we now have a good way
+to fully clear the e2v devices through the NopSF clear. The NoPSF clear
+grants that the first 50 lines of e2v device that had un-cleared
+electrons from the previous exposure, are now free of such
+contamination.
+\end{quote}
+
+From now:
+
+\begin{itemize}
+\tightlist
+\item
+  for e2v, NoPSF will be the default clear method
+\item
+  for ITL, the origial clear (serial phase 3 always), slightly extended
+  in time to match the NoPSF e2v clear execution time, will stay the
+  default method.
+\end{itemize}
+
+\subsection{Toggling the RG Bit During Parallel Transfer}\label{noRGe2v}
+This investigation comes from an analogy drawn with the ITL sequencer file. Although the vendor recommended toggling the RG bit at the end of the parallel transfer, it was unclear whether this step was truly necessary. Given the improvements observed in ITL devices, applying this approach to e2v devices also became an area of interest.
+
+\subsection{Disable IDLE FLUSH}\label{thermal-optimization}
+
+IDLE\_FLUSH is one of the main settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue—a 2D structure of elevated signal near an amplifier corner observed in e2v's bias or dark exposures for certain amplifiers (see details in \hyperref[U2024]{{[}U2024{]}}).
+
+However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption—more than 50W—between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2\degree C between periods of image acquisition and idle periods (Figure~\ref{IdleFlushEffect}).
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{sections/figures/REB_power_temp6_sept24_to_Oct23.png}
+\end{centering}
+\caption{Impact of enabling and disabling IDLE\_FLUSH on focal-plane temperature and power consumption.}\label{IdleFlushEffect}
+\end{figure}
+
+This temperature variation in the focal plane can lead to changes in the REB temperature, potentially causing gain variations or instability in the bias. Based on these considerations, we decided to disable IDLE\_FLUSH. The impact of this change on bias stability is discussed in Sections~\ref{bias-stability-2} and~\ref{gain-stability-2}.
+
+\subsection{Summary}\label{summary}
 E2V sensors had persistence. We confirmed changing the E2V CCD operating
 voltage greatly reduced persistence. As penalties, we observed 22\% of
 full well reduction, and a \textasciitilde10\% increase of the
 brightter-fatter effect, essentially in an isotropic way.
 
-\subsection{Sequencer Optimization}\label{sequencer-optimization}
+We developed v30 sequencer files that have functionality build in and an improved clear of No Pocket Serial Flush.
+
+We also disabled IDLE\_FLUSH to improve the thermal situation.
 
 Sequencer files have undergone evolution for both ITL and e2v versions.
 The latest sequencer file from Run 6 was the
@@ -938,76 +1288,6 @@ During Run 7, several changes were implemented, as described below:
   \url{https://github.com/lsst-camera-dh/sequencer-files/pull/18}
 \end{itemize}
 
-This section describes sequencer optimization.
-
-\begin{itemize}
-\item
-  CCD clear conclusions
-
-  The complete discussion is given in
-  \href{https://sitcomtn-148.lsst.io/\#serialRemnants}{Improvement of
-  Clear CCD} but here is a summary:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{No Pocket}
-  \end{itemize}
-
-  We introduced the V29\phantomsection\label{nop}{NoP} (No Pocket)
-  sequencer, which is an improved clear with a serial register
-  configuration that reduces the creation of pockets at the Image/Serial
-  register interface. This clear shown a factor \textasciitilde2
-  improvement in saturated image clear for e2v, and fully solved the
-  problem for ITL, except for R01\phantomsection\label{s11}{S11} for
-  which the result with No Pocket appends to be worse by a factor 2 than
-  with the default clear. This ITL ccd presents for a not understood
-  reason, a large quantities of uncleared charges(100\textquotesingle s
-  of lines) after a saturated flat. This issue prevents to use the No
-  Pocket configuration with ITL.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{No Pocket with Serial flush}
-  \end{itemize}
-
-  We introduced in V29\phantomsection\label{nopsf}{NoPSF} ( No Pocket
-  with Serial Flush), an improved version of the No Pocket Clear
-  sequencer, including a variable configuration of the Serial register
-  during the clear (mimicking a serial flush), to further prevent the
-  formation of pockets. This solution has been shown to completely
-  prevent the presence of leftover charges after the clear of a
-  saturated image for e2v devices.
-
-  \begin{quote}
-  \textbf{No Pocket with Serial flush} is now the default clear method
-  for e2v devices starting with V30. Until a solution is found for
-  clearing saturated images in R01\phantomsection\label{s10}{S10}, the
-  initial clear method (Serial phases always up) will remain the default
-  for ITL devices.
-  \end{quote}
-\item
-  Overlap conclusions
-\item
-  e2v "No RG" conclusions
-\end{itemize}
-
-\subsection{Thermal Optimization}\label{thermal-optimization}
-
-hello world.
-
-This section describes thermal optimization.
-
-\begin{itemize}
-\tightlist
-\item
-  Background
-\item
-  Idle flush off \& it\textquotesingle s stability
-\item
-  impact on other parameters
-\end{itemize}
 
 \section{Characterization \& Camera
 stability}\label{characterization-camera-stability}
@@ -1109,10 +1389,32 @@ correlation}\label{brighter-fatter-correlation-1}
 \paragraph{Dark defects}\label{dark-defects-2}
 
 \subsubsection{Persistence}\label{persistence-2}
-
+hello world!
 \subsubsection{Differences from previous
 runs}\label{differences-from-previous-runs-2}
 
+\subsection{Changes in the dead amplifiers}\label{deadamplifiers}
+
+\subsection{Full well measurements}\label{fullwell}
+
+\subsection{Non-linearity studies}\label{nonlinearity}
+PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, from an integrating sphere fed by various LEDs, that  illuminates the focal plane. In order to cover the dynamics of science images pas saturation, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure non-linearity by mapping the CCD response on the signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. In order to avoid any shortcomings of the picoammeter nonlinearity, we only compare photodiode signals of the same amplitude but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
+
+For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction, and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
+
+Technically, we model the non-linearity using a spline function, that we fit to the CCD/photodiode data pairs by minimizing:
+\begin{equation}
+Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2
+\label{eq:nonlin0}
+\end{equation}
+where $sum_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
+$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the "photodiode factor" for current $i$, S is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints : the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically: $w_{ij} = 1/\sqrt(c^2+v^2/m_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
+\begin{equation}
+Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} Log(w_{ij})
+\label{eq:nonlin0}
+\end{equation}
+We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\tilde$0.5 \% of the data points.  
+We are firstly interested in the spline correction, and we give an example in the following figure:
 \subsection{Guider operation}\label{guider-operation}
 
 hello world.
@@ -1306,9 +1608,30 @@ This section describes gain stability.
 
 \subsection{Tree rings}\label{tree-rings}
 
-hello world.
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/TR_centers.png}
+\end{centering}
+\caption{The center of the Tree Rings were measured for all 189 LSST sensors. Red point indicates the average center on each direction.}
+\end{figure}
 
-This section describes tree rings.
+Radial study for Tree rings pattern has been done to see if the rings are perfectly circular in shape. 
+
+This is the image of transforming the flat image into the radial image as the y axis to be the distance from the center of the rings. 
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/TR_subtraction.png}
+\end{centering}
+\caption{Folding image on diagonal line from the center of the ring, and subtracting from each other.}
+\end{figure}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/TR_radial.png}
+\end{centering}
+\caption{Radial study of the Tree Rings. Right: image subtracting left to right, right to left.}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -1438,363 +1761,75 @@ vampires}\label{current-models-of-vampires}
   Others?
 \end{itemize}
 
-\subsection{Improved Clear}\label{improved-clear}
 
-\subsubsection{Overview}\label{overview}
 
-In this section we will describe the work done during Run 7 to improve
-the image clear prior to collect a new exposure.
+\subsection{Phosphorescence}\label{phosphorescence}
 
-The problem we wanted to address is the presence of residual charges in
-the first lines read for image taken just after the clear of a saturated
-image. These "hard to clear" charges , are associated to highly
-saturated flat or column(s) (or stars as observed in AuxTel or ComCam),
-that leave signal in the first lines of the following exposure. We have
-the following signature of the effect:
+The Run7 persistence optimization process (cf. \S\ref{persistence-2}XX) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effect by reducing their clock swing voltages from 9.3 down to 8.0 volts, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
 
+The ITL sensors with the largest memory effect were evaluated, and the following observations were made:
 \begin{itemize}
-\item
-  in all ITL CCD (except in R01\phantomsection\label{s10}{S10} for which
-  the effect is much more significant and that will be addressed later
-  in this section):
-
-  \begin{quote}
-  the first CCD line of an exposure read after an image with saturated
-  overscan, is close to saturation and in most of the case there is also
-  a small left over signal in the 2nd line read.
-  \end{quote}
-\item
-  in e2v CCD:
-
-  \begin{quote}
-  the effect is slightly amplifier dependent, still, like in ITL, the
-  first line read in an exposure following an exposure with saturated
-  overscan, is close to saturation, and a significant signal is visible
-  in the following 20-50 lines. (
-  \texttt{see\ left\ plots\ of\ clear\ e2v\ image\textless{}fig-image-e2vclear\textgreater{}})
-  \end{quote}
+    \item[1.] The morphology of the expressed memory effect in the first dark image acquired after the trigger (the saturation flat) was reminiscent of the {\it ``coffee stains''} seen on the same sensors in flat field response, but with the opposite polarity. The ``coffee stains'' are commonly assumed to be associated with minor, localized variations in the sensors' antireflective coatings or perhaps a very thin, dead layer associated with the backside surface: they tend to be larger in amplitude when shorter wavelengths are used to expose the sensors with flat field illumination.
+    \item[2.] The timescale with which the memory effect attenuates, is curiously comparable to the timescales that were seen in the persistence suffered by the e2v sensors (which were allegedly due to exposure of surface states by the collected conversions, on the seniconductor-insulator interface on the front side): exponential time constants of between 20 and 40 seconds, which unfortunately are in turn very close to the nominal exposure cadence for Rubin's Survey.
+    \item[3.] The similarity in memory effect time constants (de-trapping charges from surface states near the channel on the front side -- the e2v case -- vs. either de-trapping of charges located near the backside window surface or relaxation by photon emission by some excited states there -- the ITL case) can be thought to favor the electron de-trapping mechanism, just from the other surface. Otherwise, the nearly matched time constants would have to be seen as an improbable coincidence.
+    \item[4.] A list of 12 ITL sensor serial numbers corresponding to those showing the memory effect was communicated to Mike Lesser at ITL. The list of parts shared certain properties according to his notes, and led him to develop a placeholder theory that would partially explain the mechanism. If true, it could explain what might be responsible for both the coffee stains and the memory effect with similar spatial distribution. He wrote that he tried, but was unsuccessful in diagnosing, using optical characterization tools (e.g. ellipsometer), any changes in optical constants on the affected regions of the ``stained'' sensors. The origin of the ``stains'', according to this theory, are primarily a byproduct of there being ``raised spots'' on the sensor's backside surface that survive the final silicon acid etch. The raised silicon areas could potentially be trapping ITL's resist during the cleaning process that directly follows the etching step. Lesser wrote that the resist is wax-based and {\it does} fluoresce. If the theory is correct, he suggests that the medium would definitely be located {\it under} the AR coating and related neither to the coating nor the oxidation processes.
+    \item[5.] Discussions among the Rubin team led to the following distinction of terminology that served to name the ITL memory effect in question. We heard that main difference between ``fluorescence'' and ``phosphorescence'' in that the former is considered prompt re-emission and the later could re-emit following a finite characteristic time constant. Characteristic time constants are in the nanosecond scale for fluorescence, while for phosphorescence it would be in the milliseconds to seconds range. For the purpose of this discussion, we adopt the word ``phosphorescence'' to refer to the memory effect presence in ITL sensors.
+    \item[6.] Mike Lesser mentioned that the wax-based resist fluoresces (that would be the prompt mechanism with very short relaxation time). If there is any such residual material between the coating and the passivated silicon, it would be natural to expect a halo that would accompany any sharp PSF image that passes through these ``stains'' on the sensor surface: a scatter term with low integrated amplitude, whose scale should depend upon the re-emission wavelength. This has not yet been seen in lab data but may appear once the Camera goes on-sky.
+    
+% I highly doubt that they are the resist itself but more likely etch patterns in the silicon itself which could have an effect on scattering and perhaps surface charge. But they could be initially caused by resist issues in during etching process.
+% It’s rather obvious of course, but I checked the notes and device 231 was noted as “stained” during processing (after etching).
+% In the past we did SEM work as well and could never get an answer on composition, thickness, etc.
 \end{itemize}
 
-These left over electrons are not associated to what we usually call
-residual image or persistence. They are suspected to be associated to
-pockets, induced by the electric field configuration in the sensor and
-the field associated to saturated pixels: pocket(s) that survive to a
-clear, will prevent charges to be cleared. A change of the electric
-field (ex: a change in clocks configuration) can remove the pockets, and
-free the charges, allowing them to be cleared. If charges stuck in
-pocket(s) are not removed by a clear, we observed that an image read
-(ex: a bias) will fully remove them: only the first exposure taken after
-an image with saturated overscan is impacted. If the clocks
-configuration used in our standard clear is not able to flush away those
-charges, a standard readout of \textgreater\textasciitilde{} 2000 lines
-does remove them.
+\subsubsection{Measurement techniques for detecting and quantifying phosphorescence}\label{phos-measurement}
+We mentioned above that certain phosphorescent morphologies strongly resemble the ``coffee stains'' seen on the same (ITL) sensors. It should be noted that measurement of the {\it shadow} caused by excess absorption (usually a couple percent) is a great deal simpler than collecting any deferred charge with adequate sensitivity and confidence. This section describes the methods used to identify the transient term we consider phosphorescence in the ITL sensors, and list the regions where it was detected. Following that, we describe in some detail the kinematics of its expression (cherry-picking specific easy-to-measure cases), together with the wavelength- and its excitation flux level dependence.
 
-The localisation of these uncleared electrons in the first lines of the
-CCDs, spots the interface between the image area and the serial register
-as the location for those pockets. For this reason we investigated
-changes in the field configuration of the serial register during the
-clear, to avoid pockets at this image-serial register interface.
+We parasitically used a series of {\it B-protocol} and {\it BOT-persistence} EO testing runs that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby gave us multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15 second integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400000 electrons/pixel). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15 second period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal, instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15 second expression of the deferred signal 300 seconds after overexposure had almost completely attenuated.
 
-\subsubsection{New sequencers}\label{new-sequencers}
-
-To addresse this clear issue, we focussed on updating the serial
-register field as the lines are moved to it. The constrain being that
-the changes introduced should not significantly increase the clear
-execution time. It should be notice that we tried in 2021 a sequencer
-called "Deep Clear" ( \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}}
-) as a first try to address the clear issue: it added one full line
-flush on top of the existing one at the end of the clear. This sequencer
-did improve the clear, still not fully fixing the clear issue ( see
-\texttt{Summary\ table\textless{}table-SummaryClear\textgreater{}}).
-
-In the Run 7, We considered on top of the default clear, 2 new
-configurations. The changes are in the ParallelFlush function, which
-move the charges from the image area to the serial register:
-
-\begin{itemize}
-\tightlist
-\item
-  the default clear (V29): In the default clear, all serial clocks are
-  kept up as the parallel clocks move charges from the image area to the
-  serial register (\hyperref[sequencerV29]{{[}sequencerV29{]}}). The
-  charges once on the serial register will hopefully flow to the ground:
-  the serial register clocks being all up, without pixels boundary, and
-  with its amplifier in clear state. At the end of the clear, a full
-  flush of the serial register is done (\textasciitilde{} the serial
-  clocks changes to read a single line ).
-\item
-  the No-pocket Clear (NoP): a clear where the serial register has the
-  same configuration (S1 \& S2 up, S3 low) when the parallel clock P1
-  moves the charges to the serial register than in a standard image read
-  . Still we keept all phases up the rest of the time for a fast clear
-  of the charges along the serial register
-  (\hyperref[sequencerV29_NoP]{{[}sequencerV29\_NoP{]}}). The idea is
-  that the S3 phase is not designed to be up when charges are transfered
-  to the serail register, and is probably playing a major role in the
-  pockets creation.
-\item
-  The No-pocket with serial flush Clear (NoPSF): this sequencer is close
-  to the NoP solution , except that during the transfered of 1 line to
-  the serial register, the serial phases are also moved to transfer two
-  pixels along teh serial register. The changes in electric field at the
-  image-serial register interface are then even more representative to
-  what a standard read will produce, and should further prevent the
-  creation of pockets.
-  (\hyperref[sequencerV29_NoPSF]{{[}sequencerV29\_NoPSF{]}}).
-\end{itemize}
-
-\subsubsection{Results on standard e2v and itl
-CCD}\label{results-on-standard-e2v-and-itl-ccd}
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/plots_R12_S20_C15_E1880_bias_2024103000303.png}
-\end{centering}
-\end{figure}
-
-\emph{Figure showing the impact of the various types of clear on a bias
-taken after a saturated flat for an E2V sensor.}
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/plots_R03_S11_C14_E1812_bias_2024102800352.png}
-\end{centering}
-\end{figure}
-
-\emph{Figure showing the impact of the various types of clear on a bias
-taken after a saturated flat for an ITL sensor.}
-
-In the above images, we present for 3 types of sequencer (from left to
-right: V29, NoP and NopSF), a zoom on the first lines of an itl or e2v
-amplifier (for itl R03\phantomsection\label{s11}{S11} C14 and for e2v
-R12\phantomsection\label{s20}{S20} C10 ) shown as a 2D lines-columns
-image (top plots) or as the mean signal per line for the first lines
-read of an amplifier (bottom plots).
-
-As seen in
-\texttt{see\ left\ plots\ of\ clear\ e2v\ image\textless{}fig-image-e2vclear\textgreater{}}
-for an e2v CCD, a bias taken just after a saturated flat will show a
-residual signal in the first lines read when using the default clear
-(left images,clear=v29): the first line has an almost saturated signal
-(\textasciitilde{} 100 kADU here), and a significant signal is seen up
-to the line \textasciitilde50. In practice, in function of the
-amplifier, signal can be seen up to line 20-50. When using the NoP clear
-(central plots), we can already see a strong reduction of the uncleared
-charges in the first acquired bias after a saturated flat, still a small
-residual signal is visible in the first \textasciitilde20 lines. The
-NoPSF clear (right plots) fully clear the saturated flat, and no
-uncleared charges are observed in the following bias.
-
-As seen in
-\texttt{see\ left\ plots\ of\ clear\ itl\ image\textless{}fig-image-itlclear\textgreater{}}
-for an itl CCD, a bias taken just after a saturated flat will show a
-residual signal in the first lines read when using the default clear
-(left images,clear=v29) : the first line has an almost saturated signal
-(\textasciitilde{} 100 kADU here), and a significant signal is seen in
-the following line. Both NoP clear (central plots) and NoPSF clear
-(right plots) fully clear the saturated flat, and no uncleared charges
-are observed in the following bias.
-
-\subsubsection[Results on itl R01]{\texorpdfstring{Results on itl
-R01\protect\hypertarget{s10}{}{S10}}{Results on itl R01S10}}\label{results-on-itl-r01s10}
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/Clear_R01_S10.png}
-\end{centering}
-\end{figure}
-
-\emph{Figure showing the impact of the various types of clear on ITL
-R01\_S10 after a saturated flat (bias after a saturated flat), from left
-to right: 1 standard Clear, 3 standard Clear, 5 standard Clear, 1 NoP
-Clear, 1 NoPSF Clear}
-
-There is one ITL sensor, R01\phantomsection\label{s10}{S10}, that
-presents a specific and non-understood behavior:
-
-\begin{itemize}
-\tightlist
-\item
-  It has a quite low full well (2/3 of nominal)
-\item
-  The 3 CCD of this REB have a gain 20\% lower than all other ITL CCD?
-\item
-  The images taken after a large staturation, as seen in figure
-  \texttt{clear\ in\ itl\ R01\_S10\ \textless{}fig-image-itlR01\_S10clear\textgreater{}},
-  show a large amount of uncleared charged (with the standard clear: 4
-  amplifiers with \textasciitilde500 lines of saturated signal!)
-\end{itemize}
-
-It apears that putting S3 low during the clear as done in NoP or NoPSF,
-is even worse than a standard clear. This is strange as a full frame
-read, which does this too, manages to clear such image. We can notice
-that NoPSF is \textasciitilde50\% better than NoP, but still worse than
-the standard clear, in particular for the 12 amplifiers almost correct
-with the standard clear.
-
-At this stage we don\textquotesingle t have a correct way to clear this
-sensor once it collects a saturated flat, but It\textquotesingle s not
-known if a saturated star in this sensor, leaving signal in the
-parallele overscan, will presents the same clear issue.
-
-\subsubsection{Conclusion}\label{conclusion}
-
-\begin{quote}
-\end{quote}
+Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures YY through ZZ display the transient term in 8x8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 1x1 pixel resolution images for follow-up inspection, because there is no guarantee that the phosphorescence we see varies slowly with position.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.2172}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1162}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1111}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1162}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1212}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1212}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1717}}@{}}
-\caption{\emph{This table summaries the different clear methods used so
-far.}}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3472}}@{}}
+\caption{Zephyr Scale E-numbers and corresponding SeqIDs analyzed to estimate phosphorescence in ITL sensors}
+\label{phosphorescence:datasets}\\
+%\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Default Clear 1 Clear (seq. V29)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Multi Clear 3 Clears (seq. V29)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Multi Clear 5 Clears (seq. V29 )
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Deep Clear 1 Clear (Seq. V23 DC)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-No Pocket(NoP) 1 Clear (seq. V29\phantomsection\label{nop}{NoP})
+Detector type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \begin{quote}
-No Pocket Serial Flush(NoPSF) 1 Clear ( seq.
-V29\phantomsection\label{nopsf}{NoPSF}, V30 )
+File name
 \end{quote}
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Default Clear 1 Clear (seq. V29)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Multi Clear 3 Clears (seq. V29)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Multi Clear 5 Clears (seq. V29 )
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Deep Clear 1 Clear (Seq. V23 DC)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-No Pocket(NoP) 1 Clear (seq. V29\phantomsection\label{nop}{NoP})
+Detector type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \begin{quote}
-No Pocket Serial Flush(NoPSF) 1 Clear ( seq.
-V29\phantomsection\label{nopsf}{NoPSF}, V30 )
+File name
 \end{quote}
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Clear duration & 65.5 ms & 196.5 ms & 327.4 ms &
 \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
-64.69 ms
+E2V
 \end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-65.8 ms
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-67 ms
-\end{quote}
-\end{minipage} \\
-"E2V" after saturated Flat & 1st line saturated signal up to line 50 &
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
-\end{minipage} & 1st line saturated signal up to line \textless20 &
-signal up to line 20 & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
-\end{minipage} \\
-"ITL" after saturated Flat & 1st line saturated signal up to 2nd line &
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
-\end{minipage} & tiny signal left in the first line &
+\end{minipage} &
+FP\phantomsection\label{e2v_2s_l3cp_v30.seq}{E2V\_2s\_l3cp\_v30.seq} \\
 \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
+ITL
 \end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{description}
-\item[No residual]
-electrons
-\end{description}
-\end{minipage} \\
-R01\phantomsection\label{s10}{S10} ITL "unique" & first 500 lines
-saturated for 4 amp. 13 amp. with signals. & first 150 lines saturated
-for 2 amp. 5 amp. with signals. & first 100 lines saturated for 2 amp. 2
-amp. impacted & not measured & first 1000 lines saturated for 16 amp. 16
-amp. with signals. & first 750 lines saturated for 16 amp. 16 amp. with
-signals. \\
+\end{minipage} &
+FP\phantomsection\label{itl_2s_l3cp_v30.seq}{ITL\_2s\_l3cp\_v30.seq} \\
 \end{longtable}
 
-Even if NoP or NoPSF are overcoming the clear issue we had with ITL
-sensors, the exception of R01\phantomsection\label{s10}{S10} prevented
-the usage of those sequencers for ITL device for the Run 7. Notice that
-beyond R01\phantomsection\label{s10}{S10} the numbers of line potencilly
-"not cleared" are small (2 first lines) in ITL device, and they
-correspond to a CCD area hard to use anyway (sensor edges with low
-efficciency). So at this stage the default clear is still our default
-for ITL, and further studies to overcome the problem with
-R01\phantomsection\label{s10}{S10} are forseen (ex: do a continuous
-serial flush during exposure at low rate, 10\^{}6 pixels flush in 15s).
-
-\begin{quote}
-On the other side, after those studies in Run 7, we now have a good way
-to fully clear the e2v devices through the NopSF clear. The NoPSF clear
-grants that the first 50 lines of e2v device that had un-cleared
-electrons from the previous exposure, are now free of such
-contamination.
-\end{quote}
-
-From now:
-
-\begin{itemize}
-\tightlist
-\item
-  for e2v, NoPSF will be the default clear method
-\item
-  for ITL, the origial clear (serial phase 3 always), slightly extended
-  in time to match the NoPSF e2v clear execution time, will stay the
-  default method.
-\end{itemize}
-
-\subsection{Phosphorescence}\label{phosphorescence}
-
-hello world.
-
-This section describes phosphorescence.
 
 \begin{itemize}
 \tightlist
@@ -2191,3 +2226,10 @@ biases with the darks \\
 7/FP\phantomsection\label{e2v_2s_l3cp_v29_nopsf.seq}{E2V\_2s\_l3cp\_v29\_NopSf.seq}
 \end{description}
 
+\appendix
+\section{FCS work}
+
+\section{CCS work}
+\subsection{JGroups issue}
+
+\section{OCS integration}
