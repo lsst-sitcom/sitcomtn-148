@@ -1237,7 +1237,7 @@ This investigation comes from an analogy drawn with the ITL sequencer file. Alth
 
 IDLE\_FLUSH is one of the main settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue—a 2D structure of elevated signal near an amplifier corner observed in e2v's bias or dark exposures for certain amplifiers (see details in \hyperref[U2024]{{[}U2024{]}}).
 
-However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption—more than 50W—between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2\degree C between periods of image acquisition and idle periods (Figure~\ref{IdleFlushEffect}).
+However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption—more than 50W—between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 degree C between periods of image acquisition and idle periods (Figure~\ref{IdleFlushEffect}).
 
 \begin{figure}
 \begin{centering}
@@ -1791,7 +1791,7 @@ Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2222}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3472}}@{}}
-\caption{Zephyr Scale E-numbers and corresponding SeqIDs analyzed to estimate phosphorescence in ITL sensors}
+\caption{Zephyr Scale E-numbers and corresponding SeqIDs analyzed to estimate phosphorescence in the 88 ITL sensors}
 \label{phosphorescence:datasets}\\
 %\tabularnewline
 \toprule\noalign{}
