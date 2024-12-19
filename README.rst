@@ -23,19 +23,7 @@ SITCOMTN-148
 Build this technical note
 =========================
 
-You can clone this repository and build the technote locally if your system has Python 3.11 or later:
-
-.. code-block:: bash
-
-   git clone https://github.com/lsst-sitcom/sitcomtn-148
-   cd sitcomtn-148
-   make init
-   make html
-
-Repeat the ``make html`` command to rebuild the technote after making changes.
-If you need to delete any intermediate files for a clean build, run ``make clean``.
-
-The built technote is located at ``_build/html/index.html``.
+Refer this: https://developer.lsst.io/project-docs/technotes.html
 
 Publishing changes to the web
 =============================
