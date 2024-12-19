@@ -1408,12 +1408,12 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 \label{eq:nonlin0}
 \end{equation}
 where $sum_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
-$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the "photodiode factor" for current $i$, S is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints : the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically: $w_{ij} = 1/\sqrt(c^2+v^2/m_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
+$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the "photodiode factor" for current $i$, S is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints : the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically: $w_{ij} = 1/\sqrt(c^2+v^2/m_{ij}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
 \begin{equation}
 Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} Log(w_{ij})
 \label{eq:nonlin0}
 \end{equation}
-We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\tilde$0.5 \% of the data points.  
+We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points.  
 We are firstly interested in the spline correction, and we give an example in the following figure:
 \subsection{Guider operation}\label{guider-operation}
 
@@ -1796,10 +1796,10 @@ Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according 
 %\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Detector type
+Run type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \begin{quote}
-File name
+First dark following trigger exposure
 \end{quote}
 \end{minipage} \\
 \midrule\noalign{}
