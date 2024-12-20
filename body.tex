@@ -1,3 +1,6 @@
+
+
+
 \section{Electro-optical setup}\label{electro-optical-setup}
 
 \subsection{Run 7 Optical modifications}\label{run-7-optical-modifications}
@@ -15,14 +18,10 @@ dark environment as seen below.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{cc}
-    % 左側の画像（幅を調整）
-    \includegraphics[width=0.45\textwidth]{sections/figures/Camera_Shroud.jpg} &
-    % 右側の画像（幅を調整）
-    \includegraphics[width=0.45\textwidth]{sections/figures/CCOB_Wide_Shroud.jpg} \\
+    \includegraphics[width=0.6\textwidth]{sections/figures/Camera_Shroud.jpg} &
+    \includegraphics[width=0.35\textwidth]{sections/figures/CCOB_Wide_Shroud.jpg} \\
 \end{tabular}
-
-\caption{Final shroud configuration of LSSTCam in Level 3 to reduce light leaks.}
-\caption*{CCOB Wide Beam attached to the cone and shrouded.}
+\caption{(left) Final shroud configuration of LSSTCam in Level 3 to reduce light leaks. (right) CCOB Wide Beam attached to the cone and shrouded.}
 \end{table}
 
 This allowed us to operate on Level 3 with a dark current of
@@ -144,7 +143,7 @@ we could see between L1 and its cover.
 \caption{}
 \end{figure}
 
-Once these were sealed, we took some intital measurements and then
+Once these were sealed, we took some initial measurements and then
 started to cover the camera body with shroud. We also found light leaks
 where the light cone attached to L1 was housed, and from the utility
 trunk. Below is the table of observations, their corressponding dark
@@ -826,30 +825,27 @@ The figure shows the distinct pattern of elevated signal associated with
 the vendor. The inner part of the focal plane is filled by e2v sensors
 which have the persistence signal.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E1110dp93.png}
-\end{centering}
-\caption{The first dark exposure after a 400k flat image under the
-parallel swing of 9.3V (Run E1110).}
-\end{figure}
-
-The next figure shows the same dark exposure but taken with the narrow
+The right figure shows the same dark exposure but taken with the narrow
 parallel swing voltage of 8.0V. The distinct pattern goes away. This
 demonstrates the persistence in e2v sensors becomes the level of
-ITL\textquotesingle s ones.
+ITL' s ones.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E1880dp80.png}
-\end{centering}
-\caption{The first dark exposure after a 400k flat image under the
-parallel swing of 8.0V (Run E1880). The figure shows no distinct
-patterns from persistence in e2v sensors anymore. Note that the guider
-sensors were not displayed here because they were in the guider mode.
-Also some of residuals in ITL caused by defects disappeared because of
-the employment of the new sequencer file (v30).}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{sections/figures/E1110dp93.png}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{sections/figures/E1880dp80.png}
+\end{minipage}
+\caption{Comparison of dark exposures under different parallel swings.: (left) The first dark exposure after a 400k flat image under the parallel swing of 9.3V (Run E1110); (right) The first dark exposure after a 400k flat image under the parallel swing of 8.0V (Run E1880). The figure shows no distinct patterns from persistence in e2v sensors anymore. Note that the guider sensors were not displayed here because they were in the guider mode. Also some of residuals in ITL caused by defects disappeared because of the employment of the new sequencer file (v30).}
 \end{figure}
+
+
 
 \subsubsection{Impact on full-well}\label{impact-on-full-well}
 
@@ -1130,7 +1126,7 @@ presents a specific and non-understood behavior:
   amplifiers with \textasciitilde500 lines of saturated signal!)
 \end{itemize}
 
-It apears that putting S3 low during the clear as done in NoP or NoPSF,
+It appears that putting S3 low during the clear as done in NoP or NoPSF,
 is even worse than a standard clear. This is strange as a full frame
 read, which does this too, manages to clear such image. We can notice
 that NoPSF is \textasciitilde50\% better than NoP, but still worse than
@@ -1225,7 +1221,7 @@ From now:
 \item
   for e2v, NoPSF will be the default clear method
 \item
-  for ITL, the origial clear (serial phase 3 always), slightly extended
+  for ITL, the original clear (serial phase 3 always), slightly extended
   in time to match the NoPSF e2v clear execution time, will stay the
   default method.
 \end{itemize}
@@ -1249,12 +1245,11 @@ However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tea
 This temperature variation in the focal plane can lead to changes in the REB temperature, potentially causing gain variations or instability in the bias. Based on these considerations, we decided to disable IDLE\_FLUSH. The impact of this change on bias stability is discussed in Sections~\ref{bias-stability-2} and~\ref{gain-stability-2}.
 
 \subsection{Summary}\label{summary}
-E2V sensors had persistence. We confirmed changing the E2V CCD operating
-voltage greatly reduced persistence. As penalties, we observed 22\% of
+E2V sensors had persistence. We confirmed narrowing parallel swing voltage of the E2V CCD operation greatly reduced persistence. As penalties, we observed 22\% of
 full well reduction, and a \textasciitilde10\% increase of the
 brightter-fatter effect, essentially in an isotropic way.
 
-We developed v30 sequencer files that have functionality build in and an improved clear of No Pocket Serial Flush.
+We developed v30 sequencer files that have guider functionality build in and an improved clear of No Pocket Serial Flush.
 
 We also disabled IDLE\_FLUSH to improve the thermal situation.
 
@@ -1398,7 +1393,7 @@ runs}\label{differences-from-previous-runs-2}
 \subsection{Full well measurements}\label{fullwell}
 
 \subsection{Non-linearity studies}\label{nonlinearity}
-PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, from an integrating sphere fed by various LEDs, that  illuminates the focal plane. In order to cover the dynamics of science images pas saturation, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure non-linearity by mapping the CCD response on the signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. In order to avoid any shortcomings of the picoammeter nonlinearity, we only compare photodiode signals of the same amplitude but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
+PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, from an integrating sphere fed by various LEDs, that  illuminates the focal plane. In order to cover the dynamics of science images pas saturation, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure non-linearity by mapping the CCD response on the signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. In order to avoid any shortcomings from the picoammeter nonlinearity, we only compare photodiode signals of the same amplitude but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
 
 For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction, and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
 
@@ -1407,14 +1402,25 @@ Technically, we model the non-linearity using a spline function, that we fit to 
 Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2
 \label{eq:nonlin0}
 \end{equation}
-where $sum_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
+where $Q_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
 $D_{ij}$ is the corresponding photodiode signal, $f_i$ is the "photodiode factor" for current $i$, S is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints : the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically: $w_{ij} = 1/\sqrt(c^2+v^2/m_{ij}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
 \begin{equation}
 Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} Log(w_{ij})
-\label{eq:nonlin0}
+\label{eq:nonlin1}
 \end{equation}
 We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points.  
-We are firstly interested in the spline correction, and we give an example in the following figure:
+We are firstly interested in the spline correction, and we give an example in fig. \ref{fig:nonlin_model}.
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/E2016_nonlin_model.png}
+\end{centering}
+\caption{Fitted non-linearity spline for the 16 channels of R22_S11 (using the PTC run E2016). The distortion around 60000 ADUs is due to the preamplifier. The curve obtained for the same sensor from an other data set are extremely similar. \label{fig:nonlin_model}}
+
+
+\end{figure}
+
+
+
 \subsection{Guider operation}\label{guider-operation}
 
 hello world.
@@ -1786,50 +1792,70 @@ We mentioned above that certain phosphorescent morphologies strongly resemble th
 
 We parasitically used a series of {\it B-protocol} and {\it BOT-persistence} EO testing runs that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby gave us multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15 second integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400000 electrons/pixel). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15 second period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal, instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15 second expression of the deferred signal 300 seconds after overexposure had almost completely attenuated.
 
-Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures YY through ZZ display the transient term in 8x8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 1x1 pixel resolution images for follow-up inspection, because there is no guarantee that the phosphorescence we see varies slowly with position.
+Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8x8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 1x1 pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by rebinning for display purposes.
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2222}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3472}}@{}}
-\caption{Zephyr Scale E-numbers and corresponding SeqIDs analyzed to estimate phosphorescence in the 88 ITL sensors}
-\label{phosphorescence:datasets}\\
-%\tabularnewline
+\begin{center}
+\begin{longtable}{lll}
+\caption{Zephyr Scale E-numbers and corresponding SeqIDs analyzed to estimate phosphorescence in the 88 ITL sensors.} \label{phosphorescence:datasets} \\
+%\hline 
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Run type
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\begin{quote}
-First dark following trigger exposure
-\end{quote}
-\end{minipage} \\
+%\multicolumn{1}{c}{\textbf{Run Type}} & 
+\multicolumn{3}{c}{\textbf{Run numbers and SeqIDs of first dark following trigger}} \\
+%\multicolumn{1}{c}{\textbf{Third column}} \\ 
+%\hline 
 \midrule\noalign{}
 \endfirsthead
+
+\multicolumn{3}{c}%
+{{\tablename\ \thetable{} -- continued from previous page}} \\
+%\hline 
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Detector type
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\begin{quote}
-File name
-\end{quote}
-\end{minipage} \\
+%\multicolumn{1}{c}{\textbf{Run Type}} & 
+\multicolumn{3}{c}{\textbf{Run numbers and SeqIDs of first dark following trigger}} \\
+%\hline 
 \midrule\noalign{}
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E2V
-\end{quote}
-\end{minipage} &
-FP\phantomsection\label{e2v_2s_l3cp_v30.seq}{E2V\_2s\_l3cp\_v30.seq} \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-ITL
-\end{quote}
-\end{minipage} &
-FP\phantomsection\label{itl_2s_l3cp_v30.seq}{ITL\_2s\_l3cp\_v30.seq} \\
-\end{longtable}
 
+%\hline 
+\midrule\noalign{}
+\multicolumn{3}{r}{{Continued on next page}} \\ 
+%\hline
+\bottomrule\noalign{}
+\endfoot
+
+\hline \hline
+\endlastfoot
+\midrule\noalign{}
+\multicolumn{3}{c}{B-protocol runs, HVBias {\it off}, HVBias {\it on} for Corners}\\
+\midrule\noalign{}
+E1003:20240920\_000056&E1009:20240921\_000222&E1003:20240920\_000056\\
+\midrule\noalign{}
+\multicolumn{3}{c}{B-protocol runs, HVBias {\it on}}\\
+\midrule\noalign{}
+E1071:20240924\_000300&E1110:20240926\_000242&E1144:20240927\_000369\\
+E1146:20240928\_001525&E1195:20241002\_000235&E1245:20241003\_000245\\
+E1290:20241008\_000286&E1329:20241011\_001555&E1363:20241012\_000546\\
+E1392:20241014\_000444&E1396:20241014\_000701&E1411:20241015\_000322\\
+E1419:20241016\_000397&E1429:20241016\_000742&E1449:20241017\_000548\\
+E1497:20241020\_000225&E1812:20241028\_000481&E1880:20241030\_000432\\
+E2233:20241108\_001468&E3380:20241130\_000355\\
+\end{longtable}
+\end{center}
+
+
+\begin{figure}
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.95\linewidth]{sections/figures/phosphorescence-survey/stains_phos.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{sections/figures/phosphorescence-survey/stains_abs.png}
+\end{minipage}
+\caption{R00\_SW1 image showing phosphorescence (top) with morphology similar to the ``coffee stains'' (bottom) observed with {\it blue} CCOB LED illumination. The phosphorescence acquired in dark exposures within the first 15 seconds following trigger (top) uses a logarithmic stretch with limits 5 to 25 electrons/pixel. The {\it blue} flat field (bottom) is displayed normalized, with 4\% stretch limits (0.97 to 1.01), for target a signal level of 1E4 electrons per pixel. Note that the phosphorescence pattern resembles the dark wisps in the flat (with opposite polarity) but that there are apparently no significant phosphorescence features corresponding to the bright wisps.}
+\label{fig:phos:stains}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -2227,9 +2253,96 @@ biases with the darks \\
 \end{description}
 
 \appendix
+
 \section{FCS work}
 
 \section{CCS work}
 \subsection{JGroups issue}
 
 \section{OCS integration}
+
+\section{Phosphorescence identification on ITL set of sensors}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R00_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R00 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R00}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R01_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R01 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R01}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R02_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R02 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R02}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R03_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R03 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R03}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R04_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R04 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R04}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R10_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R10 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R10}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R20_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R20 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R20}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R40_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R40 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R40}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R41_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R41 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R41}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R42_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R42 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R42}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R43_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R43 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R43}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R44_0-19_rb1_log.png}
+\caption{Phosphorescence transients for the R44 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
+\label{fig:phos:R44}
+\end{figure}
