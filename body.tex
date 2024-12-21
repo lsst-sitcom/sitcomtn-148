@@ -1613,6 +1613,10 @@ This section describes gain stability.
 \section{Sensor features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
+\subsubsection{Center of the Tree Ring}
+So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, however now we have new data with 0 V of back bias voltage, we wanted to make sure if the error in center of the ring position is small enough and if we need to use individual center position for each sensor. 
+
+This is the position of Tree ring center measured for the 189 sensors. We decided to use center of each sensor instead of the average value. 
 
 \begin{figure}
 \begin{centering}
@@ -1621,6 +1625,7 @@ This section describes gain stability.
 \caption{The center of the Tree Rings were measured for all 189 LSST sensors. Red point indicates the average center on each direction.}
 \end{figure}
 
+\subsubsection{Radial study}
 Radial study for Tree rings pattern has been done to see if the rings are perfectly circular in shape. 
 
 This is the image of transforming the flat image into the radial image as the y axis to be the distance from the center of the rings. 
@@ -1639,13 +1644,30 @@ This is the image of transforming the flat image into the radial image as the y 
 \caption{Radial study of the Tree Rings. Right: image subtracting left to right, right to left.}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Tree rings without diffuser
-\item
-  Tree rings with diffuser
-\end{itemize}
+\subsubsection{Effect of diffuser}
+We expect with diffser installed, there will be less contribution from other effects such as CMB and weather patterns. Comparing R22-S12 of the run 13379 (without diffuser) with E937 (with diffuser), we could check significant improvement from the diffuser.
+\paragraph{Tree rings without diffuser}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/TR_wo_diffuser.png}
+\end{centering}
+\caption{Tree ring without diffuser}
+\end{figure}
+
+\paragraph{Tree rings with diffuser}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/TR_w_diffuser.png}
+\end{centering}
+\caption{Tree ring with diffuser}
+\end{figure}
+
+
+\subsubsection{Voltage dependency}
+\subsubsection{Wavelength dependency}
+
 
 \subsection{ITL Dips}\label{itl-dips}
 
@@ -1792,7 +1814,11 @@ We mentioned above that certain phosphorescent morphologies strongly resemble th
 
 We parasitically used a series of {\it B-protocol} and {\it BOT-persistence} EO testing runs that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby gave us multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15 second integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400000 electrons/pixel). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15 second period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal, instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15 second expression of the deferred signal 300 seconds after overexposure had almost completely attenuated.
 
+\subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
+
 Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8x8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 1x1 pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by rebinning for display purposes.
+
+A subset of the 88 sensors, specifically those that either show high signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination, in Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20} in the Appendix. 
 
 \begin{center}
 \begin{longtable}{lll}
@@ -1841,6 +1867,7 @@ E1497:20241020\_000225&E1812:20241028\_000481&E1880:20241030\_000432\\
 E2233:20241108\_001468&E3380:20241130\_000355\\
 \end{longtable}
 \end{center}
+
 
 
 \begin{figure}
@@ -2263,86 +2290,178 @@ biases with the darks \\
 
 \section{Phosphorescence identification on ITL set of sensors}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R00_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R00 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R00}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R01_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R01 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R01}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R02_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R02 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R02}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R03_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R03 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R03}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R04_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R04 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R04}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R10_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R10 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R10}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R20_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R20 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R20}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R40_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R40 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R40}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R41_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R41 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R41}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R42_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R42 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R42}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R43_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R43 RTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R43}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{sections/figures/phosphorescence-survey/itl_fluor_R44_0-19_rb1_log.png}
 \caption{Phosphorescence transients for the R44 CRTM captured in first 15 seconds following {\it red} CCOB LED at 400000 e-/pix. With 8x8 blocking, the upper end of the color scale (640) corresponds to 10 electrons per pixel when averaged over 64 pixels contributing.}
 \label{fig:phos:R44}
+\end{figure}
+
+\section{Phosphorescence morphological comparisons with features seen in {\it blue} flat field response}
+
+The following images (Figures~\ref{fig:phos:stains:R01S20} through \ref{fig:phos:stains:R43S20}) are an incomplete selection of ITL sensors with phosphorescence. They compare between expressed phosphorescence (transient term) and the {\it blue} CCOB LED flat response.
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_phos_R01_S00.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_abs_R01_S00.png}
+\end{minipage}
+\caption{The ITL sensor R01\_S00. Top: the transient phosphorescence term. Bottom: the {\it blue} flat response. The large, extended spot appears to be centered on a {\it vampire pixel}, which also expresses a large amplitude of phosphorescence, which emits enough current to contaminate the parallel overscan in at least the first 15s exposure following trigger. The flat response feature has opposite polarity from the phosphorescence.}
+\label{fig:phos:stains:R01S00}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_phos_R02_S02.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_abs_R02_S02.png}
+\end{minipage}
+\caption{The ITL sensor R02\_S02. Top: the transient phosphorescence term. Bottom: the {\it blue} flat response. The {\it coffee stain} feature in the flat response has the same polarity as the phosphorescence. A phosphorescent {\it vampire pixel} is seen in segment R02\_S02\_C07.}
+\label{fig:phos:stains:R02S02}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_phos_R02_S12.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_abs_R02_S12.png}
+\end{minipage}
+\caption{The ITL sensor R02\_S12. Top: the transient phosphorescence term. Bottom: the {\it blue} flat response. Generally the polarity of the phosphorescence matches that of the {\it coffee stain} in the flat field response, but exceptions include the {\it vampire pixel} seen in segment R02\_S12\_C05.}
+\label{fig:phos:stains:R02S12}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_phos_R03_S10.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_abs_R03_S10.png}
+\end{minipage}
+\caption{The ITL sensor R03\_S10, detail of the {\it vampire pixel} of R03\_S10\_C15. Top: the transient phosphorescence term. Bottom: the {\it blue} flat response. As in previous examples, this {\it vampire pixel}'s transient term is large enough to contaminate the parallel overscan even after the first 15 seconds following trigger.}
+\label{fig:phos:stains:R03S10}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_phos_R43_S11.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_abs_R43_S11.png}
+\end{minipage}
+\caption{The ITL sensor R43\_S11. Top: the transient phosphorescence term. Bottom: the {\it blue} flat response. This sensor appears to have the largest integrated phosphorescence among ITL sensors studied. The flat response feature has opposite polarity from the phosphorescence.}
+\label{fig:phos:stains:R43S11}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_phos_R43_S20_detail.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{sections/figures/phosphorescence-survey/stains_abs_R43_S20_detail.png}
+\end{minipage}
+\caption{The ITL sensor R43\_S20, segments C00 through C03. Top: the transient phosphorescence term. Bottom: the {\it blue} flat response. This sensor apparently exhibits peculiar radial crazing patterns seen in both phosphorescence as well as in flat field response, but with polarities aligned.}
+\label{fig:phos:stains:R43S20}
 \end{figure}
