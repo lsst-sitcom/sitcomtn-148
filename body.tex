@@ -867,6 +867,8 @@ differences (right) between E1113 (9.3V) vs E1335 (8.0V). The median of
 the reduction is 22\%.}
 \end{figure}
 
+
+
 \subsubsection{Impact on Brighter-Fatter
 effect}\label{impact-on-brighter-fatter-effect}
 
@@ -1237,12 +1239,20 @@ However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tea
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{sections/figures/REB_power_temp6_sept24_to_Oct23.png}
+\includegraphics[width=0.9\textwidth]{sections/figures/REB_power_temp6_sept24_to_Oct23.png}
 \end{centering}
 \caption{Impact of enabling and disabling IDLE\_FLUSH on focal-plane temperature and power consumption.}\label{IdleFlushEffect}
 \end{figure}
 
 This temperature variation in the focal plane can lead to changes in the REB temperature, potentially causing gain variations or instability in the bias. Based on these considerations, we decided to disable IDLE\_FLUSH. The impact of this change on bias stability is discussed in Sections~\ref{bias-stability-2} and~\ref{gain-stability-2}.
+
+Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings. There was a couple of major changes, 1) switching narrower parallel swing voltage, 2) changing the number of clears before the exposure, 3) disabling IDLE\_FLUSH. The major change can be seen when we switched not to run IDLE\_FLUSH at E1429, which brought the overall distribution down. The distributions are consistent after.
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{sections/figures/divisadero.png}
+\end{centering}
+\caption{Impact of enabling and disabling IDLE\_FLUSH on Divisadero tearing}\label{IdleFlushEffect:divisadero}
+\end{figure}
 
 \subsection{Summary}\label{summary}
 E2V sensors had persistence. We confirmed narrowing parallel swing voltage of the E2V CCD operation greatly reduced persistence. As penalties, we observed 22\% of
@@ -1500,70 +1510,128 @@ of the run. Two typical examples from Run E2136 are shown in the figures
 below. In the stable case, the variations are typically at the 0.1 ADU
 level; in the instable case, the variations go up to 4 ADUs.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_R21_S21.png}
-\end{centering}
-\caption{Stable case (R21 S21)}
+\begin{figure}[h]
+\centering
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{sections/figures/E2136_R21_S21.png}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{sections/figures/E2136_R23_S22.png}
+\end{minipage}
+\caption{(left) Stable case (R21 S21); (right) Instable case (R23 S22)}
 \end{figure}
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_R23_S22.png}
-\end{centering}
-\caption{Instable case (R23 S22)}
-\end{figure}
 
 A comparison of the results for an instable CDD is shown below for the
 three runs.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_R33_S02.png}
-\end{centering}
-\caption{Run E2136, R33 S02}
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2136_R33_S02.png}
+    \caption{Run E2136, R33 S02}
+\end{minipage}
+\hspace{0.05\textwidth}
+\begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2236_R33_S02.png}
+    \caption{Run E2236, R33 S02}
+\end{minipage}
+
+\vspace{0.05\textwidth}
+
+\begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2330_R33_S02.png}
+    \caption{Run E2330, R33 S02}
+\end{minipage}
+\hspace{0.05\textwidth}
+\hfill
+\begin{minipage}[b]{0.45\textwidth}
+    \centering
+    % 空白セルとして保持
+\end{minipage}
 \end{figure}
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2236_R33_S02.png}
-\end{centering}
-\caption{Run E2236, R33 S02}
-\end{figure}
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2330_R33_S02.png}
-\end{centering}
-\caption{Run E2330, R33 S02}
-\end{figure}
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2136_R33_S02.png}
+%\end{centering}
+%\caption{Run E2136, R33 S02}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2236_R33_S02.png}
+%\end{centering}
+%\caption{Run E2236, R33 S02}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2330_R33_S02.png}
+%\end{centering}
+%\caption{Run E2330, R33 S02}
+%\end{figure}
 
 In order to highlight the 2D shape differences, a 2D-overscan correction
 is applied. A few exposures illustrating the variations of the 2D shape
 for an instable CCD are shown below. The 2D shape of the image in
 amplifier C01 is different in the 3 cases.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E1880_bias_R33_S02.png}
-\end{centering}
-\caption{Bias exposure, run 1880, R33 S02}
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E1880_bias_R33_S02.png}
+    \caption{Bias exposure, run 1880, R33 S02}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2136_dark15_R33_S02.png}
+    \caption{15-s dark exposure, run E2136 in 'stable' conditions, R33 S02}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2136_dark15_delay_R33_S02.png}
+    \caption{15-s dark exposure, run E2136 after a 3-minute delay, R33 S02}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+\end{minipage}
 \end{figure}
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_dark15_R33_S02.png}
-\end{centering}
-\caption{15-s dark exposure, run E2136 in
-\textquotesingle stable\textquotesingle{} conditions, R33 S02}
-\end{figure}
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_dark15_delay_R33_S02.png}
-\end{centering}
-\caption{15-s dark exposure, run E2136 after a 3-minute delay, R33 S02}
-\end{figure}
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E1880_bias_R33_S02.png}
+%\end{centering}
+%\caption{Bias exposure, run 1880, R33 S02}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2136_dark15_R33_S02.png}
+%\end{centering}
+%\caption{15-s dark exposure, run E2136 in
+%\textquotesingle stable\textquotesingle{} conditions, R33 S02}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2136_dark15_delay_R33_S02.png}
+%\end{centering}
+%\caption{15-s dark exposure, run E2136 after a 3-minute delay, R33 S02}
+%\end{figure}
 
 In order to quantify the number of e2v instable amplifiers, a stability
 metric \emph{d} is defined from the eo\phantomsection\label{pipe}{pipe}
@@ -1575,21 +1643,36 @@ threshold at 0.3, 51 amplifiers are identified as instable (see the
 corresponding mosaic). This corresponds to \textasciitilde3\% of the e2v
 amplifiers.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_distribution_d.png}
-\end{centering}
-\caption{Distribution of the stability metric for the e2v amplifiers in
-run E2136}
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2136_distribution_d.png}
+    \caption{Distribution of the stability metric for the e2v amplifiers in run E2136}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/E2136_mosaic_d.png}
+    \caption{Mosaic of e2v amplifiers identified as instable (white color) in run E2136}
+\end{minipage}
 \end{figure}
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{sections/figures/E2136_mosaic_d.png}
-\end{centering}
-\caption{Mosaic of e2v amplifiers identified as instable (white color)
-in run E2136}
-\end{figure}
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2136_distribution_d.png}
+%\end{centering}
+%\caption{Distribution of the stability metric for the e2v amplifiers in
+%run E2136}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{sections/figures/E2136_mosaic_d.png}
+%\end{centering}
+%\caption{Mosaic of e2v amplifiers identified as instable (white color)
+%in run E2136}
+%\end{figure}
 
 Further studies are required in order to converge on the best mitigation
 strategy for the start of the LSST survey.
@@ -1793,7 +1876,7 @@ vampires}\label{current-models-of-vampires}
 
 \subsection{Phosphorescence}\label{phosphorescence}
 
-The Run7 persistence optimization process (cf. \S\ref{persistence-2}XX) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effect by reducing their clock swing voltages from 9.3 down to 8.0 volts, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
+The Run7 persistence optimization process (cf. \S\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effect by reducing their clock swing voltages from 9.3 down to 8.0 volts, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
 
 The ITL sensors with the largest memory effect were evaluated, and the following observations were made:
 \begin{itemize}
