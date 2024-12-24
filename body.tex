@@ -298,10 +298,12 @@ primary acquisition sequences.
   flat pair metrics.
 \end{itemize}
 
+%% add PTC turnoff, Bias stability, Brighter-fatter correlation, and Row means variance to show consistency
+
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/baselineCharacterization/PTC_BProtocol_Comparison.jpg}
-	\caption{Photon Transfer Curve Protocol Comparison
+	\caption{Flat-pair comparison between PTC and B protocol
 \label{fig:PTC_BProtocol_Comparison}}
 \end{centering}
 \end{figure}
@@ -1246,13 +1248,15 @@ However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tea
 
 This temperature variation in the focal plane can lead to changes in the REB temperature, potentially causing gain variations or instability in the bias. Based on these considerations, we decided to disable IDLE\_FLUSH. The impact of this change on bias stability is discussed in Sections~\ref{bias-stability-2} and~\ref{gain-stability-2}.
 
-Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings. There was a couple of major changes, 1) switching narrower parallel swing voltage, 2) changing the number of clears before the exposure, 3) disabling IDLE\_FLUSH. The major change can be seen when we switched not to run IDLE\_FLUSH at E1429, which brought the overall distribution down. The distributions are consistent after.
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/divisadero.png}
 \end{centering}
-\caption{Impact of enabling and disabling IDLE\_FLUSH on Divisadero tearing}\label{IdleFlushEffect:divisadero}
+\caption{Impact of disabling IDLE\_FLUSH on Divisadero tearing}\label{IdleFlushEffect:divisadero}
 \end{figure}
+Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings in the time order. There were a couple of changes: 1) switching narrower parallel swing voltage, 2) changing the number of clears before the exposure, 3) disabling IDLE\_FLUSH.  Some minor changes in each changes are also included such as changing the numbr of clears, or changing the sequencer file (the change from v29 to v30 incorporated the change in the clear. So it essentially corresponds to change in the clear). The figure includes both ITL and E2V results. The two distinct distributions in earlier runs correspond to those vendor differences (the higher one is E2V and the lower one is ITL). The major change can be seen when we switched not to run IDLE\_FLUSH at E1429, which brought the overall distribution down. The two distributions became indistinguishable, which indicates the majority of the Divisadero tearing for E2V is mostly mitigated.
+
+E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System. This fact confirms that the metric is consistent over the power cycle.
 
 \subsection{Summary}\label{summary}
 E2V sensors had persistence. We confirmed narrowing parallel swing voltage of the E2V CCD operation greatly reduced persistence. As penalties, we observed 22\% of
@@ -1261,7 +1265,7 @@ brightter-fatter effect, essentially in an isotropic way.
 
 We developed v30 sequencer files that have guider functionality build in and an improved clear of No Pocket Serial Flush.
 
-We also disabled IDLE\_FLUSH to improve the thermal situation.
+We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero tearing.
 
 Sequencer files have undergone evolution for both ITL and e2v versions.
 The latest sequencer file from Run 6 was the
@@ -1678,20 +1682,32 @@ Further studies are required in order to converge on the best mitigation
 strategy for the start of the LSST survey.
 
 \subsection{Gain stability}\label{gain-stability-2}
-
-hello world.
-
-This section describes gain stability.
-
+The "relative gain" is defined as the ratio of the signal observed in a CCD divided by the integration of the photodiode with respect to an arbitrary normalization.
+With the fixed flat illumination, the variation in the relative gain over exposures can be utilized to investigate the relative gain difference. We acquired flat images at the same flux level with two distinct temperature conditions: either intentionally altered or maintained constant.
 \begin{itemize}
-\tightlist
-\item
-  No temp variation, fixed flux
-\item
-  no temp variation, variation in flux
-\item
-  Temp variation, fixed flux
+    \item E1496 (dp80, constant temp, v29\_Nop, nm750, 10k e-)
+    \item E1367 (dp80, temp swing, v29, nm750, 50k e-)
+    \item E756 (dp80, gain stability @ 50k e-)
+    \item E1362 (dp80, 10k e-)
 \end{itemize}
+(YU: WORK IN PROGRESS)
+
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/RelgainParametersTrending.png}
+    \caption{Distribution of the stability metric for the e2v amplifiers in run E2136}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{sections/figures/RelgainDetail.png}
+    \caption{Mosaic of e2v amplifiers identified as instable (white color) in run E2136}
+\end{minipage}
+\end{figure}
+
 
 \section{Sensor features}\label{sensor-features}
 
@@ -2171,8 +2187,7 @@ FP\phantomsection\label{itl_2s_l3cp_v30.seq}{ITL\_2s\_l3cp\_v30.seq} \\
   FP\phantomsection\label{itl_2s_l3cp_v29_noppp.seq}{ITL\_2s\_l3cp\_v29\_Noppp.seq}
   and
   FP\phantomsection\label{e2v_2s_l3cp_v29_nopsf.seq}{E2V\_2s\_l3cp\_v29\_NopSf.seq}.
-  All sequencer files can be found in the
-  \href{https://github.com/lsst-camera-dh/sequencer-files/tree/master/run7}{github
+  All sequencer files can be found in the \href{https://github.com/lsst-camera-dh/sequencer-files/tree/master/run7}{github
   repository}.
 \end{itemize}
 
@@ -2190,11 +2205,7 @@ This section describes run 7 record runs.
 
 All runs use our camera operating configuration, unless otherwise noted.
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1421}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0474}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0421}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.7579}}@{}}
+\begin{longtable}{|p{2cm}|p{2cm}|p{2cm}|p{10cm}|}
 \caption{Record runs}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -2205,7 +2216,7 @@ Run ID
 Links
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Notes
-\end{minipage} \\
+\end{minipage} \\ \hline
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
@@ -2217,110 +2228,104 @@ Run ID
 Links
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Notes
-\end{minipage} \\
+\end{minipage} \\ \hline
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
+
 \multirow{2}{=}{B protocol} & E1880 & & \\
-& E2233 & & Identical to E1880. Acquired after CCS subsystem reboot \\
-\multirow{5}{=}{PTCs} & E1886 & & Red LED dense. Dark interleaving
-between flat pairs \\
-& E1881 & & Red LED dense. No dark interleaving between flat pairs \\
-& E748 & & nm960 dense \\
-& E2237 & & Red LED dense. Acquired after CCS subsystem reboot. \\
-& E2016 & & Super dense red LED. HV Bias off for R13/Reb2. jGroups
-meltdown interrupted acquisitions, restarted \\
+& E2233 & & Identical to E1880. Acquired after CCS subsystem reboot \\ \hline
+\multirow{5}{=}{PTCs} & E1886 & & Red LED dense. Dark interleaving between flat pairs \\ 
+& E1881 & & Red LED dense. No dark interleaving between flat pairs \\ \hline
+& E748 & & nm960 dense \\ \hline
+& E2237 & & Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
+& E2016 & & Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
 \multirow{5}{=}{Long dark acquisitions} & E1117 & & \\
-& E1116 & & \\
-& E1115 & & \\
-& E1114 & & \\
-& E1075 & & \\
-\multirow{5}{=}{Projector acquisitions} & E1558 & & Flat pairs, fine
-scan in flux from 1-100s in 1s intervals.
-E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\
+& E1116 & & \\ \hline
+& E1115 & & \\ \hline
+& E1114 & & \\ \hline
+& E1075 & & \\ \hline
+\multirow{5}{=}{Projector acquisitions} & E1558 & & Flat pairs, fine scan in flux from 1-100s in 1s intervals. E2V:v29\phantomsection\label{nop}{NoP}, ITL:v29\phantomsection\label{nopp}{NoPP} \\
 & E1553 & & Flat pairs, coarse scan in flux from 5-120s in 5s
 interval.E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\
+ITL:v29\phantomsection\label{nopp}{NoPP} \\ \hline
 & E1586 & & One 100s flat exposure, spots moved to selected
 phosphorescent regions.E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\
+ITL:v29\phantomsection\label{nopp}{NoPP} \\ \hline
 & E2181 & & Flat pairs from 2-60s in 2s intervals. Two 15s darks
 interleaved after flat acquisition. Rectangle on C10
 amplifier.E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\
-& E2184 & & 10 30s dark images to capture background pattern \\
+ITL:v29\phantomsection\label{nopp}{NoPP} \\ \hline
+& E2184 & & 10 30s dark images to capture background pattern \\ \hline
 \multirow{5}{=}{OpSim runs} & E1717 & & Long dark sequence, no filter
-changes \\
+changes \\ 
 & E2330 & & Short dark sequence, filter changes in headers through
-OCS \\
+OCS \\ \hline
 & E1414 & & 30 minutes OpSim run with shutter control, filter change,
-and realistic survey cadence \\
-& E2328 & & Flats with shutter-controlled exposure \\
+and realistic survey cadence \\ \hline
+& E2328 & & Flats with shutter-controlled exposure \\ \hline
 & E1657 & & 10 hour OpSim dark run, \textasciitilde50\% of darks were
-acquired properly \\
-\multirow{5}{=}{Phosphorescence datasets} & E2015 & & 10 flats at 10ke-
-followed by 10x15s darks \\
-& E2014 & & 1 flat at 10ke- followed by 10x15s darks \\
-& E2011 & & 20 flats at 10ke- followed by 10x15s darks \\
-& E2012 & & 10 flats at 1ke- followed by 10x15 s darks \\
-& E2013 & & 10 flats at 10ke- followed by 10x15s darks. Interleaved
-biases with the darks \\
-\multirow{10}{=}{Tree ring flats} & E1050 & & \\
-& E1052 & & \\
-& E1053 & & \\
-& E1055 & & \\
-& E1056 & & \\
-& E1021 & & \\
-& E1023 & & \\
-& E1024 & & \\
-& E1025 & & \\
-& E1026 & & \\
-\multirow{7}{=}{Gain stability runs} & E1955 & & \\
-& E2008 & & \\
-& E1968 & & \\
-& E1367 & & \\
-& E1362 & & \\
-& E756 & & \\
-& E1496 & & \\
-\multirow{25}{=}{Persistence datasets} & E1503 & & \\
-& E1504 & & \\
-& E1505 & & \\
-& E1506 & & \\
-& E2286 & & \\
-& E1502 & & \\
-& E1501 & & \\
-& E1500 & & \\
-& E1499 & & \\
-& E1498 & & \\
-& E1494 & & \\
-& E1493 & & \\
-& E1492 & & \\
-& E1490 & & \\
-& E1491 & & \\
-& E1489 & & \\
-& E1488 & & \\
-& E1487 & & \\
-& E1486 & & \\
-& E1485 & & \\
-& E1478 & & \\
-& E1477 & & \\
-& E1479 & & \\
-& E1483 & & \\
-& E1484 & & \\
-\multirow{12}{=}{Guider ROI acquisitions} & E1510 & & \\
-& E1518 & & \\
-& E1519 & & \\
-& E1508 & & \\
-& E1509 & & \\
-& E1520 & & \\
-& E1511 & & \\
-& E1521 & & \\
-& E1512 & & \\
-& E1513 & & \\
-& E1514 & & \\
-& E1517 & & \\
+acquired properly \\ \hline
+\multirow{5}{=}{Phosphorescence datasets} & E2015 & & 10 flats at 10ke- followed by 10x15s darks \\ 
+& E2014 & & 1 flat at 10ke- followed by 10x15s darks \\ \hline
+& E2011 & & 20 flats at 10ke- followed by 10x15s darks \\ \hline
+& E2012 & & 10 flats at 1ke- followed by 10x15 s darks \\ \hline
+& E2013 & & 10 flats at 10ke- followed by 10x15s darks. Interleaved biases with the darks \\ \hline
+\multirow{10}{=}{Tree ring flats} & E1050 & & \\ 
+& E1052 & & \\ \hline
+& E1053 & & \\ \hline
+& E1055 & & \\ \hline
+& E1056 & & \\ \hline
+& E1021 & & \\ \hline
+& E1023 & & \\ \hline
+& E1024 & & \\ \hline
+& E1025 & & \\ \hline
+& E1026 & & \\ \hline
+\multirow{7}{=}{Gain stability runs} & E1955 & & \\ 
+& E2008 & & \\ \hline
+& E1968 & & \\ \hline
+& E1367 & & \\ \hline
+& E1362 & & \\ \hline
+& E756 & & \\ \hline
+& E1496 & & \\ \hline
+\multirow{25}{=}{Persistence datasets} & E1503 & & \\ 
+& E1504 & & \\ \hline
+& E1505 & & \\ \hline
+& E1506 & & \\ \hline
+& E2286 & & \\ \hline
+& E1502 & & \\ \hline
+& E1501 & & \\ \hline
+& E1500 & & \\ \hline
+& E1499 & & \\ \hline
+& E1498 & & \\ \hline
+& E1494 & & \\ \hline
+& E1493 & & \\ \hline
+& E1492 & & \\ \hline
+& E1490 & & \\ \hline
+& E1491 & & \\ \hline
+& E1489 & & \\ \hline
+& E1488 & & \\ \hline
+& E1487 & & \\ \hline
+& E1486 & & \\ \hline
+& E1485 & & \\ \hline
+& E1478 & & \\ \hline
+& E1477 & & \\ \hline
+& E1479 & & \\ \hline
+& E1483 & & \\ \hline
+& E1484 & & \\ \hline
+\multirow{12}{=}{Guider ROI acquisitions} & E1510 & & \\ 
+& E1518 & & \\ \hline
+& E1519 & & \\ \hline
+& E1508 & & \\ \hline
+& E1509 & & \\ \hline
+& E1520 & & \\ \hline
+& E1511 & & \\ \hline
+& E1521 & & \\ \hline
+& E1512 & & \\ \hline
+& E1513 & & \\ \hline
+& E1514 & & \\ \hline
+& E1517 & & \\ \hline
 \end{longtable}
 
 \phantomsection\label{citations}
@@ -2365,6 +2370,8 @@ biases with the darks \\
 \appendix
 
 \section{FCS work}
+
+\section{eo-pipe reference figures}
 
 \section{CCS work}
 \subsection{JGroups issue}
