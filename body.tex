@@ -1,4 +1,4 @@
-\usepackage{multirow}
+
 
 
 \section{Electro-optical setup}\label{electro-optical-setup}
@@ -172,7 +172,7 @@ masking}\label{successful-autochanger-light-leaks-masking}
 
 A dedicated light leak study of the Filter Exchange System (FES) Autochanger (AC) was performed during Run 6 at SLAC
 in summer 2023 and a localized faint light source of up to
-\textasciitilde{}0.04 e$^-$/s/pixel was found to be associated with the 24\,V Clean of
+\textasciitilde{}0.04 e$^-$/s/pix was found to be associated with the 24\,V Clean of
 the AC.
 
 In the AC this voltage is used to power some probes and all
@@ -255,7 +255,7 @@ Cerro Pachon runs were ``E-numbers" that started with a capital E
 followed by a numeric code.
 
 Among the motivations for these measurements, the primary concern is whether LSSTCam has
-maintained its performance charateristics between Run 6 and Run 7.
+maintained its performance characteristics between Run 6 and Run 7.
 
 \subsection{Background}\label{background}
 
@@ -287,7 +287,7 @@ image acquisition sequences.
   PTCs (photon transfer curves): this acquisition sequence consists of a
   sequence of flat pairs taken at different flux levels. The flat
   acquisition sequence samples different flux levels at a higher density
-  than the B protocol flat sequence, enabling a more precise estimate of
+  than the B protocol flat sequence, enabling more precise estimates of
   flat pair metrics including pixel covariances (see Fig. \ref{fig:PTC_BProtocol_Comparison}).
 \end{itemize}
 
@@ -299,22 +299,24 @@ image acquisition sequences.
 \end{centering}
 \end{figure}
 
-For comparisons between Cerro Pachon EO runs and the final SLAC IR2 equivalents, the following runs are used (see Table \ref{runTable}).
+For comparisons between Cerro Pachon EO runs and the final SLAC IR2 equivalents, the following runs are used (see Table~\ref{runTable-b-ptc}).
 
 \begin{longtable}[H]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2083}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2639}}@{}}
 \toprule\noalign{}
-\label{runTable}
+\label{runTable-b-ptc}
 \begin{minipage}[b]{\linewidth}\raggedright
 \begin{quote}
 Run Type
 \end{quote}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-SLAC IR2 Run
+%SLAC IR2 Run
+Run 6
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Cerro Pachón Run
+%Cerro Pachón Run
+Run 7
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -357,37 +359,43 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/13557_E1071_SCTI_EF_43.png}
-	\caption{Serial CTI \label{fig:serial-cti}}
+	\caption{Serial CTI comparison by raft for Run 7 (E1017) and Run 6 (13557)\label{fig:serial-cti}}
 \end{centering}
 \end{figure}
 
 The CTI along the serial registers of the amplifier segments of the LSSTCam CCDs is consistent between Run 6 and
-Run 7. Both sensor types show extremely low CTI on the order of $10^{-3}$ \%,
-and differ on the order of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
-by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors.
+Run 7 (Fig.~\ref{fig:serial-cti}). Both sensor types show extremely low CTI on the order of $10^{-3}$ \%,
+and span a range  of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
+by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}).
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/SCTI_13557_E1071_diff.png}
+\caption{Distributions of differences in serial charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\label{fig:serial-cti-dist}
 \end{centering}
 \end{figure}
 
 \paragraph{Parallel CTI}\label{parallel-cti}
 
+The CTI along the parallel direction is consistent between Run 6 and
+Run 7 as well (Fig.~\ref{fig:parallel-cti}). Both sensor types are found to have extremely low CTI on the order of $10^{-5}$ \%,
+and span a range of \textasciitilde$2 \times 10^{-7}$ \% for e2v sensors, and
+by \textasciitilde$7 \times 10^{-6}$ \% for ITL sensors (Fig.~\ref{fig:parallel-cti-dist}).
+
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/13557_E1071_PCTI_EF_43.png}
+\caption{Parallel CTI comparison by raft for Run 7 (E1017) and Run 6 (13557).}
+\label{fig:parallel-cti}
 \end{centering}
 \end{figure}
-
-The CTI along the parallel direction is consistent between Run 6 and
-Run 7. Both sensor types are found to have extremely low CTI on the order of $10^{-5}$ \%,
-and differ on the order of \textasciitilde2E-7 \% for e2v sensors, and
-by \textasciitilde$7 \times 10^{-6}$ \% for ITL sensors.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/PCTI_13557_E1071_diff.png}
+\caption{Distributions of differences in parallel charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\label{fig:parallel-cti}
 \end{centering}
 \end{figure}
 
@@ -409,12 +417,14 @@ all amplifiers.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/13557_E1071_DARK_CURRENT_MEDIAN.png}
+\caption{Dark current comparison by raft for Run 7 (E1017) and Run 6 (13557).}
+\label{fig:dark}
 \end{centering}
 \end{figure}
 
 Unexpectedly, the dark current was significantly less in Run 7 than
-Run 6. A possible reason for this could be improved shrouding
-on the camera in the Level 3 white room than in the IR2 clean room SLAC.
+Run 6 (Fig.~\ref{fig:dark}). A possible reason for this could be improved shrouding
+on the camera in the Level 3 white room relative to the IR2 clean room SLAC.
 
 \subsubsection{Bright defects}\label{bright-defects}
 
@@ -423,14 +433,18 @@ Bright defects are localized regions or individual pixels that produce abnormall
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS.png}
+\caption{}
+\label{fig:bright}
 \end{centering}
 \end{figure}
 
-Evaluating the change in defect counts on each amplifier segment between Run 6 and Run 7, and aggregating the amplifiers by the detector manufacturer shows a small increase of bright defects in Run 7. For ITL sensors, we find that 12\% of the amplifiers have more bright pixels than in Run 6. For e2v sensors, we find 4\% of the amplifiers with have more bright pixels. Despite this, the number of bright defects between runs does not increase for most sensors.
+Evaluating the change in defect counts on each amplifier segment between Run 6 and Run 7, and aggregating the amplifiers by the detector manufacturer shows a small increase of bright defects in Run 7 (Fig.~\ref{fig:dark-dist}). For ITL sensors, we find that 12\% of the amplifiers have more bright pixels than in Run 6. For e2v sensors, we find 4\% of the amplifiers that have more bright pixels. Despite this, the number of bright defects between runs does not increase for most sensors.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/BRIGHT_PIXELS_13557_E1071_diff.png}
+\caption{Distributions of differences in bright pixel count per amplifier between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\label{fig:dark-dist}
 \end{centering}
 \end{figure}
 
@@ -574,15 +588,17 @@ Divisadero tearing is manifested as signal variations near amplifier boundaries,
 \end{figure}
 
 Divisadero tearing in e2v CCDs is greater in Run 7 than in Run 6. The tearing signal in ITL
-sensors is very consistent between runs, and much weaker than for e2v.
+sensors is very consistent between Run 7 and Run 6, and much weaker than for e2v (Fig.~\ref{fig:divisadero}.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/DIVISADERO_TEARING_13557_E1071_diff.png}
+\caption{Distribution of difference between divisadero tearing in Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\label{fig:divisadero}
 \end{centering}
 \end{figure}
 
-In Run 7 the maximum divisadero tearing amplitude for e2v CCDs is \textasciitilde0.3\% higher in run 7. In ITL sensors, maximum divisadero tearing is \textasciitilde0.1\% higher in Run 6.
+In Run 7 the median divisadero tearing amplitude for e2v CCDs is \textasciitilde0.3\% greater. In ITL sensors, maximum divisadero tearing is \textasciitilde0.1\% greater in Run 6.
 
 \subsubsection{Dark defects}\label{dark-defects}
 
@@ -590,18 +606,20 @@ Dark defects are localized regions or individual pixels that produce abnormally 
 defects are caused by imperfections in the semiconductor
 material, imperfections during the manufacturing process of a CCD. For our evaluation, we extract
 dark pixels from combined flats, with the threshold for a dark defect
-defined as a $-$20\% deviation from flatness.
+defined as a $-$20\% deficit from the average flux measured in the image segment.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/13557_E1071_DARK_PIXELS.png}
+\caption{Comparison of dark pixel counts in Run 7 (E1071) and Run 6 (13557), with separate plots for each raft.  Within each plot the color coding for all amplifier segments in a given CCD is the same.}
+\label{fig:dark-pixels}
 \end{centering}
 \end{figure}
 
 Dark pixel counts measured in both Run 6 and Run 7 average
 \textasciitilde1800 per amplifier (i.e., approximately 1M pixels), regardless of manufacturer. The
 high dark pixel counts are due to the `picture-frame response' (also called `edge roll-off') 
-near the edges of the amplifier segments.
+near the edges of the amplifier segments.  The correlation between Run 7 and Run 6 dark pixel counts by CCD (Fig.~\ref{fig:dark-pixels}) is generally good, with some notable exceptions...
 
 \begin{figure}[H]
 \begin{centering}
@@ -613,7 +631,7 @@ The eo-pipe defect configuration for evaluating dark defects considers a border 
 region that is masked differently from the dark pixels. The default size for this edge is zero pixels. Due to the inclusion of the picture-frame response in the counts, it is difficult to
 extract useful information about the dark defects in the focal plane. The default
 configuration has no border masking. The largest region allowed for the
-picture frame region is 9 pixels, determined by LCA-19363. Due to incompatibility of run 6 data with the current pipelines, a direct comparison of a 9 pixel mask using Run 6 data is not currently available. However, a 9
+picture frame region is 9 pixels, determined by LCA-19363. Due to incompatibility of Run 6 data with the current pipelines, a direct comparison of a 9 pixel mask using Run 6 data is not currently available. However, a 9
 pixel mask can be applied to the Run 7 data.
 
 Add conclusion when pipelines on E1071 are complete
@@ -1915,7 +1933,7 @@ The ITL sensors with the largest memory effect were evaluated, and the following
 \subsubsection{Measurement techniques for detecting and quantifying phosphorescence}\label{phos-measurement}
 We mentioned above that certain phosphorescent morphologies strongly resemble the ``coffee stains'' seen on the same (ITL) sensors. It should be noted that measurement of the {\it shadow} caused by excess absorption (usually a couple percent) is a great deal simpler than collecting any deferred charge with adequate sensitivity and confidence. This section describes the methods used to identify the transient term we consider phosphorescence in the ITL sensors, and list the regions where it was detected. Following that, we describe in some detail the kinematics of its expression (cherry-picking specific easy-to-measure cases), together with the wavelength- and its excitation flux-level dependence.
 
-We parasitically used a series of B-protocol and BOT-persistence EO testing runs that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pixel). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15\,s expression of the deferred signal 300\,s after overexposure had almost completely attenuated.
+We parasitically used a series of B-protocol and BOT-persistence EO testing runs that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pix). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15\,s expression of the deferred signal 300\,s after overexposure had almost completely attenuated.
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
