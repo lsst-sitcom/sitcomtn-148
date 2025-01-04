@@ -77,6 +77,8 @@ plane  (Fig.~\ref{fig:roll-off}).
 \label{fig:roll-off}
 \end{figure}
 
+
+
 The diffuser was installed for all B protocol and PTC runs moving
 forward, being taken out only for pinhole projection runs and when using the
 4K projector.
@@ -624,15 +626,17 @@ near the edges of the amplifier segments.  The correlation between Run 7 and Run
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/detector_85.jpg}
+\caption{Illustration of masked border pixels (yellow) for detector 85 (R21\_S11). [Needs more explanation.]}
+\label{fig:fig-edge-mask}
 \end{centering}
 \end{figure}
 
-The eo-pipe defect configuration for evaluating dark defects considers a border pixel
+The eo-pipe configuration for evaluating dark defects considers a border pixel
 region that is masked differently from the dark pixels. The default size for this edge is zero pixels. Due to the inclusion of the picture-frame response in the counts, it is difficult to
 extract useful information about the dark defects in the focal plane. The default
 configuration has no border masking. The largest region allowed for the
 picture frame region is 9 pixels, determined by LCA-19363. Due to incompatibility of Run 6 data with the current pipelines, a direct comparison of a 9 pixel mask using Run 6 data is not currently available. However, a 9
-pixel mask can be applied to the Run 7 data.
+pixel mask can be applied to the Run 7 data.  Here is a reference to Figure~\ref{fig:fig-edge-mask}, which needs some explanation here about how it relates to this paragraph.
 
 Add conclusion when pipelines on E1071 are complete
 
@@ -644,16 +648,18 @@ surface layer after high-flux exposures
 detail in the
 \href{https://sitcomtn-148.lsst.io/\#persistence-optimization}{persistence
 optimization section}. Here we consider the measurements taken as
-part of a persistence measurement task in the typical B protocol. For a
-persistence measurement, a high-flux acquisition is taken, followed by a
+part of a persistence measurement task in the typical B protocol. For
+measuring persistence, a high-flux acquisition is taken, followed by a
 sequence of dark images. The persistence signal has been observed to
-decrease in subsequent dark images as the trapped charge is released. As a metric for persistence,
+decrease in subsequent dark images as the trapped charge is released (see Fig.~\ref{fig:persistence-decay} for an example). As a metric for persistence,
 we evaluate the difference between the residual ADU in the first dark
-image and the average of the residual ADU in the final dark images. This residual signal \textasciitilde10 ADU.
+image and the average of the residual ADU in the final dark images. This residual signal is found to be \textasciitilde10 ADU.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1110_w_2024_35_20240926T235141Z.png}
+\caption{Persistence signal observed in R22\_S11 in Run 7 (E1110) as a function of time after the high-flux flat image.  The color coding indicates the individual amplifier segments.  The persistence metric is defined as the residual signal in the first dark image after the flat acquisition (red box).  Note that over time the signal does not decay entirely to zero.}
+\label{fig:persistence-decay}
 \end{centering}
 \end{figure}
 
@@ -664,28 +670,33 @@ present images at the same level as in Run 6.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/13557_E1071_persist.png}
+\caption{Comparison of persistence metric between Run 7 (E1071) and Run 6 (13357), organized by raft.  The color coding indicates individual CCDs.  Several e2v CCDs have markedly greater persistence in Run 7.}
+\label{fig:persistence-comp}
 \end{centering}
 \end{figure}
 
-The persistence signal is consistent in e2v sensors between Run 6 and Run 7. Several
-outliers exist with higher persistence signal in Run 7. The outliers in
+The persistence signal is generally consistent in e2v sensors between Run 6 and Run 7. Several
+e2v CCDs have greater persistence metric value in Run 7 (Fig.~\ref{fig:persistence-comp}). The outliers in
 these measurements are due to higher initial persistence signal
 measurements, resulting in an excess of \textasciitilde5 ADU when
-comparing Run 6 with Run 7.
+comparing Run 6 with Run 7 (see Fig.~\ref{fig:persistence-decay-comp}).
 
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_E1071_w_2024_35_20240925T180602Z.png}
-\end{centering}
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1.0\textwidth]{sections/figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_E1071_w_2024_35_20240925T180602Z.png}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\textwidth]{sections/figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_13557_w_2023_41_20231118T050437Z.png}
+\end{subfigure}
+\caption{Comparison of persistence profiles for R12\_S21 between (left) Run 7 (E1071) and (right) Run 6 (13557).  The decay time constants are similar but the initial persistence level is greater in Run 7.  The asymptotic levels are also different.}
+\label{fig:persistence-decay-comp}
 \end{figure}
 
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_13557_w_2023_41_20231118T050437Z.png}
-\end{centering}
-\end{figure}
-
-\subsection{Differences between run 6 and run 7}\label{differences-from-previous-runs}
+\subsection{Differences between Run 6 and Run 7}\label{differences-from-previous-runs}
 
 % Add something about the major differences between the runs
 
@@ -755,7 +766,7 @@ empirically determined. However, Teledyne e2v advised that the measured
 current flow increases as the parallel low voltage is decreased, which
 increases the risk of damaging the sensor by inducing a
 breakdown\footnote{We note that ITL operates at a parallel low voltage
-  of -8.0\,V. We have observed the increased current flow. But we have
+  of $-$8.0\,V. We have observed the increased current flow. But we have
   software protection so that the current does not increase too much.}.
 Also, the excess charges could be recombined by the thin layer of
 the holes, which could affect linearity at high flux levels when
@@ -765,7 +776,7 @@ The parallel swing determines the full-well. Depending on whether the
 accumulated charges spread over the columns or interact with the surface
 layer, there are blooming full-well regimes and the surface full-well
 regime. A full-well level between these two regimes is considered to be
-optimal \hyperref[J2001]{{[}J2001{]}}, with no persistence and and dynamic range as great as
+optimal \hyperref[J2001]{{[}J2001{]}}, with no persistence and dynamic range as great as
 possible. Because we observe the persistence effect, we likely operate the sensor in the
 surface full-well condition and we need to decrease the parallel swing to
 get the blooming full-well or the optimal full-well. The obvious downside
@@ -807,7 +818,7 @@ the narrower parallel swing on the LSSTCam focal plane. Keeping the
 parallel low voltage at -6\,V in order to operate the sensor safely (very
 conservative limit), we changed the parallel swing voltage from 9.3\,V to
 8.0\,V as well as all the other voltages using the new formula. We
-overexposed the CCDs and took 20 darks afterward. The image shown below is the
+overexposed the CCDs and took 20 darks afterward. Figure~\ref{fig:peristence-swing} compares the
 mean and median of pixel-by-pixel differences between the first and the
 last dark exposures, as a function of the parallel swing. As the
 parallel swing is decreased, the residual signal decreases, reaching
@@ -818,13 +829,15 @@ be lower with the penalty of decreasing the full-well capacity.
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/e2v_transient_dark_vs_dp.png}
-\end{centering}
+
 \caption{The remaining charges measured in every amplifier but
 aggregated by mean and median as a function of the parallel clock swing
 are shown.}
+\label{fig:peristence-swing}
+\end{centering}
 \end{figure}
 
-The following figures display how the persistence is reduced by the
+Figure~\ref{fig:persistence-reduction} displays how the persistence is reduced by the
 parallel swing decrease. The images were processed with the standard instrumental
 signature removal and assembled in the full focal-plane view. The
 dark exposure was taken right after a 400\,ke-equivalent flat exposure.
@@ -837,7 +850,7 @@ demonstrates the persistence in e2v sensors becomes the (low) level of the
 ITL sensors.
 
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \begin{minipage}[b]{0.45\textwidth}
 \centering
@@ -849,6 +862,7 @@ ITL sensors.
 \includegraphics[width=\textwidth]{sections/figures/E1880dp80.png}
 \end{minipage}
 \caption{Comparison of dark exposures under different parallel swings. (left) The first dark exposure after a 400\,ke$^-$ flat image under the parallel swing of 9.3\,V (Run E1110); (right) The first dark exposure after a 400\,ke$^-$ flat image under the parallel swing of 8.0\,V (Run E1880). The figure shows no distinct patterns from persistence in e2v sensors. Note that the guide sensors were not displayed here because they were being operated in guider mode. Also some of the residuals in ITL caused by defects disappeared here because of the employment of the new sequencer file (v30).}
+\label{fig:persistence-reduction}
 \end{figure}
 
 
@@ -861,7 +875,7 @@ is observed in the dense PTC runs. Two runs were acquired with identical
 setting except for the CCD operating voltage (E1113 for 9.3\,V and E1335
 for 8.0\,V). As the PTC turnoff is defined in ADU, it needs to be
 multiplied by PTC\_GAIN to compare the turnoff values in electrons.
-The figure below compares the PTC turnoffs in electrons and also shows their
+Figure~\ref{fig:ptc-turnoff} compares the PTC turnoffs in electrons and also shows their
 fractional difference. The median reduction was 22\%.
 
 \begin{figure}
@@ -871,6 +885,7 @@ fractional difference. The median reduction was 22\%.
 \caption{Histograms of the PTC turnoff values scaled to electron units (left) and the ratios of
 differences (right) between E1113 (9.3\,V) vs E1335 (8.0\,V). The median of
 the reduction is 22\%.}
+\label{fig:ptc-turnoff}
 \end{figure}
 
 
@@ -890,7 +905,7 @@ a pixel will alter the area of some other pixel (or itself). We find that
 reducing the parallel swing from 9.3\,V to 8.0\,V typically increases the
 area coefficients by 10\% (between 5 and 19\% depending on distance),
 and the increase is almost isotropic (i.e., very similar along serial and parallel
-directions). From these measurements, we anticipate that the increase of
+directions; see Fig.~\ref{fig:area-coeffs}). From these measurements, we anticipate that the increase of
 star sizes with flux in LSST data will not become more isotropic at 8.0\,V than it was at
 9.3\,V, and hence this reduction of parallel swing does not 
 %introduce new threats on the measurement of the PSF ellipticity
@@ -907,6 +922,7 @@ interaction coefficient $a_{00}$ at the bottom left. The first neighbors increas
 respectively by 19\% in the parallel direction by 14\% in the serial
 direction. So the BFE is slightly larger at 8.0\,V but not significantly
 more anisotropic.}
+\label{fig:area-coeffs}
 \end{figure}
 
 
@@ -1007,12 +1023,39 @@ clear, to avoid pockets at the image-serial register interface.
 To address this clear issue, we focussed on updating the serial
 register field as the lines are moved to it. The constraint being that
 the changes introduced should not significantly increase the clear
-execution time. It should be noted that in 2021 we tried =a sequencer
-called ``Deep Clear" ( \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}}
-) as a first attempt to address the clear issue: it added one full line
+execution time. It should be noted that in 2021 we tried a sequencer
+called ``Deep Clear" \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}} as a first attempt to address the clear issue: it added one full line
 flush on top of the existing one at the end of the clear. This sequencer
 did improve the clear, but did  not fully fix the clear issue (see
-\texttt{Summary\ table\textless{}table-SummaryClear\textgreater{}}).
+Table~\ref{tab:clears}).
+
+{\small
+\begin{longtable}{|p{0.19\linewidth}|p{0.12\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|}
+\caption{\emph{Clear methods used so far. \label{tab:clears}}} \\
+\hline
+\textbf{Clear Type} & \textbf{Clear Duration (ms)} & \textbf{e2v after Saturated Flat} & \textbf{ITL after Saturated Flat} & \textbf{R01\_S10 ITL ``unique"} \\
+\hline
+\endfirsthead
+
+%\hline
+%\textbf{Clear Type} & \textbf{Clear duration} & \textbf{``E2V" after saturated Flat} & \textbf{``ITL`` after saturated Flat} & \textbf{R01 ITL ``unique"} \\
+%\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\textbf{Default Clear} 1~clear (seq. V29) & 65.5 & First row saturated signal up to row 50 & 1st row saturated signal up to 2nd row & First 500 rows saturated for 4 amp, 13 amp with signals \\
+\textbf{Multi Clear} 3~clears (seq. V29) & 196.5 & No residual electrons & No residual electrons & First 150 rows saturated for 2 amp, 5 amp with signals \\
+\textbf{Multi Clear} 5~clears (seq. V29) & 327.4 & No residual electrons & No residual electrons & First 100 rows saturated for 2 amp, 2 amp impacted \\
+\textbf{Deep Clear} 1~clear (Seq. V23 DC) & 64.69 & 1st row saturated signal up to row <20 & Tiny signal left in the first row & not measured \\
+\textbf{No Pocket (NoP)} 1~clear (seq. V29) & 65.8 & signal up to row 20 & No residual electrons & First 1000 rows saturated for 16 amp, 16 amp with signals \\
+\textbf{No Pocket Serial Flush (NoPSF)} 1~clear (seq. V29, V30) & 67.0 & No residual electrons & No residual electrons & first 750 rows saturated for 16 amp, 16 amp with signals \\
+\end{longtable}
+}
 
 In Run 7, we considered on top of the default clear, two new
 configurations. The changes are in the ParallelFlush function, which
@@ -1054,34 +1097,39 @@ moves the charges from the image area to the serial register:
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/plots_R12_S20_C15_E1880_bias_2024103000303.png}
 \end{centering}
+\caption{Impact of the various types of clear on a bias
+taken after a saturated flat for an e2v sensor (R12\_S20).}
+\label{fig:clear_ITL}
 \end{figure}
 
-\emph{Figure showing the impact of the various types of clear on a bias
-taken after a saturated flat for an e2v sensor.}
+%\emph{Figure showing the impact of the various types of clear on a bias
+%taken after a saturated flat for an e2v sensor.}
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/plots_R03_S11_C14_E1812_bias_2024102800352.png}
 \end{centering}
+\caption{Impact of the various types of clear on a bias
+taken after a saturated flat for an ITL sensor (R03\_S11).}
+\label{fig:clear_e2v}
 \end{figure}
 
-\emph{Figure showing the impact of the various types of clear on a bias
-taken after a saturated flat for an ITL sensor.}
+%\emph{Figure showing the impact of the various types of clear on a bias
+%taken after a saturated flat for an ITL sensor.}
 
-In the above images, we present for three types of sequencer (from left to
+In Figures~\ref{fig:clear_ITL} and \ref{fig:clear_e2v}, we present for three types of sequencer (from left to
 right: V29, NoP, and NopSF), a zoom on the first lines of an ITL or e2v
 amplifier (for ITL R03\_S11\_C14 and for e2v
 R12\_S20\_C10 shown as a 2D lines-columns
 image (top plots) or as the mean signal per line for the first lines
 read of an amplifier (bottom plots).
 
-As seen in
-\texttt{see\ left\ plots\ of\ clear\ e2v\ image\textless{}fig-image-e2vclear\textgreater{}}
+As seen in the left-hand panel of Figure~\ref{fig:clear-e2v}
 for an e2v CCD, a bias taken just after a saturated flat will show a
 residual signal in the first lines read when using the default clear
 (left images, clear= V29): the first line has an almost saturated signal
 (\textasciitilde{} 100 kADU here), and a significant signal is seen up
-to row \textasciitilde50. In practice, in function of the
+to row \textasciitilde50. In practice, depending on the 
 amplifier, signal can be seen up to line 20--50. When using the NoP clear
 (central plots), we can already see a strong reduction of the uncleared
 charges in the first acquired bias after a saturated flat.  Still a small
@@ -1089,11 +1137,10 @@ residual signal is visible in the first \textasciitilde20 lines. The
 NoPSF clear (right plots) fully clears the saturated flat, and no
 uncleared charges are observed in the following bias.
 
-As seen in
-\texttt{see\ left\ plots\ of\ clear\ itl\ image\textless{}fig-image-itlclear\textgreater{}}
+As seen in the left-hand panel of Figure~\ref{fig:clear-ITL}
 for an ITL CCD, a bias taken just after a saturated flat will show a
 residual signal in the first rows read when using the default clear
-(left images, clear=v29) : the first line has an almost saturated signal
+(left images, clear=v29): the first line has an almost saturated signal
 (\textasciitilde{} 100 kADU here), and a significant signal is seen in
 the following line. Both NoP clear (central plots) and NoPSF clear
 (right plots) fully clear the saturated flat, and no uncleared charges
@@ -1105,12 +1152,17 @@ are observed in the following bias.
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/Clear_R01_S10.png}
 \end{centering}
-\end{figure}
-
-\emph{Figure showing the impact of the various types of clear on ITL
+\caption{Impact of the various types of clear on ITL
 R01\_S10 after a saturated flat (bias after a saturated flat), from left
 to right: 1 standard clear, 3 standard clears, 5 standard clears, 1 NoP
-clear, 1 NoPSF clear}
+clear, 1 NoPSF clear.}
+\label{fig:clears_R01_S10}
+\end{figure}
+
+%\emph{Figure showing the impact of the various types of clear on ITL
+%R01\_S10 after a saturated flat (bias after a saturated flat), from left
+%to right: 1 standard clear, 3 standard clears, 5 standard clears, 1 NoP
+%clear, 1 NoPSF clear}
 
 One ITL sensor, R01\_S10,
 presents a specific behavior that is not understood:
@@ -1122,10 +1174,9 @@ presents a specific behavior that is not understood:
 \item
   The 3 CCDs of this REB (REB1) have a gain 20\% lower than all other ITL CCDs.
 \item
-  The images taken after a large saturation, as seen in Figure
-  \texttt{clear\ in\ itl\ R01\_S10\ \textless{}fig-image-itlR01\_S10clear\textgreater{}},
+  The images taken after a large saturation, as seen in Figure~\ref{fig:clears_R01_S10},
   show a large amount of uncleared charged (with the standard clear: 4
-  amplifiers retain \textasciitilde500 rows of saturated signal!)
+  amplifiers retain \textasciitilde500 rows of saturated signal!).
 \end{itemize}
 
 It appears that putting S3 low during the clear as done in NoP and NoPSF,
@@ -1143,33 +1194,7 @@ parallel overscan, will present the same clear issue.
 \subsubsection{Conclusion}\label{conclusion}
 
 
-{\small
-\begin{longtable}{|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|p{0.17\linewidth}|}
-\caption{\emph{This table summarizes the different clear methods used so far.}} \\
-\hline
-\textbf{Clear Type} & \textbf{Clear Duration} & \textbf{e2v after Saturated Flat} & \textbf{ITL after Saturated Flat} & \textbf{R01\_S10 ITL ``unique"} \\
-\hline
-\endfirsthead
 
-%\hline
-%\textbf{Clear Type} & \textbf{Clear duration} & \textbf{``E2V" after saturated Flat} & \textbf{``ITL`` after saturated Flat} & \textbf{R01 ITL ``unique"} \\
-%\hline
-\endhead
-
-\hline
-\endfoot
-
-\hline
-\endlastfoot
-
-\textbf{Default Clear} 1 clear (seq. V29) & 65.5 ms & 1st row saturated signal up to row 50 & 1st row saturated signal up to 2nd row & first 500 rows saturated for 4 amp, 13 amp with signals \\
-\textbf{Multi Clear} 3 clears (seq. V29) & 196.5 ms & No residual electrons & No residual electrons & first 150 rows saturated for 2 amp, 5 amp with signals \\
-\textbf{Multi Clear} 5 clears (seq. V29) & 327.4 ms & No residual electrons & No residual electrons & first 100 rows saturated for 2 amp, 2 amp impacted \\
-\textbf{Deep Clear} 1 clear (Seq. V23 DC) & 64.69 ms & 1st row saturated signal up to row <20 & tiny signal left in the first row & not measured \\
-\textbf{No Pocket (NoP)} 1 clear (seq. V29) & 65.8 ms & signal up to row 20 & No residual electrons & first 1000 rows saturated for 16 amp, 16 amp with signals \\
-\textbf{No Pocket Serial Flush (NoPSF)} 1 clear (seq. V29, V30) & 67.0 ms & No residual electrons & No residual electrons & first 750 rows saturated for 16 amp, 16 amp with signals \\
-\end{longtable}
-}
 
 
 %\begin{longtable}{|p{0.18\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.16\linewidth}|}
@@ -1210,7 +1235,7 @@ serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 
 \begin{quote}
 For the other CCD type, after the studies in Run 7, we now have a good way
-to fully clear the e2v devices through the NopSF clear. The NoPSF clear
+to fully clear the e2v devices through the NoPSF clear. The NoPSF clear
 grants that the first 50 rows of e2v CCDs that had un-cleared
 electrons from the previous exposure are now free of such
 contamination.
@@ -1235,16 +1260,16 @@ This investigation comes from an analogy drawn with the ITL sequencer file. Alth
 
 IDLE\_FLUSH is one of the main settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \hyperref[U2024]{{[}U2024{]}}).
 
-However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 deg C between periods of image acquisition and idle periods (Figure~\ref{IdleFlushEffect}).
+However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 deg C between periods of image acquisition and idle periods (Figure~\ref{fig:IdleFlushEffect}).
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/REB_power_temp6_sept24_to_Oct23.png}
 \end{centering}
-\caption{Impact of enabling and disabling IDLE\_FLUSH on focal-plane temperature and power consumption.}\label{IdleFlushEffect}
+\caption{Impact of enabling and disabling IDLE\_FLUSH on focal-plane temperature and power consumption.}\label{fig:IdleFlushEffect}
 \end{figure}
 
-This temperature variation in the focal plane can lead to changes in the REB temperature, potentially causing gain variations or instability in the bias. Based on these considerations, we decided to disable IDLE\_FLUSH. The impact of this change on bias stability is discussed in Sections~\ref{bias-stability-2} and~\ref{gain-stability-2}.
+This temperature variation in the focal plane can lead to changes in the REB temperature, potentially causing gain variations or instability in the bias. Based on these considerations, we decided to disable IDLE\_FLUSH. The impact of this change on bias stability is discussed in Sections~\ref{sec:bias-stability-2} and~\ref{sec:gain-stability-2}.
 
 \begin{figure}
 \begin{centering}
@@ -1252,7 +1277,7 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 \end{centering}
 \caption{Impact of disabling IDLE\_FLUSH on Divisadero tearing}\label{IdleFlushEffect:divisadero}
 \end{figure}
-Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings in the time order. There were a couple of changes: 1) switching to narrower parallel swing voltage, 2) changing the number of clears before the exposure, 3) disabling IDLE\_FLUSH.  Some minor changes in each changes are also included such as changing the number of clears, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the clear). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the higher one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought the overall distribution down. The two distributions became indistinguishable, which indicates the majority of the Divisadero tearing for e2v is mitigated.
+Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings in the time order. There were few changes: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some minor changes in each changes are also included such as changing the number of clears, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the clear). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the higher one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought the overall distribution down. The two distributions became indistinguishable, which indicates the majority of the Divisadero tearing for e2v is mitigated.
 
 E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System. This fact confirms that the metric is consistent over power cycling of LSSTCam.
 
@@ -1493,7 +1518,7 @@ This section describes defect stability.
   Dark defects with picture frame
 \end{itemize}
 
-\subsection{Bias stability}\label{bias-stability-2}
+\subsection{Bias stability}\label{sec:bias-stability-2}
 
 We have found bias instabilities, typically above the 1 ADU level, for a number of CCDs in the focal plane, both ITL and e2v. Two main kinds of instability are observed:
 
@@ -1535,26 +1560,26 @@ stability task is used.  For the ISR part, a serial
 overscan correction and a bias subtraction (computed from the
 corresponding B-protocol run) are applied. The final data product of the task is the
 mean of the per-amplifier science image over the full set of exposures
-of the run. Two typical examples from Run E2136 are shown in the figures
-below. In the stable case, the variations are typically at the 0.1 ADU
+of the run. Two typical examples from Run E2136 are shown in Figure~\ref{fig:bias-instability}. In the stable case, the variations are typically at the 0.1 ADU
 level; in the unstable case, the variations range up to 4 ADUs.
 
 \begin{figure}[h]
 \centering
-\begin{minipage}[b]{0.45\textwidth}
+\begin{minipage}[b]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{sections/figures/E2136_R21_S21.png}
 \end{minipage}
-\hfill
+%\hfill
 \begin{minipage}[b]{0.45\textwidth}
 \centering
 \includegraphics[width=\textwidth]{sections/figures/E2136_R23_S22.png}
 \end{minipage}
-\caption{(left) Stable case (R21\_S21); (right) Unstable case (R23\_S22)}
+\caption{(left) Stable case for bias (R21\_S21); (right) Unstable case (R23\_S22)}
+\label{fig:bias-instability}
 \end{figure}
 
 
-A comparison of the results for an unstable CCD is shown below for the
+A comparison of the results for an unstable e2v CCD (R33\_S02) is shown in Figure~\ref{fig:r33_s02_bias} for the
 three runs.
 
 \begin{figure}[htbp]
@@ -1562,13 +1587,13 @@ three runs.
 \begin{minipage}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2136_R33_S02.png}
-    \caption{Run E2136, R33\_S02}
+    %\caption{Run E2136, R33\_S02}
 \end{minipage}
 \hspace{0.05\textwidth}
 \begin{minipage}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2236_R33_S02.png}
-    \caption{Run E2236, R33\_S02}
+    %\caption{Run E2236, R33\_S02}
 \end{minipage}
 
 \vspace{0.05\textwidth}
@@ -1576,7 +1601,7 @@ three runs.
 \begin{minipage}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2330_R33_S02.png}
-    \caption{Run E2330, R33\_S02}
+    %\caption{Run E2330, R33\_S02}
 \end{minipage}
 \hspace{0.05\textwidth}
 \hfill
@@ -1584,6 +1609,8 @@ three runs.
     \centering
     % 空白セルとして保持
 \end{minipage}
+\caption{Bias level variations for R33\_S02, an unstable e2v CCD for three runs:  (upper left) E2136, (upper right) E2236, (lower left) E2330.  The segments CXX and CYY are most strongly variable in each run.  Note that the range of the time axes is different in each plot.}
+\label{fig:r33_s02_bias}
 \end{figure}
 
 
@@ -1608,9 +1635,9 @@ three runs.
 %\caption{Run E2330, R33 S02}
 %\end{figure}
 
-To highlight the 2D shape differences in ITL bias instability, a 2D-overscan correction
+To highlight the 2D shape differences in e2v bias instability, a 2D-overscan correction
 is applied. A few exposures illustrating the variations of the 2D shape
-for an unstable CCD are shown below. The 2D shape of the image in
+for the same unstable CCD R33\_S02 are shown in Figures~\ref{fig:r33_s02_1880}-\ref{fig:r33_s02_2136_delay}. The 2D shape of the image in
 amplifier C01 is different in the 3 cases.
 
 \begin{figure}[htbp]
@@ -1619,12 +1646,14 @@ amplifier C01 is different in the 3 cases.
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E1880_bias_R33_S02.png}
     \caption{Bias exposure, run 1880, R33\_S02}
+    \label{fig:r33_s02_1880}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2136_dark15_R33_S02.png}
     \caption{15-s dark exposure, run E2136 in 'stable' conditions, R33\_S02}
+    \label{fig:r33_s02_2136}
 \end{minipage}
 
 \vspace{0.5cm}
@@ -1633,6 +1662,7 @@ amplifier C01 is different in the 3 cases.
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2136_dark15_delay_R33_S02.png}
     \caption{15\,s dark exposure, run E2136 after a 3\,min delay, R33\_S02}
+    \label{fig:r33_s02_2136_delay}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
@@ -1667,9 +1697,9 @@ metric \emph{d} is defined from the eo\_pipe
 stability task data products. More precisely, \emph{d} is defined, for a
 given amplifier in a given run, as the difference between the 5th and
 95th percentiles of the image mean over all the bias image acquisitions. The
-distribution of \emph{d} for run E2136 is shown below. Applying a
+distribution of \emph{d} for run E2136 is shown in Figure~\ref{fig:stability_dist}. Applying a
 threshold at 0.3\,ADU, 51 amplifiers are identified as unstable (see the
-corresponding mosaic). This corresponds to \textasciitilde3\% of the e2v
+corresponding mosaic in Fig.~\ref{fig:stability_mosaic}). This corresponds to \textasciitilde3\% of the e2v
 amplifiers.
 
 \begin{figure}[htbp]
@@ -1678,12 +1708,14 @@ amplifiers.
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2136_distribution_d.png}
     \caption{Distribution of the stability metric for the e2v amplifiers in run E2136}
+    \label{fig:stability_dist}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{sections/figures/E2136_mosaic_d.png}
     \caption{Mosaic of e2v amplifiers identified as unstable (white color) in run E2136}
+    \label{fig:stability_mosaic}
 \end{minipage}
 \end{figure}
 
@@ -1706,7 +1738,7 @@ amplifiers.
 Further studies are required in order to converge on the best mitigation
 strategy for the start of the LSST survey.
 
-\subsection{Gain stability}\label{gain-stability-2}
+\subsection{Gain stability}\label{sec:gain-stability-2}
 The ``relative gain" is defined as the ratio of the signal observed in a CCD image segment divided by the integration of the photodiode current with respect to an arbitrary normalization.
 With a fixed flat illumination, the variation of the relative gain over successive exposures can be utilized to investigate the gain stability. We acquired flat images at the same flux level with two distinct temperature conditions: either intentionally altered or maintained constant.
 \begin{itemize}
@@ -1738,27 +1770,30 @@ With a fixed flat illumination, the variation of the relative gain over successi
 
 \subsection{Tree rings}\label{tree-rings}
 \subsubsection{Center of the Tree Ring}
-So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, however now we have new data with 0 V of back bias voltage, we wanted to make sure if the error in center of the ring position is small enough and if we need to use individual center position for each sensor. 
+So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, however now we have new data with 0\,V of back bias voltage, we wanted to make sure if the error in center of the ring position is small enough and if we need to use individual center position for each sensor. 
 
-This is the position of Tree ring center measured for the 189 sensors. We decided to use center of each sensor instead of the average value. 
+Figure~\ref{fig:tree_ring_center} shows the positions of the Tree ring centers measured for the 189 sensors. We decided to use center of each sensor instead of the average value. 
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/TR_centers.png}
 \end{centering}
 \caption{The center of the Tree Rings were measured for all 189 LSST sensors. Red point indicates the average center on each direction.}
+\label{fig:tree_ring_center}
 \end{figure}
 
 \subsubsection{Radial study}
 Radial study for Tree rings pattern has been done to see if the rings are perfectly circular in shape. 
 
-This is the image of transforming the flat image into the radial image as the y axis to be the distance from the center of the rings. 
+%This is the image of transforming the 
+Figure~\ref{fig:tree-ring-radial-transform} illustrates the transformation of a flat image into a radial profile plot as the y axis to be the distance from the center of the rings. 
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{sections/figures/TR_subtraction.png}
 \end{centering}
 \caption{Folding image on diagonal line from the center of the ring, and subtracting from each other.}
+\label{fig:tree-ring-radial-transform}
 \end{figure}
 
 \begin{figure}
@@ -1769,7 +1804,7 @@ This is the image of transforming the flat image into the radial image as the y 
 \end{figure}
 
 \subsubsection{Effect of diffuser}
-We expect that with the diffuser installed, there will be less contribution from effects such as CMB and weather patterns discussed in \S~XX. Comparing R22\_S12 of Run 6 run 13379 (without diffuser) with Run 7 E937 (with diffuser), we could check significant improvement from the diffuser.
+We expect that with the diffuser installed, there will be less contribution from effects such as CMB and weather patterns discussed in \S~XX. Comparing R22\_S12 of Run 6 run 13379 (without diffuser) with Run 7 E937 (with diffuser), we verified the significant improvement from use of the diffuser.
 \paragraph{Tree rings without diffuser}
 
 \begin{figure}
@@ -1952,7 +1987,22 @@ When data products of the 88 ITL sensors are inspected for transient phosphoresc
 
 \input{phosphorescing_sensors_table}
 
-The correspondence between {\it vampire pixels} and spot-like phosphorescence is briefly laid out here, for three prominent cases. R01\_S00\_C13-14  R03\_S10\_C15 R20\_S20\_C13
+The correspondence between {\it vampire pixels} and spot-like phosphorescence is briefly laid out in Figure~\ref{fig:vamp-phos:R03_S10-R20_S20}, for two prominent cases. One other phenomenological property that may illuminate the origin of the phosphorescence 
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{1.0\textwidth}    
+  \centering
+  \includegraphics[width=.75\linewidth]{sections/figures/phosphorescence-survey/vamp_comp_R03_S10.png}    
+\end{minipage}
+\begin{minipage}{1.0\textwidth}
+  \centering
+  \includegraphics[width=.75\linewidth]{sections/figures/phosphorescence-survey/vamp_comp_R20_S20.png}
+\end{minipage}
+\caption{Vampire pixels seen in flat field response (left) and in transient phosphorescence (right). These are the prominent vapire pixels seen in R03\_S10\_C15 (top) and in R20\_S20\_Cxx (bottom). The logarithmic signal level (color) scales refer to the transient phosphorescence, while the flat field response scales are scaled to unity but vary between 0.2 and 15.0 (for R03\_S10), and between 0.7 and 1.3 (for R20\_S20). These two {\it vampire pixels} may appear intrinsically different in that their flat field responses do or don't exhibit a central bright pixel (R03\_S10 has one, R20\_S20 does not).}
+\label{fig:vamp-phos:R03_S10-R20_S20}
+\end{figure}
+
 
 \subsubsection{Other properties of phosphorescence}
 \begin{itemize}
@@ -2311,7 +2361,8 @@ acquired properly \\ \hline
 & E1517 & & \\ \hline
 \end{longtable}
 
-\phantomsection\label{citations}
+%\phantomsection\label{citations}
+\section{References}
 \begin{description}
 \item[\label{A2023}{A2023}]
 \url{https://arxiv.org/pdf/2301.03274}
