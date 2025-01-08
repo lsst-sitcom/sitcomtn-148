@@ -16,6 +16,7 @@
 % Local commands go here.
 \usepackage{iftex}
 \usepackage{natbib}
+
 \ifPDFTeX\else
   % xetex/luatex font selection
 \fi
@@ -67,6 +68,7 @@ John Banovetz,
 Seth Digel,
 Thibault Guillemin,
 Sean MacBride,
+Stuart Marshall,
 Andrew Rasmussen,
 Aaron Roodman,
 Yousuke Utsumi,
@@ -115,8 +117,8 @@ dips, and others.
 \section{References} \label{sec:bib}
 %\renewcommand{\refname}{} % Suppress default Bibliography section
 %\bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
+%\bibliographystyle{plain_notitle}
 \bibliography{local}
-\bibliographystyle{plain_notitle}
 
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
@@ -124,7 +126,6 @@ dips, and others.
 \input{acronyms.tex}
 % If you want glossary uncomment below -- comment out the two lines above
 %\printglossaries
-
 
 \end{document}
 
