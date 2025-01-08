@@ -397,7 +397,7 @@ by \textasciitilde$7 \times 10^{-6}$ \% for ITL sensors (Fig.~\ref{fig:parallel-
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{sections/figures/baselineCharacterization/PCTI_13557_E1071_diff.png}
 \caption{Distributions of differences in parallel charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
-\label{fig:parallel-cti}
+\label{fig:parallel-cti-dist}
 \end{centering}
 \end{figure}
 
@@ -510,7 +510,8 @@ focal plane.
 \subsubsection{\texorpdfstring{Brighter fatter a{00}
 coefficient}{Brighter fatter a00 coefficient}}\label{brighter-fatter-a00-coefficient}
 
-This redistribution causes the charge to ``spill" into adjacent pixels, effectively broadening the point spread function (PSF). The brighter-fatter effect is the most dominant source of covariance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from \hyperref[Astier]{{[}Astier{]}}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
+This redistribution causes the charge to ``spill" into adjacent pixels, effectively broadening the point spread function (PSF). The brighter-fatter effect is the most dominant source of covariance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
+\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[H]
 \begin{centering}
@@ -563,7 +564,7 @@ The brighter-fatter correlation is comparable across different runs, regardless 
 
 \subsubsection{Row-means variance}\label{row-means-var}
 
-Row-means variance is a metric that measures the row to row variance in flat frames. By computing the ratio of the row variance (or measured variance) to the expected Poisson signal (or expected variance) at the flux level, we can measure if additional noise enters the PTC curve at any point.
+Row-means variance is a metric that measures the row-to-row variance in flat frames. By computing the ratio of the row variance (or measured variance) to the expected Poisson signal (or expected variance) at the flux level, we can measure if additional noise enters the PTC curve at any point.
 
 \begin{figure}[H]
 \begin{centering}
@@ -644,10 +645,13 @@ Add conclusion when pipelines on E1071 are complete
 
 Persistence is a feature of CCDs and how they are operated involving charge trapped in the
 surface layer after high-flux exposures
-\hyperref[persistence-2]{{[}Persistence{]}}. Persistence is described in
-detail in the
-\href{https://sitcomtn-148.lsst.io/\#persistence-optimization}{persistence
-optimization section}. Here we consider the measurements taken as
+%\hyperref[persistence-2]{{[}Persistence{]}}. 
+\citep{DMTN-276}.
+Persistence is described in
+detail in Section~\ref{sec:persistence-optimization}.
+%\href{https://sitcomtn-148.lsst.io/\#persistence-optimization}{persistence
+%optimization section}. 
+Here we consider the measurements taken as
 part of a persistence measurement task in the typical B protocol. For
 measuring persistence, a high-flux acquisition is taken, followed by a
 sequence of dark images. The persistence signal has been observed to
@@ -727,7 +731,7 @@ Persistence {[}ADU{]}               & \multicolumn{1}{l|}{}          &          
 
 \section{Camera Optimization}\label{camera-optimization}
 
-\subsection{Persistence optimization}\label{persistence-optimization}
+\subsection{Persistence optimization}\label{sec:persistence-optimization}
 
 Leftover signal (``persistence") in the first dark image acquired after intense illumination has
 been observed.  Persistence has been observed
@@ -934,26 +938,26 @@ Several efforts were undertaken to optimize the sequencer configurations during 
 
 \begin{itemize}
 \item Clears:  Here we summarize the discussion provided in
-  \href{https://sitcomtn-148.lsst.io/\#serialRemnants}{Improvement of
+  \href{https://sitcomtn-148.lsst.io/#serialRemnants}{Improvement of
   Clear CCD}:
 
   \begin{itemize}
   \item
     \textbf{No Pocket}
-  We introduced the V29\phantomsection\label{nop}{NoP} (No Pocket)
+  We introduced the v29\_Nop (No Pocket)
   sequencer, which is an improved clear method using a serial register
   configuration that reduces the formation of pockets at the Image/Serial
   register interface. This clear method showed an approximately 2$\times$
   improvement in the saturated image clear for e2v devices and completely
   resolved the issue for ITL devices, except for R01\_S11,
-  where the No Pocket method performs approximately 2x worse than the default clear. 
+  where the No Pocket method performs approximately 2$\times$ worse than the default clear. 
   For an unknown reason, this ITL CCD retains a significant amount of uncleared charges 
   (hundreds of lines) after a saturated flat. This issue prevents the use of the No
   Pocket configuration with ITL devices.
 
   \item
     \textbf{No Pocket with Serial Flush}
-  We introduced V29NoPSF (No Pocket with Serial Flush), an enhanced version of the No Pocket Clear
+  We introduced V29NopSf (No Pocket with Serial Flush), an enhanced version of the No Pocket Clear
   sequencer, which includes a variable configuration of the serial register
   during the clear process (mimicking a serial flush), to further prevent the
   formation of pockets. This solution has been shown to completely prevent the presence of leftover charges after clearing a saturated image for e2v devices.
@@ -993,8 +997,7 @@ which leave signal in the first lines of the subsequent exposure. The effect has
   Although the effect is slightly amplifier dependent, as for ITL, the
   first line read after an exposure that follows an exposure with saturated
   overscan, is close to saturation, and a significant signal is visible
-  in the subsequent 20--50 lines. (
-  \texttt{see\ left\ plots\ of\ clear\ e2v\ image\textless{}fig-image-e2vclear\textgreater{}})
+  in the subsequent 20--50 lines (see left-hand plot in Fig.~\ref{fig:clear_e2v}).
   \end{quote}
 \end{itemize}
 
@@ -1052,8 +1055,8 @@ Table~\ref{tab:clears}).
 \textbf{Multi Clear} 3~clears (seq. V29) & 196.5 & No residual electrons & No residual electrons & First 150 rows saturated for 2 amp, 5 amp with signals \\
 \textbf{Multi Clear} 5~clears (seq. V29) & 327.4 & No residual electrons & No residual electrons & First 100 rows saturated for 2 amp, 2 amp impacted \\
 \textbf{Deep Clear} 1~clear (Seq. V23 DC) & 64.69 & 1st row saturated signal up to row <20 & Tiny signal left in the first row & not measured \\
-\textbf{No Pocket (NoP)} 1~clear (seq. V29) & 65.8 & signal up to row 20 & No residual electrons & First 1000 rows saturated for 16 amp, 16 amp with signals \\
-\textbf{No Pocket Serial Flush (NoPSF)} 1~clear (seq. V29, V30) & 67.0 & No residual electrons & No residual electrons & first 750 rows saturated for 16 amp, 16 amp with signals \\
+\textbf{No Pocket (Nop)} 1~clear (seq. V29) & 65.8 & signal up to row 20 & No residual electrons & First 1000 rows saturated for 16 amp, 16 amp with signals \\
+\textbf{No Pocket Serial Flush (NopSf)} 1~clear (seq. V29, V30) & 67.0 & No residual electrons & No residual electrons & first 750 rows saturated for 16 amp, 16 amp with signals \\
 \end{longtable}
 }
 
@@ -1073,22 +1076,22 @@ moves the charges from the image area to the serial register:
   flush of the serial register is done (\textasciitilde{} the serial
   clocks changes to read a single line).
 \item
-  The No-pocket Clear (NoP): a clear where the serial register has the
+  The No-pocket Clear (Nop): a clear where the serial register has the
   same configuration (S1 \& S2 up, S3 low) when the parallel clock P1
   moves the charges to the serial register than in a standard image read. Still we kept all phases up for the rest of the time for a fast clear
   of the charges along the serial register
-  (\hyperref[sequencerV29_NoP]{{[}sequencerV29\_NoP{]}}). The idea is
+  (\hyperref[sequencerV29_Nop]{{[}sequencerV29\_Nop{]}}). The idea is
   that the S3 phase is not designed to be up when charges are transferred
   to the serial register, and is probably playing a major role in the creation of pockets.
 \item
-  The No-pocket with serial flush Clear (NoPSF): this sequencer is close
-  to the NoP solution, except that during the transfer of one line to
+  The No-Pocket with Serial Flush Clear (NopSf): this sequencer is close
+  to the Nop solution, except that during the transfer of one line to
   the serial register, the serial phases are also manipulated to transfer two
   pixels along the serial register. The changes in electric field at the
   image-serial register interface are then even more representative of
   what a standard read produces, and should further prevent the
   creation of pockets.
-  (\hyperref[sequencerV29_NoPSF]{{[}sequencerV29\_NoPSF{]}}).
+  (\hyperref[sequencerV29_NopSf]{{[}sequencerV29\_NopSf{]}}).
 \end{itemize}
 
 \subsubsection{Results on standard e2v and ITL CCDs}\label{results-on-standard-e2v-and-itl-ccd}
@@ -1099,7 +1102,7 @@ moves the charges from the image area to the serial register:
 \end{centering}
 \caption{Impact of the various types of clear on a bias
 taken after a saturated flat for an e2v sensor (R12\_S20).}
-\label{fig:clear_ITL}
+\label{fig:clear_e2v}
 \end{figure}
 
 %\emph{Figure showing the impact of the various types of clear on a bias
@@ -1111,38 +1114,38 @@ taken after a saturated flat for an e2v sensor (R12\_S20).}
 \end{centering}
 \caption{Impact of the various types of clear on a bias
 taken after a saturated flat for an ITL sensor (R03\_S11).}
-\label{fig:clear_e2v}
+\label{fig:clear_ITL}
 \end{figure}
 
 %\emph{Figure showing the impact of the various types of clear on a bias
 %taken after a saturated flat for an ITL sensor.}
 
 In Figures~\ref{fig:clear_ITL} and \ref{fig:clear_e2v}, we present for three types of sequencer (from left to
-right: V29, NoP, and NopSF), a zoom on the first lines of an ITL or e2v
+right: V29, Nop, and NopSf), a zoom on the first lines of an ITL or e2v
 amplifier (for ITL R03\_S11\_C14 and for e2v
 R12\_S20\_C10 shown as a 2D lines-columns
 image (top plots) or as the mean signal per line for the first lines
 read of an amplifier (bottom plots).
 
-As seen in the left-hand panel of Figure~\ref{fig:clear-e2v}
+As seen in the left-hand panel of Figure~\ref{fig:clear_e2v}
 for an e2v CCD, a bias taken just after a saturated flat will show a
 residual signal in the first lines read when using the default clear
 (left images, clear= V29): the first line has an almost saturated signal
 (\textasciitilde{} 100 kADU here), and a significant signal is seen up
 to row \textasciitilde50. In practice, depending on the 
-amplifier, signal can be seen up to line 20--50. When using the NoP clear
+amplifier, signal can be seen up to line 20--50. When using the Nop clear
 (central plots), we can already see a strong reduction of the uncleared
 charges in the first acquired bias after a saturated flat.  Still a small
 residual signal is visible in the first \textasciitilde20 lines. The
-NoPSF clear (right plots) fully clears the saturated flat, and no
+NopSf clear (right plots) fully clears the saturated flat, and no
 uncleared charges are observed in the following bias.
 
-As seen in the left-hand panel of Figure~\ref{fig:clear-ITL}
+As seen in the left-hand panel of Figure~\ref{fig:clear_ITL}
 for an ITL CCD, a bias taken just after a saturated flat will show a
 residual signal in the first rows read when using the default clear
 (left images, clear=v29): the first line has an almost saturated signal
 (\textasciitilde{} 100 kADU here), and a significant signal is seen in
-the following line. Both NoP clear (central plots) and NoPSF clear
+the following line. Both Nop clear (central plots) and NopSf clear
 (right plots) fully clear the saturated flat, and no uncleared charges
 are observed in the following bias.
 
@@ -1154,15 +1157,15 @@ are observed in the following bias.
 \end{centering}
 \caption{Impact of the various types of clear on ITL
 R01\_S10 after a saturated flat (bias after a saturated flat), from left
-to right: 1 standard clear, 3 standard clears, 5 standard clears, 1 NoP
-clear, 1 NoPSF clear.}
+to right: 1 standard clear, 3 standard clears, 5 standard clears, 1 Nop
+clear, 1 NopSf clear.}
 \label{fig:clears_R01_S10}
 \end{figure}
 
 %\emph{Figure showing the impact of the various types of clear on ITL
 %R01\_S10 after a saturated flat (bias after a saturated flat), from left
-%to right: 1 standard clear, 3 standard clears, 5 standard clears, 1 NoP
-%clear, 1 NoPSF clear}
+%to right: 1 standard clear, 3 standard clears, 5 standard clears, 1 Nop
+%clear, 1 NopSf clear}
 
 One ITL sensor, R01\_S10,
 presents a specific behavior that is not understood:
@@ -1179,10 +1182,10 @@ presents a specific behavior that is not understood:
   amplifiers retain \textasciitilde500 rows of saturated signal!).
 \end{itemize}
 
-It appears that putting S3 low during the clear as done in NoP and NoPSF,
+It appears that putting S3 low during the clear as done in Nop and NopSf,
 is even worse than a standard clear. This is strange, as a full frame
 read, which does this too, manages to clear a saturated image. We can notice
-that NoPSF is \textasciitilde50\% better than NoP, but still worse than
+that NopSf is \textasciitilde50\% better than Nop, but still worse than
 the standard clear, in particular for the 12 amplifiers that are almost correct
 with the standard clear.
 
@@ -1200,12 +1203,12 @@ parallel overscan, will present the same clear issue.
 %\begin{longtable}{|p{0.18\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.13\linewidth}|p{0.16\linewidth}|}
 %\caption{\emph{This table summarizes the different clear methods used so far.}} \\
 %\hline
-%\textbf{} & \textbf{Default Clear 1 Clear (seq. V29)} & \textbf{Multi Clear 3 Clears (seq. V29)} & \textbf{Multi Clear 5 Clears (seq. V29)} & \textbf{Deep Clear 1 Clear (Seq. V23 DC)} & \textbf{No Pocket (NoP) 1 Clear (seq. V29)} & \textbf{No Pocket Serial Flush (NoPSF) 1 Clear (seq. V29, V30)} \\
+%\textbf{} & \textbf{Default Clear 1 Clear (seq. V29)} & \textbf{Multi Clear 3 Clears (seq. V29)} & \textbf{Multi Clear 5 Clears (seq. V29)} & \textbf{Deep Clear 1 Clear (Seq. V23 DC)} & \textbf{No Pocket (Nop) 1 Clear (seq. V29)} & \textbf{No Pocket Serial Flush (NopSf) 1 Clear (seq. V29, V30)} \\
 %\hline
 %\endfirsthead
 %
 %\hline
-%\textbf{} & \textbf{Default Clear 1 Clear (seq. V29)} & \textbf{Multi Clear 3 Clears (seq. V29)} & \textbf{Multi Clear 5 Clears (seq. V29)} & \textbf{Deep Clear 1 Clear (Seq. V23 DC)} & \textbf{No Pocket (NoP) 1 Clear (seq. V29)} & \textbf{No Pocket Serial Flush (NoPSF) 1 Clear (seq. V29, V30)} \\
+%\textbf{} & \textbf{Default Clear 1 Clear (seq. V29)} & \textbf{Multi Clear 3 Clears (seq. V29)} & \textbf{Multi Clear 5 Clears (seq. V29)} & \textbf{Deep Clear 1 Clear (Seq. V23 DC)} & \textbf{No Pocket (Nop) 1 Clear (seq. V29)} & \textbf{No Pocket Serial Flush (NopSf) 1 Clear (seq. V29, V30)} \\
 %\hline
 %\endhead
 %
@@ -1222,7 +1225,7 @@ parallel overscan, will present the same clear issue.
 %\end{longtable}
 
 
-Even if NoP or NoPSF overcome the clear issue we had with ITL
+Even if Nop or NopSf overcome the clear issue we had with ITL
 sensors, the exception of R01\_S10 prevented
 the usage of those sequencers for ITL devices for Run 7. Note that
 aside from R01\_S10 the numbers of lines potentially
@@ -1235,7 +1238,7 @@ serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 
 \begin{quote}
 For the other CCD type, after the studies in Run 7, we now have a good way
-to fully clear the e2v devices through the NoPSF clear. The NoPSF clear
+to fully clear the e2v devices through the NopSf clear. The NopSf clear
 grants that the first 50 rows of e2v CCDs that had un-cleared
 electrons from the previous exposure are now free of such
 contamination.
@@ -1246,10 +1249,10 @@ For the time being:
 \begin{itemize}
 \tightlist
 \item
-  For e2v, NoPSF will be the default clear method.
+  For e2v, NopSf will be the default clear method.
 \item
   For ITL, the original clear (serial phase 3 always), slightly extended
-  in time to match the NoPSF e2v clear execution time, will stay the
+  in time to match the NopSf e2v clear execution time, will stay the
   default method.
 \end{itemize}
 
@@ -1323,7 +1326,7 @@ During Run 7, several changes were implemented, as described below:
 \section{Characterization \& Camera
 stability}\label{characterization-camera-stability}
 
-\subsection{Final characterization background}\label{background}
+\subsection{Final characterization background}\label{final_background}
 
 \begin{longtable}[H]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}
@@ -1382,52 +1385,52 @@ E
 
 
 
-\subsubsection{Dark metrics}\label{dark-metrics}
+\subsubsection{Dark metrics}\label{final-dark-metrics}
 
 \paragraph{Dark current}\label{dark-current}
 
 
 
 
-\paragraph{Bright defects}\label{bright-defects}
+\paragraph{Bright defects}\label{final-bright-defects}
 
 \subsubsection{Flat pair metrics}
 
-\paragraph{Linearity and PTC turnoff}\label{linearity-and-ptc-turnoff}
+\paragraph{Linearity and PTC turnoff}\label{final-linearity-and-ptc-turnoff}
 
 
 
-\paragraph{PTC Gain}\label{ptc-gain}
+\paragraph{PTC Gain}\label{final-ptc-gain}
 
 
 
 
 \paragraph{\texorpdfstring{Brighter fatter a{00}
-coefficient}{Brighter fatter a00 coefficient}}\label{brighter-fatter-a00-coefficient}
+coefficient}{Brighter fatter a00 coefficient}}\label{final-brighter-fatter-a00-coefficient}
 
 
 
-\paragraph{Brighter-Fatter Correlation}\label{brighter-fatter-correlation}
+\paragraph{Brighter-Fatter Correlation}\label{final-brighter-fatter-correlation}
 
 
 
-\paragraph{Row-means variance}\label{row-means-var}
+\paragraph{Row-means variance}\label{final-row-means-var}
 
 
 
-\paragraph{Divisadero Tearing}\label{divisadero-tearing}
+\paragraph{Divisadero Tearing}\label{final-divisadero-tearing}
 
 
 
-\paragraph{Dark defects}\label{dark-defects}
+\paragraph{Dark defects}\label{final-dark-defects}
 
 
 
-\subsubsection{Persistence}\label{persistence}
+\subsubsection{Persistence}\label{final-persistence}
 
 
 
-\subsubsection{Differences between run 7 initial and run 7 final measurements}\label{differences-from-previous-runs}
+\subsubsection{Differences between run 7 initial and run 7 final measurements}\label{final-differences-from-previous-runs}
 
 % Add something about the major differences between the runs
 
@@ -1456,7 +1459,31 @@ Persistence {[}ADU{]}               & \multicolumn{1}{l|}{}          &          
 \end{table}
 
 
-\subsection{Changes in the dead amplifiers}\label{deadamplifiers}
+\subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
+
+We classify amplifier sections as non-functional if they produce effectively no signal (dead) for incident light, or if the read noise level is above $18e^{-}$ (hi-noise).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or gains below $0.8$ or above $1.8$. 
+
+A list of non-functional amplifiers was produced from both single raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\cite{tab-BOTdeadamp}. As the table indicates two amplifiers, R01_S01_C00 and R10_S00_C00 transitioned from dead to working during the course of the BOT testing. Furthermore another 
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+        Raft & Slot & Segment & (Amp) & Problem & Single Raft testing & Run 12433 9-Raft (Oct '19) & Run 12610 (Oct '20) & Run 12795 (Nov '20) & Run 12845 (Jan '21) & Run 13016 (Nov '21) & Run 13101 (Nov '21) & Run 13137 (Dec '21) \\ \hline
+        R01 & S01 & 00 & (16) & Dead Channel & Dead & Dead & OK & OK & OK & OK & OK & OK \\ \hline
+        R03 & S11 & 00 & (16) & Dead Channel & OK & NA & OK & OK & Dead & Dead & Dead & Dead \\ \hline
+        R10 & S00 & 00 & (16) & Dead Channel & Dead & NA & OK & OK & OK & OK & OK & OK \\ \hline
+        R30 & S00 & 10 & (1) & Dead Channel & Dead & Dead & Dead & Dead & Dead & Dead & Dead & Dead \\ \hline
+        R01 & S02 & 07 & (9) & Noise > 18e & OK & 27e & 22e & 20e & 21e & 15e & 14e & 14e \\ \hline
+        R01 & S11 & 00 & (16) & Noise > 18e & OK & 24e & OK & OK & 12e & OK & OK & OK \\ \hline
+        R41 & S11 & 14 & (5) & Noise > 18e & OK & NA & 36e & OK & OK & OK & OK & OK \\ \hline
+        R41 & S21 & 02 & (14) & Noise > 18e & OK & NA & OK & 108e & 96e & 85e & 110e & 115e \\ \hline
+        R43 & S02 & 03 & (13) & Noise > 18e & 18e & NA & 18e & 18e & 18e & 17e & 18e & 17e \\ \hline
+        R43 & S20 & 14 & (5) & Noise > 18e & OK & NA & OK & OK & 69e & 145e & OK & OK \\ \hline
+
+    \end{tabular}
+\end{table}
+
 
 \subsection{Full well measurements}\label{fullwell}
 
@@ -1976,31 +2003,98 @@ Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according 
 1$\times$1 
 pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by the rebinning routinely performed for display purposes.
 
-A subset of the 88 sensors, specifically those that either show high-signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination, in Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20} in the Appendix. It is apparent from viewing these side-by-side comparisons that generally, expression of phosphorescence has a complex relationship with the {\it much-easier-to-detect} coffee stains (or other diffuse variations in quantum efficiency) seen on the same sensors: Presence of a coffee stain seen in flat field response may be suggestive of phosphorescence on the sensor, but predicting where it might be (or its transient amplitude) is another matter entirely. In some cases (as in Figure~\ref{fig:phos:stains} noted above), the phosphorescence appears to be correlated with the darker absorbed features of the coffee stain. In others ({\it e.g.}, Figure~\ref{fig:phos:stains:R02S02}), the opposite correlation is seen. In still other cases ({\it e.g.}, Figure~\ref{fig:phos:stains:R02S12}), there are regions of strong detail in the phosphorescence without very much coffee stain action at all. Our conclusions are that presence of coffee stains do not provide a useful proxy for the phosphorescent properties of the sensor.
+A subset of the 88 sensors, specifically those that either show high-signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination, in Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20} in the Appendix. It is apparent from viewing these side-by-side comparisons that generally, expression of phosphorescence has a complex relationship with the {\it much-easier-to-detect} coffee stains (or other diffuse variations in quantum efficiency) seen on the same sensors: Presence of a coffee stain seen in flat field response may be suggestive of phosphorescence on the sensor, but predicting where it might be (or its transient amplitude) is another matter entirely. In some cases (as in Fig.~\ref{fig:phos:stains} noted above), the phosphorescence appears to be correlated with the darker absorbed features of the coffee stain. In others (e.g., Fig.~\ref{fig:phos:stains:R02S02}), the opposite correlation is seen. In still other cases (e.g., Fig.~\ref{fig:phos:stains:R02S12}), there are regions of strong detail in the phosphorescence without very much coffee stain action at all. Our conclusions are that presence of coffee stains do not provide a useful proxy for the phosphorescent properties of the sensor.
 
 \input{phosphorescing_itls_datasets_table}
 \input{phosphorescence_vs_coffeestains_R00SW1_figure}
 
-While characterizing the phosphorescence expressed by ITL sensors using the data products described above, we have also identified correlations that concerns the localized, phosphorescence centers that tend to appear as circular disks. While we typically see a dozen or so (on average) per sensor, those with larger amplitude are strongly associated with {\it vampire pixels} (which are easily identified by their localized flat field response). The correlation is not perfect, meaning that not all localized (circular) phosphorescence centers can be associated with {\it vampire pixels} but that nearly all {\it vampire pixels} express localized phosphorescence with some amplitude. Figures~XX through YY in the appendix provide several such examples of this correlation. 
+While characterizing the phosphorescence expressed by ITL sensors using the data products described above, we have also identified correlations that concerns the localized, phosphorescence centers that tend to appear as circular disks. While we typically see a dozen or so (on average) per sensor, those with larger amplitude are strongly associated with {\it vampire pixels} (which are easily identified by their localized flat field response). The correlation is not perfect, meaning that not all localized (circular) phosphorescence centers can be associated with {\it vampire pixels} but that nearly all {\it vampire pixels} express localized phosphorescence with some amplitude. 
 
-When data products of the 88 ITL sensors are inspected for transient phosphorescent response, it appears there are very few, perhaps only a single sensor, that show insignificant phosphorescence. Although $\sim$24\% of the ITL sensors show diffuse phosphorescence, it appears that a majority of sensors ($\sim$83\%) show spot-like phosphorescence centers. It is probably true that presence of diffuse phosphorescence can frustrate spot-like phosphorescence detection by eye, and that the estimated frequency of the latter may consequently serve as a lower limit to the true frequency. These identification of the sensor groups is given in Table~\ref{qualitative_assessment:itl_sensors}.
+When data products of the 88 ITL sensors are inspected for transient phosphorescent response, very few, perhaps only a single sensor, show insignificant phosphorescence. Although $\sim$24\% of the ITL sensors show diffuse phosphorescence, a majority of sensors ($\sim$83\%) show spot-like phosphorescence centers. Presence of diffuse phosphorescence probably can frustrate spot-like phosphorescence detection by eye, and the estimated frequency of the latter may consequently serve as a lower limit to the true frequency. The identification of the sensor groups is given in Table~\ref{qualitative_assessment:itl_sensors}.
 
 \input{phosphorescing_sensors_table}
 
-The correspondence between {\it vampire pixels} and spot-like phosphorescence is briefly laid out in Figure~\ref{fig:vamp-phos:R03_S10-R20_S20}, for two prominent cases. One other phenomenological property that may illuminate the origin of the phosphorescence 
+The correspondence between {\it vampire pixels} and spot-like phosphorescence is laid out in Figure~\ref{fig:vamp-phos:R03_S10-R20_S20}, for two prominent cases.  These two {\it vampire pixels} may appear intrinsically different in that their flat-field responses {\bf do} (or do {\bf not}) exhibit a central bright pixel, which could aid in their identification. Details of the underlying distribution of trapped surface charges near the back-side electrode - or variations in the conductive properties of the same - apparently drive these details of the flat field response. However, it remains intriguing that these surface electrostatic properties are accompanied by an unmistakable transient phosphorescence signature.
+
 
 \begin{figure}[!htbp]
 \centering
-\begin{minipage}{1.0\textwidth}    
-  \centering
-  \includegraphics[width=.75\linewidth]{sections/figures/phosphorescence-survey/vamp_comp_R03_S10.png}    
-\end{minipage}
-\begin{minipage}{1.0\textwidth}
-  \centering
-  \includegraphics[width=.75\linewidth]{sections/figures/phosphorescence-survey/vamp_comp_R20_S20.png}
-\end{minipage}
-\caption{Vampire pixels seen in flat field response (left) and in transient phosphorescence (right). These are the prominent vapire pixels seen in R03\_S10\_C15 (top) and in R20\_S20\_Cxx (bottom). The logarithmic signal level (color) scales refer to the transient phosphorescence, while the flat field response scales are scaled to unity but vary between 0.2 and 15.0 (for R03\_S10), and between 0.7 and 1.3 (for R20\_S20). These two {\it vampire pixels} may appear intrinsically different in that their flat field responses do or don't exhibit a central bright pixel (R03\_S10 has one, R20\_S20 does not).}
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/vamp_comp_R03_S10_flatresp.png}
+     \caption{flat field (blue) response, R03\_S10 ROI}
+     \label{subfig:flatresp_R03_S10}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/vamp_comp_R03_S10_phosresp.png}
+     \caption{transient phosphorescence, R03\_S10 ROI}
+     \label{subfig:phosresp_R03_S10}
+\end{subfigure}
+\newline
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/vamp_comp_R20_S20_flatresp.png}
+     \caption{flat field (blue) response, R20\_S20 ROI}
+     \label{subfig:flatresp_R20_S20}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/vamp_comp_R20_S20_phosresp.png}
+     \caption{transient phosphorescence, R20\_S20 ROI}
+     \label{subfig:phosresp_R20_S20}
+\end{subfigure}
+\newline
+\caption{Vampire pixel comparisons between their flat field response and their transient phosphorescence. Signal levels are given (relative for flat field response, absolute electrons per 15s following overexposure for transient phosphorescence). The relative flat field response amplitudes swing between 0.2 \& 16 (reaching full well) for R03\_S10, and between 0.4 \& 8 for R20\_S20. The transient phosphorescence response also reaches nominal full well (135ke$^-$/pix/15s for the central pixel) for R03\_S10, and a lower amplitude (3-4ke$^-$/pix/15s for several hundred pixels) is reached for R20\_S20.}
 \label{fig:vamp-phos:R03_S10-R20_S20}
+\end{figure}
+
+A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage (HV Bias) dependence. The HV Bias, when turned on, reduces lateral diffusion of the photo-conversions and thereby maintains PSF image quality. In Figure~\ref{fig:phos:hvbias_comp} we compare side-by-side several phosphorescent regions with both HVBias states (off and on). There appears to be no trend that lends to predictability in these cases. In the cases of vampire pixels (R03\_S10 \& R20\_S20), the geometry of the phosphorescence is indeed very sensitive to the HV Bias states (cf. Figs \ref{subfig:hvb_off_R03_S10} vs. \ref{subfig:hvb_on_R03_S10}; \ref{subfig:hvb_off_R20_S20} vs. \ref{subfig:hvb_on_R20_S20}). These might be understood qualitatively However, for the diffuse phosphorescence examples, the expression appears to vanish entirely (R43\_S11, Fig.~\ref{subfig:hvb_off_R43_S11}) or become significantly stronger, together with morphological changes (R43\_S20, Fig.~\ref{subfig:hvb_off_R43_S20}) when the HV Bias is switched off.
+
+\begin{figure}[!htbp]
+\centering
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R03_S10_off.png}
+     \caption{HVBias off, R03\_S10 ROI}
+     \label{subfig:hvb_off_R03_S10}
+ \end{subfigure}
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R03_S10_on.png} 
+     \caption{HVBias on, R03\_S10 ROI}
+     \label{subfig:hvb_on_R03_S10}
+ \end{subfigure}  
+ \newline
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R20_S20_off.png}
+     \caption{HVBias off, R20\_S20 ROI}
+     \label{subfig:hvb_off_R20_S20}
+ \end{subfigure}
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R20_S20_on.png}
+     \caption{HVBias on, R20\_S20 ROI}
+     \label{subfig:hvb_on_R20_S20}
+ \end{subfigure}
+ \newline
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R43_S11_off.png}
+     \caption{HVBias off, R43\_S11 ROI}
+     \label{subfig:hvb_off_R43_S11}
+ \end{subfigure}
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R43_S11_on.png}
+     \caption{HVBias on, R43\_S11 ROI}
+     \label{subfig:hvb_on_R43_S11}
+ \end{subfigure} 
+ \newline
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R43_S20_off.png}
+     \caption{HVBias off, R43\_S20 ROI}
+     \label{subfig:hvb_off_R43_S20}
+ \end{subfigure}     
+ \begin{subfigure}{0.35\textwidth}
+     \includegraphics[width=\textwidth]{sections/figures/phosphorescence-survey/hvbias_comp_R43_S20_on.png}
+     \caption{HVBias on, R43\_S20 ROI}
+     \label{subfig:hvb_on_R43_S20}
+ \end{subfigure}
+ \newline
+\caption{Comparisons of transient phosphorescence between conditions where HV Bias is off (left) vs. on (right). Four different ROIs are shown, but with image scales set to match across HV Bias conditions.}
+\label{fig:phos:hvbias_comp}
 \end{figure}
 
 
@@ -2204,23 +2298,23 @@ File name
 e2v
 \end{quote}
 \end{minipage} &
-FP\phantomsection\label{e2v_2s_l3cp_v30.seq}{E2V\_2s\_l3cp\_v30.seq} \\
+FP\_E2V\_2s\_l3cp\_v30.seq \\
 \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 ITL
 \end{quote}
 \end{minipage} &
-FP\phantomsection\label{itl_2s_l3cp_v30.seq}{ITL\_2s\_l3cp\_v30.seq} \\
+FP\_ITL\_2s\_l3cp\_v30.seq \\
 \end{longtable}
 
 \begin{itemize}
 \tightlist
 \item
   v30 sequencers are identical to the
-  FP\phantomsection\label{itl_2s_l3cp_v29_noppp.seq}{ITL\_2s\_l3cp\_v29\_Noppp.seq}
+  FP\_ITL\_2s\_l3cp\_v29\_Noppp.seq
   and
-  FP\phantomsection\label{e2v_2s_l3cp_v29_nopsf.seq}{E2V\_2s\_l3cp\_v29\_NopSf.seq}.
-  All sequencer files can be found in the \href{https://github.com/lsst-camera-dh/sequencer-files/tree/master/run7}{github
+  FP\_E2V\_2s\_l3cp\_v29\_NopSf.seq.
+  All sequencer files can be found in the \href{https://github.com/lsst-camera-dh/sequencer-files/tree/master/run7}{GitHub
   repository}.
 \end{itemize}
 
@@ -2279,17 +2373,17 @@ Notes
 & E1115 & & \\ \hline
 & E1114 & & \\ \hline
 & E1075 & & \\ \hline
-\multirow{5}{=}{Projector acquisitions} & E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. E2V:v29\phantomsection\label{nop}{NoP}, ITL:v29\phantomsection\label{nopp}{NoPP} \\
+\multirow{5}{=}{Projector acquisitions} & E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. E2V:v29Nop, ITL:v29Nopp \\
 & E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s
-interval.E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\ \hline
+interval.E2V:v29Nop,
+ITL:v29Nopp \\ \hline
 & E1586 & & One 100\,s flat exposure, spots moved to selected
-phosphorescent regions.E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\ \hline
-& E2181 & & Flat pairs from 2--60\,s in 2s intervals. Two 15\,s darks
+phosphorescent regions.E2V:v29Nop,
+ITL:v29Nopp \\ \hline
+& E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks
 interleaved after flat acquisition. Rectangle on C10
-amplifier.E2V:v29\phantomsection\label{nop}{NoP},
-ITL:v29\phantomsection\label{nopp}{NoPP} \\ \hline
+amplifier.E2V:v29Nop,
+ITL:v29Nopp \\ \hline
 & E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
 \multirow{5}{=}{OpSim runs} & E1717 & & Long dark sequence, no filter
 changes \\ 
@@ -2361,8 +2455,7 @@ acquired properly \\ \hline
 & E1517 & & \\ \hline
 \end{longtable}
 
-%\phantomsection\label{citations}
-\section{References}
+%\section{References}
 \begin{description}
 \item[\label{A2023}{A2023}]
 \url{https://arxiv.org/pdf/2301.03274}
@@ -2389,16 +2482,13 @@ acquired properly \\ \hline
 \item[\label{dmtn-276}{dmtn-276}]
 \url{https://dmtn-276.lsst.io}
 \item[\label{sequencerV23_DC}{sequencerV23\_DC}]
-\url{https:parallelgithub.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}
 \item[\label{sequencerV29}{sequencerV29}]
-\url{https:parallelgithub.com/lsst-camera-dh/sequencer-files/blob/master/Run}
-7/FP\phantomsection\label{e2v_2s_l3cp_v29.seq}{E2V\_2s\_l3cp\_v29.seq}
-\item[\label{sequencerV29_NoP}{sequencerV29\_NoP}]
-\url{https:parallelgithub.com/lsst-camera-dh/sequencer-files/blob/master/Run}
-7/FP\phantomsection\label{e2v_2s_l3cp_v29_nop.seq}{E2V\_2s\_l3cp\_v29\_Nop.seq}
-\item[\label{sequencerV29_NoPSF}{sequencerV29\_NoPSF}]
-\url{https:parallelgithub.com/lsst-camera-dh/sequencer-files/blob/master/Run}
-7/FP\phantomsection\label{e2v_2s_l3cp_v29_nopsf.seq}{E2V\_2s\_l3cp\_v29\_NopSf.seq}
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}
+\item[\label{sequencerV29_Nop}{sequencerV29\_Nop}]
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq}
+\item[\label{sequencerV29_NopSf}{sequencerV29\_NopSf}]
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_NopSf.seq}
 \end{description}
 
 \appendix
