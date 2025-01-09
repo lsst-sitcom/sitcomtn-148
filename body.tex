@@ -1492,6 +1492,14 @@ A list of non-functional amplifiers was produced from both single raft testing a
 \subsection{Full well measurements}\label{fullwell}
 
 \subsection{Non-linearity studies}\label{nonlinearity}
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
+\end{centering}
+\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right : r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are $\tilde 10^{-4}$ on average, and seem somtimes correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
+
+\end{figure}
+
 PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, from an integrating sphere fed by various LEDs, that  illuminates the focal plane. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
 
 For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
@@ -1502,22 +1510,15 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 \label{eq:nonlin0}
 \end{equation}
 where $Q_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
-$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode factor" for current $i$, $S$ is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints: the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically, $w_{ij} = 1/\sqrt{c^2+v^2/m_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
+$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode factor" for current $i$, $S$ is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints: the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically, $w_{ij} = 1/\sqrt{c^2+v^2/\mu_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
 \begin{equation}
 Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \Sigma_{ij} \log w_{ij}
 \label{eq:nonlin1}
 \end{equation}
-We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points.  
-We are firstly interested in the spline correction, and we give an example in Fig. \ref{fig:nonlin_model}.
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/E2016_nonlin_model.png}
-\end{centering}
-\caption{Fitted non-linearity spline for the 16 channels of R22\_S11 (using the PTC run E2016). The distortion around 60000 ADUs is due to the preamplifier. The curves obtained for the same sensor from another data set are extremely similar. \label{fig:nonlin_model}}
+We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every video channel. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points.
+Fig. \ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
 
-\end{figure}
 
 
 
