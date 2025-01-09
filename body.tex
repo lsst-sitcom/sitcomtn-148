@@ -1,6 +1,4 @@
 
-
-
 \section{Electro-optical setup}\label{electro-optical-setup}
 
 \subsection{Run 7 Optical modifications}\label{run-7-optical-modifications}
@@ -13,10 +11,8 @@ dark environment (Fig.~\ref{fig:LSSTCam_config}).
 
 \begin{figure}[htbp]
 \centering
-
     \includegraphics[width=0.6\textwidth]{figures/Camera_Shroud.jpg} 
     \includegraphics[width=0.35\textwidth]{figures/CCOB_Wide_Shroud.jpg} \\
-
 \caption{(left) Final shroud configuration of LSSTCam in Level 3 to reduce light leaks. (right) CCOB Wide Beam attached to the cone and shrouded.}
 \label{fig:LSSTCam_config}
 \end{figure}
@@ -42,16 +38,13 @@ L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the con
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Diffuser.jpg}
+\includegraphics[width=0.6\textwidth]{figures/Diffuser.jpg}
 \caption{Diffuser installed into the light cone.}
 \label{fig:diffuser}
 \end{figure}
 
-The diffuser combined with a fully open f/stop effectively reduced the
-incoming light by roughly 35\%. Adjusting for that, we found that it
-greatly reduced the `weather' (Fig.~\ref{fig:weather})  and
-eliminated the CMB pattern, and more uniformly illuminated the focal
-plane  (Fig.~\ref{fig:roll-off}). 
+We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}) and eliminated the CMB pattern and more uniformly illuminated the focal plane (Fig.~\ref{fig:roll-off}), with a penalty of losing the overall illumination by roughly 35\% even though we fully open the f-stop.
+
 
 \begin{figure}[htbp]
 \centering
@@ -79,23 +72,21 @@ plane  (Fig.~\ref{fig:roll-off}).
 
 
 
-The diffuser was installed for all B protocol and PTC runs moving
+The diffuser was installed for all B protocol and PTC runs (see Section \ref{reverification}) moving
 forward, being taken out only for pinhole projection runs and when using the
 4K projector.
 
+\subsection{Projector spots}\label{projector-spots}
 The addition to the projectors used for EO testing was a 4K
 projector, similar to those used in conference rooms. This projector was
 first tested at SLAC and arrived at the observatory about halfway through Run 7.
 It was used primarily as a spot projector, as the pinhole filter
-was not operational but more importantly, it could
+was not available at that time because of the unavailability of the filter exchanging system. It has an advantage, instead, as it could
 illuminate all 3206 amplifiers instead of the 21 illuminated by the
-pinhole projector. Most runs included the spots and the spot fluxes were
-controlled by the LSSTCam shutter instead of any flashing (e.g., CCOB Wide Beam). One
+pinhole projector. Since the projector doesn't have fast illumination controll, we used the LSST camera's main shutter mostly instead of any flashing (e.g., CCOB Wide Beam). One
 downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had
 structure that changed with time and could not be easily subtracted. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
 measurements increased the contrast ratio to 30.
-
-\subsection{Projector spots}\label{projector-spots}
 
 This section describes the spots and rectangle patterns used for tests with the 4k
 projector.
@@ -121,24 +112,15 @@ This section describes dark current and light leaks in Run 7 testing.
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
 
 One of the first tests we attempted with LSSTCam was measuring dark
-current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in locations where we felt comfortable applying it. Below shows the gaps that
-we could see between L1 and its cover.
+current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible location . Below shows the gaps that we could see between L1 and its cover.
 
 Once these were sealed, we took some initial measurements and then
-started to cover the LSSTCam body with a shroud of .... Figure~\ref{fig:shroud} shows the final shroud configuration covering the
+started to cover the LSSTCam body with a blackout fabric shroud. Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
 camera.
 We also found light leaks
 where the light cone attached to L1 was housed, and from the Utility
 Trunk. 
 
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figures/Camera_Shroud.jpg}
-\caption{Final shroud configuration of LSSTCam in Level 3 to reduce
-light leaks.}
-\label{fig:shroud}
-\end{figure}
 
 Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark
 currents, and comments on what changed during the leak chasing.
@@ -158,13 +140,13 @@ Exposure ID is preceded by ``MC\_C202409".  The shroud was in place for each of 
 \hline
 \endfoot
 \hline
-09\_000012 & 0.158 & Off & Closed & \\
-09\_000018 & 0.158 & On & Closed & \\
+09\_000012 & 0.16 & Off & Closed & \\
+09\_000018 & 0.16 & On & Closed & \\
 09\_000038 & 2.94 & On & Open & Initial Covering  \\
 09\_000054 & 1.34 & On & Open &  + Blanket over the FCS \\
 09\_000072 & 0.41 & On & Open &  + Blanket over AND under the FCS \\
 09\_000078 & 0.18 & Off & Open & + Blanket over AND under the FCS \\
-10\_000031 & 0.033 & On & Open &  + Blanket over AND under the FCS + UT \\
+10\_000031 & 0.03 & On & Open &  + Blanket over AND under the FCS + UT \\
 
 \end{longtable}
 
@@ -249,15 +231,15 @@ below.
 
 The naming of the EO runs was established during initial LSSTCam
 integration and testing. The final SLAC IR2 run from November 2023 was
-named ``Run 6", while the data acquisitions from Cerro Pachon beginning in October 2024 are
-considered ``Run 7." Additionally, individual EO acquisitions are tagged
+named ``Run 6", while the data acquisitions from Cerro Pachon from September through December 2024 are
+considered ``Run 7". Additionally, individual EO acquisitions are tagged
 with a run identifier. This is commonly referred to as a Run ID. For all
 SLAC runs, the run identifier was a five digit numeric code, while the
 Cerro Pachon runs were ``E-numbers" that started with a capital E
 followed by a numeric code.
 
 Among the motivations for these measurements, the primary concern is whether LSSTCam has
-maintained its performance characteristics between Run 6 and Run 7.
+maintained its performance characteristics between Run 6 and Run 7, since LSSTCam was transported from SLAC to Cerro Pachon.
 
 \subsection{Background}\label{background}
 
@@ -303,51 +285,18 @@ image acquisition sequences.
 
 For comparisons between Cerro Pachon EO runs and the final SLAC IR2 equivalents, the following runs are used (see Table~\ref{runTable-b-ptc}).
 
-\begin{longtable}[H]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2083}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2639}}@{}}
-\toprule\noalign{}
-\label{runTable-b-ptc}
-\begin{minipage}[b]{\linewidth}\raggedright
-\begin{quote}
-Run Type
-\end{quote}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-%SLAC IR2 Run
-Run 6
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-%Cerro Pachón Run
-Run 7
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-B Protocol & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-13557
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E1071
-\end{quote}
-\end{minipage} \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-PTC
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-13591
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-E749
-\end{quote}
-\end{minipage} \\
-\caption{Reference runs for Run 6 and Run 7 comparisons}
-\end{longtable}
+\begin{table}[h]
+\centering
+\caption{Reference runs for Run 6 and Run 7 comparisons} \label{runTable-b-ptc}
+\begin{tabular}{lll}
+\toprule
+Run Type & Run 6 & Run 7 \\
+\midrule
+B Protocol & 13557 & E1071 \\
+PTC        & 13591 & E749 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Stability flat metrics}\label{stability-flat-metrics}
 
@@ -366,8 +315,8 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 \end{figure}
 
 The CTI along the serial registers of the amplifier segments of the LSSTCam CCDs is consistent between Run 6 and
-Run 7 (Fig.~\ref{fig:serial-cti}). Both sensor types show extremely low CTI on the order of $10^{-3}$ \%,
-and span a range  of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
+Run 7 (Fig.~\ref{fig:serial-cti}). Both sensor types show low CTI,
+span a range  of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
 by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}).
 
 \begin{figure}[H]
@@ -411,10 +360,12 @@ material of a CCD. This effect occurs when electron/hole pairs are thermally rel
 into the conduction band in the CCD, mimicking the signal that light would
 produce. Dark current increases with temperature, so cooling the CCD is
 a common method to reduce it in sensitive imaging applications. Dark
-current introduces noise into an image, degrading its quality,
-particularly in low-light conditions or long exposures. In the context
+current introduces noise into an image,
+particularly in low-sky background conditions in long exposures.
+The measurement of dark includes the dark current and stray light, making them impossible to distinguish each other since they both lineariy evolve with time.
+In the context
 of LSSTCam, we measure dark current from the combined dark images across
-all amplifiers.
+all amplifiers as the upper limit.
 
 \begin{figure}[H]
 \begin{centering}
@@ -425,8 +376,7 @@ all amplifiers.
 \end{figure}
 
 Unexpectedly, the dark current was significantly less in Run 7 than
-Run 6 (Fig.~\ref{fig:dark}). A possible reason for this could be improved shrouding
-on the camera in the Level 3 white room relative to the IR2 clean room SLAC.
+Run 6 (Fig.~\ref{fig:dark}). We don't argue this difference because this could be the result of improved shrouding on the camera in the Level 3 white room relative to the IR2 clean room SLAC.
 
 \subsubsection{Bright defects}\label{bright-defects}
 
@@ -435,12 +385,14 @@ Bright defects are localized regions or individual pixels that produce abnormall
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS.png}
-\caption{}
+\caption{Bright pxiel comparison by raft for Run 7 (E1017) and Run 6 (135557)}
 \label{fig:bright}
 \end{centering}
 \end{figure}
 
-Evaluating the change in defect counts on each amplifier segment between Run 6 and Run 7, and aggregating the amplifiers by the detector manufacturer shows a small increase of bright defects in Run 7 (Fig.~\ref{fig:dark-dist}). For ITL sensors, we find that 12\% of the amplifiers have more bright pixels than in Run 6. For e2v sensors, we find 4\% of the amplifiers that have more bright pixels. Despite this, the number of bright defects between runs does not increase for most sensors.
+Evaluating the change in defect counts on each amplifier segment between Run 6 and Run 7, and aggregating the amplifiers by the detector manufacturer shows a small increase of bright defects in Run 7 (Fig.~\ref{fig:bright}). Figure~\ref{fig:dark-dist}) displays differences of the measurements. The median values agree well, while there are signs of the positive tail. For ITL sensors, we find that 12\% of the amplifiers have more bright pixels than in Run 6. For e2v sensors, we find 4\% of the amplifiers that have more bright pixels. Despite this, the number of bright defects between runs does not increase for most sensors.
+
+The reason is not totally clear, but the difference in the illumination pattern as described in Section \ref{run-7-optical-modifications} might play a role, which implies that a small number of defects could be involved by optical path.
 
 \begin{figure}[H]
 \begin{centering}
@@ -510,7 +462,8 @@ focal plane.
 \subsubsection{\texorpdfstring{Brighter fatter a{00}
 coefficient}{Brighter fatter a00 coefficient}}\label{brighter-fatter-a00-coefficient}
 
-This redistribution causes the charge to ``spill" into adjacent pixels, effectively broadening the point spread function (PSF). The brighter-fatter effect is the most dominant source of covariance in the PTC curve. The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
+
+The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
 \citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[H]
@@ -564,7 +517,7 @@ The brighter-fatter correlation is comparable across different runs, regardless 
 
 \subsubsection{Row-means variance}\label{row-means-var}
 
-Row-means variance is a metric that measures the row-to-row variance in flat frames. By computing the ratio of the row variance (or measured variance) to the expected Poisson signal (or expected variance) at the flux level, we can measure if additional noise enters the PTC curve at any point.
+Row-means variance is a metric that measures the mean row-to- mean row variance of differences in a pair of two flats. By computing variance of means of differenced rows at the flux level, we can measure any changes in gain by row-by-row and also changes in correlated noise along with rows.
 
 \begin{figure}[H]
 \begin{centering}
@@ -644,13 +597,8 @@ Add conclusion when pipelines on E1071 are complete
 \subsection{Persistence}\label{persistence}
 
 Persistence is a feature of CCDs and how they are operated involving charge trapped in the
-surface layer after high-flux exposures
-%\hyperref[persistence-2]{{[}Persistence{]}}. 
-\cite{DMTN-276}.
-Persistence is described in
-detail in Section~\ref{sec:persistence-optimization}.
-%\href{https://sitcomtn-148.lsst.io/\#persistence-optimization}{persistence
-%optimization section}. 
+surface layer after high-flux exposures \cite{dmtn-276}.
+Persistence is described in detail in Section~\ref{sec:persistence-optimization}.
 Here we consider the measurements taken as
 part of a persistence measurement task in the typical B protocol. For
 measuring persistence, a high-flux acquisition is taken, followed by a
@@ -742,7 +690,7 @@ This is consistent with the effect being a residual surface image
 \hyperref[J2001]{{[}J2001{]}}, i.e., the excess charges are being held
 at the surface layer. The level of persistence is about 10--20 ADU,
 and the decay time constant is about 30\,s
-\hyperref[dmtn-276]{{[}dmtn-276{]}}.
+\citep{dmtn-276}.
 
 During the EO testing in 2021, we also found the persistence made a
 streak toward the readout direction from the place where a bright spot illumination occurred 
@@ -2477,15 +2425,13 @@ acquired properly \\ \hline
 \item[\label{J2001}{J2001}]
 \url{https://www.spiedigitallibrary.org/ebooks/PM/Scientific-Charge-Coupled-Devices/eISBN-9780819480392/10.1117/3.374903}
 \item[\label{Persistence}{Persistence}]
-\url{https://dmtn-276.lsst.io/}
+\url{https://figures-276.lsst.io/}
 \item[\label{PersistenceMitigationVoltage}{PersistenceMitigationVoltage}]
 \url{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}
 \item[\label{S2024}{S2024}]
 \url{https://ui.adsabs.harvard.edu/abs/2024SPIE13103E}..21S/abstract
 \item[\label{U2024}{U2024}]
 \url{https://ui.adsabs.harvard.edu/abs/2024SPIE13103E}..0WU/abstract
-\item[\label{dmtn-276}{dmtn-276}]
-\url{https://dmtn-276.lsst.io}
 \item[\label{sequencerV23_DC}{sequencerV23\_DC}]
 \url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}
 \item[\label{sequencerV29}{sequencerV29}]
