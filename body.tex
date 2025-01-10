@@ -1,3 +1,5 @@
+\section{Introduction}
+Define Run 5, Run 6a, Run 6b, Run 7
 
 \section{Electro-optical setup}\label{electro-optical-setup}
 
@@ -303,7 +305,7 @@ PTC        & 13591 & E749 \\
 \subsubsection{Charge transfer
 inefficiency}\label{charge-transfer-inefficiency}
 
-CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from row to row during readout, and appears as trailing charge in the image area. Consequences of high CTI include loss of charge, distorted signals in the direction of parallel transfer, and reduced sensitivity in low light imaging. CTI measurements are made using the EPER method \hyperref[EPER]{{[}EPER{]}}, for which the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region is evaluated. In the context of LSSTCam, we measure CTI along both the serial and parallel directions.
+CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from row to row during readout, and appears as trailing charge in the image area. Consequences of high CTI include loss of charge, distorted signals in the direction of parallel transfer, and reduced sensitivity in low light imaging. CTI measurements are made using the EPER method \citep{2021JATIS...7d8002S}, for which the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region is evaluated. In the context of LSSTCam, we measure CTI along both the serial and parallel directions.
 
 \paragraph{Serial CTI}\label{serial-cti}
 
@@ -463,7 +465,7 @@ focal plane.
 coefficient}{Brighter fatter a00 coefficient}}\label{brighter-fatter-a00-coefficient}
 
 
-The brighter-fatter effect in CCDs refers to the phenomenon where brighter pixels appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
+The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
 \citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[H]
@@ -525,7 +527,7 @@ Row-means variance is a metric that measures the mean row-to- mean row variance 
 \end{centering}
 \end{figure}
 
-Differences in row-means variance between runs are evident, and are distinctly different for different detector types. The difference between runs is more significant for ITL sensors, \textasciitilde9\% smaller on average in Run 7. For E2V sensors, the effect is \textasciitilde3\% smaller in Run 7. This indicates that the non-shot noise contributions to sensor noise are smaller in run 7 compared to run 6, a positive result for the camera.
+Differences in row-means variance between runs are evident, and are distinctly different for different detector types. The difference between runs is more significant for ITL sensors, \textasciitilde9\% smaller on average in Run 7. For E2V sensors, the effect is \textasciitilde3\% smaller in Run 7. This indicates that either row-by-row correlated noise or row-by-row gain change is less in Run 7b. Since we didn't change the sequencer file, the most natural explanation is the row-by-row correlated noise. But further investigation is needed.
 
 \begin{figure}[H]
 \begin{centering}
@@ -533,9 +535,9 @@ Differences in row-means variance between runs are evident, and are distinctly d
 \end{centering}
 \end{figure}
 
-\subsubsection{Divisadero Tearing}\label{divisadero-tearing}
+\subsubsection{Divisadero Tearing}
 
-Divisadero tearing is manifested as signal variations near amplifier boundaries, connected features that are often jagged. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
+Divisadero tearing (or Rabbit ear) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
 
 \begin{figure}[H]
 \begin{centering}
@@ -555,6 +557,8 @@ sensors is very consistent between Run 7 and Run 6, and much weaker than for e2v
 \end{figure}
 
 In Run 7 the median divisadero tearing amplitude for e2v CCDs is \textasciitilde0.3\% greater. In ITL sensors, maximum divisadero tearing is \textasciitilde0.1\% greater in Run 6.
+
+The reason that the higher Divisadero tearing was high in e2v was that Run 6 had IDLE\_FLUSH running. See discussion in \ref{section:disablingIDLEFLUSH}.
 
 \subsubsection{Dark defects}\label{dark-defects}
 
@@ -597,7 +601,7 @@ Add conclusion when pipelines on E1071 are complete
 \subsection{Persistence}\label{persistence}
 
 Persistence is a feature of CCDs and how they are operated involving charge trapped in the
-surface layer after high-flux exposures \cite{dmtn-276}.
+surface layer after high-flux exposures \citep{dmtn-276,2024SPIE13103E..0WU}.
 Persistence is described in detail in Section~\ref{sec:persistence-optimization}.
 Here we consider the measurements taken as
 part of a persistence measurement task in the typical B protocol. For
@@ -677,22 +681,23 @@ Persistence {[}ADU{]}               & \multicolumn{1}{l|}{}          &          
 \end{table}
 
 
-\section{Camera Optimization}\label{camera-optimization}
+\section{Camera Optimization}\label{sec:camera-optimization}
 
 \subsection{Persistence optimization}\label{sec:persistence-optimization}
 
+
 Leftover signal (``persistence") in the first dark image acquired after intense illumination has
-been observed.  Persistence has been observed
+been observed \ref{persistence}.  Persistence has been observed
 in an early prototype e2v sensor as early as 2014
-\hyperref[D2014]{{[}D2014{]}}. It was confirmed that the amplitude of
+\citep{2014SPIE.9154E..18D}. It was confirmed that the amplitude of
 the persistence decreased as the parallel swing voltage was decreased.
-This is consistent with the effect being a residual surface image
-\hyperref[J2001]{{[}J2001{]}}, i.e., the excess charges are being held
+This is consistent with the persistence being a Residual Surface Image (RSI) effect as described in
+\citep{2001sccd.book.....J}, i.e., the excess charges are being trapped
 at the surface layer. The level of persistence is about 10--20 ADU,
 and the decay time constant is about 30\,s
 \citep{dmtn-276}.
 
-During the EO testing in 2021, we also found the persistence made a
+During the EO testing in 2021 (Run 13177, for example) Run 5, we also found the persistence made a
 streak toward the readout direction from the place where a bright spot illumination occurred 
 in a previous image. We call this ``trailing persistence".
 
@@ -701,12 +706,13 @@ considered a consequence of the non-uniform distribution of holes. Over the past
 primary focus in the optimization of the operating parameters was mitigation of the tearing, and we successfully eliminated the tearing by changing the
 e2v voltages from unipolar (both parallel rails high and low
 are positive) to bipolar (the parallel high is positive, and
-the low is negative) following the formula
-\hyperref[Bipolar]{{[}Bipolar{]}}. However, the persistence issue
+the low is negative) following the Bipolar voltage formula
+\footnote{https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py}.
+However, the persistence issue
 remained unchanged.
 
 For the persistence issue, if this is a residual surface image, two
-approaches could be taken as discussed in \hyperref[U2024]{{[}U2024{]}}:  
+approaches could be taken as discussed in \citep{2024SPIE13103E..0WU}:  
 either 1) establishing the pinning condition where the holes make a thin
 layer at the front surface so that the excess charges recombine with
 the holes, or 2) narrowing the parallel swing so that the accumulated
@@ -728,7 +734,7 @@ The parallel swing determines the full-well. Depending on whether the
 accumulated charges spread over the columns or interact with the surface
 layer, there are blooming full-well regimes and the surface full-well
 regime. A full-well level between these two regimes is considered to be
-optimal \hyperref[J2001]{{[}J2001{]}}, with no persistence and dynamic range as great as
+optimal \citep{2001sccd.book.....J}, with no persistence and dynamic range as great as
 possible. Because we observe the persistence effect, we likely operate the sensor in the
 surface full-well condition and we need to decrease the parallel swing to
 get the blooming full-well or the optimal full-well. The obvious downside
@@ -737,20 +743,19 @@ decreasing the full-well capacity.
 The sensor control voltages are defined relative to each other. Changing, e.g., the parallel
 swing also requires changes to all other voltages to
 operate the sensor properly, e.g., to properly reset the amplifier.
-The initial voltages were given in the original formula
-\hyperref[Bipolar]{{[}Bipolar{]}} but to decrease the parallel swing we had
-to switch to the new formula in order to satisfy the constraints
-\hyperref[PersistenceMitigationVoltage]{{[}PersistenceMitigationVoltage{]}}.
+The initial voltages were given in the original Bipolar formula
+ but to decrease the parallel swing we had
+to switch to the new persistence mitigation formula in order to satisfy the constraints\footnote{\url{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}}
 
-\hyperref[S2024]{{[}S2024{]}}, set up a single sensor test-stand at UC
+\citet{2024SPIE13103E..21S}, set up a single sensor test-stand at UC
 Davis. They attempted multiple different approaches mentioned above and
-reported the results \hyperref[DavisReport]{{[}DavisReport{]}}. The
+reported the results\footnote{\url{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}}. The
 summary is as follows:
 
 \begin{itemize}
 \tightlist
 \item
-  The new voltages following the rule work fine.
+  The new voltages following the persistence mitigation voltage rule produces reasonable bias, dark, flat images visually.
 \item
   Narrowing the parallel swing eliminates the persistence.
 \item
@@ -760,11 +765,9 @@ summary is as follows:
 
 Note that the e2v sensor in the UCD setup did not exhibit persistence.
 This might be due to the characteristics of the sensor, or perhaps
-the differences in the electronics (e.g., the long cable between CCD and REB). They need to move the parallel rails up.
+the differences in the electronics (e.g., the long cable between CCD and REB). They need to move the both parallel high and low up to reproduce persistence as the similar as the main Camera.
 
-\subsubsection{Persistence
-optimization}\label{persistence-optimization-1}
-
+\subsubsection{Persistence optimization}\label{persistence-optimization-1}
 Based on this test result, we decided to test the new voltages with
 the narrower parallel swing on the LSSTCam focal plane. Keeping the
 parallel low voltage at -6\,V in order to operate the sensor safely (very
@@ -772,10 +775,10 @@ conservative limit), we changed the parallel swing voltage from 9.3\,V to
 8.0\,V as well as all the other voltages using the new formula. We
 overexposed the CCDs and took 20 darks afterward. Figure~\ref{fig:peristence-swing} compares the
 mean and median of pixel-by-pixel differences between the first and the
-last dark exposures, as a function of the parallel swing. As the
-parallel swing is decreased, the residual signal decreases, reaching
+last dark exposures, as a function of the parallel swing (We note that this is not the persistence metric defined in Sec. 2.5. but almost identical).
+As the parallel swing is decreased, the residual signal decreases, reaching
 roughly 10$\times$ less than the original level at 9.3\,V. Although we sampled
-midpoints between 8.0 and 9.3\,V, 8.0\,V appears to work the best and could
+at 8.0 (E1363), 8.4 (E1430), 8.65 (E1411), 8.8 (E1424)and 9.3\,V (E1110), 8.0\,V appears to work the best and could
 be lower with the penalty of decreasing the full-well capacity.
 
 \begin{figure}
@@ -828,7 +831,7 @@ setting except for the CCD operating voltage (E1113 for 9.3\,V and E1335
 for 8.0\,V). As the PTC turnoff is defined in ADU, it needs to be
 multiplied by PTC\_GAIN to compare the turnoff values in electrons.
 Figure~\ref{fig:ptc-turnoff} compares the PTC turnoffs in electrons and also shows their
-fractional difference. The median reduction was 22\%.
+fractional difference. The median of each peak are 133065e-, 102728e-, and the median reduction was 22\%.
 
 \begin{figure}
 \begin{centering}
@@ -842,8 +845,7 @@ the reduction is 22\%.}
 
 
 
-\subsubsection{Impact on brighter-fatter
-effect}\label{impact-on-brighter-fatter-effect}
+\subsubsection{Impact on brighter-fatter effect}\label{impact-on-brighter-fatter-effect}
 
 Reducing the parallel swing is expected to enhance the brighter-fatter
 effect (BFE), possibly in an anisotropic way. The BFE can be
@@ -852,7 +854,7 @@ flat field exposures as a function of flux, i.e., via a PTC analysis. To evaluat
 impact of reducing the parallel voltage swing on e2v sensors, we
 acquired two series of flat field exposures with the respective voltage
 setups and extracted the ``area" coefficients 
-(Equation (1) in \hyperref[A2023]{{[}A2023{]}}). The area coefficients describe by how much a unit charge stored in
+(Equation (1) in \citet{2023A&A...670A.118A}). The area coefficients describe by how much a unit charge stored in
 a pixel will alter the area of some other pixel (or itself). We find that
 reducing the parallel swing from 9.3\,V to 8.0\,V typically increases the
 area coefficients by 10\% (between 5 and 19\% depending on distance),
@@ -970,6 +972,16 @@ changes in the field configuration of the serial register during the
 clear, to avoid pockets at the image-serial register interface.
 
 \subsubsection{New sequencers}\label{new-sequencers}
+\begin{description}
+\item[\label{sequencerV23_DC}{sequencerV23\_DC}]
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}
+\item[\label{sequencerV29}{sequencerV29}]
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}
+\item[\label{sequencerV29_Nop}{sequencerV29\_Nop}]
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq}
+\item[\label{sequencerV29_NopSf}{sequencerV29\_NopSf}]
+\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_NopSf.seq}
+\end{description}
 
 To address this clear issue, we focussed on updating the serial
 register field as the lines are moved to it. The constraint being that
@@ -1207,7 +1219,7 @@ For the time being:
 \subsection{Toggling the RG Bit During Parallel Transfer}\label{noRGe2v}
 This investigation comes from an analogy drawn with the ITL sequencer file. Although the vendor recommended toggling the RG bit at the end of the parallel transfer, it was unclear whether this step was truly necessary. Given the improvements observed in ITL devices, applying this approach to e2v devices also became an area of interest.
 
-\subsection{Disable IDLE FLUSH}\label{thermal-optimization}
+\subsection{Disable IDLE FLUSH}\label{section:disablingIDLEFLUSH}
 
 IDLE\_FLUSH is one of the main settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \hyperref[U2024]{{[}U2024{]}}).
 
@@ -1412,30 +1424,32 @@ Persistence {[}ADU{]}               & \multicolumn{1}{l|}{}          &          
 
 \subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
 
-We classify amplifier sections as non-functional if they produce effectively no signal (dead) for incident light, or if the read noise level is above $18e^{-}$ (hi-noise).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or gains below $0.8$ or above $1.8$. 
+We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gains below $0.8$ or above $1.8$. 
 
-A list of non-functional amplifiers was produced from both single raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\ref{tab-BOTdeadamp}. As the table indicates two amplifiers, R01\_S01\_C00 and R10\_S00\_C00 transitioned from dead to working during the course of the BOT testing. Furthermore another 
+A list of nonfunctional amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\ref{tab-BOTdeadamp}. As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as hi-noise during single raft or BOT testing, only one (R41\_S21\_C02) remained as hi-noise at the end of BOT testing.
 
 \begin{table}[!ht]
+    \tiny
     \centering
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
     \hline
-        Raft & Slot & Segment & (Amp) & Problem & Single Raft testing & Run 12433 9-Raft (Oct '19) & Run 12610 (Oct '20) & Run 12795 (Nov '20) & Run 12845 (Jan '21) & Run 13016 (Nov '21) & Run 13101 (Nov '21) & Run 13137 (Dec '21) \\ \hline
-        R01 & S01 & 00 & (16) & Dead Channel & Dead & Dead & OK & OK & OK & OK & OK & OK \\ \hline
-        R03 & S11 & 00 & (16) & Dead Channel & OK & NA & OK & OK & Dead & Dead & Dead & Dead \\ \hline
-        R10 & S00 & 00 & (16) & Dead Channel & Dead & NA & OK & OK & OK & OK & OK & OK \\ \hline
-        R30 & S00 & 10 & (1) & Dead Channel & Dead & Dead & Dead & Dead & Dead & Dead & Dead & Dead \\ \hline
-        R01 & S02 & 07 & (9) & Noise > 18e & OK & 27e & 22e & 20e & 21e & 15e & 14e & 14e \\ \hline
-        R01 & S11 & 00 & (16) & Noise > 18e & OK & 24e & OK & OK & 12e & OK & OK & OK \\ \hline
-        R41 & S11 & 14 & (5) & Noise > 18e & OK & NA & 36e & OK & OK & OK & OK & OK \\ \hline
-        R41 & S21 & 02 & (14) & Noise > 18e & OK & NA & OK & 108e & 96e & 85e & 110e & 115e \\ \hline
-        R43 & S02 & 03 & (13) & Noise > 18e & 18e & NA & 18e & 18e & 18e & 17e & 18e & 17e \\ \hline
-        R43 & S20 & 14 & (5) & Noise > 18e & OK & NA & OK & OK & 69e & 145e & OK & OK \\ \hline
+        Raft & Slot & Seg. & Problem & \makecell{ Single Raft \\ testing } & \makecell{ Run 12433 \\ Oct 19} & \makecell{ Run 12610 \\ Oct 20} & \makecell{ Run 12795 \\ Nov 20} & \makecell{ Run 12845 \\ Jan 21} & \makecell{ Run 13016 \\ Nov 21} & \makecell{ Run 13101 \\ Nov 21} & \makecell{Run 13137 \\ Dec 21} \\ \hline
+        R01 & S01 & C00  & Dead Amp & Dead & Dead & OK & OK & OK & OK & OK & OK \\ \hline
+        R03 & S11 & C00  & Dead Amp & OK & NA & OK & OK & Dead & Dead & Dead & Dead \\ \hline
+        R10 & S00 & C00  & Dead Amp & Dead & NA & OK & OK & OK & OK & OK & OK \\ \hline
+        R30 & S00 & C10  & Dead Amp & Dead & Dead & Dead & Dead & Dead & Dead & Dead & Dead \\ \hline
+        R01 & S02 & C07  & Hi Noise & OK & 27e & 22e & 20e & 21e & 15e & 14e & 14e \\ \hline
+        R01 & S11 & C00  & Hi Noise & OK & 24e & OK & OK & 12e & OK & OK & OK \\ \hline
+        R41 & S11 & C14  & Hi Noise & OK & NA & 36e & OK & OK & OK & OK & OK \\ \hline
+        R41 & S21 & C02  & Hi Noise & OK & NA & OK & 108e & 96e & 85e & 110e & 115e \\ \hline
+        R43 & S02 & C03  & Hi Noise & 18e & NA & 18e & 18e & 18e & 17e & 18e & 17e \\ \hline
+        R43 & S20 & C14  & Hi Noise & OK & NA & OK & OK & 69e & 145e & OK & OK \\ \hline
 
     \end{tabular}
-    \caption{Table of non-functionning channels \label{tab-BOTdeadamp}}
+    \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab-BOTdeadamp}}
 \end{table}
 
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. Here we define as non-functional those amplifiers with a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $0.8 - 1.8 e^{-}/ADU$.  
 
 \subsection{Full well measurements}\label{fullwell}
 
@@ -1444,7 +1458,7 @@ A list of non-functional amplifiers was produced from both single raft testing a
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
 \end{centering}
-\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right : r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are $\tilde 10^{-4}$ on average, and seem somtimes correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
+\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right : r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
 
 \end{figure}
 
@@ -2409,38 +2423,7 @@ acquired properly \\ \hline
 \end{longtable}
 
 %\section{References}
-\begin{description}
-\item[\label{A2023}{A2023}]
-\url{https://arxiv.org/pdf/2301.03274}
-\item[\label{Astier}{Astier}]
-\url{https://www.aanda.org/articles/aa/abs/2019/09/aa35508-19/aa35508-19.html}
-\item[\label{Bipolar}{Bipolar}]
-\url{https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py}
-\item[\label{D2014}{D2014}]
-\url{https://ui.adsabs.harvard.edu/abs/2014SPIE.9154E}..18D/abstract
-\item[\label{DavisReport}{DavisReport}]
-\url{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}
-\item[\label{EPER}{EPER}]
-\url{https://www.spiedigitallibrary.org/journals/Journal-of-Astronomical-Telescopes-Instruments-and-Systems/volume-7/issue-4/048002/Characterization-and-correction-of-serial-deferred-charge-in-LSST-camera/10.1117/1.JATIS.7.4.048002.full}
-\item[\label{J2001}{J2001}]
-\url{https://www.spiedigitallibrary.org/ebooks/PM/Scientific-Charge-Coupled-Devices/eISBN-9780819480392/10.1117/3.374903}
-\item[\label{Persistence}{Persistence}]
-\url{https://figures-276.lsst.io/}
-\item[\label{PersistenceMitigationVoltage}{PersistenceMitigationVoltage}]
-\url{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}
-\item[\label{S2024}{S2024}]
-\url{https://ui.adsabs.harvard.edu/abs/2024SPIE13103E}..21S/abstract
-\item[\label{U2024}{U2024}]
-\url{https://ui.adsabs.harvard.edu/abs/2024SPIE13103E}..0WU/abstract
-\item[\label{sequencerV23_DC}{sequencerV23\_DC}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}
-\item[\label{sequencerV29}{sequencerV29}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}
-\item[\label{sequencerV29_Nop}{sequencerV29\_Nop}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq}
-\item[\label{sequencerV29_NopSf}{sequencerV29\_NopSf}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_NopSf.seq}
-\end{description}
+
 
 \appendix
 
