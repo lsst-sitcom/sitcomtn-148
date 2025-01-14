@@ -86,10 +86,35 @@ first tested at SLAC and arrived at the observatory about halfway through Run 7.
 It was used primarily as a spot projector, as the pinhole filter
 was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could
 illuminate all 3206 amplifiers instead of just the 21 illuminated by the
-pinhole projector. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One
+pinhole projector. Figure \ref{fig:SpotProjector_L3_FP} shows both the setup of the projector on Level 3 and an example of a spot image and the spots across the focal plane. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One
 downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had
-structure that changed with time and could not be easily subtracted. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
-measurements increased the contrast ratio to 30.
+structure that changed with time and could not be easily subtracted. Figure \ref{fig:SpotProjector_Spots} shows an example of a spot image of just one detector as well as a zoomed in image of a single spot which highlights the background structure. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
+measurements increased the contrast ratio to 30. Examples of the rectangles can be seen in Figure \ref{{fig:SpotProjector_Rect}}. Though the contrast was much improved, there was still a background structure as can be seen in the saturated image of the figure.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/SpotProjector_Level3.jpg}
+\includegraphics[width=0.48\textwidth]{figures/SpotProjector_FP.png}
+\caption{(left) The spot projector set up on Level 3. (right) An example of an image taken with the spot projector with all the amplifiers containing a spot.}
+\label{fig:SpotProjector_L3_FP}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/Spot_Detector_Ex.png}
+\includegraphics[width=0.48\textwidth]{figures/Spot_Spot_Ex.png}
+\caption{(left) Example of a spot image zooming into a single detector. (right) Example of a spot image zooming further into a single spot. In both the images, there is a clear background structure caused by the projector.}
+\label{fig:SpotProjector_Spots}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.32\textwidth]{figures/Rectange_Detector_Ex.png}
+\includegraphics[width=0.32\textwidth]{figures/Rectange_Spot_Ex.png}
+\includegraphics[width=0.32\textwidth]{figures/Rectange_Spot_Sat.png}
+\caption{(left) Example of a spot image that utilized the rectangle shape, zoomed into a single detector (left), zoomed into the spot (middle) and zoomed into the spot with a saturated image to highlight the background pattern caused by the projector (right).}
+\label{fig:SpotProjector_Rect}
+\end{figure}
 
 This section describes the spots and rectangle patterns used for tests with the 4K
 projector.
@@ -1368,7 +1393,7 @@ Dark current measurements were extracted from the B-protocol runs. Across the fo
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_DARK_CURRENT_MEDIAN.png}
-    \caption{Comparison of dark current measurements for initial and final run 7 measurements. A marked decrease in dark current is present in rafts local to the autochanger light leak (see section \ref{light-leak-mitigation-with-shrouding-the-camera-body})}
+    \caption{Comparison of dark current measurements for initial and final run 7 measurements. A marked decrease in dark current is present in rafts local to the autochanger light leak (see section \ref{successful-autochanger-light-leaks-masking})}
     \label{fig:finalChar-DarkCurrent-5x5}
 \end{figure}
 
@@ -1388,9 +1413,27 @@ Bright defects are extracted using the B protocol runs, and show an extremely cl
 
 \subsubsection{Flat pair metrics}
 
+
+
 \paragraph{Linearity and PTC turnoff}\label{final-linearity-and-ptc-turnoff}
 
+Both linearity and PTC turnoff were extracted from the PTC runs. Due to the lower parallel swing for E2V sensors, we anticipate a lower full-well capacity (see \cite{2001sccd.book.....J}). As described in section \ref{persistence-optimization-1}, we observe a decrease in full well capacity for E2V sensors. ITL sensors exhibit stable full-well measures, despite the changes to the v30 sequencer and disabling idle flush.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_LINEARITY_TURNOFF.png}
+    \caption{Comparison of linearity turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in linearity turnoff, while ITL sensors stay relatively the same.}
+    \label{fig:finalChar-Linearity-5x5}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_TURNOFF.png}
+    \caption{Comparison of PTC turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in PTC turnoff, while ITL sensors stay relatively the same.}
+    \label{fig:finalChar-PTCTurnoff-5x5}
+\end{figure}
+
+For E2V sensors, we find the reduction in full-well to be significant - 
 
 \paragraph{PTC Gain}\label{final-ptc-gain}
 
@@ -1873,20 +1916,13 @@ The relative gain is defined as the ratio of the signal observed in a CCD image 
 With a fixed flat illumination, the variation of the relative gain over successive exposures can be utilized to investigate the gain stability. 
 In the past run \citep{2024SPIE13103E..0WU}, we used the run that was obtained at the constant temperature, which reflects the real observing condition. We repeated this test during Run 7 and we acquired flat images at the two representative flux level with two distinct temperature conditions: either intentionally altered or maintained constant.
 \begin{itemize}
-    \item E1496 (dp80, constant temp, v29\_Nop, nm750, 10k e-)
-    \item E1367 (dp80, temp swing, v29, nm750, 50k e-)
-    \item E756 (dp80, gain stability @ 50k e-), unprocessed
-    \item E1362 (dp80, 10k e-), unprocessed
+    \item E1496 (dp80, 6 hours, constant temp, v29\_Nop, nm750, 10k e-)
+    \item E1367 (dp80, 6 hours, temp swing, v29, nm750, 50k e-)
+    \item E756 (dp80, 6 hours, gain stability @ 50k e-), unprocessed
+    \item E1362 (dp80, 6 hours, 10k e-), unprocessed
 \end{itemize}
 
 Here we focus on E1496 and E1367 which have a difference in the temperature condition whether the temp was kept constant (E1496) or altered (E1367).
-
-Figure \ref{fig:relgainparamE1496} shows the derived 
- relative gain change for one amplifier (R11/S00/C11) over time alogn with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and led1temp (the temperatue measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
- As the intention of the acquisition condition, the REB temperature was almost maintained at the same level within 0.2 deg, with a slight decreasing slope probably due to the change in the thermal load and stabilization process of the entire thermal system.
- At the same time the gain slowly increase over time, while other CCD, LED temperatures are kept at the same.
- 
-Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain and the REB temperature, with color coding by the speed of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result. The distribution of the data points is more complicated than the linear relationship.
 
 \begin{figure}[htbp]
 \centering
@@ -1904,6 +1940,14 @@ Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain 
     \label{fig:gaintempE1496}
 \end{minipage}
 \end{figure}
+Figure \ref{fig:relgainparamE1496} shows the derived 
+ relative gain change for one amplifier (R11/S00/C11) over time alogn with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and led1temp (the temperatue measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
+ As the intention of the acquisition condition, the REB temperature was almost maintained at the same level within 0.2 deg, with a slight decreasing slope probably due to the change in the thermal load and stabilization process of the entire thermal system.
+ At the same time the gain slowly increase over time, while other CCD, LED temperatures are kept at the same.
+
+ Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain and the REB temperature, with color coding by the speed of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result. The distribution of the data points has a more complicated structure than the linear relationship, while there is no obvious change in either CCD nor LED temperatures. 
+
+
 
 \begin{figure}[htbp]
 \centering
@@ -1911,14 +1955,25 @@ Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain 
     \centering
     \includegraphics[width=\textwidth]{figures/gaintemp/E1367RelgainParametersTrending.png}
     \caption{relative gain changes with other parameters for one amplifier R01/S00/C11 in run E1367}
+    \label{fig:relgainparamE1367}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/gaintemp/E1367RelgainDetail.png}
     \caption{Relative gain as a function of REB temp (TEMP6 and TEMP10), with color based on temperature swing run  in run E1367}
+    \label{fig:gaintempE1367}
 \end{minipage}
 \end{figure}
+
+Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of figures but for the Run that has a temperature change in the cold plate by 2 degrees.
+The temperature was kept the same in the beginning, but the set point was changed later, and then it was brought back to the original temperature. 
+Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temp relationship, which doesn't match the slope originally derived from the past run, although there are no obvious changes in the system other than the REB temperature.
+
+
+The reason why the relationship becomes much more complicated is not clear. It is understandable that Run 6 didn't observe the hysteresis because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temp, 2) illumination from the LED is somehow changing overtime, which is not correlated with the LED temp, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As the hysteresis is observed, the possibility 1 is definitely present but it can't explain the gain temp change in the constant temperature. For the possibility 2, it is unlikely given the fact that Run 6 observed the complicated relationship. The option 3 could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to the turbulence in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For the possibility 4, we did visual check in a different period and we didn't find anything obvious. 
+
+The gain change issue can be split into 2 categories: global or local in an amplifier.  The global coherent change can be, in principle, correctable as it degenerates with the atmospheric transparency, which will be corrected by the calibration process. The local amp-by-amp change is a more serious issue in respect because the number of stars might not be sufficient for making the precise photometric calibration statistically. In order to study the amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the relative gain changes for each amplifier on each sensor with respect to the C00 segment on the sensor: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
 
 \begin{figure}
     \centering
@@ -1926,13 +1981,24 @@ Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain 
     \caption{Relative gain change with respect to C00 of each sensor, for E1496}
     \label{fig:relative-gain-E1496}
 \end{figure}
+The relative gain change with respect to the C00 for the constant temperature appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11/S12, R12/S10, R12/S22, R24/S11, R34/S20 have one amplifier that have a higher relative gain than up to $5\times 10^{-4}$ but others behave stable. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed.
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{figures/gaintemp/E1367gainoverall.png}
     \caption{Same as Figure \ref{fig:relative-gain-E1496} but for E1367}
     \label{fig:relative-gain-E1367}
-\end{figure}
+\end{figure} 
+The case for the temperature swing is complicated. Some of the amplifiers behave as well as the ones for the constant temperature case, but some of the amplifiers show correlation with the temp change in the Cold plate temp. This indicates that the relative gain change among amplifiers with respect to REB/Cold plate temperature exists. 
+Note that E1367 has a 5 times higher flux than E1496, which reduces shot noises in the measurement. However, the conclusion still holds. 
+
+In summary, we find
+\begin{itemize}
+    \item The gain-REB temperature relationship is not as simple as Run 6.
+    \item Global gain change could be due to the artifacts/setup. Potentially, the system could have the complicated behavior with respect to the REB temperature. No conclusive statement is made.
+    \item Local amp-by-amp gain change is minimal $10^{-4}$ over 6 hours if the focal plane temperature is maintained at the same.
+    \item Further analysis is needed in understanding the gain change in the beginning of Run is needed.
+\end{itemize}
 
 \section{Sensor features}\label{sensor-features}
 
@@ -1993,6 +2059,20 @@ We expect that with the diffuser installed, there will be less contribution from
 
 
 \subsubsection{Voltage dependency}
+\begin{figure}[h]
+\centering
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/R01_S20_wBBV.png}
+\end{minipage}
+%\hfill
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/R01_S20_woBBV.png}
+\end{minipage}
+\caption{Comparing Tree Rings pattern on the sensor R01 S20 with (left) and without (right) back bias voltage (50V), we can clearly see that back bias voltage reduces the impact of the tree ring effect.}
+\end{figure}
+
 \subsubsection{Wavelength dependency}
 
 
