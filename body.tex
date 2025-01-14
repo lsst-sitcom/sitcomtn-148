@@ -7,7 +7,7 @@ Define Run 5, Run 6a, Run 6b, Run 7
 
 For Run 7 in the white room on Level 3 our electro-optical test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources or expertise to configure it. As
 such, the majority of the testing was done with the CCOB Wide Beam
-projector. We did obtain an additional projector, the 4k projector, partway through Run 7 that will be discussed later. With the CCOB Wide Beam,
+projector. We did obtain an additional projector, the 4K projector, partway through Run 7 that will be discussed later. With the CCOB Wide Beam,
 we used a cone attached to the L1 cover as well as a shroud to create a
 dark environment (Fig.~\ref{fig:LSSTCam_config}).
 
@@ -21,7 +21,7 @@ dark environment (Fig.~\ref{fig:LSSTCam_config}).
 
 This allowed us to operate on Level 3 with a dark current of
 \textless0.1 ADU/sec with the shutter open. The initial setup of the
-CCOB Wide Beam projector was the same as for Run 6, with a minimal ND filter (10 \%)
+CCOB Wide Beam projector was the same as for Run 6, with a minimal ND filter (10\%)
 attached to a C-mount lens. One difference was that the f/stop of the lens
 was changed from 2.6 to 1.6 (fully open). This was done to try to
 reduce the effect of the `weather' and
@@ -32,7 +32,7 @@ reduce the weather pattern, it also caused a much steeper illumination roll-off
 across the focal plane. We evaluated the weather pattern and illumination roll-off relative to Run 6.
 
 
-To both reduce the effect of the
+To both reduce the effects of the
 `weather' and
 `CMB' but retain uniform illumination
 across the focal plane, we installed a diffuser in the cone attached to
@@ -45,7 +45,7 @@ L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the con
 \label{fig:diffuser}
 \end{figure}
 
-We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}) and eliminated the CMB pattern and more uniformly illuminated the focal plane (Fig.~\ref{fig:roll-off}), with a penalty of losing the overall illumination by roughly 35\% even though we fully open the f-stop.
+We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}) and eliminated the CMB pattern and more uniformly illuminated the focal plane (Fig.~\ref{fig:roll-off}), with a penalty of decreaseing the overall illumination by roughly 35\% even though we fully opened the f-stop.
 
 
 \begin{figure}[htbp]
@@ -67,8 +67,9 @@ We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Run7_DiffuserIllumination.png}
-\caption{Illumination across the focal plane from Run 7 with the diffuser as compared to Run 6.}
+\includegraphics[width=0.48\textwidth]{figures/Run7_Illumination.png}
+\includegraphics[width=0.48\textwidth]{figures/Run7_DiffuserIllumination.png}
+\caption{(left) Illumination across the focal plane from Run 7 without the diffuser (E968) as compared to Run 6. (right) Illumination across the focal plane from Run 7 with the diffuser (E1047) as compared to Run 6.}
 \label{fig:roll-off}
 \end{figure}
 
@@ -83,14 +84,14 @@ The addition to the projectors used for EO testing was a 4K
 projector, similar to those used in conference rooms. This projector was
 first tested at SLAC and arrived at the observatory about halfway through Run 7.
 It was used primarily as a spot projector, as the pinhole filter
-was not available at that time because of the unavailability of the filter exchanging system. It has an advantage, instead, as it could
-illuminate all 3206 amplifiers instead of the 21 illuminated by the
-pinhole projector. Since the projector doesn't have fast illumination controll, we used the LSST camera's main shutter mostly instead of any flashing (e.g., CCOB Wide Beam). One
+was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could
+illuminate all 3206 amplifiers instead of just the 21 illuminated by the
+pinhole projector. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One
 downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had
 structure that changed with time and could not be easily subtracted. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
 measurements increased the contrast ratio to 30.
 
-This section describes the spots and rectangle patterns used for tests with the 4k
+This section describes the spots and rectangle patterns used for tests with the 4K
 projector.
 
 \begin{itemize}
@@ -114,7 +115,7 @@ This section describes dark current and light leaks in Run 7 testing.
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
 
 One of the first tests we attempted with LSSTCam was measuring dark
-current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible location . Below shows the gaps that we could see between L1 and its cover.
+current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Below shows the gaps that we could see between L1 and its cover.
 
 Once these were sealed, we took some initial measurements and then
 started to cover the LSSTCam body with a blackout fabric shroud. Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
@@ -294,7 +295,7 @@ For comparisons between Cerro Pachon EO runs and the final SLAC IR2 equivalents,
 \toprule
 Run Type & Run 6 & Run 7 \\
 \midrule
-B Protocol & 13557 & E1071 \\
+B Protocol & 13550 & E1071 \\
 PTC        & 13591 & E749 \\
 \bottomrule
 \end{tabular}
@@ -311,8 +312,8 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_SCTI_EF_43.png}
-	\caption{Serial CTI comparison by raft for Run 7 (E1017) and Run 6 (13557)\label{fig:serial-cti}}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_SCTI_EF_43_inset.png}
+	\caption{Serial CTI comparison by raft for Run 7 (E1017) and Run 6 (13550)\label{fig:serial-cti}}
 \end{centering}
 \end{figure}
 
@@ -323,8 +324,8 @@ by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-c
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/SCTI_13557_E1071_diff.png}
-\caption{Distributions of differences in serial charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/SCTI_13550_E1071_diff.png}
+\caption{Distributions of differences in serial charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13550), grouped by CCD type.}
 \label{fig:serial-cti-dist}
 \end{centering}
 \end{figure}
@@ -338,16 +339,16 @@ by \textasciitilde$7 \times 10^{-6}$ \% for ITL sensors (Fig.~\ref{fig:parallel-
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_PCTI_EF_43.png}
-\caption{Parallel CTI comparison by raft for Run 7 (E1017) and Run 6 (13557).}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_PCTI_EF_43_inset.png}
+\caption{Parallel CTI comparison by raft for Run 7 (E1017) and Run 6 (13550).}
 \label{fig:parallel-cti}
 \end{centering}
 \end{figure}
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PCTI_13557_E1071_diff.png}
-\caption{Distributions of differences in parallel charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PCTI_13550_E1071_diff.png}
+\caption{Distributions of differences in parallel charge transfer inefficiencies between Run 7 (E1071) and Run 6 (13550), grouped by CCD type.}
 \label{fig:parallel-cti-dist}
 \end{centering}
 \end{figure}
@@ -371,8 +372,8 @@ all amplifiers as the upper limit.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_DARK_CURRENT_MEDIAN.png}
-\caption{Dark current comparison by raft for Run 7 (E1017) and Run 6 (13557).}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DARK_CURRENT_MEDIAN_inset.png}
+\caption{Dark current comparison by raft for Run 7 (E1071) and Run 6 (13550).}
 \label{fig:dark}
 \end{centering}
 \end{figure}
@@ -386,8 +387,8 @@ Bright defects are localized regions or individual pixels that produce abnormall
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_BRIGHT_PIXELS.png}
-\caption{Bright pxiel comparison by raft for Run 7 (E1017) and Run 6 (135557)}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_BRIGHT_PIXELS_inset.png}
+\caption{Bright pxiel comparison by raft for Run 7 (E1017) and Run 6 (13550)}
 \label{fig:bright}
 \end{centering}
 \end{figure}
@@ -398,8 +399,8 @@ The reason is not totally clear, but the difference in the illumination pattern 
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/BRIGHT_PIXELS_13557_E1071_diff.png}
-\caption{Distributions of differences in bright pixel count per amplifier between Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/BRIGHT PIXELS_13550_E1071_diff.png}
+\caption{Distributions of differences in bright pixel count per amplifier between Run 7 (E1071) and Run 6 (13550), grouped by CCD type.}
 \label{fig:dark-dist}
 \end{centering}
 \end{figure}
@@ -409,6 +410,7 @@ The reason is not totally clear, but the difference in the illumination pattern 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.95\textwidth]{figures/baselineCharacterization/run7PTCsToDate.jpg}
+\caption{A comparison of run 6 and run 7 PTCs for a central amplifier.}
 \end{centering}
 \end{figure}
 
@@ -426,6 +428,7 @@ while PTC turnoff is measured in ADU.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_LINEARITY_TURNOFF.png}
+\caption{A comparison of Run 7 amplifier measurements of linearity turnoff, separated by sensor type. For both sensor types, measurements agree across both runs.}
 \end{centering}
 \end{figure}
 
@@ -435,14 +438,16 @@ our Run 7 and Run 6 measurements for both ITL and e2v sensors.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/LINEARITY_TURNOFF_E749_sensorType.png}
+\caption{A comparison of Run 7 amplifier measurements of linearity turnoff, separated by sensor type. For both sensor types, linearity turnoff is above the 90k e- specification for a majority of amplifiers. A subset of ITL amplifiers are below the 90k e- threshold, while two E2V amplifiers are below that specification.}
 \end{centering}
 \end{figure}
 
-Run 7 PTC turnoff measurements agree closely between run 6 and run 7, differing by $\leq$ 200 $e^-$ for both ITL and E2V sensors. Notably, they are lower on average for both detector types.
+Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing by $\leq$ 200 $e^-$ for both ITL and E2V sensors. Notably, they are lower on average for both detector types.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PTC_TURNOFF_13591_E749_diff.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in PTC turnoff, separated by sensor type. For both sensor types, PTC turnoff is very consistent.}
 \end{centering}
 \end{figure}
 
@@ -455,6 +460,7 @@ noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_PTC_GAIN.png}
+\caption{A comparison of Run 6 and Run 7 amplifier measurements in gain, separated by sensor type. For both sensor types, gain is very consistent.}
 \end{centering}
 \end{figure}
 
@@ -471,6 +477,7 @@ The brighter-fatter effect in CCDs refers to the phenomenon where brighter sourc
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_PTC_A00.png}
+\caption{A comparison of Run 6 and Run 7 amplifier measurement in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent.}
 \end{centering}
 \end{figure}
 
@@ -480,6 +487,7 @@ focal plane, of both CCD types.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PTC_A00_13591_E749_diff.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent.}
 \end{centering}
 \end{figure}
 
@@ -494,12 +502,14 @@ The strength of the brighter fatter covariance correlation, and its subsequent e
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_BF_XCORR.png}
+\caption{A comparison of Run 6 and Run 7 amplifier measurements in brighter-fatter x-correlation, separated by sensor type. For both sensor types, brighter-fatter x-correlation is very consistent.}
 \end{centering}
 \end{figure}
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_BF_YCORR.png}
+\caption{A comparison of Run 6 and Run 7 amplifier measurements in brighter-fatter y-correlation, separated by sensor type. For both sensor types, brighter-fatter y-correlation is very consistent.}
 \end{centering}
 \end{figure}
 
@@ -508,22 +518,25 @@ The brighter-fatter correlation is comparable across different runs, regardless 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/BF_XCORR_13591_E749_diff.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in brighter-fatter x-correlation, separated by sensor type. For both sensor types, brighter-fatter x-correlation is very consistent.}
 \end{centering}
 \end{figure}
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/BF_YCORR_13591_E749_diff.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in brighter-fatter y-correlation, separated by sensor type. For both sensor types, brighter-fatter y-correlation is very consistent.}
 \end{centering}
 \end{figure}
 
 \subsubsection{Row-means variance}\label{row-means-var}
 
-Row-means variance is a metric that measures the mean row-to- mean row variance of differences in a pair of two flats. By computing variance of means of differenced rows at the flux level, we can measure any changes in gain by row-by-row and also changes in correlated noise along with rows.
+Row-means variance is a metric that measures the mean row-to- row variance of differences between a pair of flats. By computing variance of means of differenced rows at each flux level, we can measure any changes in gain row-by-row and also changes in correlated noise along with row.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_ROW_MEAN_VAR_SLOPE.png}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_ROW_MEAN_VAR_SLOPE.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in row-mean-variance slope. For both sensor types, row-means-variance slope is weaker in Run 7. This is more pronounced for E2V sensors.}
 \end{centering}
 \end{figure}
 
@@ -531,7 +544,8 @@ Differences in row-means variance between runs are evident, and are distinctly d
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/ROW_MEAN_VAR_SLOPE_13591_E749_diff.png}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/ROW_MEAN_VAR_SLOPE_13550_E1071_diff.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in row-mean-variance slope, separated by sensor type. For both sensor types, row-means-variance slope is weaker in Run 7. This is more pronounced for E2V sensors.}
 \end{centering}
 \end{figure}
 
@@ -541,24 +555,19 @@ Divisadero tearing (or Rabbit ear) is manifested as signal variations near ampli
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_DIVISADERO_TEARING.png}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DIVISADERO_TEARING_inset.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, Divisadero tearing is weaker in Run 7. The difference is more pronounced for E2V sensors, which have larger Divisadero tearing in general.}
 \end{centering}
 \end{figure}
 
-Divisadero tearing in e2v CCDs is greater in Run 7 than in Run 6. The tearing signal in ITL
-sensors is very consistent between Run 7 and Run 6, and much weaker than for e2v (Fig.~\ref{fig:divisadero}.
+Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower Divisadero tearing in Run 7. Taking amplifier differences, E2V sensors show a weaker Divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see figure \ref{fig:divisidero_diff_baseline}).
 
 \begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/DIVISADERO_TEARING_13557_E1071_diff.png}
-\caption{Distribution of difference between divisadero tearing in Run 7 (E1071) and Run 6 (13557), grouped by CCD type.}
-\label{fig:divisadero}
-\end{centering}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/baselineCharacterization/DIVISIDERO TEARING_13550_E1071_diff.png}
+    \caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, Divisadero tearing is weaker in Run 7.}
+    \label{fig:divisidero_diff_baseline}
 \end{figure}
-
-In Run 7 the median divisadero tearing amplitude for e2v CCDs is \textasciitilde0.3\% greater. In ITL sensors, maximum divisadero tearing is \textasciitilde0.1\% greater in Run 6.
-
-The reason that the higher Divisadero tearing was high in e2v was that Run 6 had IDLE\_FLUSH running. See discussion in \ref{section:disablingIDLEFLUSH}.
 
 \subsubsection{Dark defects}\label{dark-defects}
 
@@ -570,8 +579,8 @@ defined as a $-$20\% deficit from the average flux measured in the image segment
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_DARK_PIXELS.png}
-\caption{Comparison of dark pixel counts in Run 7 (E1071) and Run 6 (13557), with separate plots for each raft.  Within each plot the color coding for all amplifier segments in a given CCD is the same.}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DARK_PIXELS_inset.png}
+\caption{Comparison of dark pixel counts in Run 7 (E1071) and Run 6 (13550), with separate plots for each raft.  Within each plot the color coding for all amplifier segments in a given CCD is the same.}
 \label{fig:dark-pixels}
 \end{centering}
 \end{figure}
@@ -625,8 +634,8 @@ present images at the same level as in Run 6.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13557_E1071_persist.png}
-\caption{Comparison of persistence metric between Run 7 (E1071) and Run 6 (13357), organized by raft.  The color coding indicates individual CCDs.  Several e2v CCDs have markedly greater persistence in Run 7.}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_persist_inset.png}
+\caption{Comparison of persistence metric between Run 7 (E1071) and Run 6 (13350), organized by raft.  The color coding indicates individual CCDs.  Several e2v CCDs have markedly greater persistence in Run 7.}
 \label{fig:persistence-comp}
 \end{centering}
 \end{figure}
@@ -646,38 +655,39 @@ comparing Run 6 with Run 7 (see Fig.~\ref{fig:persistence-decay-comp}).
 \end{subfigure}%
 \begin{subfigure}{0.5\textwidth}
   \centering
-  \includegraphics[width=1\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_13557_w_2023_41_20231118T050437Z.png}
+  \includegraphics[width=1\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_13550_w_2023_41_20231117T001459Z.png}
 \end{subfigure}
-\caption{Comparison of persistence profiles for R12\_S21 between (left) Run 7 (E1071) and (right) Run 6 (13557).  The decay time constants are similar but the initial persistence level is greater in Run 7.  The asymptotic levels are also different.}
+\caption{Comparison of persistence profiles for R12\_S21 between (left) Run 7 (E1071) and (right) Run 6 (13550).  The decay time constants are similar but the initial persistence level is greater in Run 7.  The asymptotic levels are also different.}
 \label{fig:persistence-decay-comp}
 \end{figure}
 
 \subsection{Differences between Run 6 and Run 7}\label{differences-from-previous-runs}
 
-% Add something about the major differences between the runs
+All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and Divisadero tearing show improved performance compared to run 6, while the Persistence feature is still prominent in E2V sensors. 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
 \begin{table}[H]
-\begin{tabular}{|l|ll|ll|}
+\centering
+\begin{tabular}{|l|l|ll|ll|}
 \hline
-\multirow{2}{*}{Parameter [unit]}          & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{2-5} 
-                                    & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
-Serial CTI {[}\%{]}                 & \multicolumn{1}{l|}{3.6816E-7} & 1.1357E-7 & \multicolumn{1}{l|}{1.5922E-6} & 1.6478E-6  \\ \hline
-Parallel CTI {[}\%{]}               & \multicolumn{1}{l|}{1.2162E-7} & 1.0554E-7 & \multicolumn{1}{l|}{1.6931E-8} & -4.7849E-8 \\ \hline
-Dark current {[}e-/pix/s{]}         & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Bright defects {[}count{]}          & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Linearity turnoff {[}e-{]}          & \multicolumn{1}{l|}{112410.98} & 112162.66 & \multicolumn{1}{l|}{105960.37} & 106002.95  \\ \hline
-PTC turnoff {[}e-{]}                & \multicolumn{1}{l|}{90422.94}  & 89697.03  & \multicolumn{1}{l|}{78209.44}  & 77913.08   \\ \hline
-PTC Gain {[}e- / ADU{]}             & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
-PTC $a_{00}$ [$\frac{1}{pix^2}$]      & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
-BF x-correlation                    & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
-BF y-correlation                    & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
-Row-means variance                  & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
-Dark defects {[}count{]}            & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Divisadero tearing maximum {[}\%{]} & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Persistence {[}ADU{]}               & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
+\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
+                                   &                                & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
+Serial CTI {[}\%{]}                & Val               & \multicolumn{1}{l|}{3.7068E-5} & 1.1357E-5 & \multicolumn{1}{l|}{1.1488E-4} & 1.6478E-4  \\ \hline
+Parallel CTI {[}\%{]}              & Val               & \multicolumn{1}{l|}{1.2162E-5} & 1.1534E-5 & \multicolumn{1}{l|}{3.4067E-7} & -4.7849E-6 \\ \hline
+Dark current {[}e-/pix/s{]}        & Val               & \multicolumn{1}{l|}{5.5439E-2} & 2.4783E-2 & \multicolumn{1}{l|}{4.6424E-2} & 2.1217E-2  \\ \hline
+Bright defects {[}count{]}         & Val               & \multicolumn{1}{l|}{0}          & 0         & \multicolumn{1}{l|}{0}          & 0          \\ \hline
+Linearity turnoff {[}e-{]}         & Val               & \multicolumn{1}{l|}{112410.98} & 112162.66 & \multicolumn{1}{l|}{105960.37} & 106002.95  \\ \hline
+PTC turnoff {[}e-{]}               & Val               & \multicolumn{1}{l|}{90422.94}  & 89697.03  & \multicolumn{1}{l|}{78209.44}  & 77913.08   \\ \hline
+PTC Gain {[}e- / ADU{]}            & Val               & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
+PTC $a_{00}$ [$\frac{1}{pix^2}$]   & Val               & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
+BF x-correlation                   & Val               & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
+BF y-correlation                   & Val               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
+Row-means variance                 & Val               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
+Dark defects {[}count{]}           & Val               & \multicolumn{1}{l|}{1.6890E+3} & 1.7090E+3 & \multicolumn{1}{l|}{1.5130E+3} & 1.5070E+3  \\ \hline
+Divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
+Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.6673}    & 5.6435    & \multicolumn{1}{l|}{0.48018}   & 0.42051    \\ \hline
 \end{tabular}
+
+\caption{Comparison of the median values of different parameters between Run 6 and Run 7, separated by detector type. For this comparison, only science detectors are considered.}
 \end{table}
 
 
@@ -1291,6 +1301,8 @@ stability}\label{characterization-camera-stability}
 
 \subsection{Final characterization background}\label{final_background}
 
+For a description of each quantity within this section and its acquisition process, refer to section \ref{reverification}.
+
 \begin{longtable}[H]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2083}}
@@ -1316,7 +1328,7 @@ E1071
 \end{quote}
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
-E
+E1880
 \end{quote}
 \end{minipage} \\
 \begin{minipage}[t]{\linewidth}\raggedright
@@ -1329,17 +1341,16 @@ E749
 \end{quote}
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
-E
+E1881
 \end{quote}
 \end{minipage} \\
-\caption{Reference runs for Run 6 and Run 7 comparisons}
+\caption{Reference runs for initial and final run 7 comparisons}
 \end{longtable}
 
 \subsubsection{Stability flat metrics}\label{stability-flat-metrics}
 
 
 \paragraph{Serial CTI}\label{serial-cti}
-
 
 
 
@@ -1352,10 +1363,28 @@ E
 
 \paragraph{Dark current}\label{dark-current}
 
+Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see section \ref{successful-autochanger-light-leaks-masking}).
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_DARK_CURRENT_MEDIAN.png}
+    \caption{Comparison of dark current measurements for initial and final run 7 measurements. A marked decrease in dark current is present in rafts local to the autochanger light leak (see section \ref{light-leak-mitigation-with-shrouding-the-camera-body})}
+    \label{fig:finalChar-DarkCurrent-5x5}
+\end{figure}
 
+The reduction in dark current in the subset of rafts is indicative of successful light leak mitigation, and lowers the dark current on local rafts to levels similar to the rest of the focal plane.
 
 \paragraph{Bright defects}\label{final-bright-defects}
+
+Bright defects are extracted using the B protocol runs, and show an extremely close agreement between runs. No significant bright defects developed as a result of the different voltage, sequencer, and idle flush conditions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_BRIGHT_PIXELS.png}
+    \caption{Comparison of bright pixel measurements for initial and final run 7 measurements.)}
+    \label{fig:finalChar-DarkCurrent-5x5}
+\end{figure}
+
 
 \subsubsection{Flat pair metrics}
 
@@ -1393,38 +1422,37 @@ coefficient}{Brighter fatter a00 coefficient}}\label{final-brighter-fatter-a00-c
 
 
 
-\subsubsection{Differences between run 7 initial and run 7 final measurements}\label{final-differences-from-previous-runs}
+\subsubsection{Differences between Run 7 initial and Run 7 final measurements}\label{final-differences-from-previous-runs}
 
 % Add something about the major differences between the runs
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
 \begin{table}[H]
-\begin{tabular}{|l|ll|ll|}
+\centering
+\begin{tabular}{|l|l|ll|ll|}
 \hline
-\multirow{2}{*}{Parameter [unit]}          & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{2-5} 
-                                    & \multicolumn{1}{l|}{Run 7 initial}     & Run 7 final     & \multicolumn{1}{l|}{Run 7 initial}     & Run 7 final      \\ \hline
-Serial CTI {[}\%{]}                 & \multicolumn{1}{l|}{} &  & \multicolumn{1}{l|}{} &  \\ \hline
-Parallel CTI {[}\%{]}               & \multicolumn{1}{l|}{} &  & \multicolumn{1}{l|}{} &  \\ \hline
-Dark current {[}e-/pix/s{]}         & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Bright defects {[}count{]}          & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Linearity turnoff {[}e-{]}          & \multicolumn{1}{l|}{} &  & \multicolumn{1}{l|}{} &   \\ \hline
-PTC turnoff {[}e-{]}                & \multicolumn{1}{l|}{}  &   & \multicolumn{1}{l|}{}  &    \\ \hline
-PTC Gain {[}e- / ADU{]}             & \multicolumn{1}{l|}{}    &    & \multicolumn{1}{l|}{}    &      \\ \hline
-PTC $a_{00}$ [$\frac{1}{pix^2}$]      & \multicolumn{1}{l|}{} &  & \multicolumn{1}{l|}{} &   \\ \hline
-BF x-correlation                    & \multicolumn{1}{l|}{}    &  & \multicolumn{1}{l|}{}    &      \\ \hline
-BF y-correlation                    & \multicolumn{1}{l|}{}    &  & \multicolumn{1}{l|}{}    &      \\ \hline
-Row-means variance                  & \multicolumn{1}{l|}{}    &  & \multicolumn{1}{l|}{}    &      \\ \hline
-Dark defects {[}count{]}            & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Divisadero tearing maximum {[}\%{]} & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
-Persistence {[}ADU{]}               & \multicolumn{1}{l|}{}          &           & \multicolumn{1}{l|}{}          &            \\ \hline
+\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
+                                  &                                & \multicolumn{1}{l|}{R7 initial} & R7 final & \multicolumn{1}{l|}{R7 initial} & R7 final \\ \hline
+Serial CTI {[}\%{]}               &                                & \multicolumn{1}{l|}{}              &             & \multicolumn{1}{l|}{}              &             \\ \hline
+Parallel CTI {[}\%{]}             &                                & \multicolumn{1}{l|}{}              &             & \multicolumn{1}{l|}{}              &             \\ \hline
+Dark current {[}e-/pix/s{]}       &                                & \multicolumn{1}{l|}{2.4783E-02}              &       2.3188E-02      & \multicolumn{1}{l|}{2.1217E-02}              &       2.0734E-02      \\ \hline
+Bright defects {[}count{]}        &                                & \multicolumn{1}{l|}{0}              &   0          & \multicolumn{1}{l|}{0}              &          0   \\ \hline
+Linearity turnoff {[}e-{]}        &                                & \multicolumn{1}{l|}{112162.66}              &        90323.14     & \multicolumn{1}{l|}{106002.95}              &      105896.708       \\ \hline
+PTC turnoff {[}e-{]}              &                                & \multicolumn{1}{l|}{8.9697E+04}              &      6.7750E+04       & \multicolumn{1}{l|}{7.7913E+04}              &        7.7925E+04     \\ \hline
+PTC Gain {[}e- / ADU{]}           &                                & \multicolumn{1}{l|}{1.4812}              &      1.5107       & \multicolumn{1}{l|}{1.6761}              &       1.6752      \\ \hline
+PTC $a_{00}$ [$\frac{1}{pix^2}$]  &                                & \multicolumn{1}{l|}{3.0863E-06}              &       3.4899E-06      & \multicolumn{1}{l|}{1.7031E-06}              &        1.7009E-06     \\ \hline
+BF x-correlation                  &                                & \multicolumn{1}{l|}{5.1693E-01}              &     5.1022E-01        & \multicolumn{1}{l|}{7.5212E-01}              &       7.3648E-01      \\ \hline
+BF y-correlation                  &                                & \multicolumn{1}{l|}{1.7077E-01}              &       1.6740E-01      & \multicolumn{1}{l|}{2.8695E-01}              &        2.8439E-01     \\ \hline
+Row-means variance                &                                & \multicolumn{1}{l|}{8.8367E-01}              &      8.6809E-01       & \multicolumn{1}{l|}{9.4664E-01}              &        9.4633E-01     \\ \hline
+Dark defects {[}count{]}          &                                & \multicolumn{1}{l|}{1709}              &       1968      & \multicolumn{1}{l|}{1507}              &       1508      \\ \hline
+Divisadero tearing maximum {[}\%{]} &     None                     & \multicolumn{1}{l|}{6.2622E-03}              &       2.4599E-03      & \multicolumn{1}{l|}{2.7348E-03}              &       2.7414E-03      \\ \hline
+Persistence {[}ADU{]}             &       None                         & \multicolumn{1}{l|}{5.6673E+00}              &       4.0181E-01      & \multicolumn{1}{l|}{4.8018E-01}              &       3.2639E-01      \\ \hline
 \end{tabular}
+\caption{Comparison of median parameter values on each amplifier between Run 7 initial and final measurements, separated by detector type.}
 \end{table}
 
 
 \subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
 
-We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gains below $0.8$ or above $1.8$. 
+We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2-2.0 (or 0.8-1.8 for BOT data). 
 
 A list of nonfunctional amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\ref{tab-BOTdeadamp}. As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as hi-noise during single raft or BOT testing, only one (R41\_S21\_C02) remained as hi-noise at the end of BOT testing.
 
@@ -1449,7 +1477,7 @@ A list of nonfunctional amplifiers on Science Rafts was produced from both singl
     \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab-BOTdeadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. Here we define as non-functional those amplifiers with a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $0.8 - 1.8 e^{-}/ADU$.  
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. Here we define as non-functional those amplifiers with a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$.  
 
 \subsection{Full well measurements}\label{fullwell}
 
@@ -1462,7 +1490,7 @@ Next, we list non-functional amplifiers detected in full Camera EO testing durin
 
 \end{figure}
 
-PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, from an integrating sphere fed by various LEDs, that  illuminates the focal plane. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
+PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, obtained using the CCOB wide-beam described in \ref{electro-optical-setup}. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
 
 For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
 
@@ -1472,17 +1500,12 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 \label{eq:nonlin0}
 \end{equation}
 where $Q_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
-$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode factor" for current $i$, $S$ is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints: the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. We carry out this fit for all video channels separately. The weights $w_{ij}$ are modeled using an expression determined empirically, $w_{ij} = 1/\sqrt{c^2+v^2/\mu_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by modifying the expression \ref{eq:nonlin0}:
+$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode factor" for current $i$, $S$ is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints: the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. If we choose equal fitting weights $w_{ij}=1$, the residuals exhibit a scatter that varies a lot with signal level, and hence forbid meaningful outlier detection. We model the fitting weights $w_{ij}$ using an expression determined empirically, $w_{ij} = 1/\sqrt{c^2+v^2/\mu_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by turning the least-squares expression \ref{eq:nonlin0} into a maximum likelihood one:
 \begin{equation}
-Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \Sigma_{ij} \log w_{ij}
+Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} \log w_{ij}
 \label{eq:nonlin1}
 \end{equation}
-We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every video channel. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points.
-Fig. \ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
-
-
-
-
+We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Fig. \ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
 \subsection{Guider operation}\label{guider-operation}
 
@@ -1499,6 +1522,118 @@ This section describes guider operation.
 \item
   Guider ROI characterization
 \end{itemize}
+
+%% jgt - here's the table with the configuratons and results (noise results omitted)
+\begin{longtable}{|c|c|c|c|c|c|c|}
+\caption{Summary of results for the different Guider configurations. \label{tab:gds_configs}} \\
+\hline
+\makecell{\textbf{ROI} \\ \textbf{Size}} & 
+\makecell{\textbf{Integration} \\ \textbf{Time (ms)}} & 
+\makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Sensors}} &
+\makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Rafts}} &
+\makecell{\textbf{ROI} \\ \textbf{Alignment}} &
+\makecell{\textbf{Rate} \\ \textbf{(Hz)}} &
+\makecell{\textbf{Noise} \\ \textbf{(??)}} \\
+\hline
+\hline
+\endhead
+\multicolumn{7}{|c|}{\textbf{Noise Study Configurations}} \\
+\hline
+50x50   & 50  & 1 & 1 & n/a       &  9.28 & \\ % gds_noise_01.cfg
+50x50   & 50  & 2 & 1 & aligned   &  9.27 & \\ % gds_noise_02.cfg
+50x50   & 50  & 2 & 1 & unaligned &  9.26 & \\ % gds_noise_03.cfg
+50x50   & 50  & 4 & 4 & aligned   &  9.26 & \\ % gds_noise_04.cfg
+50x50   & 50  & 4 & 4 & unaligned &  9.26 & \\ % gds_noise_05.cfg
+50x50   & 50  & 8 & 4 & aligned   &  9.23 & \\ % gds_noise_06.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & \\ % gds_noise_07.cfg
+\hline
+\multicolumn{7}{|c|}{\textbf{Nominal Configurations}} \\
+\hline
+50x50   & 50  & 8 & 4 & aligned   &  9.22 & \\ % gds_nom_aligned.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & \\ % gds_nom_unaligned.cfg
+\hline
+\multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
+\hline
+400x400 & 200 & 1 & 1 & n/a       &  1.67 & \\ % gds_roi_01.cfg
+400x400 &  50 & 1 & 1 & n/a       &  2.23 & \\ % gds_roi_02.cfg
+400x400 &   5 & 1 & 1 & n/a       &  2.48 & \\ % gds_roi_03.cfg
+10x10   &  50 & 1 & 1 & n/a       & 11.80 & \\ % gds_roi_04.cfg
+400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & \\ % gds_roi_05.cfg
+\hline
+\end{longtable}
+
+\subsection*{Noise Investigation (take 20 images for each, 15 seconds each)}
+
+\subsubsection*{Start with a single GREB}
+\begin{itemize}
+    \item Acquire nominal ROI on a single sensor
+    \begin{verbatim}
+    gds_noise_01.cfg
+    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50  }, 
+      "R00SG0": { "segment": 3, "startRow":  975, "startCol": 254} }
+    \end{verbatim}
+
+    \item Acquire nominal aligned ROIs on two sensors on the same GREB
+    \begin{verbatim}
+    gds_noise_02.cfg
+    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
+      "R00SG0": { "segment": 3, "startRow":  975, "startCol": 254},
+      "R00SG1": { "segment": 3, "startRow":  975, "startCol": 254} }
+    \end{verbatim}
+
+    \item Acquire nominal misaligned ROIs on two sensors on the same GREB
+    \begin{verbatim}
+    gds_noise_03.cfg
+    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
+      "R00SG0": { "segment": 3, "startRow":  975, "startCol": 254},
+      "R00SG1": { "segment": 3, "startRow": 1075, "startCol": 254} }
+    \end{verbatim}
+\end{itemize}
+
+\subsubsection*{Four GREBs}
+\begin{itemize}
+    \item Acquire nominal aligned ROIs on single sensors on all GREBs
+    \begin{verbatim}
+    gds_noise_04.cfg
+    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
+      "R00SG0": { "segment": 3, "startRow": 975, "startCol": 254},
+      "R04SG0": { "segment": 3, "startRow": 975, "startCol": 254},
+      "R40SG0": { "segment": 3, "startRow": 975, "startCol": 254},
+      "R44SG0": { "segment": 3, "startRow": 975, "startCol": 254} }
+    \end{verbatim}
+
+    \item Acquire nominal misaligned ROIs on one sensor on all GREBs
+    \begin{verbatim}
+    gds_noise_05.cfg
+    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
+      "R00SG0": { "segment": 3, "startRow":  775, "startCol": 254},
+      "R04SG0": { "segment": 3, "startRow":  875, "startCol": 254},
+      "R40SG0": { "segment": 3, "startRow":  975, "startCol": 254},
+      "R44SG0": { "segment": 3, "startRow": 1075, "startCol": 254} }
+    \end{verbatim}
+\end{itemize}
+
+% Add similar formatting for the rest of the sections
+
+\subsection*{ROI reconstruction (take 20 images for each, 15 seconds each)}
+\subsubsection*{Unsplit ROI different exposures and sizes}
+\begin{itemize}
+    \item 200 ms
+    \begin{verbatim}
+    gds_roi_01.cfg
+    { "common":{ "rows": 400,"cols": 400, "integrationTimeMillis": [200] }, 
+      "R00SG0": { "segment": 2, "startRow":  800, "startCol": 54} }
+    \end{verbatim}
+
+    \item 50 ms
+    \begin{verbatim}
+    gds_roi_02.cfg
+    { "common":{ "rows": 400,"cols": 400, "integrationTimeMillis": 50 }, 
+      "R00SG0": { "segment": 2, "startRow":  800, "startCol": 54} }
+    \end{verbatim}
+\end{itemize}
+
+
 
 \subsection{Defect stability}\label{defect-stability}
 
@@ -1733,32 +1868,71 @@ Further studies are required in order to converge on the best mitigation
 strategy for the start of the LSST survey.
 
 \subsection{Gain stability}\label{sec:gain-stability-2}
-The ``relative gain" is defined as the ratio of the signal observed in a CCD image segment divided by the integration of the photodiode current with respect to an arbitrary normalization.
-With a fixed flat illumination, the variation of the relative gain over successive exposures can be utilized to investigate the gain stability. We acquired flat images at the same flux level with two distinct temperature conditions: either intentionally altered or maintained constant.
+We use ``relative gain'' in this section to study gain stability over time. 
+The relative gain is defined as the ratio of the signal observed in a CCD image segment divided by the integration of the photodiode current with respect to an arbitrary normalization.
+With a fixed flat illumination, the variation of the relative gain over successive exposures can be utilized to investigate the gain stability. 
+In the past run \citep{2024SPIE13103E..0WU}, we used the run that was obtained at the constant temperature, which reflects the real observing condition. We repeated this test during Run 7 and we acquired flat images at the two representative flux level with two distinct temperature conditions: either intentionally altered or maintained constant.
 \begin{itemize}
     \item E1496 (dp80, constant temp, v29\_Nop, nm750, 10k e-)
     \item E1367 (dp80, temp swing, v29, nm750, 50k e-)
-    \item E756 (dp80, gain stability @ 50k e-)
-    \item E1362 (dp80, 10k e-)
+    \item E756 (dp80, gain stability @ 50k e-), unprocessed
+    \item E1362 (dp80, 10k e-), unprocessed
 \end{itemize}
-(YU: WORK IN PROGRESS)
 
+Here we focus on E1496 and E1367 which have a difference in the temperature condition whether the temp was kept constant (E1496) or altered (E1367).
+
+Figure \ref{fig:relgainparamE1496} shows the derived 
+ relative gain change for one amplifier (R11/S00/C11) over time alogn with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and led1temp (the temperatue measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
+ As the intention of the acquisition condition, the REB temperature was almost maintained at the same level within 0.2 deg, with a slight decreasing slope probably due to the change in the thermal load and stabilization process of the entire thermal system.
+ At the same time the gain slowly increase over time, while other CCD, LED temperatures are kept at the same.
+ 
+Figure \ref{fig:gaintempE1496} shows the relationship between relative gain and the REB temperature, with color coding by the speed of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result.
 
 \begin{figure}[htbp]
 \centering
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{figures/RelgainParametersTrending.png}
-    \caption{Distribution of the stability metric for the e2v amplifiers in run E2136}
+    \includegraphics[width=\textwidth]{figures/gaintemp/E1496RelgainParametersTrending.png}
+    \caption{relative gain changes with other parameters for one amplifier R01/S00/C11 in run E1496}
+    \label{fig:relgainparamE1496}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{figures/RelgainDetail.png}
-    \caption{Mosaic of e2v amplifiers identified as unstable (white color) in run E2136}
+    \includegraphics[width=\textwidth]{figures/gaintemp/E1496RelgainDetail.png}
+    \caption{Relative gain as a function of REB temp (TEMP6 and TEMP10), with color based on temperature swing run E1496}
+    \label{fig:gaintempE1496}
 \end{minipage}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/gaintemp/E1367RelgainParametersTrending.png}
+    \caption{relative gain changes with other parameters for one amplifier R01/S00/C11 in run E1367}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/gaintemp/E1367RelgainDetail.png}
+    \caption{Relative gain as a function of REB temp (TEMP6 and TEMP10), with color based on temperature swing run  in run E1367}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figures/gaintemp/E1496gainoverall.png}
+    \caption{Relative gain change with respect to C00 of each sensor, for E1496}
+    \label{fig:relative-gain-E1496}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figures/gaintemp/E1367gainoverall.png}
+    \caption{Same as Figure \ref{fig:relative-gain-E1496} but for E1367}
+    \label{fig:relative-gain-E1367}
+\end{figure}
 
 \section{Sensor features}\label{sensor-features}
 
@@ -1966,7 +2140,7 @@ We parasitically used a series of B-protocol and BOT-persistence EO testing runs
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
-Table~\ref{phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8$\times$8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
+Table~\ref{ptab:hosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8$\times$8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
 1$\times$1 
 pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by the rebinning routinely performed for display purposes.
 
@@ -2008,7 +2182,7 @@ The correspondence between {\it vampire pixels} and spot-like phosphorescence is
      \label{subfig:phosresp_R20_S20}
 \end{subfigure}
 \newline
-\caption{Vampire pixel comparisons between their flat field response and their transient phosphorescence. Signal levels are given (relative for flat field response, absolute electrons per 15s following overexposure for transient phosphorescence). The relative flat field response amplitudes swing between 0.2 \& 16 (reaching full well) for R03\_S10, and between 0.4 \& 8 for R20\_S20. The transient phosphorescence response also reaches nominal full well (135ke$^-$/pix/15s for the central pixel) for R03\_S10, and a lower amplitude (3-4ke$^-$/pix/15s for several hundred pixels) is reached for R20\_S20.}
+\caption{Vampire pixel comparisons between their flat field response and their transient phosphorescence. Signal levels are given (relative for flat field response, absolute electrons per 15s following overexposure for transient phosphorescence). The relative flat field response amplitudes swing between 0.2 \& 16 (reaching full well) for R03\_S10, and between 0.4 \& 8 for R20\_S20. The transient phosphorescence response also reaches nominal full well (135ke$^-$/pix/15s for the central pixel) for R03\_S10, and a lower amplitude (3-4Ke$^-$/pix/15s for several hundred pixels) is reached for R20\_S20.}
 \label{fig:vamp-phos:R03_S10-R20_S20}
 \end{figure}
 
@@ -2074,6 +2248,8 @@ A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage 
   Dependence on wavelength of the triggering exposure
 \item
   Kinetics of the phosphorescence (based on {\it blue} CCOB LED)
+  \item 
+  Phosphorescence response: triggering exposure dependence of the expressed phosphorescence, the wavelength- and signal level-dependence. 
 \end{itemize}
 
 
@@ -2105,15 +2281,18 @@ optimization}.
 \subsubsection{Voltage conditions}\label{voltage-conditions}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2917}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2917}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.125}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.25}}@{}}
 \caption{Voltage conditions}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Parameter
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 dp80 (new voltage)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Run 7 ITL voltage
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 dp93 (Run 5)
 \end{minipage} \\
@@ -2123,7 +2302,9 @@ dp93 (Run 5)
 \begin{minipage}[b]{\linewidth}\raggedright
 Parameter
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-dp80 (new voltage)
+dp80 (Run 7 E2V voltage)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Run 7 ITL voltage (cloned from Run 7)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 dp93 (Run 5)
 \end{minipage} \\
@@ -2139,8 +2320,16 @@ pclkHigh & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 3.3
 \end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+3.3
+\end{quote}
 \end{minipage} \\
 pclkLow & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+$-$6.0
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 $-$6.0
 \end{quote}
@@ -2157,10 +2346,18 @@ dpclk & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 9.3
 \end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+9.3
+\end{quote}
 \end{minipage} \\
 sclkHigh & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 3.55
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+3.9
 \end{quote}
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
@@ -2175,10 +2372,18 @@ $-$5.75
 \begin{quote}
 $-$5.4
 \end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+$-$5.4
+\end{quote}
 \end{minipage} \\
 rgHigh & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 5.01
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+6.1
 \end{quote}
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
@@ -2193,10 +2398,18 @@ $-$4.99
 \begin{quote}
 $-$4.0
 \end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+$-$4.0
+\end{quote}
 \end{minipage} \\
 rd & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 10.5
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+11.6
 \end{quote}
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
@@ -2211,6 +2424,10 @@ od & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 23.4
 \end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+23.4
+\end{quote}
 \end{minipage} \\
 og & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
@@ -2220,8 +2437,16 @@ $-$3.75
 \begin{quote}
 $-$3.4
 \end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+$-$3.4
+\end{quote}
 \end{minipage} \\
 gd & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+26.0
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 \begin{quote}
 26.0
 \end{quote}
@@ -2293,136 +2518,214 @@ FP\_ITL\_2s\_l3cp\_v30.seq \\
   Idle flush disabled
 \end{itemize}
 
-\subsection{Record runs}\label{record-runs}
+\subsection{Record runs}\label{record-runs} 
 
-This section describes Run 7 record runs.
+This section describes Run 7 record runs. All runs use our camera operating configuration, unless otherwise noted.
 
-All runs use our camera operating configuration, unless otherwise noted.
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
+\hline
+Run Type                        & Run ID & Links & Notes                                                                   \\ \hline
+\multirow{3}{*}{B-protocol}     & E1880  &  Web report \newline Test Execution     & Initial B\_protocol taken with the new v30 definition.                  \\ \cline{2-4} 
+                                & E2233  &       & dp80, first run after full CCS system reboot                            \\ \cline{2-4} 
+                                & E3380  &       & First B protocol post-chiller recovery                                  \\ \hline
+\multirow{3}{*}{PTC}            & E1881  &       & Dense red PTC with no dark interleaves, First V30 sequencers            \\ \cline{2-4} 
+                                & E1886  &       & Dense red PTC with dark interleaves, V30 sequencers                     \\ \cline{2-4} 
+                                & E2237  &       & Randomized flat pairs, no dark interleave, after full CCS system reboot \\ \hline
+\multirow{3}{*}{Gain Stability} & E2008  &       &                                                                         \\ \cline{2-4} 
+                                & E1968  &       &                                                                         \\ \cline{2-4} 
+                                & E1955  &       & 6h Stability run 10k 750 nm V30, ,                                      \\ \hline
 
-\begin{longtable}{|p{2cm}|p{2cm}|p{2cm}|p{10cm}|}
-\caption{Record runs}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Run Type
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Run ID
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Links
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Notes
-\end{minipage} \\ \hline
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Run Type
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Run ID
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Links
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Notes
-\end{minipage} \\ \hline
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
+\end{tabular}
+\end{table}
 
-\multirow{2}{=}{B protocol} & E1880 & & \\
-& E2233 & & Identical to E1880. Acquired after CCS subsystem reboot \\ \hline
-\multirow{5}{=}{PTCs} & E1886 & & Red LED dense. Dark interleaving between flat pairs \\ 
-& E1881 & & Red LED dense. No dark interleaving between flat pairs \\ \hline
-& E748 & & nm960 dense \\ \hline
-& E2237 & & Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
-& E2016 & & Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
-\multirow{5}{=}{Long dark acquisitions} & E1117 & & \\
-& E1116 & & \\ \hline
-& E1115 & & \\ \hline
-& E1114 & & \\ \hline
-& E1075 & & \\ \hline
-\multirow{5}{=}{Projector acquisitions} & E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. E2V:v29Nop, ITL:v29Nopp \\
-& E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s
-interval.E2V:v29Nop,
-ITL:v29Nopp \\ \hline
-& E1586 & & One 100\,s flat exposure, spots moved to selected
-phosphorescent regions.E2V:v29Nop,
-ITL:v29Nopp \\ \hline
-& E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks
-interleaved after flat acquisition. Rectangle on C10
-amplifier.E2V:v29Nop,
-ITL:v29Nopp \\ \hline
-& E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
-\multirow{5}{=}{OpSim runs} & E1717 & & Long dark sequence, no filter
-changes \\ 
-& E2330 & & Short dark sequence, filter changes in headers through
-OCS \\ \hline
-& E1414 & & 30 minutes OpSim run with shutter control, filter change,
-and realistic survey cadence \\ \hline
-& E2328 & & Flats with shutter-controlled exposure \\ \hline
-& E1657 & & 10 hour OpSim dark run, \textasciitilde50\% of darks were
-acquired properly \\ \hline
-\multirow{5}{=}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ 
-& E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-& E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-& E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-& E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \hline
-\multirow{10}{=}{Tree ring flats} & E1050 & & \\ 
-& E1052 & & \\ \hline
-& E1053 & & \\ \hline
-& E1055 & & \\ \hline
-& E1056 & & \\ \hline
-& E1021 & & \\ \hline
-& E1023 & & \\ \hline
-& E1024 & & \\ \hline
-& E1025 & & \\ \hline
-& E1026 & & \\ \hline
-\multirow{7}{=}{Gain stability runs} & E1955 & & \\ 
-& E2008 & & \\ \hline
-& E1968 & & \\ \hline
-& E1367 & & \\ \hline
-& E1362 & & \\ \hline
-& E756 & & \\ \hline
-& E1496 & & \\ \hline
-\multirow{25}{=}{Persistence datasets} & E1503 & & \\ 
-& E1504 & & \\ \hline
-& E1505 & & \\ \hline
-& E1506 & & \\ \hline
-& E2286 & & \\ \hline
-& E1502 & & \\ \hline
-& E1501 & & \\ \hline
-& E1500 & & \\ \hline
-& E1499 & & \\ \hline
-& E1498 & & \\ \hline
-& E1494 & & \\ \hline
-& E1493 & & \\ \hline
-& E1492 & & \\ \hline
-& E1490 & & \\ \hline
-& E1491 & & \\ \hline
-& E1489 & & \\ \hline
-& E1488 & & \\ \hline
-& E1487 & & \\ \hline
-& E1486 & & \\ \hline
-& E1485 & & \\ \hline
-& E1478 & & \\ \hline
-& E1477 & & \\ \hline
-& E1479 & & \\ \hline
-& E1483 & & \\ \hline
-& E1484 & & \\ \hline
-\multirow{12}{=}{Guider ROI acquisitions} & E1510 & & \\ 
-& E1518 & & \\ \hline
-& E1519 & & \\ \hline
-& E1508 & & \\ \hline
-& E1509 & & \\ \hline
-& E1520 & & \\ \hline
-& E1511 & & \\ \hline
-& E1521 & & \\ \hline
-& E1512 & & \\ \hline
-& E1513 & & \\ \hline
-& E1514 & & \\ \hline
-& E1517 & & \\ \hline
-\end{longtable}
+\subsection{Other runs of relevance}\label{relevant-runs}
 
-%\section{References}
+% B Protocol
+\begin{table}[h]
+\centering
+\caption{B Protocol Runs}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1880 & & \\ \hline
+E2233 & & Identical to E1880. Acquired after CCS subsystem reboot \\ \hline
+\end{tabular}
+\end{table}
+
+% PTCs
+\begin{table}[h]
+\centering
+\caption{PTC Runs}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1886 & & Red LED dense. Dark interleaving between flat pairs \\ \hline
+E1881 & & Red LED dense. No dark interleaving between flat pairs \\ \hline
+E748 & & nm960 dense \\ \hline
+E2237 & & Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
+E2016 & & Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
+\end{tabular}
+\end{table}
+
+% Long Dark Acquisitions
+\begin{table}[h]
+\centering
+\caption{Long Dark Acquisitions}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1117 & & \\ \hline
+E1116 & & \\ \hline
+E1115 & & \\ \hline
+E1114 & & \\ \hline
+E1075 & & \\ \hline
+\end{tabular}
+\end{table}
+
+% Projector Acquisitions
+\begin{table}[h]
+\centering
+\caption{Projector Acquisitions}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. E2V:v29Nop, ITL:v29Nopp \\ \hline
+E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s intervals. E2V:v29Nop, ITL:v29Nopp \\ \hline
+E1586 & & One 100\,s flat exposure, spots moved to selected phosphorescent regions. E2V:v29Nop, ITL:v29Nopp \\ \hline
+E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
+E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
+\end{tabular}
+\end{table}
+
+% OpSim Runs
+\begin{table}[h]
+\centering
+\caption{OpSim Runs}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1717 & & Long dark sequence, no filter changes \\ \hline
+E2330 & & Short dark sequence, filter changes in headers through OCS \\ \hline
+E1414 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+E2328 & & Flats with shutter-controlled exposure \\ \hline
+E1657 & & 10 hour OpSim dark run, \textasciitilde50\% of darks were acquired properly \\ \hline
+\end{tabular}
+\end{table}
+
+% Phosphorescence Datasets
+\begin{table}[h]
+\centering
+\caption{Phosphorescence Datasets}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \hline
+\end{tabular}
+\end{table}
+
+% Tree Ring Flats
+\begin{table}[h]
+\centering
+\caption{Tree Ring Flats}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1050 & & \\ \hline
+E1052 & & \\ \hline
+E1053 & & \\ \hline
+E1055 & & \\ \hline
+E1056 & & \\ \hline
+E1021 & & \\ \hline
+E1023 & & \\ \hline
+E1024 & & \\ \hline
+E1025 & & \\ \hline
+E1026 & & \\ \hline
+\end{tabular}
+\end{table}
+
+% Gain Stability Runs
+\begin{table}[h]
+\centering
+\caption{Gain Stability Runs}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1955 & & \\ \hline
+E2008 & & \\ \hline
+E1968 & & \\ \hline
+E1367 & & \\ \hline
+E1362 & & \\ \hline
+E756 & & \\ \hline
+E1496 & & \\ \hline
+\end{tabular}
+\end{table}
+
+% Persistence Datasets
+\begin{table}[h]
+\centering
+\caption{Persistence Datasets}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1503 & & \\ \hline
+E1504 & & \\ \hline
+E1505 & & \\ \hline
+E1506 & & \\ \hline
+E2286 & & \\ \hline
+E1502 & & \\ \hline
+E1501 & & \\ \hline
+E1500 & & \\ \hline
+E1499 & & \\ \hline
+E1498 & & \\ \hline
+E1494 & & \\ \hline
+E1493 & & \\ \hline
+E1492 & & \\ \hline
+E1490 & & \\ \hline
+E1491 & & \\ \hline
+E1489 & & \\ \hline
+E1488 & & \\ \hline
+E1487 & & \\ \hline
+E1486 & & \\ \hline
+E1485 & & \\ \hline
+E1478 & & \\ \hline
+E1477 & & \\ \hline
+E1479 & & \\ \hline
+E1483 & & \\ \hline
+E1484 & & \\ \hline
+\end{tabular}
+\end{table}
+
+% Guider ROI Acquisitions
+\begin{table}[h]
+\centering
+\caption{Guider ROI Acquisitions}
+\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\hline
+Run ID & Links & Notes \\ \hline
+E1510 & & \\ \hline
+E1518 & & \\ \hline
+E1519 & & \\ \hline
+E1508 & & \\ \hline
+E1509 & & \\ \hline
+E1520 & & \\ \hline
+E1511 & & \\ \hline
+E1521 & & \\ \hline
+E1512 & & \\ \hline
+E1513 & & \\ \hline
+E1514 & & \\ \hline
+E1517 & & \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\section{References}
 
 
 \appendix
@@ -2438,3 +2741,4 @@ acquired properly \\ \hline
 
 \input{phosphorescence_identification_appendix}
 \input{phosphorescence_coffeestain_comparison_appendix}
+\input{phosphorescence_kinetics}
