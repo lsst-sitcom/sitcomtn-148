@@ -909,8 +909,8 @@ measured at 8.0\,V and 9.3\,V. The sub-figures correspond to separations in rows
 between the source of the area distortion and its victim, with the self
 interaction coefficient $a_{00}$ at the bottom left. The first neighbors increase
 respectively by 19\% in the parallel direction by 14\% in the serial
-direction. So the BFE is slightly larger at 8.0\,V but not significantly
-more anisotropic.}
+direction. So the BFE is slightly larger at 8.0\,V but not dramatically
+more anisotropic: the ratio of parallel to serial nearest neighbor correlations increases only from 3.43 to 3.54 with the reduction of the parallel swing.}
 \label{fig:area-coeffs}
 \end{figure}
 
@@ -1530,30 +1530,64 @@ Persistence {[}ADU{]}             &       None                         & \multic
 
 We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2-2.0 (or 0.8-1.8 for BOT data). 
 
-A list of nonfunctional amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\ref{tab-BOTdeadamp}. As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as hi-noise during single raft or BOT testing, only one (R41\_S21\_C02) remained as hi-noise at the end of BOT testing.
+A list of nonfunctional amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\ref{tab:BOTbadamp}. As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as hi-noise during single raft or BOT testing, only one (R41\_S21\_C02) remained as hi-noise at the end of BOT testing.
 
 \begin{table}[!ht]
     \tiny
     \centering
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
     \hline
-        Raft & Slot & Seg. & Problem & \makecell{ Single Raft \\ testing } & \makecell{ Run 12433 \\ Oct 19} & \makecell{ Run 12610 \\ Oct 20} & \makecell{ Run 12795 \\ Nov 20} & \makecell{ Run 12845 \\ Jan 21} & \makecell{ Run 13016 \\ Nov 21} & \makecell{ Run 13101 \\ Nov 21} & \makecell{Run 13137 \\ Dec 21} \\ \hline
-        R01 & S01 & C00  & Dead Amp & Dead & Dead & OK & OK & OK & OK & OK & OK \\ \hline
-        R03 & S11 & C00  & Dead Amp & OK & NA & OK & OK & Dead & Dead & Dead & Dead \\ \hline
-        R10 & S00 & C00  & Dead Amp & Dead & NA & OK & OK & OK & OK & OK & OK \\ \hline
-        R30 & S00 & C10  & Dead Amp & Dead & Dead & Dead & Dead & Dead & Dead & Dead & Dead \\ \hline
-        R01 & S02 & C07  & Hi Noise & OK & 27e & 22e & 20e & 21e & 15e & 14e & 14e \\ \hline
-        R01 & S11 & C00  & Hi Noise & OK & 24e & OK & OK & 12e & OK & OK & OK \\ \hline
-        R41 & S11 & C14  & Hi Noise & OK & NA & 36e & OK & OK & OK & OK & OK \\ \hline
-        R41 & S21 & C02  & Hi Noise & OK & NA & OK & 108e & 96e & 85e & 110e & 115e \\ \hline
-        R43 & S02 & C03  & Hi Noise & 18e & NA & 18e & 18e & 18e & 17e & 18e & 17e \\ \hline
-        R43 & S20 & C14  & Hi Noise & OK & NA & OK & OK & 69e & 145e & OK & OK \\ \hline
+        Channel & Problem & \makecell{ Single Raft \\ testing } & \makecell{ Run 12433 \\ Oct 19} & \makecell{ Run 12610 \\ Oct 20} & \makecell{ Run 12795 \\ Nov 20} & \makecell{ Run 12845 \\ Jan 21} & \makecell{ Run 13016 \\ Nov 21} & \makecell{ Run 13101 \\ Nov 21} & \makecell{Run 13137 \\ Dec 21} \\ \hline
+        R01_S01_C00  & Dead Amp & Dead & Dead & OK & OK & OK & OK & OK & OK \\ \hline
+        R01_S02_C07  & Hi Noise & OK & 27e & 22e & 20e & 21e & 15e & 14e & 14e \\ \hline
+        R01_S11_C00  & Hi Noise & OK & 24e & OK & OK & 12e & OK & OK & OK \\ \hline
+        R03_S11_C00  & Dead Amp & OK & NA & OK & OK & Dead & Dead & Dead & Dead \\ \hline
+        R10_S00_C00  & Dead Amp & Dead & NA & OK & OK & OK & OK & OK & OK \\ \hline
+        R30_S00_C10  & Dead Amp & Dead & Dead & Dead & Dead & Dead & Dead & Dead & Dead \\ \hline
+        R41_S11_C14  & Hi Noise & OK & NA & 36e & OK & OK & OK & OK & OK \\ \hline
+        R41_S21_C02  & Hi Noise & OK & NA & OK & 108e & 96e & 85e & 110e & 115e \\ \hline
+        R43_S02_C03  & Hi Noise & 18e & NA & 18e & 18e & 18e & 17e & 18e & 17e \\ \hline
+        R43_S20_C14  & Hi Noise & OK & NA & OK & OK & 69e & 145e & OK & OK \\ \hline
 
     \end{tabular}
-    \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab-BOTdeadamp}}
+    \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab:BOTbadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. Here we filter for potentially non-functional amplifiers with same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$.  
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391,13557,E1110,E1363,E1880,E2233,E3380) and PTC runs (13412,13591,E1113,E1364,E1881,E2237,E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further PTC and linearity plots for these eight amplifiers are show from PTC runs in Figure~\cite{fig:ptc-badamps} and Figure~\cite{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\cite{tab:badamps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $10^2$ or $10^3$ (R01\_S01\_C00, R03\_S11\_C00).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/ptc_badamps.png}
+    \caption{PTC plots for amplifiers flagged as potentially non-functional, from Dense PTC runs}
+    \label{fig:ptc-badamps}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/lin_badamps.png}
+    \caption{Linearity plots for amplifiers flagged as potentially non-functional, from Dense PTC runs}
+    \label{fig:lin-badamps}
+\end{figure}
+
+\begin{table}[!ht]
+    \tiny
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+        Channel & Summary & Comments  \\ \hline
+
+R01_S01_C00  & SometimesDead & Usually OK, turns Dead in E3577, previously seen as Dead \\ \hline
+R01_S02_C07  & OK & noise fluctuates sometimes over $18e^-$ consistent with previous behavior \\ \hline
+R01_S11_C00  & OK & noise fluctuates sometimes over $18e^-$ consistent with previous behavior \\ \hline
+R03_S01_C05  & SometimesHiNoise & previously OK,  High Noise in E3577 for first time, NEW bad amp \\ \hline
+R03_S11_C00  & SometimesDead & Usually OK, turns Dead in E3577, previously seen as Dead \\ \hline
+R30_S00_C10  & Dead & always Dead \\ \hline
+R41_S21_C02  & HiNoise & always Hi Noise \\ \hline
+R43_S20_C14  & HiNoise & always Hi Noise \\ \hline
+
+    \end{tabular}
+    \caption{Table of potentially non-functioning Science Raft amplifiers, from Runs 6a, 6b, and 7. \label{tab:badamps}}
+\end{table}
 
 \subsection{Full well measurements}\label{fullwell}
 
@@ -2103,7 +2137,7 @@ We expect that with the diffuser installed, there will be less contribution from
 \centering
 \includegraphics[width=\textwidth]{figures/R01_S20_woBBV.png}
 \end{minipage}
-\caption{Comparing Tree Rings pattern on the sensor R01 S20 with (left) and without (right) back bias voltage (50V), we can clearly see that back bias voltage reduces the impact of the tree ring effect.}
+\caption{Comparing Tree Rings pattern on the sensor R01 S20 with (left) and without (right) back bias voltage (50\,V), we can clearly see that back bias voltage reduces the impact of the tree ring effect.}
 \end{figure}
 
 \subsubsection{Wavelength dependency}
