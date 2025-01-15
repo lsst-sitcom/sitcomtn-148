@@ -780,11 +780,11 @@ swing also requires changes to all other voltages to
 operate the sensor properly, e.g., to properly reset the amplifier.
 The initial voltages were given in the original Bipolar formula
  but to decrease the parallel swing we had
-to switch to the new persistence mitigation formula in order to satisfy the constraints\footnote{\url{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}}
+to switch to the new persistence mitigation formula in order to satisfy the constraints\footnote{Persitence mitigation voltage: \url{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}}
 
 \citet{2024SPIE13103E..21S}, set up a single sensor test-stand at UC
 Davis. They attempted multiple different approaches mentioned above and
-reported the results\footnote{\url{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}}. The
+reported the results\footnote{Davis report: \url{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}}. The
 summary is as follows:
 
 \begin{itemize}
@@ -888,23 +888,23 @@ characterized via the evolution of the variance and covariances of
 flat field exposures as a function of flux, i.e., via a PTC analysis. To evaluate the
 impact of reducing the parallel voltage swing on e2v sensors, we
 acquired two series of flat field exposures with the respective voltage
-setups and extracted the ``area" coefficients 
-(Equation (1) in \citet{2023A&A...670A.118A}). The area coefficients describe by how much a unit charge stored in
+setups and extracted the ``area" coefficients $a_{ij}$
+(Equation (1) in \citet{2023A&A...670A.118A}).
+The area coefficients describe by how much a unit charge stored in
 a pixel will alter the area of some other pixel (or itself). We find that
 reducing the parallel swing from 9.3\,V to 8.0\,V typically increases the
-area coefficients by 10\% (between 5 and 19\% depending on distance),
+area coefficients by 10\% (between 5 and 19\% depending on distance indexed by $i,j$),
 and the increase is almost isotropic (i.e., very similar along serial and parallel
 directions; see Fig.~\ref{fig:area-coeffs}). From these measurements, we anticipate that the increase of
-star sizes with flux in LSST data will not become more isotropic at 8.0\,V than it was at
+star sizes with flux in LSST data will not become more anisotropic at 8.0\,V than it was at
 9.3\,V, and hence this reduction of parallel swing does not 
-%introduce new threats on the measurement of the PSF ellipticity
 risk increasing systematic uncertainty of the PSF ellipticity.
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/aScatterPlots8vs9-3.png}
 \end{centering}
-\caption{Scatter plots of area coefficients $a_{ij}$(one entry per amplifier)
+\caption{Scatter plots of area coefficients $a_{ij}$ (one entry per amplifier)
 measured at 8.0\,V and 9.3\,V. The sub-figures correspond to separations in rows ($j$) and columns ($i$)
 between the source of the area distortion and its victim, with the self
 interaction coefficient $a_{00}$ at the bottom left. The first neighbors increase
@@ -916,43 +916,38 @@ more anisotropic.}
 
 
 \subsection{Sequencer Optimization}\label{sequencer-optimization}
-
-
-
 Several efforts were undertaken to optimize the sequencer configurations during Run 7. The following points summarize the key investigations:
 
 \begin{itemize}
-\item Clears:  Here we summarize the discussion provided in
-  \href{https://sitcomtn-148.lsst.io/#serialRemnants}{Improvement of
-  Clear CCD}:
-
-  \begin{itemize}
-  \item
-    \textbf{No Pocket}
-  We introduced the v29\_Nop (No Pocket)
-  sequencer, which is an improved clear method using a serial register
-  configuration that reduces the formation of pockets at the Image/Serial
-  register interface. This clear method showed an approximately 2$\times$
-  improvement in the saturated image clear for e2v devices and completely
-  resolved the issue for ITL devices, except for R01\_S11,
-  where the No Pocket method performs approximately 2$\times$ worse than the default clear. 
-  For an unknown reason, this ITL CCD retains a significant amount of uncleared charges 
-  (hundreds of lines) after a saturated flat. This issue prevents the use of the No
-  Pocket configuration with ITL devices.
-
-  \item
-    \textbf{No Pocket with Serial Flush}
-  We introduced V29NopSf (No Pocket with Serial Flush), an enhanced version of the No Pocket Clear
-  sequencer, which includes a variable configuration of the serial register
-  during the clear process (mimicking a serial flush), to further prevent the
-  formation of pockets. This solution has been shown to completely prevent the presence of leftover charges after clearing a saturated image for e2v devices.
-  \end{itemize}
-  
-
-\item Phase overlap during parallel transfer for e2v: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced. However, this overlap is known to cause trailing persistence, as reported in \ref{DavisReport}. We conducted several runs using both intermediate overlapping and non-overlapping sequencers. By optimizing the operating voltages to avoid charge trapping, the trailing persistence is no longer a concern.
+\item {\bf Clear}: Addressing the leftover charges at the image/serial register. The discussion is provided in Section \ref{sec:improved-clear}:
+%  \begin{itemize}
+%  \item
+%    \textbf{No Pocket}
+%  We introduced the v29\_Nop (No Pocket)
+%  sequencer, which is an improved clear method using a serial register
+%  configuration that reduces the formation of pockets at the Image/Serial
+%  register interface. This clear method showed an approximately 2$\times$
+%  improvement in the saturated image clear for e2v devices and completely
+%  resolved the issue for ITL devices, except for R01\_S11,
+%  where the No Pocket method performs approximately 2$\times$ worse than the default clear. 
+%  For an unknown reason, this ITL CCD retains a significant amount of uncleared charges 
+%  (hundreds of lines) after a saturated flat. This issue prevents the use of the No
+%  Pocket configuration with ITL devices.
+%
+%  \item
+%    \textbf{No Pocket with Serial Flush}
+%  We introduced V29NopSf (No Pocket with Serial Flush), an enhanced version of the No Pocket Clear
+%  sequencer, which includes a variable configuration of the serial register
+%  during the clear process (mimicking a serial flush), to further prevent the
+%  formation of pockets. This solution has been shown to completely prevent the presence of leftover charges after clearing a saturated image for e2v devices.
+%  \end{itemize}
+%  
+\item {\bf Whether toggling the RG output during the parallel transfer for the e2v sensors is needed or not.}: Given the fact that there was some impact on making the bias structure in ITL better. The same question was raised for e2v sensors. The detail is described in Section \ref{noRGe2v}
+\item {\bf Whether keeping the IDLE\_FLUSH running or not}: Addressing the worsening of the Divisadero tearing. The detail is described in Section \ref{section:disablingIDLEFLUSH}
+\item {\bf Phase overlap during parallel transfer for e2v}: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced. However, this overlap is known to cause trailing persistence, as reported in the Davis Report. We conducted several runs using both intermediate overlapping and non-overlapping sequencers. By optimizing the operating voltages to avoid charge trapping, the trailing persistence is no longer a concern.
 \end{itemize}
 
-\subsection{Improved Clear}\label{improved-clear}
+\subsection{Improved Clear}\label{sec:improved-clear}
 
 \subsubsection{Overview}\label{overview}
 
@@ -960,30 +955,21 @@ In this section, we describe the work done during Run 7 to improve
 the image clear prior to collecting a new exposure.
 
 The problem we wanted to address is the presence of residual charges in
-the first lines read for an image taken just after the clear of a saturated
+the first rows read for an image taken just after the clear of a saturated
 image. These ``hard to clear" charges are associated with highly
 saturated flats or columns (or stars as observed in AuxTel or ComCam),
-which leave signal in the first lines of the subsequent exposure. The effect has a sensor-specific signature:
+which leave signal in the first row of the subsequent exposure. The effect has a sensor-specific signature:
 
 \begin{itemize}
 \item
   In all ITL CCDs (except in R01\_S10 for which
   the effect is much more significant and which will be addressed later
-  in this section):
-
-  \begin{quote}
-  The first CCD line of an exposure read after an image with saturated
-  overscan is close to saturation and in most of cases a small leftover signal is also present in the second line.
-  \end{quote}
+  in this section): After a very bright exposure that saturates the overscan, the first row of the subseqeunt image has residual charges which are close to saturation. In most cases a small leftover signal in the second row is also present.
 \item
-  In e2v CCDs:
-
-  \begin{quote}
-  Although the effect is slightly amplifier dependent, as for ITL, the
-  first line read after an exposure that follows an exposure with saturated
-  overscan, is close to saturation, and a significant signal is visible
-  in the subsequent 20--50 lines (see left-hand plot in Fig.~\ref{fig:clear_e2v}).
-  \end{quote}
+  In e2v CCDs: the first row read after an exposure that follows an exposure with saturated
+  overscan, has residual charges which are close to saturation, and a significant signal is visible
+  in the subsequent 20--50 rows (see left-hand plot in Fig.~\ref{fig:clear_e2v}).
+  The effect is slightly amplifier dependent.
 \end{itemize}
 
 These leftover electrons are not associated with what we usually call 
@@ -997,10 +983,10 @@ pocket(s) are not removed by a clear, we observed that an additional image read
 (e.g., a bias) will fully remove them: only the first exposure taken after
 an image with saturated overscan is impacted. If the clocks
 configuration used in our standard clear is not able to flush away those
-charges, a standard readout of \textgreater\textasciitilde{} 2000 lines
+charges, a standard readout of \textgreater\textasciitilde{} 2000 rows 
 does remove them.
 
-The localization of these uncleared electrons in the first lines of the
+The localization of these uncleared electrons in the first row of the
 CCDs, indicates that the interface between the image area and the serial register
 is the location of the pockets. For this reason we investigated
 changes in the field configuration of the serial register during the
@@ -1019,10 +1005,10 @@ clear, to avoid pockets at the image-serial register interface.
 \end{description}
 
 To address this clear issue, we focussed on updating the serial
-register field as the lines are moved to it. The constraint being that
+register field as the rows are moved to it. The constraint being that
 the changes introduced should not significantly increase the clear
 execution time. It should be noted that in 2021 we tried a sequencer
-called ``Deep Clear" \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}} as a first attempt to address the clear issue: it added one full line
+called ``Deep Clear" \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}} as a first attempt to address the clear issue: it added one full row 
 flush on top of the existing one at the end of the clear. This sequencer
 did improve the clear, but did  not fully fix the clear issue (see
 Table~\ref{tab:clears}).
@@ -1069,7 +1055,7 @@ moves the charges from the image area to the serial register:
   the serial register clocks being all up, without pixel boundaries, and
   with its amplifier in clear state. At the end of the clear, a full
   flush of the serial register is done (\textasciitilde{} the serial
-  clocks changes to read a single line).
+  clocks changes to read a single row).
 \item
   The No-pocket Clear (Nop): a clear where the serial register has the
   same configuration (S1 \& S2 up, S3 low) when the parallel clock P1
@@ -1080,7 +1066,7 @@ moves the charges from the image area to the serial register:
   to the serial register, and is probably playing a major role in the creation of pockets.
 \item
   The No-Pocket with Serial Flush Clear (NopSf): this sequencer is close
-  to the Nop solution, except that during the transfer of one line to
+  to the Nop solution, except that during the transfer of one row to
   the serial register, the serial phases are also manipulated to transfer two
   pixels along the serial register. The changes in electric field at the
   image-serial register interface are then even more representative of
@@ -1116,31 +1102,31 @@ taken after a saturated flat for an ITL sensor (R03\_S11).}
 %taken after a saturated flat for an ITL sensor.}
 
 In Figures~\ref{fig:clear_ITL} and \ref{fig:clear_e2v}, we present for three types of sequencer (from left to
-right: V29, Nop, and NopSf), a zoom on the first lines of an ITL or e2v
+right: V29, Nop, and NopSf), a zoom on the first row of an ITL or e2v
 amplifier (for ITL R03\_S11\_C14 and for e2v
-R12\_S20\_C10 shown as a 2D lines-columns
-image (top plots) or as the mean signal per line for the first lines
+R12\_S20\_C10 shown as a 2D row-columns
+image (top plots) or as the mean signal per row for the first row
 read of an amplifier (bottom plots).
 
 As seen in the left-hand panel of Figure~\ref{fig:clear_e2v}
 for an e2v CCD, a bias taken just after a saturated flat will show a
 residual signal in the first lines read when using the default clear
-(left images, clear= V29): the first line has an almost saturated signal
+(left images, clear= V29): the first row has an almost saturated signal
 (\textasciitilde{} 100 kADU here), and a significant signal is seen up
 to row \textasciitilde50. In practice, depending on the 
-amplifier, signal can be seen up to line 20--50. When using the Nop clear
+amplifier, signal can be seen up to row 20--50. When using the Nop clear
 (central plots), we can already see a strong reduction of the uncleared
 charges in the first acquired bias after a saturated flat.  Still a small
-residual signal is visible in the first \textasciitilde20 lines. The
+residual signal is visible in the first \textasciitilde20 rows. The
 NopSf clear (right plots) fully clears the saturated flat, and no
 uncleared charges are observed in the following bias.
 
 As seen in the left-hand panel of Figure~\ref{fig:clear_ITL}
 for an ITL CCD, a bias taken just after a saturated flat will show a
 residual signal in the first rows read when using the default clear
-(left images, clear=v29): the first line has an almost saturated signal
+(left images, clear=v29): the first row has an almost saturated signal
 (\textasciitilde{} 100 kADU here), and a significant signal is seen in
-the following line. Both Nop clear (central plots) and NopSf clear
+the following row. Both Nop clear (central plots) and NopSf clear
 (right plots) fully clear the saturated flat, and no uncleared charges
 are observed in the following bias.
 
@@ -1256,7 +1242,7 @@ This investigation comes from an analogy drawn with the ITL sequencer file. Alth
 
 \subsection{Disable IDLE FLUSH}\label{section:disablingIDLEFLUSH}
 
-IDLE\_FLUSH is one of the main settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \hyperref[U2024]{{[}U2024{]}}).
+IDLE\_FLUSH is one of the main settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \citet{2024SPIE13103E..0WU}).
 
 However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 deg C between periods of image acquisition and idle periods (Figure~\ref{fig:IdleFlushEffect}).
 
@@ -1372,6 +1358,8 @@ E1881
 \caption{Reference runs for initial and final run 7 comparisons}
 \end{longtable}
 
+For the final operating parameters of LSSTCam for run 7, see section \ref{run-7-final-operating-parameters}.
+
 \subsubsection{Stability flat metrics}\label{stability-flat-metrics}
 
 
@@ -1413,7 +1401,12 @@ Bright defects are extracted using the B protocol runs, and show an extremely cl
 
 \subsubsection{Flat pair metrics}
 
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/run7PTCsToDate(2).jpg}
+    \caption{Comparison of PTCs from initial and final run 7 conditions, evaluated on a central detector and amplifier.}
+    \label{fig:finalChar-PTCComparison}
+\end{figure}
 
 \paragraph{Linearity and PTC turnoff}\label{final-linearity-and-ptc-turnoff}
 
@@ -1433,17 +1426,57 @@ Both linearity and PTC turnoff were extracted from the PTC runs. Due to the lowe
     \label{fig:finalChar-PTCTurnoff-5x5}
 \end{figure}
 
-For E2V sensors, we find the reduction in full-well to be significant - 
+For E2V sensors we find the reduction in full-well to be significant, \textasciitilde20 - 25\% depending on the full-well metric used (see figure \ref{fig:finalChar-fullWell}).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/fullWellComparisons.jpg}
+    \caption{Comparisons of PTC turnoff and linearity turnoff for E2V science sensors. The runs analyzed here are the PTC runs noted in table \ref{runTable}. Note that both metrics have been gain corrected.}
+    \label{fig:finalChar-fullWell}
+\end{figure}
+
+Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands. If linearity turnoff is the metric used to quantify full-well, all E2V amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% E2V amplifiers do not pass this system requirement (120/1872 total amplifiers). 
 
 \paragraph{PTC Gain}\label{final-ptc-gain}
 
+PTC Gain was extracted from the PTC runs. PTC gain is extremely comparable between initial and final run 7 conditions, with a minor increase in gain observed in E2V sensors.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_GAIN.png}
+    \caption{Comparison of PTC gain amplifier measurements, showing high consistency from initial and final run 7 conditions.}
+    \label{fig:finalChar-PTCGain-5x5}
+\end{figure}
+
+E2V amplifiers show increased gain in final run 7 conditions by an average of \textasciitilde0.03 e-/ADU.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTCGainComp(1).jpg}
+    \caption{Comparison of PTC gains in E2V science sensors, with a moderate increase in the final run condition.}
+    \label{fig:finalChar-PTCGain_HistComp}
+\end{figure}
 
 
+\paragraph{Brighter fatter $a_{00}$ coefficien}\label{final-brighter-fatter-a00-coefficient}
 
-\paragraph{\texorpdfstring{Brighter fatter a{00}
-coefficient}{Brighter fatter a00 coefficient}}\label{final-brighter-fatter-a00-coefficient}
+The relative strength of the brighter-fatter effect, quantified by $a_{00}$ following \cite{2019A&A...629A..36A}'s, is modified in the final run 7 operating conditions by the lower parallel swing for E2V sensors. We observe an extremely high consistency for ITL sensors.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_A00.png}
+    \caption{Comparison of amplifier measurements of the $a_{00}$ parameter for initial and final run 7 conditions.}
+    \label{fig:finalChar-PTC_A00_5x5}
+\end{figure}
 
+The change in the $a_{00}$ value for E2V sensors is illustrated in figure \ref{fig:finalChar-PTC_A00_E2VComp}, showing a \textasciitilde12\% increase in the strength of the brighter fatter effect for E2V sensors due to the lower parallel swing.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTCA00Comp.jpg}
+    \caption{Comparison of the $a_{00}$ values in E2V sensors, showing a notable increase from the final operating conditions.}
+    \label{fig:finalChar-PTC_A00_E2VComp}
+\end{figure}
 
 \paragraph{Brighter-Fatter Correlation}\label{final-brighter-fatter-correlation}
 
@@ -1520,7 +1553,7 @@ A list of nonfunctional amplifiers on Science Rafts was produced from both singl
     \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab-BOTdeadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. Here we define as non-functional those amplifiers with a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$.  
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. Here we filter for potentially non-functional amplifiers with same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$.  
 
 \subsection{Full well measurements}\label{fullwell}
 
