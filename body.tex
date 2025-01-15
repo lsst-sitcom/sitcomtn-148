@@ -492,67 +492,42 @@ noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the
 PTC gain measurements agree extremely closely across all sensors in the
 focal plane.
 
-\subsubsection{\texorpdfstring{Brighter fatter a{00}
-coefficient}{Brighter fatter a00 coefficient}}\label{brighter-fatter-a00-coefficient}
+\subsubsection{\texorpdfstring{Brighter fatter
+coefficients}{Brighter fatter coefficients}}\label{brighter-fatter-a00-coefficient}
 
 
 The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
-\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
+\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. %In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_PTC_A00.png}
-\caption{A comparison of Run 6 and Run 7 amplifier measurement in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent.}
-\end{centering}
-\end{figure}
+  \begin{centering}
+   \minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{figures/baselineCharacterization/a00_ratios.png}
+  \endminipage\hfill
+   \minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{figures/baselineCharacterization/a01_ratios.png}
+  \endminipage\hfill
+   \minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{figures/baselineCharacterization/a10_ratios.png}
+  \endminipage\hfill
+  
 
-The strength of the brighter-fatter effect is generally comparable between Run 6 and Run 7. A few outliers exist across the
-focal plane, of both CCD types.
+\caption{Ratio of amplifier measurements of $a_{00}$, $a_{01}$ and $a_{10}$ coefficients at Run 6 and Run 7. They are very consistent, except for two rafts (R10 and R11) where the high voltage was changed between the two runs. the sense \label{fig:ratio_bf_coeff_6_7}}
+  \end{centering}
+  \end{figure}
+
+The distribution of difference of $a_{00}$ measurements is displayed in Fig. \ref{fig:ptc_a00_diff_hist}, and shows 
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PTC_A00_13591_E749_diff.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent.}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent. The two peaks on the left represent the two outlier rafts visible on Fig. \ref{fig:ratio_bf_coeff_6_7}. The $a_{00}$ values are of the order of 2 to 3 $10^{-6}\ e^{-1}$. \label{fig:ptc_a00_diff_hist}}
 \end{centering}
 \end{figure}
 
-However, the differences in the brighter-fatter $a_{00}$ coefficient between Run 6 and
-Run 7 show that the magnitude of $a_{00}$ decreased for most
-of the outliers, which implies an improvement in imaging for those pixels.
-
-\subsubsection{Brighter-Fatter Correlation}\label{brighter-fatter-correlation}
-
-The strength of the brighter fatter covariance correlation, and its subsequent error, provides a direct comparison of the PTC covariances across different runs.
-
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_BF_XCORR.png}
-\caption{A comparison of Run 6 and Run 7 amplifier measurements in brighter-fatter x-correlation, separated by sensor type. For both sensor types, brighter-fatter x-correlation is very consistent.}
-\end{centering}
-\end{figure}
-
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_BF_YCORR.png}
-\caption{A comparison of Run 6 and Run 7 amplifier measurements in brighter-fatter y-correlation, separated by sensor type. For both sensor types, brighter-fatter y-correlation is very consistent.}
-\end{centering}
-\end{figure}
-
-The brighter-fatter correlation is comparable across different runs, regardless of detector type. The strongest deviation comes from a lower Run 7 x-correlation, with a difference of \textasciitilde0.07, which is negligible.
-
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/BF_XCORR_13591_E749_diff.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in brighter-fatter x-correlation, separated by sensor type. For both sensor types, brighter-fatter x-correlation is very consistent.}
-\end{centering}
-\end{figure}
-
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/BF_YCORR_13591_E749_diff.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in brighter-fatter y-correlation, separated by sensor type. For both sensor types, brighter-fatter y-correlation is very consistent.}
-\end{centering}
-\end{figure}
+%However, the differences in the brighter-fatter $a_{00}$ coefficient between Run 6 and
+%Run 7 show that the magnitude of $a_{00}$ decreased for most
+%of the outliers, which implies an improvement in imaging for those pixels.
 
 \subsubsection{Row-means variance}\label{row-means-var}
 
