@@ -1,0 +1,166 @@
+\section{Phosphorescence response characterization}
+\label{sect:response}
+Figures~\ref{fig:phos:resp:R01S00} through \ref{fig:phos:resp:R43S20} attempt to quantify the expressed phosphorescence response in ROIs on seven of the problematic ITL sensors. Previously, we had captured the phosphorescence {\it transient term} across the ITL sensors ({\it cf.} Figs.~\ref{fig:phos:R00} thru \ref{fig:phos:R44}); we also tracked ROI pixel distribution parameters of individual median images constructed from the selection of specific images acquired across the 20 B-protocol datasets available (listed in Table~\ref{tab:phosphorescence:datasets}). Here we analyze the signal level- and wavelength-dependences of the expressed phosphorescence captured in the first dark image following flat exposure. Table~XX provides the image numbers.. 
+
+Because these runs were performed to sample a two dimensional parameter space,  that would lead to 
+
+By fitting decay models to these persistence curves, it is immediately clear that there are multiple (>2) timescales at play for the pixels in each ROI. An example of such a fit is given in Figure~\ref{fig:phos:kinetics:fit:R20S20C13} where a 3-population relaxation model is used to characterize evolution of the 99\% quantile level of the distribution. In this case, there are three different exponential timescales determined: $(\tau_1,\tau_2,\tau_3) = (0.62,2.5,18.3)$ in image units (10.9, 43.8 \& 320 seconds, respectively). The corresponding ratio of these populations works out to 4.5\% (fast), 21.5\% (medium) and 74\% (slow), respectively. Inspection of the more detailed parameters plotted generally indicate skewed distributions from mismatches between medians and means; the choice of the 99\% quantile level to characterize was mainly to estimate the degree to which images would need to be phosphorescence-corrected (and/or the variance plane modified, given the asymmetric impact of the position specific, phosphorescence contribution in recorded images). 
+
+%\begin{figure}[!htbp]
+%\centering
+%\begin{subfigure}{0.8\textwidth}    
+%  \centering
+%  \includegraphics[width=\textwidth]{figures/phosphorescence-%survey/phos_kinetics/R20_S20_sel_1820-1920_535-635_phos_decay_fit.png}    
+%\end{subfigure}
+%\caption{A three-population fit of the phosphorescence expressed by the %vapire pixel region of R20\_S20\_C13. The fit was performed on the 99\% %quantile level where signal levels are well above the $3\sigma$ level of %the noise distribution. Here, image numbers are parasitically used as %time units, with roughly 17.5 seconds per image.}
+%\label{fig:phos:resp:fit:R20S20C13}
+%\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R01_S00_1961-2020_1268-1325.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R01_S00_1983-2042_1065-1121.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R01_S00_2082-2141_1185-1240.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in ROIs of images for R01\_S00. This is the prominent cosmetic seen in Fig.~\ref{fig:phos:stains:R01S00}, which is apparently a {\it vampire} pixel.}
+\label{fig:phos:resp:R01S00}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R02_S02_1724-1829_3558-3666.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R02_S02_1774-1880_3791-3900.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R02_S02_2100-2206_3851-3959.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in ROIs of images for R02\_S02. This is the diffuse phosphorescence that correlates with the coffee stains seen in Fig.~\ref{fig:phos:stains:R02S02}. No extractions were performed on the {\it vampire pixels} found on the same sensor (R02\_S02\_C15 and R02\_S02\_C07).}
+\label{fig:phos:resp:R02S02}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R02_S12_2556-2578_3445-3469.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R02_S12_2695-2859_3353-3524.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R02_S12_523-676_9-129.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in ROIs of images for R02\_S12. This is the structured phosphorescence that correlates with the coffee stains seen in Fig.~\ref{fig:phos:stains:R02S12}.}
+\label{fig:phos:resp:R02S12}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R03_S10_2969-3010_1763-1800.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R03_S10_2970-2985_1767-1797.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R03_S10_2995-3009_1767-1797.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in ROIs of images for R03\_S10. These describe regions including or near the bright/focusing {\it vampire pixel} seen in Figs.~\ref{fig:phos:stains:R03S10}, \ref{subfig:phosresp_R03_S10} and \ref{subfig:hvb_on_R03_S10}.}
+\label{fig:phos:resp:R03S10}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R20_S20_1820-1920_535-635.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in an ROI of images for R20\_S20. These describe the prominent non-focusing {\it vampire pixel} seen in Figs.~\ref{subfig:phosresp_R20_S20} and \ref{subfig:hvb_on_R20_S20}.}
+\label{fig:phos:kinetics:R20S20}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R43_S11_1741-1955_3754-3806.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R43_S11_1763-1976_3826-3878.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R43_S11_40-90_2751-2957.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in ROIs of images for R43\_S11. These describe bright, diffuse transient regions seen in Figs.~\ref{fig:phos:stains:R43S11} and \ref{subfig:hvb_on_R43_S11}, which apparently turn off completely when the HV Bias is {\it off}.}
+\label{fig:phos:resp:R43S11}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R43_S20_207-292_3352-3435.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R43_S20_547-633_3346-3430.png}    
+\end{subfigure}
+\newline
+\centering
+\begin{subfigure}{0.45\textwidth}    
+  \centering
+  \includegraphics[width=\textwidth]{figures/phosphorescence-survey/phos_resp/resp_99_R43_S20_707-816_3373-3589.png}    
+\end{subfigure}
+\newline
+\caption{Signal and wavelength response for phosphorescence expression (99\% level) in ROIs of images for R43\_S20. These include some of the the highly structured {\it snowflake-like} transient regions seen in Figs.~\ref{subfig:hvb_on_R43_S20} and \ref{fig:phos:stains:R43S20}.}
+\label{fig:phos:resp:R43S20}
+\end{figure}
