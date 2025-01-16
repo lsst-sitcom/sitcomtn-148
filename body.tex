@@ -96,7 +96,7 @@ illuminate all 3206 amplifiers instead of just the 21 illuminated by the
 pinhole projector. Figure \ref{fig:SpotProjector_L3_FP} shows both the setup of the projector on Level 3 and an example of a spot image and the spots across the focal plane. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One
 downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had
 structure that changed with time and could not be easily subtracted. Figure \ref{fig:SpotProjector_Spots} shows an example of a spot image of just one detector as well as a zoomed in image of a single spot which highlights the background structure. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
-measurements increased the contrast ratio to 30. Examples of the rectangles can be seen in Figure \ref{{fig:SpotProjector_Rect}}. Though the contrast was much improved, there was still a background structure as can be seen in the saturated image of the figure.
+measurements increased the contrast ratio to 30. Examples of the rectangles can be seen in Figure \ref{fig:SpotProjector_Rect}. Though the contrast was much improved, there was still a background structure as can be seen in the saturated image of the figure.
 
 \begin{figure}[htbp]
 \centering
@@ -1240,7 +1240,7 @@ stability}\label{characterization-camera-stability}
 \subsection{Final characterization}
 \subsubsection{Background}\label{final_background}
 
-For a description of each quantity within this section and its acquisition process, refer to section \ref{reverification}.
+For a description of each quantity within this section and its acquisition process, refer to section \ref{reverification}. To compare initial and final camera metrics on Cerro Pachón, we used standard B protocols and dense red PTCs.
 
 \begin{table}[H]
 \centering
@@ -1259,15 +1259,46 @@ For the final operating parameters of LSSTCam for run 7, see section \ref{run-7-
 
 \subsubsection{Stability flat metrics}\label{stability-flat-metrics}
 
+\paragraph{Serial CTI}\label{sec:finalChar-serial-cti}
 
-\paragraph{Serial CTI}\label{serial-cti}
+Serial CTI is extracted from the B protocols, and show high consistency between initial and final operating parameters. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_SCTI_EF_43_inset.png}
+    \caption{Comparison of serial CTI measurements for initial and final run 7 configurations.}
+    \label{fig:finalChar-SCTI-5x5}
+\end{figure}
+
+The serial CTI for both sensor types is a noisy measurement, but serial CTI is not impacted by the changes to the camera operating configuration.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/SCTIComp.jpg}
+    \caption{Histogram of serial CTI measurements for initial and final run 7 configurations, separated by detector type.}
+    \label{fig:finalChar-SCTI-hist}
+\end{figure}
 
 
+\paragraph{Parallel CTI}\label{sec:finalChar-parallel-cti}
 
-\paragraph{Parallel CTI}\label{parallel-cti}
+Parallel CTI is extracted from the B protocols, and show high consistency between initial and final operating parameters. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_PCTI_EF_43_inset.png}
+    \caption{Comparison of parallel CTI measurements for initial and final run 7 configurations.}
+    \label{fig:finalChar-PCTI-5x5}
+\end{figure}
 
+Similar to serial CTI, the parallel CTI for both sensor types is a noisy measurement, but is not impacted by the changes to the camera operating configuration. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PCTIComp.jpg}
+    \caption{Histogram of parallel CTI measurements for initial and final run 7 configurations, separated by detector type.}
+    \label{fig:finalChar-PCTI-hist}
+\end{figure}
 
 \subsubsection{Dark metrics}\label{final-dark-metrics}
 
@@ -1295,6 +1326,7 @@ Bright defects are extracted using the B protocol runs, and show an extremely cl
     \label{fig:finalChar-DarkCurrent-5x5}
 \end{figure}
 
+For an additional discussion about defect stability, see section \ref{defect-stability}.
 
 \subsubsection{Flat pair metrics}
 
@@ -1312,18 +1344,21 @@ Both linearity and PTC turnoff were extracted from the PTC runs. Due to the lowe
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_LINEARITY_TURNOFF.png}
-    \caption{Comparison of linearity turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in linearity turnoff, while ITL sensors stay relatively the same.}
+    \caption{Comparison of linearity turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in linearity turnoff, while ITL sensors stay relatively the same. The values reported here are in ADU, and not gain corrected.}
     \label{fig:finalChar-Linearity-5x5}
 \end{figure}
+
+For E2V sensors we find the reduction in full-well to be significant, \textasciitilde20 - 25\% depending on the full-well metric used (see figure \ref{fig:finalChar-fullWell}).
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_TURNOFF.png}
-    \caption{Comparison of PTC turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in PTC turnoff, while ITL sensors stay relatively the same.}
+    \caption{Comparison of PTC turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in PTC turnoff, while ITL sensors stay relatively the same. The values reported here are in ADU, and not gain corrected.}
     \label{fig:finalChar-PTCTurnoff-5x5}
 \end{figure}
 
-For E2V sensors we find the reduction in full-well to be significant, \textasciitilde20 - 25\% depending on the full-well metric used (see figure \ref{fig:finalChar-fullWell}).
+
+Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands. If linearity turnoff is the metric used to quantify full-well, all E2V amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% E2V amplifiers do not pass this system requirement (120/1872 total amplifiers). 
 
 \begin{figure}
     \centering
@@ -1332,7 +1367,6 @@ For E2V sensors we find the reduction in full-well to be significant, \textascii
     \label{fig:finalChar-fullWell}
 \end{figure}
 
-Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands. If linearity turnoff is the metric used to quantify full-well, all E2V amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% E2V amplifiers do not pass this system requirement (120/1872 total amplifiers). 
 
 \paragraph{PTC Gain}\label{final-ptc-gain}
 
@@ -1345,7 +1379,7 @@ PTC Gain was extracted from the PTC runs. PTC gain is extremely comparable betwe
     \label{fig:finalChar-PTCGain-5x5}
 \end{figure}
 
-E2V amplifiers show increased gain in final run 7 conditions by an average of \textasciitilde0.03 e-/ADU.
+The magnitude of the gain increase for E2V sensors in final run 7 conditions is \textasciitilde0.03 e-/ADU on average.
 
 \begin{figure}
     \centering
@@ -1353,7 +1387,6 @@ E2V amplifiers show increased gain in final run 7 conditions by an average of \t
     \caption{Comparison of PTC gains in E2V science sensors, with a moderate increase in the final run condition.}
     \label{fig:finalChar-PTCGain_HistComp}
 \end{figure}
-
 
 \paragraph{Brighter fatter $a_{00}$ coefficient}\label{final-brighter-fatter-a00-coefficient}
 
@@ -1366,7 +1399,7 @@ The relative strength of the brighter-fatter effect, quantified by $a_{00}$ foll
     \label{fig:finalChar-PTC_A00_5x5}
 \end{figure}
 
-The change in the $a_{00}$ value for E2V sensors is illustrated in figure \ref{fig:finalChar-PTC_A00_E2VComp}, showing a \textasciitilde12\% increase in the strength of the brighter fatter effect for E2V sensors due to the lower parallel swing.
+The change in the $a_{00}$ value for E2V sensors is illustrated in figure \ref{fig:finalChar-PTC_A00_E2VComp}, showing a \textasciitilde12\% increase in the strength of the brighter fatter effect for E2V sensors due to the lower parallel swing. For additional discussion on the brighter fatter coefficient, see section \ref{impact-on-brighter-fatter-effect}.
 
 \begin{figure}[H]
     \centering
@@ -1431,7 +1464,7 @@ In figure \ref{fig:finalChar-Divisadero-5x5}, several E2V sensors do not follow 
 
 \subsubsection{Persistence}\label{final-persistence}
 
-The primary optimization target of run 7 was to mitigate persistence, described in section \ref{persistence-optimization-1}. The major change in the final camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the E2V sensors only, as they are the subset of sensors that exhibit \geq 1ADU persistence when using the run 6 operating parameters.
+The primary optimization target of run 7 was to mitigate persistence, described in section \ref{persistence-optimization-1}. The major change in the final camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the E2V sensors only, as they are the subset of sensors that exhibit \geq 1 ADU persistence when using the run 7 initial operating parameters.
 
 \begin{figure}[H]
     \centering
@@ -1451,7 +1484,7 @@ The amplifier measurements of persistence using the metric described in section 
 
 The B protocol uses a persistence dataset that uses the red LED, and flashes at 400k e- only (description of B protocol persistence dataset in section \ref{background}). Additional persistence datasets were acquired using other LEDs and other exposure levels with the CCOB wide beam projector. This was to verify that persistence was mitigated for the complete LSST photometric range. The runs used for this analysis are listed in table \ref{table:runs_persistence}. 
 
-We find that $\geq$95\% of E2V sensors exhibit a persistence signal $\leq$ 0.55 ADU at all flux levels below full-well capacity. The CCOB requested flux varied by $\sim$ 10\% across the focal plane, and the maximum PTC turnoff for E2V amplifiers under the final operating conditions was 123243 e- (see figure \ref{fig:finalChar-fullWell}), within the flux levels probed in fig. \ref{fig:finalChar-persistenceAllLEDs}.
+We find that $\geq$95\% of E2V sensors exhibit a persistence signal $\leq$ 0.55 ADU at all flux levels below full-well capacity. The CCOB requested flux varied by $\sim$ 10\% across the focal plane, and the maximum PTC turnoff for E2V amplifiers under the final operating conditions was 123,243 e- (see figure \ref{fig:finalChar-fullWell}), within the flux levels probed in fig. \ref{fig:finalChar-persistenceAllLEDs}.
 
 \subsubsection{Differences between Run 7 initial and Run 7 final measurements}\label{final-differences-from-previous-runs}
 
@@ -1470,8 +1503,8 @@ Comparing the initial and final run 7 measurements, there are four metrics that 
 \hline
 \multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                   &                                & \multicolumn{1}{l|}{R7 initial} & R7 final & \multicolumn{1}{l|}{R7 initial} & R7 final \\ \hline
-Serial CTI {[}\%{]}               &                                & \multicolumn{1}{l|}{}              &             & \multicolumn{1}{l|}{}              &             \\ \hline
-Parallel CTI {[}\%{]}             &                                & \multicolumn{1}{l|}{}              &             & \multicolumn{1}{l|}{}              &             \\ \hline
+Serial CTI {[}\%{]}               &                                & \multicolumn{1}{l|}{1.1357E-5}              &      7.3015E-6       & \multicolumn{1}{l|}{1.6478E-4}              &        1.5221E-4     \\ \hline
+Parallel CTI {[}\%{]}             &                                & \multicolumn{1}{l|}{1.0555E-5}              &       1.1111E-5      & \multicolumn{1}{l|}{-4.7850E-6}              &       1.2103E-6      \\ \hline
 Dark current {[}e-/pix/s{]}       &                                & \multicolumn{1}{l|}{0.024783}              &       0.023188      & \multicolumn{1}{l|}{0.021217}              &       0.020734      \\ \hline
 Bright defects {[}count{]}        &                                & \multicolumn{1}{l|}{0}              &   0          & \multicolumn{1}{l|}{0}              &          0   \\ \hline
 Linearity turnoff {[}e-{]}        &                                & \multicolumn{1}{l|}{167,796}              &        136,302     & \multicolumn{1}{l|}{178,153}              &      178,177       \\ \hline
@@ -1519,7 +1552,7 @@ A list of nonfunctional amplifiers on Science Rafts was produced from both singl
     \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab:BOTbadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391,13557,E1110,E1363,E1880,E2233,E3380) and PTC runs (13412,13591,E1113,E1364,E1881,E2237,E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figure~\cite{fig:ptc-badamps} and Figure~\cite{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\cite{tab:badamps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $~10^3$ (R01\_S01\_C00, R03\_S11\_C00).
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391,13557,E1110,E1363,E1880,E2233,E3380) and PTC runs (13412,13591,E1113,E1364,E1881,E2237,E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figure~\ref{fig:ptc-badamps} and Figure~\ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:badamps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $~10^3$ (R01\_S01\_C00, R03\_S11\_C00).
 
 \begin{figure}
     \centering
@@ -1552,10 +1585,10 @@ R41\_S21\_C02  & HiNoise & always Hi Noise \\ \hline
 R43\_S20\_C14  & HiNoise & always Hi Noise \\ \hline
 
     \end{tabular}
-    \caption{Table of potentially non-functioning Science Raft amplifiers, from Runs 6a, 6b, and 7. Categories are OK, SometimesHiNoise, SometimesDead, HiNoise, Dead. \label{tab:badamps}}
+    \caption{Table of potentially non-functioning Science Raft amplifiers, from Runs 6a, 6b, and 7. Categories are OK, SometimesHiNoise, SometimesDead, HiNoise, Dead. \label{tab:gds_amps}}
 \end{table}
 
-Finally, we list non-functional Corner raft amplifiers, selected with the same filter.  There are three such amplifiers all in Guide sensors, that have been non-functional since single CCD testing.  These CCDs were selected for the Guiders due to the single non-functional amplifier, rather than use a fully working Science grade device. PTC and linearity curves for these channels, for three dense PTC runs, are shown in Figure~\cite{fig:ptclin-badamps-corner}, to classify these channels as either Dead or HiNoise. These three channels are listed in Table~\cite{tab:badamps-corner}
+Finally, we list non-functional Corner raft amplifiers, selected with the same filter.  There are three such amplifiers all in Guide sensors, that have been non-functional since single CCD testing.  These CCDs were selected for the Guiders due to the single non-functional amplifier, rather than use a fully working Science grade device. PTC and linearity curves for these channels, for three dense PTC runs, are shown in Figure~\ref{fig:ptclin-badamps-corner}, to classify these channels as either Dead or HiNoise. These three channels are listed in Table~\ref{tab:badamps-corner}
 
 \begin{figure}
     \centering
@@ -2297,7 +2330,7 @@ We parasitically used a series of B-protocol and BOT-persistence EO testing runs
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
-Table~\ref{ptab:hosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8$\times$8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
+Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8$\times$8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
 1$\times$1 
 pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by the rebinning routinely performed for display purposes.
 
@@ -2437,224 +2470,48 @@ optimization}.
 
 \subsubsection{Voltage conditions}\label{voltage-conditions}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.125}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.25}}@{}}
-\caption{Voltage conditions}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Parameter
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-dp80 (new voltage)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Run 7 ITL voltage
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-dp93 (Run 5)
-\end{minipage} \\
-\midrule\noalign{}
+\begin{longtable}{@{}l|c|cc@{}}
+\caption{Voltage Conditions with Updated Run 5 for ITL Values} \\
+\toprule
+Parameter & Run 5 (ITL) & Run 5 (dp93; E2V) & Run 7 (dp80; new voltage for e2v) \\
+\midrule
 \endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Parameter
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-dp80 (Run 7 E2V voltage)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Run 7 ITL voltage (cloned from Run 7)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-dp93 (Run 5)
-\end{minipage} \\
-\midrule\noalign{}
+\toprule
+Parameter & Run 5 (ITL) & Run 5 (dp93; E2V) & Run 7 (dp80; new voltage for e2v) \\
+\midrule
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
-pclkHigh & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-2.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-3.3
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-3.3
-\end{quote}
-\end{minipage} \\
-pclkLow & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$6.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$6.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$6.0
-\end{quote}
-\end{minipage} \\
-dpclk & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-8.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-9.3
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-9.3
-\end{quote}
-\end{minipage} \\
-sclkHigh & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-3.55
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-3.9
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-3.9
-\end{quote}
-\end{minipage} \\
-sclkLow & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$5.75
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$5.4
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$5.4
-\end{quote}
-\end{minipage} \\
-rgHigh & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-5.01
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-6.1
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-6.1
-\end{quote}
-\end{minipage} \\
-rgLow & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$4.99
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$4.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$4.0
-\end{quote}
-\end{minipage} \\
-rd & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-10.5
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-11.6
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-11.6
-\end{quote}
-\end{minipage} \\
-od & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-22.3
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-23.4
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-23.4
-\end{quote}
-\end{minipage} \\
-og & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$3.75
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$3.4
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-$-$3.4
-\end{quote}
-\end{minipage} \\
-gd & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-26.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-26.0
-\end{quote}
-\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-26.0
-\end{quote}
-\end{minipage} \\
+\bottomrule
+\endfoot
+pclkHigh & 2.0 & 3.3 & 2.0 \\
+pclkLow & $-$8.0 & $-$6.0 & $-$6.0 \\
+dpclk & 10.0 & 9.3 & 8.0 \\
+sclkHigh & 5.0 & 3.9 & 3.55 \\
+sclkLow & $-$5.0 & $-$5.4 & $-$5.75 \\
+rgHigh & 8.0 & 6.1 & 5.01 \\
+rgLow & $-$2.0 & $-$4.0 & $-$4.99 \\
+rd & 13.0 & 11.6 & 10.5 \\
+od & 26.9 & 23.4 & 22.3 \\
+og & $-$2.0 & $-$3.4 & $-$3.75 \\
+gd & 20.0 & 26.0 & 26.0 \\
 \end{longtable}
+
+
 
 \subsubsection{Sequencer conditions}\label{sequencer-conditions}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2222}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3472}}@{}}
-\caption{Sequencer conditions}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Detector type
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\begin{quote}
-File name
-\end{quote}
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Detector type
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\begin{quote}
-File name
-\end{quote}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-e2v
-\end{quote}
-\end{minipage} &
-FP\_E2V\_2s\_l3cp\_v30.seq \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{quote}
-ITL
-\end{quote}
-\end{minipage} &
-FP\_ITL\_2s\_l3cp\_v30.seq \\
-\end{longtable}
+\begin{table}[h!]
+\centering
+\caption{Sequencer conditions}
+\begin{tabular}{ll}
+\toprule
+Detector type & File name \\
+\midrule
+e2v & FP\_E2V\_2s\_l3cp\_v30.seq \\
+ITL & FP\_ITL\_2s\_l3cp\_v30.seq \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 \begin{itemize}
 \tightlist
@@ -2679,204 +2536,319 @@ FP\_ITL\_2s\_l3cp\_v30.seq \\
 
 This section describes Run 7 record runs. All runs use our camera operating configuration, unless otherwise noted.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
+\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
 \hline
-Run Type                        & Run ID & Links & Notes                                                                   \\ \hline
-\multirow{3}{*}{B-protocol}     & E1880  &  Web report \newline Test Execution     & Initial B\_protocol taken with the new v30 definition.                  \\ \cline{2-4} 
-                                & E2233  &       & dp80, first run after full CCS system reboot                            \\ \cline{2-4} 
-                                & E3380  &       & First B protocol post-chiller recovery                                  \\ \hline
-\multirow{3}{*}{PTC}            & E1881  &       & Dense red PTC with no dark interleaves, First V30 sequencers            \\ \cline{2-4} 
-                                & E1886  &       & Dense red PTC with dark interleaves, V30 sequencers                     \\ \cline{2-4} 
-                                & E2237  &       & Randomized flat pairs, no dark interleave, after full CCS system reboot \\ \hline
-\multirow{3}{*}{Gain Stability} & E2008  &       &                                                                         \\ \cline{2-4} 
-                                & E1968  &       &                                                                         \\ \cline{2-4} 
-                                & E1955  &       & 6h Stability run 10k 750 nm V30, ,                                      \\ \hline
+\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
 
-\end{tabular}
-\end{table}
+\multirow{3}{*}{B-protocol} & E1880 & Web report \newline Test Execution & Initial B\_protocol taken with the new v30 definition. \\ \cline{2-4} 
+                            & E2233 &             & dp80, first run after full CCS system reboot \\ \cline{2-4} 
+                            & E3380 &             & First B protocol post-chiller recovery \\ \hline
+
+\multirow{7}{*}{PTC}        & E3630 &             & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera. \\ \cline{2-4} 
+                            & E3577 &             & Dense nm960 PTC. Final operating conditions of camera. \\ \cline{2-4} 
+                            & E2237 &             & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-4} 
+                            & E748  &             & Final operating conditions of camera. nm960 dense \\ \cline{2-4} 
+                            & E2016 &             & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-4} 
+                            & E1886 &             & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-4} 
+                            & E1881 &             & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
+
+\multirow{3}{*}{Gain Stability} & E1955 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \cline{2-4} 
+                                & E2008 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
+
+\multirow{3}{*}{Long dark acquisitions} & E3540 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
+                                       & E3539 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
+                                       & E3538 &  & 900s dark. Shutter opened. \\ \hline
+
+\multirow{2}{*}{Projector acquisitions} & E2184 &  & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-4} 
+                                        & E2181 &  & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
+
+\multirow{2}{*}{OpSim runs}  & E2330 &           & Short dark sequence, filter changes in headers through OCS \\ \cline{2-4} 
+                             & E2328 &           & Flats with shutter-controlled exposure \\ \hline
+
+\multirow{5}{*}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
+                                          & E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
+                                          & E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-4} 
+                                          & E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
+                                          & E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+
+\end{longtable}
+
+% \begin{table}[H]
+% \centering
+% \begin{tabular}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
+% \hline
+% Run Type                        & Run ID & Links & Notes                                                                   \\ \hline
+% \multirow{3}{*}{B-protocol}     & E1880  &  Web report \newline Test Execution     & Initial B\_protocol taken with the new v30 definition.                  \\ \cline{2-4} 
+%                                 & E2233  &       & dp80, first run after full CCS system reboot                            \\ \cline{2-4} 
+%                                 & E3380  &       & First B protocol post-chiller recovery                                  \\ \hline
+
+% \multirow{7}{*}{PTC} & E3630 & & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera.\\ \cline{2-4} 
+% & E3577 & & Dense nm960 PTC. Final operating conditions of camera.\\ \cline{2-4} 
+% & E2237 & & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-4} 
+% & E748 & & Final operating conditions of camera. nm960 dense \\ \cline{2-4} 
+% & E2016 & & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-4} 
+% & E1886 & & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-4} 
+% & E1881 & & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
+% \multirow{3}{*}{Gain Stability} & E1955 & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled\\ \cline{2-4}
+%  & E2008 & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB\\ \cline{2-4}
+% \multirow{3}{*}{Long dark acquisitions} & E3540 & & 900s dark. Shutter closed. \\ \cline{2-4}
+%  & E3539 & & 900s dark. Shutter closed. \\ \cline{2-4}
+%  & E3538 & & 900s dark. Shutter opened. \\ \hline
+% \multirow{2}{*}{Projector acquisitions} & E2184 & & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-4}
+% & E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
+% \multirow{2}{*}{OpSim runs}  & E2330 & & Short dark sequence, filter changes in headers through OCS \\ \cline{2-4}
+%  & E2328 & & Flats with shutter-controlled exposure \\ \hline
+% \multirow{5}{*}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4}
+%  & E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4}
+%  & E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-4}
+%  & E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4}
+%  & E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+% \end{tabular}
+% \end{table}
 
 \subsection{Other runs of relevance}\label{relevant-runs}
 
+Runs that use the run 7 final camera operating configuration (section \ref{run-7-final-operating-parameters}) are denoted with \textbf{bold run ID}.
+
 % B Protocol
-\begin{table}[h]\label{table:runs_BProtocol}
+\begin{table}[H]\label{table:runs_BProtocol}
 \centering
 \caption{B Protocol Runs}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E1880 & & \\ \hline
-E2233 & & Identical to E1880. Acquired after CCS subsystem reboot \\ \hline
+\textbf{E3380} & & First B protocol post-chiller recovery. v30, dp80, idle flush disabled. \\ \hline
+\textbf{E2233} & & Identical to E1880. Acquired after CCS subsystem reboot. dp80, idle flush disabled. \\ \hline
+\textbf{E1880}  &  Web report \newline Test Execution & Camera operating configuration \\ \hline
+E1812 & & v29 NopSf (no pocket serial flush running for both E2V and ITL clear sequencers). dp80 voltages, idle flush ?? [likely disabled but verification needed] \\ \hline
+E1497 & & v29 Nop sequencer, dp80, idle flush ?? [likely disabled but verification needed] \\ \hline
+E1429 & & First dp84 run. v29, idle flush disabled \\ \hline
+E1419 & & First dp88 run. v29, idle flush disabled \\ \hline
+E1411 & & First dp865 run. v29, idle flush disabled \\ \hline
+E1396 & & First dp80 run. v29 nonoverlapping sequencer, idle flush enabled \\ \hline
+E1392 & & First dp80 run. v29 sequencer, idle flush enabled \\ \hline
+E1290 & & using Guide sensors as guiders. v29, dp93, idle flush enabled \\ \hline
+E1245 & & Refrigeration system software update mid-run. v29 halfoverlapping sequencer. dp93, idle flush enabled \\ \hline
+E1195 & & v29 overlap113 sequencer (5\% overlap). dp93, idle flush enabled \\ \hline
+E1146 & & First run with v29 nonoverlapping. dp93, idle flush enabled \\ \hline
+E1144 & & First run with v29 Nop. dp93, idle flush enabled \\ \hline
+E1110 & & v29 run. dp93, idle flush enabled \\ \hline
+E1071 & & SOURCE = 63 in calib3.cfg. First run with HV on. dp93, v26 sequencer, idle flush enabled \\ \hline
+
 \end{tabular}
 \end{table}
 
 % PTCs
-\begin{table}[h]\label{table:runs_PTCs}
+\begin{table}[H]\label{table:runs_PTCs}
 \centering
 \caption{PTC Runs}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
+
 Run ID & Links & Notes \\ \hline
-E1886 & & Red LED dense. Dark interleaving between flat pairs \\ \hline
-E1881 & & Red LED dense. No dark interleaving between flat pairs \\ \hline
-E748 & & nm960 dense \\ \hline
-E2237 & & Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
-E2016 & & Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
+
+\textbf{E3630} & & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera.\\ \hline
+\textbf{E3577} & & Dense nm960 PTC. Final operating conditions of camera.\\ \hline
+\textbf{E2237} & & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
+\textbf{E748} & & Final operating conditions of camera. nm960 dense \\ \hline
+\textbf{E2016} & & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
+\textbf{E1886} & & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \hline
+\textbf{E1881} & & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
+E1765 & & Dense PTC, red, thresholded dark interleaves, overlaps in signal level for adjacent LED currents. v29 Nop sequencer, idle flush ??\\ \hline
+E1495 & & dp80, nopp config. Idle flush ??\\ \hline
+E1364 & & v29, dp80, idle flush ??. Possible incomplete data transfer\\ \hline
+E1335 & & dp80 configuration, v29, idle flush ??.\\ \hline
+E1275 & & Ordered flats. Failed dark interleaving, incomplete data transfer. v29 sequencer.\\ \hline
+E1259 & & Randomized flats. v29 sequencer. \\ \hline
+E1258 & & Randomized flux levels. Starting with 3 preimages, then 100 15s darks, then PTC set. No dark interleaving. v29 sequencer. \\ \hline
+E1247 & & Re-do of E1188 (which lacked PD data). v29HalfOverlapping., Added pre-image acquisition to PTC-Red cfg file. \\ \hline
+E1212 & & 5\% overlapping sequencer\\ \hline
+E1145 & & No pocket sequencer\\ \hline
+E1113 & & v29 sequencer\\ \hline
+E749 & & v26, dp93, idle flush enabled. First PTC of run. \\ \hline
 \end{tabular}
 \end{table}
 
 % Long Dark Acquisitions
-\begin{table}[h]\label{table:runs_dark}
+\begin{table}[H]\label{table:runs_dark}
 \centering
 \caption{Long Dark Acquisitions}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E1117 & & \\ \hline
-E1116 & & \\ \hline
-E1115 & & \\ \hline
-E1114 & & \\ \hline
-E1075 & & \\ \hline
+\textbf{E3540} & & 900s dark. Shutter closed. \\ \hline
+\textbf{E3539} & & 900s dark. Shutter closed. \\ \hline
+\textbf{E3538} & & 900s dark. Shutter opened. \\ \hline
+E1140 & & Empty frame filter, shutter open, 24V clean and dirty FES changer powered off, one 900s dark image only.\\ \hline
+E1117 & & 900s dark. r filter, shutter open.\\ \hline
+E1116 & & 900s dark. y filter, shutter open.\\ \hline
+E1115 & & 900s dark. g filter, shutter open.\\ \hline
+E1114 & & 900s dark. EF filter, shutter open.\\ \hline
+E1076 & & PH filter in place. Shutter open. v26 no RG\\ \hline
+E1075 & & PH filter in place. v26 no RG\\ \hline
 \end{tabular}
 \end{table}
 
 % Projector Acquisitions
-\begin{table}[h]\label{table:runs_projector}
+\begin{table}[H]\label{table:runs_projector}
 \centering
 \caption{Projector Acquisitions}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
+E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
+E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
+E1586 & & One 100\,s flat exposure, spots moved to selected phosphorescent regions. E2V:v29Nop, ITL:v29Nopp \\ \hline
 E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. E2V:v29Nop, ITL:v29Nopp \\ \hline
 E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s intervals. E2V:v29Nop, ITL:v29Nopp \\ \hline
-E1586 & & One 100\,s flat exposure, spots moved to selected phosphorescent regions. E2V:v29Nop, ITL:v29Nopp \\ \hline
-E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
-E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
 \end{tabular}
 \end{table}
 
 % OpSim Runs
-\begin{table}[h]\label{table:runs_opSim}
+\begin{table}[H]\label{table:runs_opSim}
 \centering
 \caption{OpSim Runs}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
+
+
+\textbf{E3629} & & Mock OCS calibrations, failed\\ \hline 
+\textbf{E3576} & & Mock OCS calibrations, failed\\ \hline 
+\textbf{E3570} & & Mock OCS calibrations, failed\\ \hline 
+\textbf{E2330} & & Short dark sequence, filter changes in headers through OCS \\ \hline
+\textbf{E2329} & & Mock OCS calibrations, failed\\ \hline 
+\textbf{E2328} & & Flats with shutter-controlled exposure \\ \hline
+\textbf{E2283} & & Full night of OpSim flats, failed \\ \hline
+\textbf{E2280} & & Mock OCS calibrations, failed\\ \hline 
+\textbf{E2279} & & Mock OCS calibrations, failed\\ \hline 
 E1717 & & Long dark sequence, no filter changes \\ \hline
-E2330 & & Short dark sequence, filter changes in headers through OCS \\ \hline
-E1414 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
-E2328 & & Flats with shutter-controlled exposure \\ \hline
 E1657 & & 10 hour OpSim dark run, \textasciitilde50\% of darks were acquired properly \\ \hline
+E1414 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+E1403 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+E1255 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+E1254 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+E1092 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+
 \end{tabular}
 \end{table}
 
 % Phosphorescence Datasets
-\begin{table}[h]\label{table:runs_phosphorescence}
+\begin{table}[H]\label{table:runs_phosphorescence}
 \centering
 \caption{Phosphorescence Datasets}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \hline
+\textbf{E2015} & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\textbf{E2014} & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\textbf{E2013} & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \hline
+\textbf{E2012} & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\textbf{E2011} & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
 \end{tabular}
 \end{table}
 
 % Tree Ring Flats
-\begin{table}[h]\label{table:runs_treeRing}
+\begin{table}[H]\label{table:runs_treeRing}
 \centering
 \caption{Tree Ring Flats}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E1050 & & \\ \hline
-E1052 & & \\ \hline
-E1053 & & \\ \hline
-E1055 & & \\ \hline
-E1056 & & \\ \hline
-E1021 & & \\ \hline
-E1023 & & \\ \hline
-E1024 & & \\ \hline
-E1025 & & \\ \hline
-E1026 & & \\ \hline
+E1050 & & Red LED. HV off. Diffuser installed. \\ \hline
+E1052 & & Blue LED. HV off. Diffuser installed. \\ \hline
+E1053 & & Nm750 LED. HV off. Diffuser installed. \\ \hline
+E1055 & & Nm850 LED. HV off. Diffuser installed. \\ \hline
+E1056 & & Nm960 LED. HV off. Diffuser installed. \\ \hline
+\hline
+E1021 & & Red LED. HV off. Diffuser removed. \\ \hline
+E1023 & & Blue LED. HV off. Diffuser removed. \\ \hline
+E1024 & & Nm750 LED. HV off. Diffuser removed. \\ \hline
+E1025 & & Nm850 LED. HV off. Diffuser removed. \\ \hline
+E1026 & & Nm960 LED. HV off. Diffuser removed. \\ \hline
 \end{tabular}
 \end{table}
 
 % Gain Stability Runs
-\begin{table}[h]\label{table:runs_gainStability}
+\begin{table}[H]\label{table:runs_gainStability}
 \centering
 \caption{Gain Stability Runs}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E1955 & & \\ \hline
-E2008 & & \\ \hline
-E1968 & & \\ \hline
-E1367 & & \\ \hline
-E1362 & & \\ \hline
-E756 & & \\ \hline
-E1496 & & \\ \hline
+\textbf{E1955} & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled\\ \hline
+\textbf{E2008} & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB\\ \hline
+\textbf{E1968} & & 6h Stability run 2k 750 nm V30, dp80, idle flush disabled\\ \hline
+E1367 & & Changing PCS setpoint mid run., PCS changed from -45 deg C to -47 deg C at 10:40:06 AM UTC. 6h, 50k at 750nm, v29 seq, dp80 config. \\ \hline
+E1362 & & dp80, partial data ingestion. v29 sequencer. 6h 10k at 750nm. \\ \hline
+E756 & & dp 80, v29 sequencer. 6h 10k at 750nm. Partial data ingestion.\\ \hline
+E1496 & & dp80, nopp config, 6h 750nm at 10k\\ \hline
 \end{tabular}
 \end{table}
 
 % Persistence Datasets
-\begin{table}[h]\label{table:runs_persistence}
+\begin{table}[H]
 \centering
-\caption{Persistence Datasets}
+\caption{Persistence Datasets\label{table:runs_persistence}}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E1503 & & \\ \hline
-E1504 & & \\ \hline
-E1505 & & \\ \hline
-E1506 & & \\ \hline
-E2286 & & \\ \hline
-E1502 & & \\ \hline
-E1501 & & \\ \hline
-E1500 & & \\ \hline
-E1499 & & \\ \hline
-E1498 & & \\ \hline
-E1494 & & \\ \hline
-E1493 & & \\ \hline
-E1492 & & \\ \hline
-E1490 & & \\ \hline
-E1491 & & \\ \hline
-E1489 & & \\ \hline
-E1488 & & \\ \hline
-E1487 & & \\ \hline
-E1486 & & \\ \hline
-E1485 & & \\ \hline
-E1478 & & \\ \hline
-E1477 & & \\ \hline
-E1479 & & \\ \hline
-E1483 & & \\ \hline
-E1484 & & \\ \hline
+\textbf{E2286} & & 30k uv flash with increased hilim\\ \hline
+E1507 & & dp80, uv led @ 30k \\ \hline
+E1506 & & dp80, uv led @ 10k\\ \hline
+E1505 & & dp80, uv led @ 5k\\ \hline
+E1504 & & dp80, uv led @ 3k\\ \hline
+E1503 & & dp80, uv led @ 1k\\ \hline
+E1502 & & dp80, blue led @ 1k\\ \hline
+E1501 & & dp80, blue led @ 3k\\ \hline
+E1500 & & dp80, blue led @ 5k\\ \hline
+E1499 & & dp80, blue led @ 10k\\ \hline
+E1498 & & dp80, blue led @ 30k\\ \hline
+E1494 & & dp80, nm960 led @ 50k\\ \hline
+E1493 & & dp80, nm850 led @ 50k\\ \hline
+E1492 & & dp80, nm750 led @ 50k\\ \hline
+E1491 & & dp80, blue led @ 50k\\ \hline
+E1490 & & dp80, red led @ 50k\\ \hline
+E1489 & & dp80, nm960 led @ 150k\\ \hline
+E1488 & & dp80, nm850 led @ 150k\\ \hline
+E1487 & & dp80, nm750 led @ 150k\\ \hline
+E1486 & & dp80, red led @ 150k\\ \hline
+E1485 & & dp80, blue led @ 150k\\ \hline
+E1484 & & dp80, blue led @ 400k\\ \hline
+E1483 & & dp80, red led @ 400k\\ \hline
+E1479 & & dp80, nm750 led @ 400k\\ \hline
+E1478 & & dp80, nm960 led @ 400k\\ \hline
+E1477 & & dp80, nm850 led @ 400k\\ \hline
 \end{tabular}
 \end{table}
 
 % Guider ROI Acquisitions
-\begin{table}[h]\label{table:runs_guider}
+\begin{table}[H]\label{table:runs_guider}
 \centering
 \caption{Guider ROI Acquisitions}
 \begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
 \hline
 Run ID & Links & Notes \\ \hline
-E1510 & & \\ \hline
-E1518 & & \\ \hline
-E1519 & & \\ \hline
-E1508 & & \\ \hline
-E1509 & & \\ \hline
-E1520 & & \\ \hline
-E1511 & & \\ \hline
-E1521 & & \\ \hline
-E1512 & & \\ \hline
-E1513 & & \\ \hline
-E1514 & & \\ \hline
-E1517 & & \\ \hline
+E1509 & & ROI reference dataset\\ \hline
+E1510 & & ROI crossing amplifier segments\\ \hline
+E1518 & & 200ms integration time\\ \hline
+E1519 & & 100ms integration time\\ \hline
+E1508 & & 50ms integration time\\ \hline
+E1520 & & 400x400 pixel ROIs\\ \hline
+E1511 & & 200x200 pixel ROIs\\ \hline
+E1521 & & 100x100 pixel ROIs\\ \hline
+E1512 & & New row from reference dataset\\ \hline
+E1513 & & New column from reference dataset\\ \hline
+E1514 & & New column and row from reference dataset\\ \hline
+E1517 & & Different row for sensors on the same REB\\ \hline
 \end{tabular}
 \end{table}
 
@@ -2889,7 +2861,11 @@ E1517 & & \\ \hline
 
 \section{FCS work}
 
-\section{eo-pipe reference figures}
+\section{Reference figures}
+
+% All the figures from Jim's web reports that have been used here
+% 5x5 plots
+% differential histograms
 
 \section{CCS work}
 \subsection{JGroups issue}
