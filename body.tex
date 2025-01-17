@@ -252,6 +252,18 @@ darks}\label{shutter-condition-impact-on-darks}
 \paragraph{Filter condition impact on
 darks}\label{filter-condition-impact-on-darks}
 
+To investigate how the filter affects the dark current, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/sec with the empty filter to 0.0035 e-/sec for $r$, 0.0011 e-/sec for $y$, and 0.00063 e-/sec for $g$. The discrepancy between the filters could be the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.48\textwidth]{figures/E1114_Empty_DarkCurrent.png}
+\includegraphics[width=0.48\textwidth]{figures/E1115_g_DarkCurrent.png} \\
+\includegraphics[width=0.48\textwidth]{figures/E1116_y_DarkCurrent.png}
+\includegraphics[width=0.48\textwidth]{figures/E1117_r_DarkCurrent.png}
+\caption{ The heat map of the dark current with the empty filter installed (E1114; top left), the $g$ filter installed (E1115; top right), the $y$ filter installed (E1116; bottom left), and the $r$ filter installed (E1117; bottom right)  \label{fig:filter-darkcurrent}}
+\end{centering}
+\end{figure}
+
 \subsubsection{Final measurements of dark
 current}\label{final-measurements-of-dark-current}
 
@@ -340,7 +352,7 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_SCTI_EF_43_inset.png}
-	\caption{Serial CTI comparison by raft for Run 7 (E1017) and Run 6 (13550)\label{fig:serial-cti}}
+	\caption{Serial CTI amplifier measurements separated by raft for Run 7 (E1071) and Run 6 (13550)\label{fig:serial-cti}}
 \end{centering}
 \end{figure}
 
@@ -360,9 +372,9 @@ by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-c
 \paragraph{Parallel CTI}\label{parallel-cti}
 
 The CTI along the parallel direction is consistent between Run 6 and
-Run 7 as well (Fig.~\ref{fig:parallel-cti}). Both sensor types are found to have extremely low CTI on the order of $10^{-5}$ \%,
-and span a range of \textasciitilde$2 \times 10^{-7}$ \% for e2v sensors, and
-by \textasciitilde$7 \times 10^{-6}$ \% for ITL sensors (Fig.~\ref{fig:parallel-cti-dist}).
+Run 7 (Fig.~\ref{fig:parallel-cti}). Both sensor types are found to have extremely low CTI on the order of $10^{-5}$ \%,
+and span a range of \textasciitilde$1 \times 10^{-5}$ \% for e2v sensors, and
+by \textasciitilde$7 \times 10^{-4}$ \% for ITL sensors (Fig.~\ref{fig:parallel-cti-dist}).
 
 \begin{figure}[H]
 \begin{centering}
@@ -371,6 +383,8 @@ by \textasciitilde$7 \times 10^{-6}$ \% for ITL sensors (Fig.~\ref{fig:parallel-
 \label{fig:parallel-cti}
 \end{centering}
 \end{figure}
+
+R00 observations
 
 \begin{figure}[H]
 \begin{centering}
@@ -390,9 +404,8 @@ material of a CCD. This effect occurs when electron/hole pairs are thermally rel
 into the conduction band in the CCD, mimicking the signal that light would
 produce. Dark current increases with temperature, so cooling the CCD is
 a common method to reduce it in sensitive imaging applications. Dark
-current introduces noise into an image,
-particularly in low-sky background conditions in long exposures.
-The measurement of dark includes the dark current and stray light, making them impossible to distinguish each other since they both lineariy evolve with time.
+current introduces noise into an image, particularly in low-sky background conditions in long exposures.
+The measurement of dark includes the dark current and stray light, making them impossible to distinguish each other since they both linearly evolve with time.
 In the context
 of LSSTCam, we measure dark current from the combined dark images across
 all amplifiers as the upper limit.
@@ -410,12 +423,14 @@ Run 6 (Fig.~\ref{fig:dark}). We don't argue this difference because this could b
 
 \subsubsection{Bright defects}\label{bright-defects}
 
-Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the semiconductor material or manufacturing process of the CCD. Bright defects can manifest as ``hot pixels" with consistently high dark current, small clusters of pixels with elevated dark current, or as ``hot columns" (pixels along the same column that have high dark current). In the context of LSSTCam, we identify and exclude bright pixels from the dark current measurement, with the threshold for a bright defect set at 5 e$^-$/pix/s, above which the pixel/cluster/column is registered as a bright defect. In addition to the bright pixel metric, eo-pipe also computes a bright column metric, which is any region of bright pixels that is contiguous over 50 pixels or more.
+Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the semiconductor material or manufacturing process of the CCD. Bright defects can manifest as ``hot pixels" with consistently high dark current, small clusters of pixels with elevated dark current, or as ``hot columns" (pixels along the same column that have high dark current). 
+
+In the context of LSSTCam, we identify and exclude bright pixels from the dark current measurement, with the threshold for a bright defect set at 5 e$^-$/pix/s, above which the pixel/cluster/column is registered as a bright defect. In addition to the bright pixel metric, eo-pipe also computes a bright column metric, which is any region of bright pixels that is contiguous over 50 pixels or more.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_BRIGHT_PIXELS_inset.png}
-\caption{Bright pxiel comparison by raft for Run 7 (E1017) and Run 6 (13550)}
+\caption{Bright pixel comparison by raft for Run 7 (E1071) and Run 6 (13550)}
 \label{fig:bright}
 \end{centering}
 \end{figure}
@@ -481,8 +496,7 @@ Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing 
 \subsubsection{PTC Gain}\label{ptc-gain}
 
 PTC gain is the conversion factor between digital output signal and the the number of electrons generated in the pixels of the CCD. It is one of the key parameters derived from the Photon Transfer
-Curve, as it is the slope above the flux range at which the variance is dominated by shot
-noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the digitized analog signals from the ASPICs to units of e$^{-1}$.
+Curve, as it is the slope above the flux range at which the variance is dominated by shot noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the digitized analog signals from the ASPICs to units of e$^{-1}$.
 
 \begin{figure}[H]
 \begin{centering}
@@ -497,8 +511,8 @@ focal plane.
 \subsubsection{Brighter fatter coefficients}\label{brighter-fatter-a00-coefficient}
 
 
-The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from %\hyperref[Astier]{{[}Astier{]}} 
-\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. %In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
+The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or "fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from \hyperref[Astier]{{[}Astier{]}} 
+\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[H]
   \begin{centering}
@@ -517,7 +531,7 @@ The brighter-fatter effect in CCDs refers to the phenomenon where brighter sourc
   \end{centering}
   \end{figure}
 
-The distribution of difference of $a_{00}$ measurements is displayed in Fig. \ref{fig:ptc_a00_diff_hist}, and shows 
+The distribution of difference of $a_{00}$ measurements is displayed in Fig. \ref{fig:ptc_a00_diff_hist}, and shows a tight agreement for both sensor types.
 
 \begin{figure}[H]
 \begin{centering}
@@ -526,13 +540,11 @@ The distribution of difference of $a_{00}$ measurements is displayed in Fig. \re
 \end{centering}
 \end{figure}
 
-%However, the differences in the brighter-fatter $a_{00}$ coefficient between Run 6 and
-%Run 7 show that the magnitude of $a_{00}$ decreased for most
-%of the outliers, which implies an improvement in imaging for those pixels.
+However, the differences in the brighter-fatter $a_{00}$ coefficient between Run 6 and Run 7 show that the magnitude of $a_{00}$ decreased for most of the outliers, which implies an improvement in imaging for those pixels.
 
 \subsubsection{Row-means variance}\label{row-means-var}
 
-Row-means variance is a metric that measures the mean row-to- row variance of differences between a pair of flats. By computing variance of means of differenced rows at each flux level, we can measure any changes in gain row-by-row and also changes in correlated noise along with row.
+Row-means variance is a metric that measures the mean row-to-row variance of differences between a pair of flats. By computing variance of means of differenced rows at each flux level, we can measure any changes in gain row-by-row and also changes in correlated noise along with row.
 
 \begin{figure}[H]
 \begin{centering}
@@ -552,7 +564,7 @@ Differences in row-means variance between runs are evident, and are distinctly d
 
 \subsubsection{Divisadero Tearing}
 
-Divisadero tearing (or Rabbit ear) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
+Divisadero tearing (or Rabbit ears) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
 
 \begin{figure}[H]
 \begin{centering}
@@ -574,9 +586,7 @@ Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sens
 
 Dark defects are localized regions or individual pixels that produce abnormally low signal levels, even in the presence of light. Similar to bright pixels, dark pixels are also quantified in dark columns over 50 pixel contiguous regions. These
 defects are caused by imperfections in the semiconductor
-material, imperfections during the manufacturing process of a CCD. For our evaluation, we extract
-dark pixels from combined flats, with the threshold for a dark defect
-defined as a $-$20\% deficit from the average flux measured in the image segment.
+material, imperfections during the manufacturing process of a CCD. For our evaluation, we extract dark pixels from combined flats, with the threshold for a dark defect defined as a $-$20\% deficit from the average flat field flux measured in the image segment.
 
 \begin{figure}[H]
 \begin{centering}
@@ -586,27 +596,30 @@ defined as a $-$20\% deficit from the average flux measured in the image segment
 \end{centering}
 \end{figure}
 
+%%
+The eo-pipe configuration for evaluating dark defects considers a border pixel region that is masked differently from the dark pixels. The default size for this edge is zero pixels. With a zero pixel border mask, the average dark defect count is 1800 per amplifier, with \geq 95\% of the contribution coming from the picture frame. It is difficult to extract useful information about the dark defects in the focal plane without excluding the picture frame. The effects of the picture frame signal on dark defect masking is shown in figure~\ref{fig:fig-edge-mask}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/detector_85.jpg}
+\caption{Illustration of masked border pixels (yellow) for detector 85 (R21\_S11). The average defect mask size is 4 pixels along the serial (x-pixel) direction, and 5 pixels along the parallel direction. Additional dark defects exist in the sensor, but are difficult to quantify due to the overwhelming contribution from the picture frame resp}
+\label{fig:fig-edge-mask}
+\end{centering}
+\end{figure}
+
+
+The default eo-pipe configuration has no border masking. The largest region permitted for the picture frame region is 9 pixels, determined by LCA-19363.
+
 Dark pixel counts measured in both Run 6 and Run 7 average
 \textasciitilde1800 per amplifier (i.e., approximately 1M pixels), regardless of manufacturer. The
 high dark pixel counts are due to the `picture-frame response' (also called `edge roll-off') 
 near the edges of the amplifier segments.  The correlation between Run 7 and Run 6 dark pixel counts by CCD (Fig.~\ref{fig:dark-pixels}) is generally good, with some notable exceptions...
 
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/detector_85.jpg}
-\caption{Illustration of masked border pixels (yellow) for detector 85 (R21\_S11). [Needs more explanation.]}
-\label{fig:fig-edge-mask}
-\end{centering}
-\end{figure}
 
-The eo-pipe configuration for evaluating dark defects considers a border pixel
-region that is masked differently from the dark pixels. The default size for this edge is zero pixels. Due to the inclusion of the picture-frame response in the counts, it is difficult to
-extract useful information about the dark defects in the focal plane. The default
-configuration has no border masking. The largest region allowed for the
-picture frame region is 9 pixels, determined by LCA-19363. Due to incompatibility of Run 6 data with the current pipelines, a direct comparison of a 9 pixel mask using Run 6 data is not currently available. However, a 9
-pixel mask can be applied to the Run 7 data.  Here is a reference to Figure~\ref{fig:fig-edge-mask}, which needs some explanation here about how it relates to this paragraph.
 
 Add conclusion when pipelines on E1071 are complete
+
+%%
 
 \subsection{Persistence}\label{initPersistenceChar}
 
@@ -641,24 +654,21 @@ present images at the same level as in Run 6.
 \end{centering}
 \end{figure}
 
-The persistence signal is generally consistent in e2v sensors between Run 6 and Run 7. Several
-e2v CCDs have greater persistence metric value in Run 7 (Fig.~\ref{fig:persistence-comp}). The outliers in
-these measurements are due to higher initial persistence signal
-measurements, resulting in an excess of \textasciitilde5 ADU when
-comparing Run 6 with Run 7 (see Fig.~\ref{fig:persistence-decay-comp}).
+The persistence signal is generally consistent in e2v sensors between Run 6 and Run 7. Several e2v CCDs have greater persistence metric value in Run 7 (Fig.~\ref{fig:persistence-comp}). The outliers in
+these persistence measurements are due to higher initial residual ADU, resulting in an excess of \textasciitilde5 ADU when comparing Run 6 with Run 7 (see Fig.~\ref{fig:persistence-decay-comp}).
 
 
 \begin{figure}
 \centering
 \begin{subfigure}{0.5\textwidth}
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_E1071_w_2024_35_20240925T180602Z.png}
+  \includegraphics[width=1.0\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R11_S12_u_lsstccs_eo_persistence_13550_w_2023_41_20231117T001459Z.png}
 \end{subfigure}%
 \begin{subfigure}{0.5\textwidth}
   \centering
-  \includegraphics[width=1\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R12_S21_u_lsstccs_eo_persistence_13550_w_2023_41_20231117T001459Z.png}
+  \includegraphics[width=1\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R11_S12_u_lsstccs_eo_persistence_E1071_w_2024_35_20240925T180602Z.png}
 \end{subfigure}
-\caption{Comparison of persistence profiles for R12\_S21 between (left) Run 7 (E1071) and (right) Run 6 (13550).  The decay time constants are similar but the initial persistence level is greater in Run 7.  The asymptotic levels are also different.}
+\caption{Comparison of persistence profiles for R12\_S21 between (left) Run 6 (13550) and (right) Run 7 (E1071).  The decay time constants are similar but the initial persistence level is greater in Run 7.  The asymptotic levels are also slightly different.}
 \label{fig:persistence-decay-comp}
 \end{figure}
 
@@ -677,14 +687,14 @@ Serial CTI {[}\%{]}                & Val               & \multicolumn{1}{l|}{3.7
 Parallel CTI {[}\%{]}              & Val               & \multicolumn{1}{l|}{1.2162E-5} & 1.1534E-5 & \multicolumn{1}{l|}{3.4067E-7} & -4.7849E-6 \\ \hline
 Dark current {[}e-/pix/s{]}        & Val               & \multicolumn{1}{l|}{5.5439E-2} & 2.4783E-2 & \multicolumn{1}{l|}{4.6424E-2} & 2.1217E-2  \\ \hline
 Bright defects {[}count{]}         & Val               & \multicolumn{1}{l|}{0}          & 0         & \multicolumn{1}{l|}{0}          & 0          \\ \hline
-Linearity turnoff {[}e-{]}         & Val               & \multicolumn{1}{l|}{112410.98} & 112162.66 & \multicolumn{1}{l|}{105960.37} & 106002.95  \\ \hline
-PTC turnoff {[}e-{]}               & Val               & \multicolumn{1}{l|}{90422.94}  & 89697.03  & \multicolumn{1}{l|}{78209.44}  & 77913.08   \\ \hline
+Linearity turnoff {[}e-{]}         & Val               & \multicolumn{1}{l|}{156,339} & 167,797 & \multicolumn{1}{l|}{172,580} & 178,154  \\ \hline
+PTC turnoff {[}e-{]}               & Val               & \multicolumn{1}{l|}{126,002}  & 132,963  & \multicolumn{1}{l|}{117,019}  & 128,595   \\ \hline
 PTC Gain {[}e- / ADU{]}            & Val               & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
 PTC $a_{00}$ [$\frac{1}{pix^2}$]   & Val               & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
 BF x-correlation                   & Val               & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
 BF y-correlation                   & Val               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
 Row-means variance                 & Val               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
-Dark defects {[}count{]}           & Val               & \multicolumn{1}{l|}{1.6890E+3} & 1.7090E+3 & \multicolumn{1}{l|}{1.5130E+3} & 1.5070E+3  \\ \hline
+Dark defects {[}count{]}           & Val               & \multicolumn{1}{l|}{4} & 3 & \multicolumn{1}{l|}{9} & 8  \\ \hline
 Divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
 Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.6673}    & 5.6435    & \multicolumn{1}{l|}{0.48018}   & 0.42051    \\ \hline
 \end{tabular}
@@ -1233,8 +1243,10 @@ We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero
 stability}\label{characterization-camera-stability}
 
 \subsection{Illumination corrected flat}
+% eventually we move these two section after the final characterization
 
 \subsection{Glow search}
+% eventually we move these two section after the final characterization
 
 
 \subsection{Final characterization}
@@ -1304,7 +1316,7 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
 
 \paragraph{Dark current}\label{dark-current}
 
-Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see section \ref{successful-autochanger-light-leaks-masking}).
+ Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see section \ref{successful-autochanger-light-leaks-masking}).
 
 \begin{figure}[H]
     \centering
@@ -1344,7 +1356,7 @@ Both linearity and PTC turnoff were extracted from the PTC runs. Due to the lowe
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_LINEARITY_TURNOFF.png}
-    \caption{Comparison of linearity turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in linearity turnoff, while ITL sensors stay relatively the same. The values reported here are in ADU, and not gain corrected.}
+    \caption{Comparison of linearity turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in linearity turnoff, while ITL sensors stay the same. The values reported here are in ADU, and not gain corrected.}
     \label{fig:finalChar-Linearity-5x5}
 \end{figure}
 
@@ -1353,7 +1365,7 @@ For E2V sensors we find the reduction in full-well to be significant, \textascii
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_TURNOFF.png}
-    \caption{Comparison of PTC turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in PTC turnoff, while ITL sensors stay relatively the same. The values reported here are in ADU, and not gain corrected.}
+    \caption{Comparison of PTC turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in PTC turnoff, while ITL sensors stay the same. The values reported here are in ADU, and not gain corrected.}
     \label{fig:finalChar-PTCTurnoff-5x5}
 \end{figure}
 
@@ -1455,11 +1467,23 @@ In figure \ref{fig:finalChar-Divisadero-5x5}, several E2V sensors do not follow 
 
 \paragraph{Dark defects}\label{final-dark-defects}
 
+Dark defects in LSSTCam were extracted using the B protocols, and are contaminated by the picture frame effect regardless of operating conditions (see section \ref{dark-defects} for additional discussion). When applying a 9 pixel mask to the edges of each sensor, the picture frame signal is removed, leaving true dark defects acquired by the analysis pipeline.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_DARK_PIXELS.png}
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1880_E1071_DARK_PIXELS_inset.png}
     \caption{Comparison of amplifier measurements of the dark pixel for initial and final run 7 conditions.}
     \label{fig:finalChar-DarkPix-5x5}
+\end{figure}
+
+Dark defects are consistent between initial and final run 7 data. Dark defects are a minimal contribution to the focal-plane, with an average contribution of 3 pixels per E2V amp and 8 pixels per ITL amp. There is no global change in dark defect counts per amp, with measurements of the difference of 
+dark pixel counts per detector centered on zero for both detector types (see fig. \ref{fig:finalChar:darkDefectsComparison}). 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/finalCharacterization/darkDefects_comparison_final.jpg}
+    \caption{The amplifier measurements of dark pixel defects, with a 9 pixel mask applied to each sensor. Top: A histogram of the dark pixel measurements, with each count representing one amplifier. Histogram groups are separated by sensor type, and also by initial (E1071) and final (E1880) runs. Bottom: The difference in amplifier dark pixel measurements, separated by detector type. For both detector types, there is no significant evolution in the defect counts.}
+    \label{fig:finalChar:darkDefectsComparison}
 \end{figure}
 
 \subsubsection{Persistence}\label{final-persistence}
@@ -1491,9 +1515,9 @@ We find that $\geq$95\% of E2V sensors exhibit a persistence signal $\leq$ 0.55 
 Comparing the initial and final run 7 measurements, there are four metrics that are impacted by the optimization efforts described in section \ref{sec:camera-optimization}.
 \begin{itemize}
   \item \textbf{Persistence:} We minimized persistence in E2V sensors, the main optimization target of run 7, decreasing it from 5.66 ADU to 0.40 ADU on average with the red LED (LSST-r band), and maintaining sub-ADU levels across the entire LSST bandpass. Due to no change in ITL voltages and lack of an initial persistence feature, ITL sensors do not show a significant change in persistence, and remain at a sub-ADU level (0.48 ADU \rightarrow 0.32 ADU).
-  \item \textbf{Full well capacity:} As a direct consequence of lower parallel swing in E2V sensors, the full-well capacity of E2V sensors decreased significantly with the final operating parameters. For linearity turnoff, E2V sensors decrease from 167,796 \rightarrow 136,302 e-. PTC turnoff measurements decrease from 132,963 \rightarrow 102,713. ITL sensors do not show a significant change, and remain consistent between initial and final runs.
+  \item \textbf{Full well capacity:} As a direct consequence of lower parallel swing in E2V sensors, the full-well capacity of E2V sensors decreased significantly with the final operating parameters. For linearity turnoff, E2V sensors decrease from 167,796 e- \rightarrow 136,302 e-. PTC turnoff measurements decrease from 132,963 e- \rightarrow 102,713 e-. ITL sensors do not show a significant change, and remain consistent between initial and final runs.
   \item \textbf{Brighter-fatter strength (PTC $a_{00}$):} The strength of the brighter fatter effect is also significantly impacted by the change in parallel swing for E2V sensors. The $a_{00}$ parameter increases from $3.08\times10^{-6} \rightarrow 3.49\times10^{-6}$ for E2V sensors, a 13\% increase. ITL sensors are not significantly impacted.% Consequence of changed dP
-  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush, and shows a significant change for both E2V and ITL sensors. For E2V sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. For ITL sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). 
+  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush. For E2V sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of Divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
 \end{itemize}
 
 \begin{table}[H]
@@ -1514,7 +1538,7 @@ PTC $a_{00}$ [$\frac{1}{pix^2}$]  &                                & \multicolum
 BF x-correlation                  &                                & \multicolumn{1}{l|}{0.51693}              &     0.51022        & \multicolumn{1}{l|}{0.75212}              &       0.73648      \\ \hline
 BF y-correlation                  &                                & \multicolumn{1}{l|}{0.17077}              &       0.16740      & \multicolumn{1}{l|}{0.28695}              &        0.28439     \\ \hline
 Row-means variance                &                                & \multicolumn{1}{l|}{0.88367}              &      0.86809       & \multicolumn{1}{l|}{0.94664}              &        0.94633     \\ \hline
-Dark defects {[}count{]}          &                                & \multicolumn{1}{l|}{1709}              &       1968      & \multicolumn{1}{l|}{1507}              &       1508      \\ \hline
+Dark defects {[}count{]}          &                                & \multicolumn{1}{l|}{3}              &       3      & \multicolumn{1}{l|}{7}              &       7      \\ \hline
 Divisadero tearing maximum {[}\%{]} &     None                     & \multicolumn{1}{l|}{0.62622}              &       0.24599      & \multicolumn{1}{l|}{0.27348}              &       0.27414      \\ \hline
 Persistence {[}ADU{]}             &       None                         & \multicolumn{1}{l|}{5.6673}              &       0.40181      & \multicolumn{1}{l|}{0.48018}              &       0.32639      \\ \hline
 \end{tabular}
@@ -1667,32 +1691,32 @@ This section describes guider operation.
 \makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Rafts}} &
 \makecell{\textbf{ROI} \\ \textbf{Alignment}} &
 \makecell{\textbf{Rate} \\ \textbf{(Hz)}} &
-\makecell{\textbf{Noise} \\ \textbf{(??)}} \\
+\makecell{\textbf{Noise} \\ \textbf{(ADU)}} \\
 \hline
 \hline
 \endhead
 \multicolumn{7}{|c|}{\textbf{Noise Study Configurations}} \\
 \hline
-50x50   & 50  & 1 & 1 & n/a       &  9.28 & \\ % gds_noise_01.cfg
-50x50   & 50  & 2 & 1 & aligned   &  9.27 & \\ % gds_noise_02.cfg
-50x50   & 50  & 2 & 1 & unaligned &  9.26 & \\ % gds_noise_03.cfg
-50x50   & 50  & 4 & 4 & aligned   &  9.26 & \\ % gds_noise_04.cfg
-50x50   & 50  & 4 & 4 & unaligned &  9.26 & \\ % gds_noise_05.cfg
-50x50   & 50  & 8 & 4 & aligned   &  9.23 & \\ % gds_noise_06.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & \\ % gds_noise_07.cfg
+50x50   & 50  & 1 & 1 & n/a       &  9.28 & 5.60 \\ % gds_noise_01.cfg
+50x50   & 50  & 2 & 1 & aligned   &  9.27 & 4.57 \\ % gds_noise_02.cfg
+50x50   & 50  & 2 & 1 & unaligned &  9.26 & 6.98 \\ % gds_noise_03.cfg
+50x50   & 50  & 4 & 4 & aligned   &  9.26 & 4.70 \\ % gds_noise_04.cfg
+50x50   & 50  & 4 & 4 & unaligned &  9.26 & 4.71 \\ % gds_noise_05.cfg
+50x50   & 50  & 8 & 4 & aligned   &  9.23 & 4.61 \\ % gds_noise_06.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & 4.62 \\ % gds_noise_07.cfg
 \hline
 \multicolumn{7}{|c|}{\textbf{Nominal Configurations}} \\
 \hline
-50x50   & 50  & 8 & 4 & aligned   &  9.22 & \\ % gds_nom_aligned.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & \\ % gds_nom_unaligned.cfg
+50x50   & 50  & 8 & 4 & aligned   &  9.22 & 4.61 \\ % gds_nom_aligned.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & 6.50 \\ % gds_nom_unaligned.cfg
 \hline
 \multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
 \hline
-400x400 & 200 & 1 & 1 & n/a       &  1.67 & \\ % gds_roi_01.cfg
+400x400 & 200 & 1 & 1 & n/a       &  1.67 & 4.03 \\ % gds_roi_01.cfg
 400x400 &  50 & 1 & 1 & n/a       &  2.23 & \\ % gds_roi_02.cfg
-400x400 &   5 & 1 & 1 & n/a       &  2.48 & \\ % gds_roi_03.cfg
-10x10   &  50 & 1 & 1 & n/a       & 11.80 & \\ % gds_roi_04.cfg
-400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & \\ % gds_roi_05.cfg
+400x400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
+10x10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
+400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 105.30 \\ % gds_roi_05.cfg
 \hline
 \end{longtable}
 
@@ -2065,40 +2089,59 @@ Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency bu
 
 The reason why the relationship becomes much more complicated is not clear. It is understandable that Run 6 didn't observe the hysteresis because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temp, 2) illumination from the LED is somehow changing overtime, which is not correlated with the LED temp, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As the hysteresis is observed, the possibility 1 is definitely present but it can't explain the gain temp change in the constant temperature. For the possibility 2, it is unlikely given the fact that Run 6 observed the complicated relationship. The option 3 could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to the turbulence in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For the possibility 4, we did visual check in a different period and we didn't find anything obvious. 
 
-The gain change issue can be split into 2 categories: global or local in an amplifier.  The global coherent change can be, in principle, correctable as it degenerates with the atmospheric transparency, which will be corrected by the calibration process. The local amp-by-amp change is a more serious issue in respect because the number of stars might not be sufficient for making the precise photometric calibration statistically. In order to study the amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the relative gain changes for each amplifier on each sensor with respect to the C00 segment on the sensor: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
+The gain change issue can be split into 2 categories: global or local in an amplifier.  The global coherent change can be, in principle, correctable as it degenerates with the atmospheric transparency, which will be corrected by the calibration process. The local amp-by-amp change is a more serious issue in respect because the number of stars might not be sufficient for making the precise photometric calibration statistically. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figures/gaintemp/E1496gainoverall.png}
-    \caption{Relative gain change with respect to C00 of each sensor, for E1496}
+    \includegraphics[width=1\linewidth]{figures/gaintemp/E1496gainoverall_global.png}
+    \caption{Differential gain change with respect to the median of relative gain change for the whole focal plane, for E1496}
     \label{fig:relative-gain-E1496}
 \end{figure}
-The relative gain change with respect to the C00 for the constant temperature appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11/S12, R12/S10, R12/S22, R24/S11, R34/S20 have one amplifier that have a higher relative gain than up to $5\times 10^{-4}$ but others behave stable. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed.
+The differential gain change with respect to global change for the constant temperature appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11/S12, R12/S10, R12/S22, R24/S11, R34/S20 have one amplifier that have a higher relative gain than up to $5\times 10^{-4}$ but others behave stable. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed. Another interesting behavior is seen in R11/S2x. There were a spike in three sensors at the same time. We haven't figured out what happened at that time.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figures/gaintemp/E1367gainoverall.png}
+    \includegraphics[width=1\linewidth]{figures/gaintemp/E1367gainoverall_global.png}
     \caption{Same as Figure \ref{fig:relative-gain-E1496} but for E1367}
     \label{fig:relative-gain-E1367}
 \end{figure} 
 The case for the temperature swing is complicated. Some of the amplifiers behave as well as the ones for the constant temperature case, but some of the amplifiers show correlation with the temp change in the Cold plate temp. This indicates that the relative gain change among amplifiers with respect to REB/Cold plate temperature exists. 
 Note that E1367 has a 5 times higher flux than E1496, which reduces shot noises in the measurement. However, the conclusion still holds. 
 
+To further study, we step back to the raw measurements. Figure \ref{fig:separateE1496} shows the constant temperature case. The change in the relative gain is a level of $2\times 10^{-4}$, which appears to be driven by the photodiode integration.
+Figure \ref{fig:separateE1367} shows the temp swing case with a change of $5\times10^{-4}$, which appears to be dominated by a change in image counts. The changes in the PD integration are about the same in both plots. So from these facts, both of the gain change in the Camera due to the temperature change and some illumination difference of the CCOB projector play role here.
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/gaintemp/E1496separate.png}
+    \caption{Raw measurements of image count and photodiode integration, as well as the ratio of those -- the relative gain for E1496}
+    \label{fig:separateE1496}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/gaintemp/E1367separate.png}
+    \caption{Same as Figure \ref{fig:separateE1496} but for E1367}
+    \label{fig:separateE1367}
+\end{minipage}
+\end{figure}
+
 In summary, we find
 \begin{itemize}
     \item The gain-REB temperature relationship is not as simple as Run 6.
-    \item Global gain change could be due to the artifacts/setup. Potentially, the system could have the complicated behavior with respect to the REB temperature. No conclusive statement is made.
-    \item Local amp-by-amp gain change is minimal $10^{-4}$ over 6 hours if the focal plane temperature is maintained at the same.
-    \item Further analysis is needed in understanding the gain change in the beginning of Run is needed.
+    \item Global gain change could be due to the artifacts/setup, or potentially, the Camera could have a complicated behavior with respect to the REB temperature. No conclusive statement can be drawn.
+    \item Local amp-by-amp gain change is minimal $10^{-4}$ over 6 hours if the REB or the focal plane temperature is maintained at the same.
+    \item Further analysis is needed in understanding the gain change in the beginning of Run and some random spikes is needed.
 \end{itemize}
 
 \section{Sensor features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
+Tree rings is circular variations in silicon doping concentration which can be observed in flat images. Both LSST The impact of the tree rings is assessed in \citep{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 7.
 \subsubsection{Center of the Tree Ring}
-So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, however now we have new data with 0\,V of back bias voltage, we wanted to make sure if the error in center of the ring position is small enough and if we need to use individual center position for each sensor. 
-
-Figure~\ref{fig:tree_ring_center} shows the positions of the Tree ring centers measured for the 189 sensors. We decided to use center of each sensor instead of the average value. 
+From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four (4) CCD is cut from one wafer. 
+So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude. However we have new data with 0\,V of back bias voltage, which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center.
 
 \begin{figure}
 \begin{centering}
@@ -2107,6 +2150,9 @@ Figure~\ref{fig:tree_ring_center} shows the positions of the Tree ring centers m
 \caption{The center of the Tree Rings were measured for all 189 LSST sensors. Red point indicates the average center on each direction.}
 \label{fig:tree_ring_center}
 \end{figure}
+Figure~\ref{fig:tree_ring_center} shows the positions of the Tree ring centers measured for the 189 sensors. All the measurements are concentrated around each averaged position, however, as now we have better individual measurements, we decided to use center of each sensor instead of the average value. 
+
+
 
 \subsubsection{Radial study}
 Radial study for Tree rings pattern has been done to see if the rings are perfectly circular in shape. 
@@ -2219,14 +2265,30 @@ background of XXX.
 
 \subsection{Vampire pixels}\label{vampire-pixels}
 
+A category of sensor feature found on some ITL sensors, that has recently benefited from fresh attention, now has a new name. They are called {\it vampire pixels} because of their curious flat field response: a group of pixels with photo-response exceeding the flat-field mean, surrounded by a concentric distribution of pixels with photo-response below the same flat-field mean. The {\it vampire pixel} name sticks because the over-responsive pixels have apparently ``sucked'' signal from the rightful owners, a sort of {\it reverse brighter-fatter} effect excited simply with flat-field illumination. 
+
+The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius. It turns out that all prominent {\it vampire pixel} complexes are also detected by their phosphorescence response which 
+
+can be characterized by the following: they are most easily detected in their localized flat-field response, showing both over- and under-response in regions greater than 
+
 \subsubsection{First observations}\label{first-observations}
+
+Initial identification of these on ComCam may have been in a study that called them {\it bright pixels} by A. Roodman \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Bad%20Pixels%20and%20Bright%20Spots.pdf?version=1&modificationDate=1724769154615&api=v2}{(20240827)} and quantified in more depth by A. Fert\'e in a ComCam defects study \href{https://rubin-obs.slack.com/files/U07MZAE6V3P/F080JU4CH8A/isr_science_unit_meeting__11_12_2024_-_vampire_pixels.pdf}{(20241112)}. First electrostatic simulations performed to help understand them were made by C.~Lage \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Vampire_Pixel_Simulations_18Nov24.pdf?version=1&modificationDate=1731964502136&api=v2}{(20241119)} who inferred that a circumferential surface charge variations\footnote{We suggest that any such variations would necessarily require that the backside electrode ceases to act as an electrostatic equipotential as it does elsewhere on the sensor, with total surface charge density governed only by the normal component of the electric field strength within the silicon, responding to the HV Bias potential, and so on.} 
+on the backside electrode could reproduce the sort of charge redistribution observed (while conserving photo-conversion charge) -- and so these may be effectively described as pixel boundary distortions throughout, mediated simply by lateral (non-axial) contributions to the drift field. Any such lateral fields would mean a localized loss in pixel fidelity, not limited to the sensor's thickness scale (10 pix) as are apparently in effect in other known pixel distortion mechanisms (brighter-fatter effect, tree rings, edge rolloff, tearing, pixel boundary distortions due to midline implant \& hot columns).
+
+Since ComCam on-sky data has been available, more attention has been paid to these features and how they may impact source detection and photometric determination of field sources next to them. Luckily, {\it vampire pixels} are less common on average in the 88 ITL sensors of the Main Camera than they are in the 9 sensors of ComCam. 
+
+\subsubsection{LSSTCam vampire pixel
+features}\label{lsstcam-vampire-pixel-features}
+
+One prominent example of such a feature is located in the Main Camera on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity to it (when HV Bias is on). 
+
 
 Vampire pixels were first observed in ComCam observations {[}need more
 info to properly give context{]} - Andy's study on Oct.
 8 - Agnes masking effort
 
-\subsubsection{LSSTCam vampire pixel
-features}\label{lsstcam-vampire-pixel-features}
+
 
 The vampire pixels have distinct features, both on the individual defect
 level, and across the focal plane
