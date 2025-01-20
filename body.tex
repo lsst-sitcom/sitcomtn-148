@@ -52,7 +52,7 @@ L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the con
 \label{fig:diffuser}
 \end{figure}
 
-We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}) and eliminated the CMB pattern and more uniformly illuminated the focal plane (Fig.~\ref{fig:roll-off}), with a penalty of decreaseing the overall illumination by roughly 35\% even though we fully opened the f-stop.
+We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}) and eliminated the CMB pattern and more uniformly illuminated the focal plane (Fig.~\ref{fig:roll-off}), with a penalty of decreasing the overall illumination by roughly 35\% even though we fully opened the f-stop.
 
 
 \begin{figure}[htbp]
@@ -419,7 +419,7 @@ all amplifiers as the upper limit.
 \end{figure}
 
 Unexpectedly, the dark current was significantly less in Run 7 than
-Run 6 (Fig.~\ref{fig:dark}). We don't argue this difference because this could be the result of improved shrouding on the camera in the Level 3 white room relative to the IR2 clean room SLAC.
+Run 6 (Fig.~\ref{fig:dark}). We do not attach particular significance to the finding because this could be the result of improved shrouding on the camera in the Level 3 white room relative to the IR2 clean room SLAC.
 
 \subsubsection{Bright defects}\label{bright-defects}
 
@@ -452,7 +452,7 @@ The reason is not totally clear, but the difference in the illumination pattern 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.95\textwidth]{figures/baselineCharacterization/run7PTCsToDate.jpg}
-\caption{A comparison of run 6 and run 7 PTCs for a central amplifier.}
+\caption{A comparison of Run 6 and Run 7 PTCs for a central amplifier.}
 \end{centering}
 \end{figure}
 
@@ -480,11 +480,11 @@ our Run 7 and Run 6 measurements for both ITL and e2v sensors.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/LINEARITY_TURNOFF_E749_sensorType.png}
-\caption{A comparison of Run 7 amplifier measurements of linearity turnoff, separated by sensor type. For both sensor types, linearity turnoff is above the 90k e- specification for a majority of amplifiers. A subset of ITL amplifiers are below the 90k e- threshold, while two E2V amplifiers are below that specification.}
+\caption{A comparison of Run 7 amplifier measurements of linearity turnoff, separated by sensor type. For both sensor types, linearity turnoff is above the 90k e- specification for a majority of amplifiers. A subset of ITL amplifiers are below the 90k e- threshold, while two e2v amplifiers are below that specification.}
 \end{centering}
 \end{figure}
 
-Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing by $\leq$ 200 $e^-$ for both ITL and E2V sensors. Notably, they are lower on average for both detector types.
+Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing by $\leq$ 200 $e^-$ for both ITL and e2v sensors. Notably, they are lower on average for both detector types.
 
 \begin{figure}[H]
 \begin{centering}
@@ -512,7 +512,7 @@ focal plane.
 
 
 The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or "fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from \hyperref[Astier]{{[}Astier{]}} 
-\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In eo\_pipe, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
+\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The Run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In {\tt eo\_pipe}, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[H]
   \begin{centering}
@@ -531,12 +531,12 @@ The brighter-fatter effect in CCDs refers to the phenomenon where brighter sourc
   \end{centering}
   \end{figure}
 
-The distribution of difference of $a_{00}$ measurements is displayed in Fig. \ref{fig:ptc_a00_diff_hist}, and shows a tight agreement for both sensor types.
+The distribution of difference of $a_{00}$ measurements is displayed in Figure \ref{fig:ptc_a00_diff_hist}, and shows a tight agreement for both sensor types.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PTC_A00_13591_E749_diff.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent. The two peaks on the left represent the two outlier rafts visible on Fig. \ref{fig:ratio_bf_coeff_6_7}. The $a_{00}$ values are of the order of 2 to 3 $10^{-6}\ e^{-1}$. \label{fig:ptc_a00_diff_hist}}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in the $a_{00}$ coefficient, separated by sensor type. For both sensor types, the $a_{00}$ coefficient is very consistent. The two peaks on the left represent the two outlier rafts visible on Figure \ref{fig:ratio_bf_coeff_6_7}. The $a_{00}$ values are of the order of 2 to 3 $10^{-6}\ e^{-1}$. \label{fig:ptc_a00_diff_hist}}
 \end{centering}
 \end{figure}
 
@@ -549,16 +549,16 @@ Row-means variance is a metric that measures the mean row-to-row variance of dif
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_ROW_MEAN_VAR_SLOPE.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in row-mean-variance slope. For both sensor types, row-means-variance slope is weaker in Run 7. This is more pronounced for E2V sensors.}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in row-mean-variance slope. For both sensor types, row-means-variance slope is weaker in Run 7. This is more pronounced for e2v sensors.}
 \end{centering}
 \end{figure}
 
-Differences in row-means variance between runs are evident, and are distinctly different for different detector types. The difference between runs is more significant for ITL sensors, \textasciitilde9\% smaller on average in Run 7. For E2V sensors, the effect is \textasciitilde3\% smaller in Run 7. This indicates that either row-by-row correlated noise or row-by-row gain change is less in Run 7b. Since we didn't change the sequencer file, the most natural explanation is the row-by-row correlated noise. But further investigation is needed.
+Differences in row-means variance between runs are evident, and are distinctly different for different detector types. The difference between runs is more significant for ITL sensors, \textasciitilde9\% smaller on average in Run 7. For e2v sensors, the effect is \textasciitilde3\% smaller in Run 7. This indicates that either row-by-row correlated noise or row-by-row gain change is less in Run 7b. Since we did not change the sequencer file, the most natural explanation is the row-by-row correlated noise. But further investigation is needed.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/ROW_MEAN_VAR_SLOPE_13550_E1071_diff.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in row-mean-variance slope, separated by sensor type. For both sensor types, row-means-variance slope is weaker in Run 7. This is more pronounced for E2V sensors.}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in row-mean-variance slope, separated by sensor type. For both sensor types, row-means-variance slope is weaker in Run 7. This is more pronounced for e2v sensors.}
 \end{centering}
 \end{figure}
 
@@ -569,11 +569,11 @@ Divisadero tearing (or Rabbit ears) is manifested as signal variations near ampl
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DIVISADERO_TEARING_inset.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, Divisadero tearing is weaker in Run 7. The difference is more pronounced for E2V sensors, which have larger Divisadero tearing in general.}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, Divisadero tearing is weaker in Run 7. The difference is more pronounced for e2v sensors, which have larger Divisadero tearing in general.}
 \end{centering}
 \end{figure}
 
-Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower Divisadero tearing in Run 7. Taking amplifier differences, E2V sensors show a weaker Divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see figure \ref{fig:divisidero_diff_baseline}).
+Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower Divisadero tearing in Run 7. Taking amplifier differences, e2v sensors show a weaker Divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see Fig.~\ref{fig:divisidero_diff_baseline}).
 
 \begin{figure}[H]
     \centering
@@ -590,36 +590,34 @@ material, imperfections during the manufacturing process of a CCD. For our evalu
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DARK_PIXELS_inset.png}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/detector_85.jpg}
+\caption{Illustration of masked border pixels (yellow) for detector 85 (R21\_S11). The average defect mask size is 4 pixels along the serial (x-pixel) direction, and 5 pixels along the parallel direction. Additional dark defects exist in the sensor, but are difficult to quantify due to the overwhelming contribution from the picture frame response.}
+\label{fig:fig-edge-mask}
+\end{centering}
+\end{figure}
+
+%%
+The eo-pipe configuration for evaluating dark defects considers a border pixel region that is masked differently from the dark pixels. The default size for this edge is zero pixels. With a zero pixel border mask, the average dark defect count is 1800 per amplifier, with \geq 95\% of the contribution coming from the picture frame. The `picture-frame response' (also called `edge roll-off') near the edges of the sensors is due to a decrease in the pixel active area. It is difficult to extract useful information about the dark defects in the focal plane without excluding the picture frame. The effects of the picture frame signal on dark defect masking is shown in figure~\ref{fig:fig-edge-mask}.
+
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DARK_PIXELS_inset2.png}
 \caption{Comparison of dark pixel counts in Run 7 (E1071) and Run 6 (13550), with separate plots for each raft.  Within each plot the color coding for all amplifier segments in a given CCD is the same.}
 \label{fig:dark-pixels}
 \end{centering}
 \end{figure}
 
-%%
-The eo-pipe configuration for evaluating dark defects considers a border pixel region that is masked differently from the dark pixels. The default size for this edge is zero pixels. With a zero pixel border mask, the average dark defect count is 1800 per amplifier, with \geq 95\% of the contribution coming from the picture frame. It is difficult to extract useful information about the dark defects in the focal plane without excluding the picture frame. The effects of the picture frame signal on dark defect masking is shown in figure~\ref{fig:fig-edge-mask}.
+The default eo-pipe configuration has no border masking. The largest region permitted for the picture frame region is 9 pixels, determined by LCA-19363. Using a 9 pixel mask, the picture frame signal is removed, leaving true dark defects to be measured without contamination.
 
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/detector_85.jpg}
-\caption{Illustration of masked border pixels (yellow) for detector 85 (R21\_S11). The average defect mask size is 4 pixels along the serial (x-pixel) direction, and 5 pixels along the parallel direction. Additional dark defects exist in the sensor, but are difficult to quantify due to the overwhelming contribution from the picture frame resp}
-\label{fig:fig-edge-mask}
-\end{centering}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/baselineCharacterization/darkDefects_comparison_initial.jpg}
+    \caption{Comparison of dark pixel counts in Run 7 (E1071) and Run 6 (13550). Top: A histogram of amplifier measurements, separated by run number and sensor type. Bottom: A histogram of the amplifier dark pixel count differences, the difference is taken as the measurement from Run 6 and the measurement from Run 7.}
+    \label{fig:initChar:DarkPixels:hists}
 \end{figure}
 
-
-The default eo-pipe configuration has no border masking. The largest region permitted for the picture frame region is 9 pixels, determined by LCA-19363.
-
-Dark pixel counts measured in both Run 6 and Run 7 average
-\textasciitilde1800 per amplifier (i.e., approximately 1M pixels), regardless of manufacturer. The
-high dark pixel counts are due to the `picture-frame response' (also called `edge roll-off') 
-near the edges of the amplifier segments.  The correlation between Run 7 and Run 6 dark pixel counts by CCD (Fig.~\ref{fig:dark-pixels}) is generally good, with some notable exceptions...
-
-
-
-Add conclusion when pipelines on E1071 are complete
-
-%%
+In both instances, the contamination of dark pixels across the focal plane is \leq 10 pixels per amplifier on average. There is a measurable improvement in the dark pixel counts, decreasing by one pixel per amplifier between Run 6 and Run 7.
 
 \subsection{Persistence}\label{initPersistenceChar}
 
@@ -630,7 +628,7 @@ Here we consider the measurements taken as
 part of a persistence measurement task in the typical B protocol. For
 measuring persistence, a high-flux acquisition is taken, followed by a
 sequence of dark images. The persistence signal has been observed to
-decrease in subsequent dark images as the trapped charge is released (see Fig.~\ref{fig:persistence-decay} for an example). As a metric for persistence,
+decrease in subsequent dark images as the trapped charge is released (see Figure~\ref{fig:persistence-decay} for an example). As a metric for persistence,
 we evaluate the difference between the residual ADU in the first dark
 image and the average of the residual ADU in the final dark images. This residual signal is found to be \textasciitilde10 ADU.
 
@@ -674,14 +672,14 @@ these persistence measurements are due to higher initial residual ADU, resulting
 
 \subsection{Differences between Run 6 and Run 7}\label{differences-from-previous-runs}
 
-All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and Divisadero tearing show improved performance compared to run 6, while the Persistence feature is still prominent in E2V sensors. 
+All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and Divisadero tearing show improved performance compared to Run 6, while the Persistence feature is still prominent in e2v sensors. 
 
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{ % Resize the table to the page width
 \begin{tabular}{|l|l|ll|ll|}
 \hline
-\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
+\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                    &                                & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
 Serial CTI {[}\%{]}                & Val               & \multicolumn{1}{l|}{3.7068E-5} & 1.1357E-5 & \multicolumn{1}{l|}{1.1488E-4} & 1.6478E-4  \\ \hline
 Parallel CTI {[}\%{]}              & Val               & \multicolumn{1}{l|}{1.2162E-5} & 1.1534E-5 & \multicolumn{1}{l|}{3.4067E-7} & -4.7849E-6 \\ \hline
@@ -933,8 +931,8 @@ Several efforts were undertaken to optimize the sequencer configurations during 
 \item {\bf Whether keeping the IDLE\_FLUSH running or not}: Addressing the worsening of the Divisadero tearing. The detail is described in Section \ref{section:disablingIDLEFLUSH}
 \item {\bf Phase overlap during parallel transfer for e2v}: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced.
 \begin{itemize}
-    \item Sequncer files that are based on the regular v29 but have changes in the parallel transfer by having a half overlap of what it was in the original (\_halfoverlapping.seq), a small amount of overlap compared to what it was in the original (\_overlap113.seq), ero overlapping at all (\_nonoverlapping.seq) are created.
-    \item This overlap is known to cause trailing persistence, as reported in the Davis Report. We conducted several runs using both half overlapping (E1245) and non-overlapping (E1396) sequencers but we haven't studied these because the trailing persistence is no longer a concern by optimizing the operating voltages to avoid charge trapping, 
+    \item Sequencer files that are based on the regular v29 but have changes in the parallel transfer by having a half overlap of what it was in the original (\_halfoverlapping.seq), a small amount of overlap compared to what it was in the original (\_overlap113.seq), ero overlapping at all (\_nonoverlapping.seq) are created.
+    \item This overlap is known to cause trailing persistence, as reported in the Davis Report. We conducted several runs using both half overlapping (E1245) and non-overlapping (E1396) sequencers but we have not studied these because the trailing persistence is no longer a concern by optimizing the operating voltages to avoid charge trapping. 
 \end{itemize}
 
 
@@ -961,12 +959,12 @@ which leave signal in the first row of the subsequent exposure. The effect has a
 \item
   In e2v CCDs: the first row read after an exposure that follows an exposure with saturated
   overscan, has residual charges which are close to saturation, and a significant signal is visible
-  in the subsequent 20--50 rows (see left-hand plot in Fig.~\ref{fig:clear_e2v}).
+  in the subsequent 20--50 rows (see left-hand plot in Figure~\ref{fig:clear_e2v}).
   The effect is slightly amplifier dependent.
 \end{itemize}
 
 These leftover electrons are not associated with what we usually call residual image or persistence. They are suspected to be associated with pockets, induced by the electric field configuration in the sensor and the field associated with saturated pixels.
-Investigation has reveal that only the first exposure taken after an image with saturated overscan is impacted. Our standard clear is not able to flush away those charges, while a standard readout of $\gtrsim$ 2000 rows does remove them.
+Investigation has revealed that only the first exposure taken after an image with saturated overscan is impacted. Our standard clear is not able to flush away those charges, while a standard readout of $\gtrsim$ 2000 rows does remove them.
 There is a chance that a change of the electric field (e.g., a change in the clocking scheme defined in sequencer files) can remove the pockets, and free the charges, allowing them to be cleared.
 
 The location of these uncleared electrons in the first row of the
@@ -1252,11 +1250,11 @@ stability}\label{characterization-camera-stability}
 \subsection{Final characterization}
 \subsubsection{Background}\label{final_background}
 
-For a description of each quantity within this section and its acquisition process, refer to section \ref{reverification}. To compare initial and final camera metrics on Cerro Pachón, we used standard B protocols and dense red PTCs.
+For a description of each quantity within this section and its acquisition process, refer to Section~\ref{reverification}. To compare initial and final camera metrics on Cerro Pachón, we used standard B protocols and dense red PTCs.
 
 \begin{table}[H]
 \centering
-\caption{Reference runs for initial and final run 7 comparisons}
+\caption{Reference runs for initial and final Run 7 comparisons}
 \label{runTable}
 \begin{tabular}{|l|l|l|}
 \hline
@@ -1267,7 +1265,7 @@ PTC        & E749  & E1881 \\ \hline
 \end{table}
 
 
-For the final operating parameters of LSSTCam for run 7, see section \ref{run-7-final-operating-parameters}.
+For the final operating parameters of LSSTCam for Run 7, see Section \ref{run-7-final-operating-parameters}.
 
 \subsubsection{Stability flat metrics}\label{stability-flat-metrics}
 
@@ -1278,7 +1276,7 @@ Serial CTI is extracted from the B protocols, and show high consistency between 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_SCTI_EF_43_inset.png}
-    \caption{Comparison of serial CTI measurements for initial and final run 7 configurations.}
+    \caption{Comparison of serial CTI measurements for initial and final Run 7 configurations.}
     \label{fig:finalChar-SCTI-5x5}
 \end{figure}
 
@@ -1287,7 +1285,7 @@ The serial CTI for both sensor types is a noisy measurement, but serial CTI is n
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/SCTIComp.jpg}
-    \caption{Histogram of serial CTI measurements for initial and final run 7 configurations, separated by detector type.}
+    \caption{Histogram of serial CTI measurements for initial and final Run 7 configurations, separated by detector type.}
     \label{fig:finalChar-SCTI-hist}
 \end{figure}
 
@@ -1299,7 +1297,7 @@ Parallel CTI is extracted from the B protocols, and show high consistency betwee
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_PCTI_EF_43_inset.png}
-    \caption{Comparison of parallel CTI measurements for initial and final run 7 configurations.}
+    \caption{Comparison of parallel CTI measurements for initial and final Run 7 configurations.}
     \label{fig:finalChar-PCTI-5x5}
 \end{figure}
 
@@ -1308,7 +1306,7 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PCTIComp.jpg}
-    \caption{Histogram of parallel CTI measurements for initial and final run 7 configurations, separated by detector type.}
+    \caption{Histogram of parallel CTI measurements for initial and final Run 7 configurations, separated by detector type.}
     \label{fig:finalChar-PCTI-hist}
 \end{figure}
 
@@ -1316,12 +1314,12 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
 
 \paragraph{Dark current}\label{dark-current}
 
- Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see section \ref{successful-autochanger-light-leaks-masking}).
+ Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see Sec.~\ref{successful-autochanger-light-leaks-masking}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_DARK_CURRENT_MEDIAN.png}
-    \caption{Comparison of dark current measurements for initial and final run 7 measurements. A marked decrease in dark current is present in rafts local to the autochanger light leak (see section \ref{successful-autochanger-light-leaks-masking})}
+    \caption{Comparison of dark current measurements for initial and final Run 7 measurements. A marked decrease in dark current is present in rafts local to the autochanger light leak (see Sec.~\ref{successful-autochanger-light-leaks-masking})}
     \label{fig:finalChar-DarkCurrent-5x5}
 \end{figure}
 
@@ -1334,100 +1332,100 @@ Bright defects are extracted using the B protocol runs, and show an extremely cl
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_BRIGHT_PIXELS.png}
-    \caption{Comparison of bright pixel measurements for initial and final run 7 measurements.)}
+    \caption{Comparison of bright pixel measurements for initial and final Run 7 measurements.)}
     \label{fig:finalChar-DarkCurrent-5x5}
 \end{figure}
 
-For an additional discussion about defect stability, see section \ref{defect-stability}.
+For additional discussion about defect stability, see Section~\ref{defect-stability}.
 
 \subsubsection{Flat pair metrics}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/run7PTCsToDate(2).jpg}
-    \caption{Comparison of PTCs from initial and final run 7 conditions, evaluated on a central detector and amplifier.}
+    \caption{Comparison of PTCs from initial and final Run 7 conditions, evaluated on a central detector and amplifier.}
     \label{fig:finalChar-PTCComparison}
 \end{figure}
 
 \paragraph{Linearity and PTC turnoff}\label{final-linearity-and-ptc-turnoff}
 
-Both linearity and PTC turnoff were extracted from the PTC runs. Due to the lower parallel swing for E2V sensors, we anticipate a lower full-well capacity (see \cite{2001sccd.book.....J}). As described in section \ref{persistence-optimization-1}, we observe a decrease in full well capacity for E2V sensors. ITL sensors exhibit stable full-well measures, despite the changes to the v30 sequencer and disabling idle flush.
+Both linearity and PTC turnoff were extracted from the PTC runs. Due to the lower parallel swing for e2v sensors, we anticipate a lower full-well capacity (see \cite{2001sccd.book.....J}). As described in Section~\ref{persistence-optimization-1}, we observe a decrease in full well capacity for e2v sensors. ITL sensors exhibit stable full-well measures, despite the changes to the v30 sequencer and disabling idle flush.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_LINEARITY_TURNOFF.png}
-    \caption{Comparison of linearity turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in linearity turnoff, while ITL sensors stay the same. The values reported here are in ADU, and not gain corrected.}
+    \caption{Comparison of linearity turnoff measurements from the initial and final Run 7 measurements. The e2v sensors show a notable decrease in linearity turnoff, while ITL sensors stay the same. The values reported here are in ADU, and not gain corrected.}
     \label{fig:finalChar-Linearity-5x5}
 \end{figure}
 
-For E2V sensors we find the reduction in full-well to be significant, \textasciitilde20 - 25\% depending on the full-well metric used (see figure \ref{fig:finalChar-fullWell}).
+For e2v sensors we find the reduction in full-well to be significant, \textasciitilde20 - 25\% depending on the full-well metric used (see Fig.~\ref{fig:finalChar-fullWell}).
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_TURNOFF.png}
-    \caption{Comparison of PTC turnoff measurements from the initial and final run 7 measurements. The E2V sensors show a notable decrease in PTC turnoff, while ITL sensors stay the same. The values reported here are in ADU, and not gain corrected.}
+    \caption{Comparison of PTC turnoff measurements from the initial and final Run 7 measurements. The e2v sensors show a notable decrease in PTC turnoff, while ITL sensors stay the same. The values reported here are in ADU, and not gain corrected.}
     \label{fig:finalChar-PTCTurnoff-5x5}
 \end{figure}
 
 
-Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands. If linearity turnoff is the metric used to quantify full-well, all E2V amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% E2V amplifiers do not pass this system requirement (120/1872 total amplifiers). 
+Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands. If linearity turnoff is the metric used to quantify full-well, all e2v amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% e2v amplifiers do not pass this system requirement (120/1872 total amplifiers). 
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/fullWellComparisons.jpg}
-    \caption{Comparisons of PTC turnoff and linearity turnoff for E2V science sensors. The runs analyzed here are the PTC runs noted in table \ref{runTable}. Note that both metrics have been gain corrected.}
+    \caption{Comparisons of PTC turnoff and linearity turnoff for e2v science sensors. The runs analyzed here are the PTC runs noted in table \ref{runTable}. Note that both metrics have been gain corrected.}
     \label{fig:finalChar-fullWell}
 \end{figure}
 
 
 \paragraph{PTC Gain}\label{final-ptc-gain}
 
-PTC Gain was extracted from the PTC runs. PTC gain is extremely comparable between initial and final run 7 conditions, with a minor increase in gain observed in E2V sensors.
+PTC Gain was extracted from the PTC runs. PTC gain is extremely comparable between initial and final Run 7 conditions, with a minor increase in gain observed in e2v sensors.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_GAIN.png}
-    \caption{Comparison of PTC gain amplifier measurements, showing high consistency from initial and final run 7 conditions.}
+    \caption{Comparison of PTC gain amplifier measurements, showing high consistency from initial and final Run 7 conditions.}
     \label{fig:finalChar-PTCGain-5x5}
 \end{figure}
 
-The magnitude of the gain increase for E2V sensors in final run 7 conditions is \textasciitilde0.03 e-/ADU on average.
+The magnitude of the gain increase for e2v sensors in final Run 7 conditions is \textasciitilde0.03 e-/ADU on average.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTCGainComp(1).jpg}
-    \caption{Comparison of PTC gains in E2V science sensors, with a moderate increase in the final run condition.}
+    \caption{Comparison of PTC gains in e2v science sensors, with a moderate increase in the final run condition.}
     \label{fig:finalChar-PTCGain_HistComp}
 \end{figure}
 
 \paragraph{Brighter fatter $a_{00}$ coefficient}\label{final-brighter-fatter-a00-coefficient}
 
-The relative strength of the brighter-fatter effect, quantified by $a_{00}$ following the model from \cite{2019A&A...629A..36A}, is modified in the final run 7 operating conditions by the lower parallel swing for E2V sensors. We observe an extremely high consistency for ITL sensors.
+The relative strength of the brighter-fatter effect, quantified by $a_{00}$ following the model from \cite{2019A&A...629A..36A}, is modified in the final Run 7 operating conditions by the lower parallel swing for e2v sensors. We observe an extremely high consistency for ITL sensors.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_PTC_A00.png}
-    \caption{Comparison of amplifier measurements of the $a_{00}$ parameter for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of the $a_{00}$ parameter for initial and final Run 7 conditions.}
     \label{fig:finalChar-PTC_A00_5x5}
 \end{figure}
 
-The change in the $a_{00}$ value for E2V sensors is illustrated in figure \ref{fig:finalChar-PTC_A00_E2VComp}, showing a \textasciitilde12\% increase in the strength of the brighter fatter effect for E2V sensors due to the lower parallel swing. For additional discussion on the brighter fatter coefficient, see section \ref{impact-on-brighter-fatter-effect}.
+The change in the $a_{00}$ value for e2v sensors is illustrated in Figure~\ref{fig:finalChar-PTC_A00_E2VComp}, showing a \textasciitilde12\% increase in the strength of the brighter fatter effect for e2v sensors due to the lower parallel swing. For additional discussion on the brighter fatter coefficient, see Section \ref{impact-on-brighter-fatter-effect}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTCA00Comp.jpg}
-    \caption{Comparison of the $a_{00}$ values in E2V sensors, showing a notable increase from the final operating conditions.}
+    \caption{Comparison of the $a_{00}$ values in e2v sensors, showing a notable increase from the final operating conditions.}
     \label{fig:finalChar-PTC_A00_E2VComp}
 \end{figure}
 
 \paragraph{Brighter-Fatter Correlation}\label{final-brighter-fatter-correlation}
 
-The strength of the brighter fatter correlation was extracted from the PTC runs. In both instances, the correlation is extremely consistent across initial and final run 7 operating conditions.
+The strength of the brighter fatter correlation was extracted from the PTC runs. In both instances, the correlation is extremely consistent across initial and final Run 7 operating conditions.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_BF_YCORR.png}
-    \caption{Comparison of amplifier measurements of the brighter-fatter y-correlation for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of the brighter-fatter y-correlation for initial and final Run 7 conditions.}
     \label{fig:finalChar-BFYCorr-5x5}
 \end{figure}
 
@@ -1436,48 +1434,48 @@ Both correlations vary by \lesssim 2.2\% on average, decreasing in both instance
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_BF_XCORR.png}
-    \caption{Comparison of amplifier measurements of the brighter-fatter x-correlation for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of the brighter-fatter x-correlation for initial and final Run 7 conditions.}
     \label{fig:finalChar-BFXCorr-5x5}
 \end{figure}
 
 
 \paragraph{Row-means variance}\label{final-row-means-var}
 
-Row means variance is extracted from the PTC runs, and shows an extremely tight correlation when comparing the initial and final operating conditions of run 7. ITL sensors show an extremely tight agreement, while E2V sensors show a lower row-means variance by \textasciitilde1.8\% in the final operating conditions.
+Row means variance is extracted from the PTC runs, and shows an extremely tight correlation when comparing the initial and final operating conditions of Run 7. ITL sensors show an extremely tight agreement, while e2v sensors show a lower row-means variance by \textasciitilde1.8\% in the final operating conditions.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_ROW_MEAN_VAR_SLOPE.png}
-    \caption{Comparison of amplifier measurements of the row-means variance slope  for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of the row-means variance slope  for initial and final Run 7 conditions.}
     \label{fig:finalChar-RowMeanVarSlope-5x5}
 \end{figure}
 
 \paragraph{Divisadero Tearing}\label{final-divisadero-tearing}
 
-Divisadero tearing measurements were extracted from the B protocols, and are significantly different for E2V sensors in the final operating condition. The change in Divisadero strength is driven by idle flush, which is described in detail in section \ref{section:disablingIDLEFLUSH}. E2V sensors show a 60.7\% decrease in the original Divisadero signal under the final operating conditions. ITL sensors show a 0.2\% increase in the original Divisadero signal under the final operating conditions.
+Divisadero tearing measurements were extracted from the B protocols, and are significantly different for e2v sensors in the final operating condition. The change in Divisadero strength is driven by idle flush, which is described in detail in Section~\ref{section:disablingIDLEFLUSH}. The e2v sensors show a 60.7\% decrease in the original Divisadero signal under the final operating conditions. ITL sensors show a 0.2\% increase in the original Divisadero signal under the final operating conditions.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_DIVISADERO_TEARING.png}
-    \caption{Comparison of amplifier measurements of Divisadero tearing for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of Divisadero tearing for initial and final Run 7 conditions.}
     \label{fig:finalChar-Divisadero-5x5}
 \end{figure}
 
-In figure \ref{fig:finalChar-Divisadero-5x5}, several E2V sensors do not follow the global trend of decreased Divisadero signal.  
+In Figure \ref{fig:finalChar-Divisadero-5x5}, several e2v sensors do not follow the global trend of decreased Divisadero signal.  
 
 \paragraph{Dark defects}\label{final-dark-defects}
 
-Dark defects in LSSTCam were extracted using the B protocols, and are contaminated by the picture frame effect regardless of operating conditions (see section \ref{dark-defects} for additional discussion). When applying a 9 pixel mask to the edges of each sensor, the picture frame signal is removed, leaving true dark defects acquired by the analysis pipeline.
+Dark defects in LSSTCam were extracted using the B protocols, and are contaminated by the picture frame effect regardless of operating conditions (see Sec.~\ref{dark-defects} for additional discussion). When applying a 9 pixel mask to the edges of each sensor, the picture frame signal is removed, leaving true dark defects acquired by the analysis pipeline.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1880_E1071_DARK_PIXELS_inset.png}
-    \caption{Comparison of amplifier measurements of the dark pixel for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of the dark pixel for initial and final Run 7 conditions.}
     \label{fig:finalChar-DarkPix-5x5}
 \end{figure}
 
-Dark defects are consistent between initial and final run 7 data. Dark defects are a minimal contribution to the focal-plane, with an average contribution of 3 pixels per E2V amp and 8 pixels per ITL amp. There is no global change in dark defect counts per amp, with measurements of the difference of 
-dark pixel counts per detector centered on zero for both detector types (see fig. \ref{fig:finalChar:darkDefectsComparison}). 
+Dark defects are consistent between initial and final Run 7 data. Dark defects are a minimal contribution to the focal-plane, with an average contribution of 3 pixels per e2v amp and 8 pixels per ITL amp. There is no global change in dark defect counts per amp, with measurements of the difference of 
+dark pixel counts per detector centered on zero for both detector types (see Fig.~\ref{fig:finalChar:darkDefectsComparison}). 
 
 \begin{figure}[H]
     \centering
@@ -1488,36 +1486,36 @@ dark pixel counts per detector centered on zero for both detector types (see fig
 
 \subsubsection{Persistence}\label{final-persistence}
 
-The primary optimization target of run 7 was to mitigate persistence, described in section \ref{persistence-optimization-1}. The major change in the final camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the E2V sensors only, as they are the subset of sensors that exhibit \geq 1 ADU persistence when using the run 7 initial operating parameters.
+The primary optimization target of Run 7 was to mitigate persistence, described in Section~\ref{persistence-optimization-1}. The major change in the final camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the e2v sensors only, as they are the subset of sensors that exhibit \geq 1 ADU persistence when using the Run 7 initial operating parameters.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_persist_inset.png}
-    \caption{Comparison of amplifier measurements of persistence for initial and final run 7 conditions.}
+    \caption{Comparison of amplifier measurements of persistence for initial and final Run 7 conditions.}
     \label{fig:finalChar-Persist-5x5}
 \end{figure}
 
-The amplifier measurements of persistence using the metric described in section \ref{initPersistenceChar} show a significant decrease in persistence signal in E2V sensors due to the lower parallel swing, from 5.66 ADU \rightarrow 0.40 ADU on average when measured using the red LED (corresponding to the LSST r band filter).
+The amplifier measurements of persistence using the metric described in Section~\ref{initPersistenceChar} show a significant decrease in persistence signal in e2v sensors due to the lower parallel swing, from 5.66 ADU \rightarrow 0.40 ADU on average when measured using the red LED (corresponding to the LSST r band filter).
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{figures/PersistenceE2V.jpg}
-    \caption{Demonstration of persistence mitigation in E2V sensors.}
+    \caption{Demonstration of persistence mitigation in e2v sensors.}
     \label{fig:finalChar-persistenceAllLEDs}
 \end{figure}
 
-The B protocol uses a persistence dataset that uses the red LED, and flashes at 400k e- only (description of B protocol persistence dataset in section \ref{background}). Additional persistence datasets were acquired using other LEDs and other exposure levels with the CCOB wide beam projector. This was to verify that persistence was mitigated for the complete LSST photometric range. The runs used for this analysis are listed in table \ref{table:runs_persistence}. 
+The B protocol uses a persistence dataset that uses the red LED, and flashes at 400k e- only (description of B protocol persistence dataset in Section~\ref{background}). Additional persistence datasets were acquired using other LEDs and other exposure levels with the CCOB wide beam projector. This was to verify that persistence was mitigated for the complete LSST photometric range. The runs used for this analysis are listed in table \ref{table:runs_persistence}. 
 
-We find that $\geq$95\% of E2V sensors exhibit a persistence signal $\leq$ 0.55 ADU at all flux levels below full-well capacity. The CCOB requested flux varied by $\sim$ 10\% across the focal plane, and the maximum PTC turnoff for E2V amplifiers under the final operating conditions was 123,243 e- (see figure \ref{fig:finalChar-fullWell}), within the flux levels probed in fig. \ref{fig:finalChar-persistenceAllLEDs}.
+We find that $\geq$95\% of e2v sensors exhibit a persistence signal $\leq$ 0.55 ADU at all flux levels below full-well capacity. The CCOB requested flux varied by $\sim$ 10\% across the focal plane, and the maximum PTC turnoff for e2v amplifiers under the final operating conditions was 123,243 e- (see Fig.~\ref{fig:finalChar-fullWell}), within the flux levels probed in Fig.~\ref{fig:finalChar-persistenceAllLEDs}.
 
 \subsubsection{Differences between Run 7 initial and Run 7 final measurements}\label{final-differences-from-previous-runs}
 
-Comparing the initial and final run 7 measurements, there are four metrics that are impacted by the optimization efforts described in section \ref{sec:camera-optimization}.
+Comparing the initial and final Run 7 measurements, there are four metrics that are impacted by the optimization efforts described in Section~\ref{sec:camera-optimization}.
 \begin{itemize}
-  \item \textbf{Persistence:} We minimized persistence in E2V sensors, the main optimization target of run 7, decreasing it from 5.66 ADU to 0.40 ADU on average with the red LED (LSST-r band), and maintaining sub-ADU levels across the entire LSST bandpass. Due to no change in ITL voltages and lack of an initial persistence feature, ITL sensors do not show a significant change in persistence, and remain at a sub-ADU level (0.48 ADU \rightarrow 0.32 ADU).
-  \item \textbf{Full well capacity:} As a direct consequence of lower parallel swing in E2V sensors, the full-well capacity of E2V sensors decreased significantly with the final operating parameters. For linearity turnoff, E2V sensors decrease from 167,796 e- \rightarrow 136,302 e-. PTC turnoff measurements decrease from 132,963 e- \rightarrow 102,713 e-. ITL sensors do not show a significant change, and remain consistent between initial and final runs.
-  \item \textbf{Brighter-fatter strength (PTC $a_{00}$):} The strength of the brighter fatter effect is also significantly impacted by the change in parallel swing for E2V sensors. The $a_{00}$ parameter increases from $3.08\times10^{-6} \rightarrow 3.49\times10^{-6}$ for E2V sensors, a 13\% increase. ITL sensors are not significantly impacted.% Consequence of changed dP
-  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush. For E2V sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of Divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
+  \item \textbf{Persistence:} We minimized persistence in e2v sensors, the main optimization target of Run 7, decreasing it from 5.66 ADU to 0.40 ADU on average with the red LED (LSST-r band), and maintaining sub-ADU levels across the entire LSST bandpass. Due to no change in ITL voltages and lack of an initial persistence feature, ITL sensors do not show a significant change in persistence, and remain at a sub-ADU level (0.48 ADU \rightarrow 0.32 ADU).
+  \item \textbf{Full well capacity:} As a direct consequence of lower parallel swing in e2v sensors, the full-well capacity of e2v sensors decreased significantly with the final operating parameters. For linearity turnoff, e2v sensors decrease from 167,796 e- \rightarrow 136,302 e-. PTC turnoff measurements decrease from 132,963 e- \rightarrow 102,713 e-. ITL sensors do not show a significant change, and remain consistent between initial and final runs.
+  \item \textbf{Brighter-fatter strength (PTC $a_{00}$):} The strength of the brighter fatter effect is also significantly impacted by the change in parallel swing for e2v sensors. The $a_{00}$ parameter increases from $3.08\times10^{-6} \rightarrow 3.49\times10^{-6}$ for e2v sensors, a 13\% increase. ITL sensors are not significantly impacted.% Consequence of changed dP
+  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush. For e2v sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of Divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
 \end{itemize}
 
 \begin{table}[H]
@@ -1525,7 +1523,7 @@ Comparing the initial and final run 7 measurements, there are four metrics that 
 \resizebox{\textwidth}{!}{ % Resize the table to the page width
 \begin{tabular}{|l|l|ll|ll|}
 \hline
-\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{E2V}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
+\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                   &                                & \multicolumn{1}{l|}{R7 initial} & R7 final & \multicolumn{1}{l|}{R7 initial} & R7 final \\ \hline
 Serial CTI {[}\%{]}               &                                & \multicolumn{1}{l|}{1.1357E-5}              &      7.3015E-6       & \multicolumn{1}{l|}{1.6478E-4}              &        1.5221E-4     \\ \hline
 Parallel CTI {[}\%{]}             &                                & \multicolumn{1}{l|}{1.0555E-5}              &       1.1111E-5      & \multicolumn{1}{l|}{-4.7850E-6}              &       1.2103E-6      \\ \hline
@@ -1547,11 +1545,11 @@ Persistence {[}ADU{]}             &       None                         & \multic
 \label{table:FinalChar-paramTable}
 \end{table}
 
-All other metrics were not significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSSTCam as a result of run 7 testing, see section \ref{run-7-final-operating-parameters}.
+All other metrics were not significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSSTCam as a result of Run 7 testing, see Section~\ref{run-7-final-operating-parameters}.
 
 \subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
 
-We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2-2.0 (or 0.8-1.8 for BOT data). 
+We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2--2.0 (or 0.8--1.8 for BOT data). 
 
 A list of nonfunctional amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data taking period. A summary of those amplifiers is shown in Table~\ref{tab:BOTbadamp}. As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as hi-noise during single raft or BOT testing, only one (R41\_S21\_C02) remained as hi-noise at the end of BOT testing.
 
@@ -1663,7 +1661,7 @@ $D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode facto
 Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} \log w_{ij}
 \label{eq:nonlin1}
 \end{equation}
-We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Fig. \ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
+We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
 \subsection{Guider operation}\label{guider-operation}
 
@@ -1713,7 +1711,7 @@ This section describes guider operation.
 \multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
 \hline
 400x400 & 200 & 1 & 1 & n/a       &  1.67 & 4.03 \\ % gds_roi_01.cfg
-400x400 &  50 & 1 & 1 & n/a       &  2.23 & \\ % gds_roi_02.cfg
+400x400 &  50 & 1 & 1 & n/a       &  2.23 & 3.95 \\ % gds_roi_02.cfg
 400x400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
 10x10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
 400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 105.30 \\ % gds_roi_05.cfg
@@ -1721,7 +1719,9 @@ This section describes guider operation.
 \end{longtable}
 
 \subsubsection{Noise Investigation (take 20 images for each, 15 seconds each)}
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of an entire ROI, and averaged over all frames from all of the 20 images. In cases where multiple sensors are running at the same time, the noise is also averaged over all sensors. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation.
 
+Guider configurations for Table~\ref{tab:gds_configs} are listed below:
 \paragraph*{Start with a single GREB}
 \begin{itemize}
     \item Acquire nominal ROI on a single sensor
@@ -1796,15 +1796,11 @@ This section describes guider operation.
 
 \subsection{Defect stability}\label{defect-stability}
 
-This section describes defect stability.
+% Add explanation of how to measure defect stability
 
-\begin{itemize}
-\tightlist
-\item
-  Bright defects
-\item
-  Dark defects with picture frame
-\end{itemize}
+\subsubsection{Bright defects}
+
+\subsubsection{Dark defects}
 
 \subsection{Bias stability}\label{sec:bias-stability-2}
 
@@ -1841,7 +1837,7 @@ relevant stability runs were recorded:
   Run E2330: 15\,s and 30\,s darks with variable delays between exposures
 \end{enumerate}
 
-To analyze these runs for bias instability, the eo\_pipe bias
+To analyze these runs for bias instability, the {\tt eo\_pipe} bias
 stability task is used.  For the ISR part, a serial
 %(\textquotesingle mean\phantomsection\label{per_row}{per\_row}\textquotesingle)
 (`meanper\_row')
@@ -1981,7 +1977,7 @@ amplifier C01 is different in the 3 cases.
 %\end{figure}
 
 In order to quantify the number of unstable e2v amplifiers, a stability
-metric \emph{d} is defined from the eo\_pipe
+metric \emph{d} is defined from the {\tt eo\_pipe}
 stability task data products. More precisely, \emph{d} is defined, for a
 given amplifier in a given run, as the difference between the 5th and
 95th percentiles of the image mean over all the bias image acquisitions. The
@@ -2084,10 +2080,10 @@ Figure \ref{fig:relgainparamE1496} shows the derived
 
 Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of figures but for the Run that has a temperature change in the cold plate by 2 degrees.
 The temperature was kept the same in the beginning, but the set point was changed later, and then it was brought back to the original temperature. 
-Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temp relationship, which doesn't match the slope originally derived from the past run, although there are no obvious changes in the system other than the REB temperature.
+Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temp relationship, which does not match the slope originally derived from the past run, although there are no obvious changes in the system other than the REB temperature.
 
 
-The reason why the relationship becomes much more complicated is not clear. It is understandable that Run 6 didn't observe the hysteresis because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temp, 2) illumination from the LED is somehow changing overtime, which is not correlated with the LED temp, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As the hysteresis is observed, the possibility 1 is definitely present but it can't explain the gain temp change in the constant temperature. For the possibility 2, it is unlikely given the fact that Run 6 observed the complicated relationship. The option 3 could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to the turbulence in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For the possibility 4, we did visual check in a different period and we didn't find anything obvious. 
+The reason why the relationship becomes much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temp, 2) illumination from the LED is somehow changing overtime, which is not correlated with the LED temp, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As the hysteresis is observed, the possibility 1 is definitely present but it cannot explain the gain temp change in the constant temperature. For the possibility 2, it is unlikely given the fact that Run 6 observed the complicated relationship. The option 3 could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to the turbulence in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For the possibility 4, we did visual check in a different period and we did not find anything obvious. 
 
 The gain change issue can be split into 2 categories: global or local in an amplifier.  The global coherent change can be, in principle, correctable as it degenerates with the atmospheric transparency, which will be corrected by the calibration process. The local amp-by-amp change is a more serious issue in respect because the number of stars might not be sufficient for making the precise photometric calibration statistically. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
 
@@ -2097,7 +2093,7 @@ The gain change issue can be split into 2 categories: global or local in an ampl
     \caption{Differential gain change with respect to the median of relative gain change for the whole focal plane, for E1496}
     \label{fig:relative-gain-E1496}
 \end{figure}
-The differential gain change with respect to global change for the constant temperature appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11/S12, R12/S10, R12/S22, R24/S11, R34/S20 have one amplifier that have a higher relative gain than up to $5\times 10^{-4}$ but others behave stable. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed. Another interesting behavior is seen in R11/S2x. There were a spike in three sensors at the same time. We haven't figured out what happened at that time.
+The differential gain change with respect to global change for the constant temperature appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11/S12, R12/S10, R12/S22, R24/S11, R34/S20 have one amplifier that have a higher relative gain than up to $5\times 10^{-4}$ but others behave stable. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed. Another interesting behavior is seen in R11/S2x. There were a spike in three sensors at the same time. We have not figured out what happened at that time.
 
 \begin{figure}
     \centering
@@ -2267,9 +2263,9 @@ background of XXX.
 
 A category of sensor feature found on some ITL sensors, that has recently benefited from fresh attention, now has a new name. They are called {\it vampire pixels} because of their curious flat field response: a group of pixels with photo-response exceeding the flat-field mean, surrounded by a concentric distribution of pixels with photo-response below the same flat-field mean. The {\it vampire pixel} name sticks because the over-responsive pixels have apparently ``sucked'' signal from the rightful owners, a sort of {\it reverse brighter-fatter} effect excited simply with flat-field illumination. 
 
-The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius. It turns out that all prominent {\it vampire pixel} complexes are also detected by their phosphorescence response which 
+The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius, which place strong constraints on their origin. Also, it turns out that all prominent {\it vampire pixel} complexes are also seen in their (ITL) phosphorescence response which is indicative of the backside surface layer ({\it cf.} \S\ref{phosphorescence}). This means that {\it vampire pixels} are likely to appear also in dark images, but only if trigger illumination is delivered a few tens of seconds prior to the dark acquisition ({\it cf.} vampire transients, Tab.~\ref{qualitative_assessment:itl_sensors}).
 
-can be characterized by the following: they are most easily detected in their localized flat-field response, showing both over- and under-response in regions greater than 
+All known cases appear to round or with circular symmetry. There are plenty of cases with similar pixel complexes that lack the central group of pixels with {\it high-amplitude} photo-response excess, but that the photo-response excess is simply divided into a larger number of pixels. We suggest that the underlying origin of these is common with the easier-to-detect {\it bright pixels} ({\it cf.}\S\ref{first-observations}) but appear with different response properties simply because of mundane geometric details. Different detection algorithms may therefore be required finding those {\it vampire pixel} complexes that do {\it not} show central bright pixels as opposed those that {\it do}. Moving forward, we choose not to invent a new name for the former type, but call them both {\it vampire pixel} complexes.
 
 \subsubsection{First observations}\label{first-observations}
 
@@ -2281,89 +2277,159 @@ Since ComCam on-sky data has been available, more attention has been paid to the
 \subsubsection{LSSTCam vampire pixel
 features}\label{lsstcam-vampire-pixel-features}
 
-One prominent example of such a feature is located in the Main Camera on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity to it (when HV Bias is on). 
+One prominent example of such a feature is located in the Main Camera on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity to it (when HV Bias is on). In Figure~\ref{fig:vamp:ffresp} and Table~\ref{tab:vamp:samples} we include this example along with two other prominent {\it vampire pixel} complexes (and others) located on ITL sensors in the Main Camera's focal plane to describe their individual properties. Inspection reveals a broad parameter space that describe these pixel complexes that can cause distortion in one way or another as soon as they are used to record cosmic sources: astrometric and shape transfer errors inferred from flat response, and background estimation or source confusion errors from the pixel complexes' phosphorescence properties!
+
+%Because of the variation in how they appear, no doubt a flexible finding algorithm will need to be written.
+
+%Vampire pixels were first observed in ComCam observations {[}need more
+%info to properly give context{]} - Andy's study on Oct.
+%8 - Agnes masking effort
+
+%The vampire pixels have distinct features, both on the individual defect
+%level, and across the focal plane
+
+\begin{figure}[!htbp]
+\centering
+ \begin{subfigure}{0.3\textwidth}
+     \includegraphics[width=\textwidth]{figures/vamp_desc/vamp_desc_ffresp_R01S00.png}
+     \caption{R01\_S00\_C13-4.}
+     \label{subfig:vamp_desc_R01_S00}
+ \end{subfigure}
+ \begin{subfigure}{0.3\textwidth}
+ \vskip 0pt
+     \includegraphics[width=\textwidth]{figures/vamp_desc/vamp_desc_ffresp_R03S10.png} 
+     \caption{R03\_S10\_C15}
+     \label{subfig:vamp_desc_R03_S10}
+ \end{subfigure}  
+ \begin{subfigure}{0.3\textwidth}
+ \vskip 0pt
+     \includegraphics[width=\textwidth]{figures/vamp_desc/vamp_desc_ffresp_R20S20.png} 
+     \caption{R20\_S20\_C13}
+     \label{subfig:vamp_desc_R20_S20}
+ \end{subfigure}  
+ \newline
+\caption{Three prototypical {\it vampire pixel} complexes occurring in the Main Camera. Each of these have counterparts that appear in phosphorescence (transient dark). These are each described in Table XX. In R01\_S00, Two ``baby'' vampires appear in the 8:00 and 8:30 positions that each posess 300-400\% nominal flat response. The recorded phosphorescent counterparts for R03\_S10 and R20\_S20 are dependent on HV Bias (cf. Figs.~\ref{subfig:hvb_off_R03_S10} through \ref{subfig:hvb_on_R20_S20}) and should provide some constraints as to the pixel astrometric shifts at play near these {\it vampire pixel} complexes.}
+\label{fig:vamp:ffresp}
+\end{figure}
 
 
-Vampire pixels were first observed in ComCam observations {[}need more
-info to properly give context{]} - Andy's study on Oct.
-8 - Agnes masking effort
+
+\begin{table}[h!]
+\caption{Sample vampire pixel complex parameters. The last column indicates whether a concentric phosphorescence center is present.}
+\label{tab:vamp:samples}
+\centering
+\begin{tabular}{llllll}
+\toprule
+{\it vampire pixel}& radius at 99\% & minimum& maximum& peak at & P?\\
+complex & flat response & under-response & over-response & center?\\
+\midrule
+R01\_S00\_C13-4 & 200 pix & 1.4\%&1660\% & distributed & yes\\
+                &         &      &       &~(10 pix offset)&\\
+~baby1 (8:00)   & 6 pix   & 83\% & 375\% & yes & yes \\
+~baby2 (8:30)   & 4 pix   & 84\% & 290\% & yes & yes \\
+R03\_S10\_C15   & 36 pix  & 21\% & 1570\%& yes & yes \\
+~baby3 (8:30)   & 4 pix?  & 97\% & 152\% & yes & no \\
+~baby4 (10:30)  & 4 pix?  & 98\% & 120\% & yes & no \\
+~baby5 (4:00)   & 4 pix?  & 89\% & NA    & no peak & yes \\
+R20\_S20\_C13   & 52 pix  & 40\% & 829\% & no (ring-like) & yes \\
+~baby6 (10:00)  & NA      & NA   & 108\% & yes & no \\
+~baby7 (3:00)   & NA      & NA   & 119\% & yes & no \\
+~baby8 (7:00)   & NA      & NA   & 207\% & yes & no \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
+The pixel complexes evaluated in Table~\ref{tab:vamp:samples} were chosen based on their proximity to the prominent {\it vampire pixel} appearing at the center of the corresponding image given in Figure~\ref{fig:vamp:ffresp}, and include (on average) 3 other, nearby complexes that may be more representative of these artifacts found on ITL sensors in the Main Camera focal-plane. In the Table they are indicated by their name (``babyX'') followed by the clocking angle where they can be identified relative to the prominent pixel complex located at the center. From this list, it appears that the {\it vampire pixel} complexes may be reliably identified by applying a OR combination of thresholds: under-response less than 90\%, or an over-response exceeding 120\% and some consideration of the presence of phosphorescence. The phosphorescence, more than anything, may help to distinguish the dark pixel complexes {\it without} central bright pixels from dust spots (which presumably would not preserve flux). 
 
-The vampire pixels have distinct features, both on the individual defect
-level, and across the focal plane
+There are a handful of dust spots seen in these images that were not included in~\ref{tab:vamp:samples}. They would presumably be detected as dark pixels provided the lower threshold is raised to levels that would be sensitive to their detection.
 
-\paragraph{Individual vampire
-features}\label{individual-vampire-features}
 
-\begin{itemize}
-\tightlist
-\item
-  General size
-\item
-  Radial kernel
-\item
-  uniformity
-\end{itemize}
+%\paragraph{Individual vampire
+%features}\label{individual-vampire-features}
+%
+%\begin{itemize}
+%\tightlist
+%\item
+%  General size
+%\item
+%  Radial kernel
+%\item
+%  uniformity
+%\end{itemize}
+%
 
-\paragraph{Vampire features across the focal
-plane}\label{vampire-features-across-the-focal-plane}
+An imperfect listing of ITL sensors in the Main Camera focal-plane showing such {\it vampire pixel} complexes, is given in a table in a later section (\S\ref{phosphorescence}, Tab.~\ref{qualitative_assessment:itl_sensors}). This list shows that 83 of the 88 Main Camera ITL sensors contain finite numbers of {\it vampire pixel} complexes, with typical numbers less than 30, revealed by spot-like phosphorescence counts. There would be significant overlaps with pixel complex lists generated using only stacks of flat-field response, which would also be sensitive to dust spots (in {\it dark pixels}), which are likely to have greater numbers (and may be partially salvageable depending on host surface and dust opacity). Meanwhile, {\it bright pixels} will also pinpoint the larger particulates that reflect light while also casting shadows (we've seen such cases, but their discussion is outside scope of this section). 
 
-\begin{itemize}
-\tightlist
-\item
-  sensor type
-\item
-  static or dynamic
-\item
-  higher concentrations? Particularly bad sensors?
-\end{itemize}
+Based on this listing, there are a total of 17 (of 88) ITL sensors in the Main Camera that appear to host more than 30 {\it vampire pixel} complexes. These identifications may be used to study in depth more fully the science impact of their transverse electric fields as well as their phosphorescent properties (when recording is preceded directly by illumination by a star in the previous image).
 
-\subsubsection{Current masking
-conditions}\label{current-masking-conditions}
+As a \href{https://rubin-obs.slack.com/archives/C07QJMQAP6E/p1731348605966989?thread_ts=1730921120.364949&cid=C07QJMQAP6E}{proof of concept}, a task was added to {\tt eo\_pipe} to search for bright defect pixels in combined flats. Figure~\ref{fig:eopipe_brightdefects_task_result} displays the resulting distribution, which efficiently identifies or picks up the ITL set of sensors. Without looking more closely at the specific regions flagged, it would not be possible to separate out the {\it vampire pixel} complexes from {\it reflecting particulates}. Conversely, repeating this task to identify dark pixels with a threshold of 0.90 (90\% of flat level), we expect to see a combination of (flux conserving) {\it vampire pixel} complexes and garden variety (flux attenuating) dust to appear. (Currently, we do not know whether dust particulates prefer to stick to e2v sensors or to their ITL counterparts.)
 
-\begin{itemize}
-\tightlist
-\item
-  Bright pixels
-\item
-  Dark pixels
-\item
-  Jim's task
-\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/vamp_desc/vampire_defects_fp_plot_LSSTCam_u_jchiang_eo_vampire_defects_E1880_w_2024_35_20241111T173034Z.png}
+    \caption{Results of the {\tt eo\_pipe} task written to search for bright defects in combined flats. Using a threshold of 1.2 (120\% of flat level), the result highlights the 8 RTMs that operate ITL sensors (as well as those CRTMs with sensors operating in science mode).}
+    \label{fig:eopipe_brightdefects_task_result}
+\end{figure}
 
-\subsubsection{Analysis of flats}\label{analysis-of-flats}
+%\paragraph{Vampire features across the focal
+%plane}\label{vampire-features-across-the-focal-plane}
+%
+%\begin{itemize}
+%\tightlist
+%\item
+%  sensor type
+%\item
+%  static or dynamic
+%\item
+%  higher concentrations? Particularly bad sensors?
+%\end{itemize}
+%
+%\subsubsection{Current masking
+%conditions}\label{current-masking-conditions}
+%
+%\begin{itemize}
+%\tightlist
+%\item
+%  Bright pixels
+%\item
+%  Dark pixels
+%\item
+%  Jim's task
+%\end{itemize}
 
-\begin{itemize}
-\tightlist
-\item
-  LED effect
-\item
-  Intensity effect
-\end{itemize}
+%\subsubsection{Analysis of flats}\label{analysis-of-flats}
+%
+%\begin{itemize}
+%\tightlist
+%\item
+%  LED effect
+%\item
+%  Intensity effect
+%\end{itemize}
+%
+%\subsubsection{Analysis of darks}\label{analysis-of-darks}
+%
+%\begin{itemize}
+%\tightlist
+%\item
+%  Previous LED effect
+%\item
+%  Intensity of LED effect
+%\item
+%  dark cadence and exposure times
+%\end{itemize}
 
-\subsubsection{Analysis of darks}\label{analysis-of-darks}
-
-\begin{itemize}
-\tightlist
-\item
-  Previous LED effect
-\item
-  Intensity of LED effect
-\item
-  dark cadence and exposure times
-\end{itemize}
-
-\subsubsection{Current models of
-vampires}\label{current-models-of-vampires}
-
-\begin{itemize}
-\tightlist
-\item
-  Tony \& Craig model
-\item
-  Others?
-\end{itemize}
+%\subsubsection{Current models of
+%vampires}\label{current-models-of-vampires}
+%
+%\begin{itemize}
+%\tightlist
+%\item
+%  Tony \& Craig model
+%\item
+%  Others?
+%\end{itemize}
 
 
 
@@ -2535,11 +2601,11 @@ optimization}.
 \begin{longtable}{@{}l|c|cc@{}}
 \caption{Voltage Conditions with Updated Run 5 for ITL Values} \\
 \toprule
-Parameter & Run 5 (ITL) & Run 5 (dp93; E2V) & Run 7 (dp80; new voltage for e2v) \\
+Parameter & Run 5 (ITL) & Run 5 (dp93; e2v) & Run 7 (dp80; new voltage for e2v) \\
 \midrule
 \endfirsthead
 \toprule
-Parameter & Run 5 (ITL) & Run 5 (dp93; E2V) & Run 7 (dp80; new voltage for e2v) \\
+Parameter & Run 5 (ITL) & Run 5 (dp93; e2v) & Run 7 (dp80; new voltage for e2v) \\
 \midrule
 \endhead
 \bottomrule
@@ -2678,7 +2744,7 @@ This section describes Run 7 record runs. All runs use our camera operating conf
 
 \subsection{Other runs of relevance}\label{relevant-runs}
 
-Runs that use the run 7 final camera operating configuration (section \ref{run-7-final-operating-parameters}) are denoted with \textbf{bold run ID}.
+Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-final-operating-parameters}) are denoted with \textbf{bold run ID}.
 
 % B Protocol
 \begin{table}[H]\label{table:runs_BProtocol}
@@ -2690,7 +2756,7 @@ Run ID & Links & Notes \\ \hline
 \textbf{E3380} & & First B protocol post-chiller recovery. v30, dp80, idle flush disabled. \\ \hline
 \textbf{E2233} & & Identical to E1880. Acquired after CCS subsystem reboot. dp80, idle flush disabled. \\ \hline
 \textbf{E1880}  &  Web report \newline Test Execution & Camera operating configuration \\ \hline
-E1812 & & v29 NopSf (no pocket serial flush running for both E2V and ITL clear sequencers). dp80 voltages, idle flush ?? [likely disabled but verification needed] \\ \hline
+E1812 & & v29 NopSf (no pocket serial flush running for both e2v and ITL clear sequencers). dp80 voltages, idle flush ?? [likely disabled but verification needed] \\ \hline
 E1497 & & v29 Nop sequencer, dp80, idle flush ?? [likely disabled but verification needed] \\ \hline
 E1429 & & First dp84 run. v29, idle flush disabled \\ \hline
 E1419 & & First dp88 run. v29, idle flush disabled \\ \hline
@@ -2767,10 +2833,10 @@ E1075 & & PH filter in place. v26 no RG\\ \hline
 \hline
 Run ID & Links & Notes \\ \hline
 E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
-E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
-E1586 & & One 100\,s flat exposure, spots moved to selected phosphorescent regions. E2V:v29Nop, ITL:v29Nopp \\ \hline
-E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. E2V:v29Nop, ITL:v29Nopp \\ \hline
-E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s intervals. E2V:v29Nop, ITL:v29Nopp \\ \hline
+E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. e2v:v29Nop, ITL:v29Nopp \\ \hline
+E1586 & & One 100\,s flat exposure, spots moved to selected phosphorescent regions. e2v:v29Nop, ITL:v29Nopp \\ \hline
+E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. e2v:v29Nop, ITL:v29Nopp \\ \hline
+E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s intervals. e2v:v29Nop, ITL:v29Nopp \\ \hline
 \end{tabular}
 \end{table}
 
