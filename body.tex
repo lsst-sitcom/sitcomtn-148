@@ -1,11 +1,12 @@
 \section{Introduction}
 The LSST Camera had been constructed at SLAC National Accelerator Laboratory in California, the US.
-The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verify the Camera functionality and led discoveries of non-ideal features.
+The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verify the Camera functionality and led discoveries of non-ideal features \citep{2024SPIE13096E..1SR}.
 
 In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was rolled into the white room at Level 3 in the Vera C. Rubin Observatory. The 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from September 2024 to December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
 
-This document details initial testing results giving focus on the following points:
+This document details initial testing results, giving focus on the following points:
 \begin{itemize}
+    \item What is the difference of testing setup (Section \ref{electro-optical-setup})
     \item Does the Camera after the transportation still perform as we checked out in California? (Section \ref{reverification})
     \item Optimizations to the features that we found during previous EO testing such as persistence and bias instability. (Section \ref{sec:camera-optimization})
     \item How does the Camera perform after implementing those optimizations? (Section \ref{characterization-camera-stability})
@@ -1555,7 +1556,15 @@ All other metrics were not significantly impacted by the final operating conditi
 
 \subsection{Illumination corrected flat}
 
-To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We model the illumination with a two dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coeffients with the {\it least\_squares} method in {\it scipy.optimize}. 
+To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/lambda_nm750_withfit.png}
+    \caption{Focal Plane mosaic from a $750~nm$ lambda flat (left). Two-dimensional Chebyshev model illumination fit (right)}
+    \label{fig:mosaic-modelfit}
+\end{figure}
+
 
 
 \subsection{Glow search}
@@ -2150,7 +2159,7 @@ In summary, we find
 \section{Sensor features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
-Tree rings is circular variations in silicon doping concentration which can be observed in flat images. Both LSST The impact of the tree rings is assessed in \citep{2017Jinst..12C05015,2020JATIS...6a1005P, 2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
+Tree rings is circular variations in silicon doping concentration which can be observed in flat images. The treerings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
 \subsubsection{Center of the Tree Ring}
 From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four (4) CCD is cut from one wafer. 
 So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude. However we have new data with 0\,V of back bias voltage, which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center.
@@ -2184,9 +2193,8 @@ Figure~\ref{fig:tree-ring-radial-transform} illustrates the transformation of a 
 \caption{Radial study of the Tree Rings. Right: image subtracting left to right, right to left.}
 \end{figure}
 
-\clearpage
 \subsubsection{Effect of diffuser}
-We expect that with the diffuser installed, there will be less contribution from effects such as CMB and weather patterns discussed in \S~XX. Comparing R22\_S12 of Run 6 run 13379 (without diffuser) with Run 7 E937 (with diffuser), we verified the significant improvement from use of the diffuser.
+We expect that with the diffuser installed, there will be less contribution from effects such as CMB and weather patterns discussed in Section \ref{run-7-optical-modifications}. Comparing R22\_S12 of Run 6 run 13379 (without diffuser) with Run 7 E937 (with diffuser), we verified the significant improvement from use of the diffuser.
 
 \begin{figure}[ht]
 \centering
@@ -2201,7 +2209,6 @@ We expect that with the diffuser installed, there will be less contribution from
 \caption{Tree ring with diffuser}
 \end{figure}
 
-\clearpage
 \subsubsection{Voltage dependency}
 \begin{figure}[ht]
 \centering
@@ -2242,7 +2249,6 @@ Tree ring effect doesn't depend on wavelength much, as studied in \citep{2017Jin
 \label{fig:tree_ring_subtract_red_blue}
 \end{figure}
 
-\clearpage
 \subsection{ITL Dips}\label{itl-dips}
 
 One of the phenomena that was studied in the later part of Run 7 was so-called 
