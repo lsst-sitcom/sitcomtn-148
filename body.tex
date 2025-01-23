@@ -1,12 +1,4 @@
 \section{Introduction}
-The naming of the EO runs was established during initial LSSTCam
-integration and testing. The final SLAC IR2 run from November 2023 was
-named ``Run 6", while the data acquisitions from Cerro Pachon from September through December 2024 are
-considered ``Run 7". Additionally, individual EO acquisitions are tagged
-with a run identifier. This is commonly referred to as a Run ID. For all
-SLAC runs, the run identifier was a five digit numeric code, while the
-Cerro Pachon runs were ``E-numbers" that started with a capital E
-followed by a numeric code.
 
 \section{Electro-optical setup}\label{electro-optical-setup}
 
@@ -43,7 +35,7 @@ To both reduce the effects of the
 `weather' and
 `CMB' but retain uniform illumination
 across the focal plane, we installed a diffuser in the cone attached to
-L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the cone.
+L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the cone.  The diffuser used is a $60^o$ diffusing angle unmounted sheet from Edmunds Optics.
 
 \begin{figure}
 \centering
@@ -252,7 +244,7 @@ darks}\label{shutter-condition-impact-on-darks}
 \paragraph{Filter condition impact on
 darks}\label{filter-condition-impact-on-darks}
 
-To investigate how the filter affects the dark current, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/sec with the empty filter to 0.0035 e-/sec for $r$, 0.0011 e-/sec for $y$, and 0.00063 e-/sec for $g$. The discrepancy between the filters could be the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
+To investigate how the filter affects the dark current, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/s with the empty filter to 0.0035 e-/s for $r$, 0.0011 e-/s for $y$, and 0.00063 e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
 
 \begin{figure}
 \begin{centering}
@@ -339,6 +331,11 @@ PTC        & 13591 & E749 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The naming of the EO runs was established during initial LSSTCam
+integration and testing. The final SLAC IR2 run from November 2023 was
+named ``Run 6", while the data acquisitions from Cerro Pachon from September through December 2024 are considered ``Run 7". Additionally, individual EO acquisitions are tagged with a run identifier. This is commonly referred to as a Run ID. For all SLAC runs, the run identifier was a five digit numeric code, while the Cerro Pachon runs were ``E-numbers" that started with a capital E followed by a numeric code.
+
 
 \subsection{Stability flat metrics}\label{stability-flat-metrics}
 
@@ -496,7 +493,7 @@ Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing 
 \subsubsection{PTC Gain}\label{ptc-gain}
 
 PTC gain is the conversion factor between digital output signal and the the number of electrons generated in the pixels of the CCD. It is one of the key parameters derived from the Photon Transfer
-Curve, as it is the slope above the flux range at which the variance is dominated by shot noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the digitized analog signals from the ASPICs to units of e$^{-1}$.
+Curve, as it is the slope above the flux range at which the variance is dominated by shot noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the digitized analog signals from the ASPICs (Application Specific Photonic Integrated Circuits) to units of e$^{-1}$.
 
 \begin{figure}[H]
 \begin{centering}
@@ -1240,11 +1237,6 @@ We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero
 \section{Characterization \& Camera
 stability}\label{characterization-camera-stability}
 
-\subsection{Illumination corrected flat}
-% eventually we move these two section after the final characterization
-
-\subsection{Glow search}
-% eventually we move these two section after the final characterization
 
 
 \subsection{Final characterization}
@@ -1314,7 +1306,7 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
 
 \paragraph{Dark current}\label{dark-current}
 
- Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see Sec.~\ref{successful-autochanger-light-leaks-masking}).
+Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see Sec.~\ref{successful-autochanger-light-leaks-masking}).
 
 \begin{figure}[H]
     \centering
@@ -1547,6 +1539,11 @@ Persistence {[}ADU{]}             &       None                         & \multic
 
 All other metrics were not significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSSTCam as a result of Run 7 testing, see Section~\ref{run-7-final-operating-parameters}.
 
+\subsection{Illumination corrected flat}
+
+
+\subsection{Glow search}
+% eventually we move these two section after the final characterization
 \subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
 
 We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2--2.0 (or 0.8--1.8 for BOT data). 
@@ -1574,7 +1571,7 @@ A list of nonfunctional amplifiers on Science Rafts was produced from both singl
     \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab:BOTbadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391,13557,E1110,E1363,E1880,E2233,E3380) and PTC runs (13412,13591,E1113,E1364,E1881,E2237,E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figure~\ref{fig:ptc-badamps} and Figure~\ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:badamps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $~10^3$ (R01\_S01\_C00, R03\_S11\_C00).
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391,13557,E1110,E1363,E1880,E2233,E3380) and PTC runs (13412,13591,E1113,E1364,E1881,E2237,E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figure~\ref{fig:ptc-badamps} and Figure~\ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $~10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two ones with the tiny signal had low current measurement of around 0.5mA when they looked dead, while it was 1.0mA when they looked alive. 
 
 \begin{figure}
     \centering
@@ -1664,23 +1661,40 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
 \subsection{Guider operation}\label{guider-operation}
+Beginning with Run 7, it became common to run the guider in its nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
 
-This section describes guider operation.
+\subsubsection{Guide Mode}
+Because, different regions of pixels on each GREB sensor can be read out, the guider requires a version GREB firmware that implements a separate sequencer for each sensor. When in science, or full frame mode, there is only one sequencer in the GREB. Which controls the synchronous readout of both sensors and the interleaving of their data. Additionally, the DAQ embedded processor connected the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
 
-\begin{itemize}
-\tightlist
-\item
-  Initial guider operation
-\item
-  Power cycling the guiders to get to proper mode
-\item
-  Synchronization
-\item
-  Guider ROI characterization
-\end{itemize}
+The main steps of the procedure to switch from science to guide mode is:
+\begin{enumerate}
+    \item Power off HV bias and sensor power
+    \item Reboot the GREB into the guider (multi-sequencer) firmware
+    \item Reconfigure the DAQ and CCS
+    \item Power on the sensors and HV bias
+\end{enumerate}
 
-\subsubsection{Noise Investigation (take 20 images for each, 15 seconds each)}
-We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of an entire ROI, and averaged over all frames from all of the 20 images. In cases where multiple sensors are running at the same time, the noise is also averaged over all sensors. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation.
+Currently, the GREBs will boot into the science firmware on power up, but we are expecting to change this default to guider firmware prior to operations. Similarly, though powering the HV bias off will always be necessary when rebooting the GREB, as it is controlled by the GREB firmware, but powering off the sensor was done out of an abundance of caution. If it becomes common to switch back and forth, which is not expected, it may be worth investigating whether this is actually necessary.
+
+\subsubsection{Guider Timing}
+The guider is designed to operate in a continuous loop, alternating between integration and readout. To first order, the time between stamps is the sum of the integration time and the sequencer execution time. The sequencer execution time varies with the ROI size in a way that is fixed for a version of the sequencer program. However, due to the details of the DAQ implementation, there is also a contribution from transporting the data within the embedded DAQ processors. Figure \ref{fig:guider_timing} shows the inter-stamp timing for all guide-specific runs in the nominal ROI configuration. The beginning of the readout of each sensor is synchronized to +/- one system clock cycle (10ns) using the same mechanism as science readout. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/guider_timing.png}
+    \caption{Inter-stamp time for nominal ROI}
+    \label{fig:guider_timing}
+\end{figure}
+
+\paragraph*{Noise Study Configurations}
+For any guide configuration, the ROI size is the same for all sensors, but its location on each sensor varies. This means that the total readout time is the same, but for any given time within that total, any given sensor can be fast-flushing rows, flushing columns, or reading out pixels. To examine the sensitivity of the GREB to noise induced by the phasing of readout and clearing, a series of configurations were defined. Beginning with a single sensor as the baseline, two sensors on the same GREB were configured to readout both with their ROI locations the same (\textit{aligned}) and not overlapping (\textit{unaligned}.) This to measure whether noise can be induced on sensors within the same GREB. This was followed by four aligned ROIs one sensor on each GREB and four sensors all unaligned, to check for noise between GREBs. Finally, with an ROI defined on each of the eight sensors all aligned and all unaligned between GREBs.
+
+\paragraph*{ROI Study Configurations}
+We also collected a set of data with ROIs of different size and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
+
+\subsubsection{Noise Investigation}
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of an entire ROI, and averaged over all frames from all of the 20 images. In cases where multiple sensors are running at the same time, the noise is also averaged over all sensors. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. An increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
+
 %% jgt - here's the table with the configuratons and results (noise results omitted)
 \begin{longtable}{|c|c|c|c|c|c|c|}
 \caption{Summary of results for the different Guider configurations. \label{tab:gds_configs}} \\
@@ -1719,76 +1733,6 @@ We measure the noise level of ROIs acquired under various configurations, shown 
 400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 105.30 \\ % gds_roi_05.cfg
 \hline
 \end{longtable}
-Guider configurations for Table~\ref{tab:gds_configs} are listed below:
-\paragraph*{Start with a single GREB}
-\begin{itemize}
-    \item Acquire nominal ROI on a single sensor
-    \begin{verbatim}
-    gds_noise_01.cfg
-    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50  }, 
-      "R00SG0": { "segment": 3, "startRow":  975, "startCol": 254} }
-    \end{verbatim}
-
-    \item Acquire nominal aligned ROIs on two sensors on the same GREB
-    \begin{verbatim}
-    gds_noise_02.cfg
-    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
-      "R00SG0": { "segment": 3, "startRow":  975, "startCol": 254},
-      "R00SG1": { "segment": 3, "startRow":  975, "startCol": 254} }
-    \end{verbatim}
-
-    \item Acquire nominal misaligned ROIs on two sensors on the same GREB
-    \begin{verbatim}
-    gds_noise_03.cfg
-    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
-      "R00SG0": { "segment": 3, "startRow":  975, "startCol": 254},
-      "R00SG1": { "segment": 3, "startRow": 1075, "startCol": 254} }
-    \end{verbatim}
-\end{itemize}
-
-\paragraph*{Four GREBs}
-\begin{itemize}
-    \item Acquire nominal aligned ROIs on single sensors on all GREBs
-    \begin{verbatim}
-    gds_noise_04.cfg
-    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
-      "R00SG0": { "segment": 3, "startRow": 975, "startCol": 254},
-      "R04SG0": { "segment": 3, "startRow": 975, "startCol": 254},
-      "R40SG0": { "segment": 3, "startRow": 975, "startCol": 254},
-      "R44SG0": { "segment": 3, "startRow": 975, "startCol": 254} }
-    \end{verbatim}
-
-    \item Acquire nominal misaligned ROIs on one sensor on all GREBs
-    \begin{verbatim}
-    gds_noise_05.cfg
-    { "common": { "rows": 50,"cols": 50, "integrationTimeMillis": 50 }, 
-      "R00SG0": { "segment": 3, "startRow":  775, "startCol": 254},
-      "R04SG0": { "segment": 3, "startRow":  875, "startCol": 254},
-      "R40SG0": { "segment": 3, "startRow":  975, "startCol": 254},
-      "R44SG0": { "segment": 3, "startRow": 1075, "startCol": 254} }
-    \end{verbatim}
-\end{itemize}
-
-% Add similar formatting for the rest of the sections
-
-\subsubsection*{ROI reconstruction (take 20 images for each, 15 seconds each)}
-\paragraph*{Unsplit ROI different exposures and sizes}
-\begin{itemize}
-    \item 200 ms
-    \begin{verbatim}
-    gds_roi_01.cfg
-    { "common":{ "rows": 400,"cols": 400, "integrationTimeMillis": [200] }, 
-      "R00SG0": { "segment": 2, "startRow":  800, "startCol": 54} }
-    \end{verbatim}
-
-    \item 50 ms
-    \begin{verbatim}
-    gds_roi_02.cfg
-    { "common":{ "rows": 400,"cols": 400, "integrationTimeMillis": 50 }, 
-      "R00SG0": { "segment": 2, "startRow":  800, "startCol": 54} }
-    \end{verbatim}
-\end{itemize}
-
 
 \subsubsection*{Impact on science sensors}\label{sec:guiderimpactonscience}
 We compare two runs, E1110 (guider sensors in imaging mode) and E1290 (guider sensors in guider mode), to study the impact on science sensors from running guider sensors in guider mode. Fig.~\ref{fig:guider_noise} shows a comparison of read noise in science sensors, which is consistent between the two runs.
@@ -1801,11 +1745,62 @@ We compare two runs, E1110 (guider sensors in imaging mode) and E1290 (guider se
 
 \subsection{Defect stability}\label{defect-stability}
 
-% Add explanation of how to measure defect stability
+Defect masks are generated for LSSTCam images using two different protocols, with some standard defaults. Dark defects are generated using flat calibrations, and identifying pixels with $\geq 20\%$ deviation from the median flat value. Bright defects are identified from dark calibrations, flagging bright defects as pixels with a dark current above 5 e- / pix / s.
+
+As shown in table \ref{table:FinalChar-paramTable}, the number of defects in an amplifier is $\leq 10$, or $\textasciitilde 0.001 \%$ of an amplifier. This contribution is extremely small relative to the useful pixels in a given amplifier. It is worth studying any changes in defect masks on any amplifiers, and how static the bright and dark defects are across sensors of interest.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/R34_S11_C06(1).jpg}
+    \caption{Bright defect stability over a small region of R34\_S11\_C06. Notably, this bright defect decreased in size as testing progressed from run 6 $\rightarrow$ initial run 7 $\rightarrow$ final run 7.}
+    \label{fig:BrightDefectStability}
+\end{figure}
+
+To measure differences between defect masks from different runs, we can compare the resulting defect masks using binary composition. For a defect mask on an amplifier, we consider individual bright/dark defect masks from individual runs, assigning a value of $1$ to each pixel that is masked. Unmasked pixels are assigned a value of $0$.
+
+%% Maybe add a figure/cartoon here that shows the process of combining the different masks
+
+Each individual defect mask can be scaled by $2^{n-1}$, where $\{n:1,2,3,... \}$ denotes an index associated with a defect mask. It is then possible to recover the uniqueness and stability of a defect mask by comparing the composition bitvalues to the mask indices. This analysis can be performed on dark and bright defects, enabling detailed study of defect evolution. 
+
+\begin{table}[H]\label{table:defectStability:measurements}
+\centering
+\begin{tabular}{|ccc|}
+\hline
+\multicolumn{3}{|c|}{Both bright and dark defects}                      \\ \hline
+\multicolumn{1}{|c|}{}    & \multicolumn{1}{c|}{Unmasked} & Static mask \\ \hline
+\multicolumn{1}{|c|}{E2V} & \multicolumn{1}{c|}{17.7885}  & 57.7991     \\ \hline
+\multicolumn{1}{|c|}{ITL} & \multicolumn{1}{c|}{6.0764}   & 33.1597     \\ \hline
+\multicolumn{3}{|c|}{Bright defects only}                               \\ \hline
+\multicolumn{1}{|c|}{}    & \multicolumn{1}{c|}{Unmasked} & Static mask \\ \hline
+\multicolumn{1}{|c|}{E2V} & \multicolumn{1}{c|}{72.5427}  & 93.6432     \\ \hline
+\multicolumn{1}{|c|}{ITL} & \multicolumn{1}{c|}{50.0000}  & 82.3785     \\ \hline
+\multicolumn{3}{|c|}{Dark defects only}                                 \\ \hline
+\multicolumn{1}{|c|}{}    & \multicolumn{1}{c|}{Unmasked} & Static mask \\ \hline
+\multicolumn{1}{|c|}{E2V} & \multicolumn{1}{c|}{23.9316}  & 60.5769     \\ \hline
+\multicolumn{1}{|c|}{ITL} & \multicolumn{1}{c|}{11.6319}  & 39.5833     \\ \hline
+\end{tabular}
+\caption{Measurements of the percent of science amplifiers that meet different masking criteria, when compared across 13550 (run 6), E1071 (run 7 initial), and E1880 (run 7 final). All dark defects imposed a uniform 9 pixel border to remove the edge response from the dark defect data set. Other masking configurations were set to the LSSTCam defaults.}
+\end{table}
 
 \subsubsection{Bright defects}
 
+Bright defects are found to be stable and generally absent from the LSSTCam focal plane. Across detector types, 93\% of E2V detectors show a static bright defect mask. For non-static E2V sensors, R30 dominated the subgroup with 17 amplifiers (or 11.8\% of amplifiers on the raft) with a dynamic bright defect mask. ITL sensors are more dynamic than E2V sensors, with 82\% showing a static bright defect mask. The ITL non-static bright defect mask was dominated by R10\_S02 and R10\_S10, which each have 9 amplifiers with a dynamic bright defect mask.
+
+% Plot here of a particularly interesting bright defect mask that changes substantially
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/R34_S11_C06(2).jpg}
+    \caption{Dark defect stability over a small region of R34\_S11\_C06. Notably, this dark defect developed in the final record run of Run 7.}
+    \label{fig:DarkDefectStability}
+\end{figure}
+
 \subsubsection{Dark defects}
+
+Dark defects are less stable and more present across the focal plane than bright defects. Across detector types, 60\% of E2V detectors show a static bright defect mask. Dynamic E2V dark defect masks are distributed across the entire focal plane, with every E2V sensor registering a dynamic E2V dark defect mask across 13550, E1071, and E1880. For non-static E2V sensors, R34 dominated the subgroup, with R34\_S02, R34\_S12, and R34\_S22 registering 15 amplifiers with dynamic dark defect masks. ITL sensors are once again more dynamic than E2V sensors, with 39\% showing a static dark defect mask. The ITL non-static dark defect mask is present in every sensor across the focal plane, with sensors R01\_S12, R01\_S22, R41\_S02, R41\_S12, and R41\_S20 measuring a dynamic dark defect mask on every amplifier.
+
+
+% Plot here of a particularly interesting bright defect mask that changes substantially
 
 \subsection{Bias stability}\label{sec:bias-stability-2}
 
@@ -2139,7 +2134,7 @@ In summary, we find
 \section{Sensor features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
-Tree rings is circular variations in silicon doping concentration which can be observed in flat images. Both LSST The impact of the tree rings is assessed in \citep{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 7.
+Tree rings is circular variations in silicon doping concentration which can be observed in flat images. Both LSST The impact of the tree rings is assessed in \citep{2017Jinst..12C05015, 10.1117/1.JATIS.6.1.011005, 2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
 \subsubsection{Center of the Tree Ring}
 From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four (4) CCD is cut from one wafer. 
 So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude. However we have new data with 0\,V of back bias voltage, which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center.
@@ -2154,7 +2149,6 @@ So far we have been using the four average position for the center of the Tree r
 Figure~\ref{fig:tree_ring_center} shows the positions of the Tree ring centers measured for the 189 sensors. All the measurements are concentrated around each averaged position, however, as now we have better individual measurements, we decided to use center of each sensor instead of the average value. 
 
 
-
 \subsubsection{Radial study}
 Radial study for Tree rings pattern has been done to see if the rings are perfectly circular in shape. 
 
@@ -2162,41 +2156,36 @@ Radial study for Tree rings pattern has been done to see if the rings are perfec
 Figure~\ref{fig:tree-ring-radial-transform} illustrates the transformation of a flat image into a radial profile plot as the y axis to be the distance from the center of the rings. 
 
 \begin{figure}
-\begin{centering}
+\centering
 \includegraphics[width=0.9\textwidth]{figures/TR_subtraction.png}
-\end{centering}
 \caption{Folding image on diagonal line from the center of the ring, and subtracting from each other.}
 \label{fig:tree-ring-radial-transform}
 \end{figure}
 
 \begin{figure}
-\begin{centering}
+\centering
 \includegraphics[width=0.9\textwidth]{figures/TR_radial.png}
-\end{centering}
 \caption{Radial study of the Tree Rings. Right: image subtracting left to right, right to left.}
 \end{figure}
 
+\clearpage
 \subsubsection{Effect of diffuser}
 We expect that with the diffuser installed, there will be less contribution from effects such as CMB and weather patterns discussed in \S~XX. Comparing R22\_S12 of Run 6 run 13379 (without diffuser) with Run 7 E937 (with diffuser), we verified the significant improvement from use of the diffuser.
-\paragraph{Tree rings without diffuser}
 
 \begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/TR_wo_diffuser.png}
-\end{centering}
+\centering
+\includegraphics[width=0.8\textwidth]{figures/TR_wo_diffuser.png}
 \caption{Tree ring without diffuser}
 \end{figure}
 
-\paragraph{Tree rings with diffuser}
 
 \begin{figure}
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/TR_w_diffuser.png}
-\end{centering}
+\centering
+\includegraphics[width=0.8\textwidth]{figures/TR_w_diffuser.png}
 \caption{Tree ring with diffuser}
 \end{figure}
 
-
+\clearpage
 \subsubsection{Voltage dependency}
 \begin{figure}[h]
 \centering
@@ -2213,6 +2202,8 @@ We expect that with the diffuser installed, there will be less contribution from
 \end{figure}
 
 \subsubsection{Wavelength dependency}
+Tree ring effect doesn't depend on wavelength much, as studied in \citep{2017Jinst..12C05015, 10.1117/1.JATIS.6.1.011005}. However, when you compare the flat images in different wavelengths, we can see the other sensor effects dominates in lower wavelength (laser annealing) and higher wavelength (fringe) over the tree ring patterns. Figure~\ref{fig:tree_ring_wavelength_dep} shows the Tree rings in red and blue flat images, and Figure~\ref{fig:tree_ring_subtract_red_blue} shows the subtracted image from red to blue to show the difference between two wavelength images. We can see that the laser annealing effect is left since tree ring effect of blue and red images are similar. 
+
 \begin{figure}[h]
 \centering
 \begin{minipage}[b]{0.45\textwidth}
@@ -2225,14 +2216,17 @@ We expect that with the diffuser installed, there will be less contribution from
 \includegraphics[width=\textwidth]{figures/R22_S11_blue.png}
 \end{minipage}
 \caption{Comparing Tree Rings pattern on the sensor R01\_S20 for red (run E1050, left image) and blue (run E1052, right image) wavelength, without back bias voltage.}
+\label{fig:tree_ring_wavelength_dep}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{figures/subtract_red_blue.png}
 \caption{Subtracting blue image from red image}
+\label{fig:tree_ring_subtract_red_blue}
 \end{figure}
 
+\clearpage
 \subsection{ITL Dips}\label{itl-dips}
 
 One of the phenomena that was studied in the later part of Run 7 was so-called 
@@ -2253,14 +2247,38 @@ than the background and the rectangles having a peak signal 30 times greater
 than the background.
 
 We were unable to find any evidence of ITL
-dips in the images. Below are the images themselves along with binned horizontal
-cutouts of the the amplifier below the source. These show the background
+dips in the either circular or rectangle spot images. For the rectangular spots there were two tests done, they both looked for any dips in the neighboring amplifier with different binning strategies. Example results of the two rectangular studies are shown in Figure \ref{fig:ITLDip_Rectangle} using just a base average of the rows and Figure \ref{fig:ITLDip_Yassine} shows the results of binning using background corrected and normalized binning schema. For the circular spots, the slices were done much closer to the spot, only 200 pixels away from the saturated spot. Figure \ref{fig:ITLDip_Spots} shows example cutouts from the circular spot images. In all three cases, these cutouts show the background
 pattern of the projector, but no 2\% dip.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth]{figures/Rectangle_Cutout_Image.png}
+\includegraphics[width=0.25\textwidth]{figures/Rectangle_Cutout_Plot.png}
+\caption{(Left) }
+\label{fig:ITLDip_Rectangle}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Slope-Corrected Normalized Mean per Column _ amp C00 CCD R42_S12.png}
+\caption{An example of a slope-corrected, normalized mean of the columns in C00, the amplifier below the rectangular spot, of both a heavily saturated spot image and an unsaturated spot. The black lines signify where we would expect the ITL Dip to occur if present.}
+\label{fig:ITLDip_Yassine}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.35\textwidth]{figures/ITLDip_Spot_Cutout.png}
+\includegraphics[width=0.35\textwidth]{figures/ITLDip_Spot_Cutout2.png} \\
+\includegraphics[width=0.35\textwidth]{figures/ITLDip_Spot_Cutout3.png}
+\includegraphics[width=0.35\textwidth]{figures/ITLDip_Spot_Cutout4.png}
+\caption{Different cutouts using circular spot data. The titles show the detector number, detector name, and amplifier name. The top plots are horizontal cutouts across amplifiers centered and around the spot. The bottom plots are horizontal cutouts about 200 pixels away from the center of the spot. None of the bottom plots show a 2\% dip around the area of the spot.}
+\label{fig:ITLDip_Spots}
+\end{figure}
 
 While we were not able to find evidence of the ITL dip in Run 7 data, it
 is still not clear whether the effect will be visible in LSSTCam on-sky data.
-The photon rate of the in-lab data was roughly XXX per second for the 15\,s exposures. The stars that were seen in ComCam with the ITL dip
-have a magnitude of XXX corresponding to a photon rate of XXX. This is
+The electron rate of the in-lab data was roughly XXX per second for the 15\,s exposures. The stars that were seen in ComCam with the ITL dip
+have a magnitude of XXX corresponding to a electron rate of XXX. This is
 combined with a sky background of XXX as compared with the lab sensor
 background of XXX.
 
@@ -2349,7 +2367,7 @@ R20\_S20\_C13   & 52 pix  & 40\% & 829\% & no (ring-like) & yes \\
 
 The pixel complexes evaluated in Table~\ref{tab:vamp:samples} were chosen based on their proximity to the prominent {\it vampire pixel} appearing at the center of the corresponding image given in Figure~\ref{fig:vamp:ffresp}, and include (on average) 3 other, nearby complexes that may be more representative of these artifacts found on ITL sensors in the Main Camera focal-plane. In the Table they are indicated by their name (``babyX'') followed by the clocking angle where they can be identified relative to the prominent pixel complex located at the center. From this list, it appears that the {\it vampire pixel} complexes may be reliably identified by applying a OR combination of thresholds: under-response less than 90\%, or an over-response exceeding 120\% and some consideration of the presence of phosphorescence. The phosphorescence, more than anything, may help to distinguish the dark pixel complexes {\it without} central bright pixels from dust spots (which presumably would not preserve flux). 
 
-There are a handful of dust spots seen in these images that were not included in~\ref{tab:vamp:samples}. They would presumably be detected as dark pixels provided the lower threshold is raised to levels that would be sensitive to their detection.
+There are a handful of dust spots seen in these images that were not included in Table~\ref{tab:vamp:samples}. They would presumably be detected as dark pixels provided the lower threshold is raised to levels that would be sensitive to their detection.
 
 
 %\paragraph{Individual vampire
@@ -2461,15 +2479,15 @@ The ITL sensors with the largest memory effect were evaluated, and the following
 \subsubsection{Measurement techniques for detecting and quantifying phosphorescence}\label{phos-measurement}
 We mentioned above that certain phosphorescent morphologies strongly resemble the ``coffee stains'' seen on the same (ITL) sensors. It should be noted that measurement of the {\it shadow} caused by excess absorption (usually a couple percent) is a great deal simpler than collecting any deferred charge with adequate sensitivity and confidence. This section describes the methods used to identify the transient term we consider phosphorescence in the ITL sensors, and list the regions where it was detected. Following that, we describe in some detail the kinematics of its expression (cherry-picking specific easy-to-measure cases), together with the wavelength- and its excitation flux-level dependence.
 
-We parasitically used a series of B-protocol and BOT-persistence EO testing runs that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pix). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15\,s expression of the deferred signal 300\,s after overexposure had almost completely attenuated.
+We parasitically used a series of B-protocol or persistence acquisitions which was a part of B-protocol that were executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided multiple instances of the same EO measurement conditions, although the acquisitions were captured over a span of a few weeks. The relevant EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pix). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs containing this data, where the excitation flat had the properties described above. The first and the twentieth dark images were stacked and medianed following a nominal instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence, because as far as we could tell, the 15\,s expression of the deferred signal 300\,s after overexposure had almost completely attenuated.
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
-Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} display the transient term in 8$\times$8 blocked images of the 12 rafts containing ITL sensors. These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
+Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} display the transient term in 8$\times$8 blocked image of the R00\_SW1 sensor. (More figures can be found in  Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
 1$\times$1 
 pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by the rebinning routinely performed for display purposes.
 
-A subset of the 88 sensors, specifically those that either show high-signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination, in Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20} in the Appendix. It is apparent from viewing these side-by-side comparisons that generally, expression of phosphorescence has a complex relationship with the {\it much-easier-to-detect} coffee stains (or other diffuse variations in quantum efficiency) seen on the same sensors: Presence of a coffee stain seen in flat field response may be suggestive of phosphorescence on the sensor, but predicting where it might be (or its transient amplitude) is another matter entirely. In some cases (as in Fig.~\ref{fig:phos:stains} noted above), the phosphorescence appears to be correlated with the darker absorbed features of the coffee stain. In others (e.g., Fig.~\ref{fig:phos:stains:R02S02}), the opposite correlation is seen. In still other cases (e.g., Fig.~\ref{fig:phos:stains:R02S12}), there are regions of strong detail in the phosphorescence without very much coffee stain action at all. Our conclusions are that presence of coffee stains do not provide a useful proxy for the phosphorescent properties of the sensor.
+A subset of the 88 ITL sensors, specifically those that either show high-signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination, in Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20} in the Appendix. It is apparent from viewing these side-by-side comparisons that generally, expression of phosphorescence has a complex relationship with the {\it much-easier-to-detect} coffee stains (or other diffuse variations in quantum efficiency) seen on the same sensors: Presence of a coffee stain seen in flat field response may be suggestive of phosphorescence on the sensor, but predicting where it might be (or its transient amplitude) is another matter entirely. In some cases (as in Fig.~\ref{fig:phos:stains} noted above), the phosphorescence appears to be correlated with the darker absorbed features of the coffee stain. In others (e.g., Fig.~\ref{fig:phos:stains:R02S02}), the opposite correlation is seen. In still other cases (e.g., Fig.~\ref{fig:phos:stains:R02S12}), there are regions of strong detail in the phosphorescence without very much coffee stain action at all. Our conclusions are that presence of coffee stains do not provide a useful proxy for the phosphorescent properties of the sensor.
 
 \input{phosphorescing_itls_datasets_table}
 \input{phosphorescence_vs_coffeestains_R00SW1_figure}
@@ -2589,7 +2607,8 @@ A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage 
 \end{itemize}
 
 
-\section{Issues}\label{label:issues}
+\section{Issues}\label{sec:issues}
+In this section, we briefly report issues that we have experienced in the Run 7 period.
 
 \subsection{REB PS tripped off}
 In the evening of August 29, 2024, at 20:00 local time (00:00 UTC), two power units, R43 and R33, on RebPS P00, lost power. At that time, no one was at the summit.
@@ -2644,6 +2663,7 @@ Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Lea
 
 A detailed note is available\footnote{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}.
 
+\subsection{Jgroups meltdown}
 
 \section{Conclusions}\label{conclusions}
 
@@ -3059,11 +3079,9 @@ E1517 & & Different row for sensors on the same REB\\ \hline
 % 5x5 plots
 % differential histograms
 
-\section{CCS work}
-\subsection{JGroups issue}
-
 \section{OCS integration}
 
+\section{Phosphorescence}\label{appendix:phosphorescence}
 \input{phosphorescence_identification_appendix}
 \input{phosphorescence_coffeestain_comparison_appendix}
 \input{phosphorescence_kinetics}
