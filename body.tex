@@ -383,6 +383,7 @@ by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-c
 \end{centering}
 \end{figure}
 
+\clearpage
 \paragraph{Parallel CTI}\label{parallel-cti}
 
 The CTI along the parallel direction is consistent between Run 6 and
@@ -408,6 +409,7 @@ R00 observations
 \end{centering}
 \end{figure}
 
+\clearpage
 \subsection{Dark metrics}\label{dark-metrics}
 
 \subsubsection{Dark current}\label{dark-current}
@@ -435,6 +437,7 @@ all amplifiers as the upper limit.
 Unexpectedly, the dark current was significantly less in Run 7 than
 Run 6 (Fig.~\ref{fig:dark}). We do not attach particular significance to the finding because this could be the result of improved shrouding on the camera in the Level 3 white room relative to the IR2 clean room SLAC.
 
+\clearpage
 \subsubsection{Bright defects}\label{bright-defects}
 
 Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the semiconductor material or manufacturing process of the CCD. Bright defects can manifest as ``hot pixels" with consistently high dark current, small clusters of pixels with elevated dark current, or as ``hot columns" (pixels along the same column that have high dark current). 
@@ -461,6 +464,7 @@ The reason is not totally clear, but the difference in the illumination pattern 
 \end{centering}
 \end{figure}
 
+\clearpage
 \subsection{Flat pair metrics}\label{flat-pair-metrics}
 
 \begin{figure}[ht]
@@ -470,6 +474,7 @@ The reason is not totally clear, but the difference in the illumination pattern 
 \end{centering}
 \end{figure}
 
+\clearpage
 \subsubsection{Linearity and PTC turnoff}\label{linearity-and-ptc-turnoff}
 
 Linearity turnoff and PTC turnoff are two closely related metrics used
@@ -507,6 +512,7 @@ Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing 
 \end{centering}
 \end{figure}
 
+\clearpage
 \subsubsection{PTC Gain}\label{ptc-gain}
 
 PTC gain is the conversion factor between digital output signal and the the number of electrons generated in the pixels of the CCD. It is one of the key parameters derived from the Photon Transfer
@@ -522,6 +528,7 @@ Curve, as it is the slope above the flux range at which the variance is dominate
 PTC gain measurements agree extremely closely across all sensors in the
 focal plane.
 
+\clearpage
 \subsubsection{Brighter fatter coefficients}\label{brighter-fatter-a00-coefficient}
 
 
@@ -556,6 +563,7 @@ The distribution of difference of $a_{00}$ measurements is displayed in Figure \
 
 However, the differences in the brighter-fatter $a_{00}$ coefficient between Run 6 and Run 7 show that the magnitude of $a_{00}$ decreased for most of the outliers, which implies an improvement in imaging for those pixels.
 
+\clearpage
 \subsubsection{Row-means variance}\label{row-means-var}
 
 Row-means variance is a metric that measures the mean row-to-row variance of differences between a pair of flats. By computing variance of means of differenced rows at each flux level, we can measure any changes in gain row-by-row and also changes in correlated noise along with row.
@@ -576,6 +584,7 @@ Differences in row-means variance between runs are evident, and are distinctly d
 \end{centering}
 \end{figure}
 
+\clearpage
 \subsubsection{Divisadero Tearing}
 
 Divisadero tearing (or Rabbit ears) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
@@ -596,6 +605,7 @@ Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sens
     \label{fig:divisidero_diff_baseline}
 \end{figure}
 
+\clearpage
 \subsubsection{Dark defects}\label{dark-defects}
 
 Dark defects are localized regions or individual pixels that produce abnormally low signal levels, even in the presence of light. Similar to bright pixels, dark pixels are also quantified in dark columns over 50 pixel contiguous regions. These
@@ -633,6 +643,7 @@ The default eo-pipe configuration has no border masking. The largest region perm
 
 In both instances, the contamination of dark pixels across the focal plane is \leq 10 pixels per amplifier on average. There is a measurable improvement in the dark pixel counts, decreasing by one pixel per amplifier between Run 6 and Run 7.
 
+\clearpage
 \subsection{Persistence}\label{initPersistenceChar}
 
 Persistence is a feature of CCDs and how they are operated involving charge trapped in the
@@ -684,6 +695,7 @@ these persistence measurements are due to higher initial residual ADU, resulting
 \label{fig:persistence-decay-comp}
 \end{figure}
 
+\clearpage
 \subsection{Differences between Run 6 and Run 7}\label{differences-from-previous-runs}
 
 All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and Divisadero tearing show improved performance compared to Run 6, while the Persistence feature is still prominent in e2v sensors. 
@@ -1233,18 +1245,12 @@ During Run 7, several changes were implemented, as described below:
   v27 incorporated guider functionalities, including ParallelFlushG and
   ReadGFrame. However, the noRG change was inadvertently included.
   Consequently, we abandoned this version and switched to v28.
+\item  \href{https://rubinobs.atlassian.net/browse/LSSTCAM-5}{v28 sequencer files merged v26noRG and
+  v27.}
+\item\href{https://rubinobs.atlassian.net/browse/LSSTCAM-34}{v29 introduced changes to speed up the guider.}
 \item
-  v28 sequencer files merged v26noRG and
-  v27. \url{https://rubinobs.atlassian.net/browse/LSSTCAM-5}
-\item
-  v29 introduced changes to speed up the guider.
-  \url{https://rubinobs.atlassian.net/browse/LSSTCAM-34}
-\item
-  v30 primarily focused on e2v. We introduced a new approach to NopSf
-  for e2v CCDs
-  \url{https://github.com/lsst-camera-dh/sequencer-files/pull/17}. To
-  align timing with the ITL version, a change was made.
-  \url{https://github.com/lsst-camera-dh/sequencer-files/pull/18}
+  \href{https://github.com/lsst-camera-dh/sequencer-files/pull/17}{v30 primarily focused on e2v}. We introduced a new approach to NopSf
+  for e2v CCDs. \href{https://github.com/lsst-camera-dh/sequencer-files/pull/18}{T align timing with the ITL version, a change was made.}
 \end{itemize}
 
 We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero tearing.
@@ -1300,6 +1306,8 @@ The serial CTI for both sensor types is a noisy measurement, but serial CTI is n
     \label{fig:finalChar-SCTI-hist}
 \end{figure}
 
+\clearpage
+
 
 \paragraph{Parallel CTI}\label{sec:finalChar-parallel-cti}
 
@@ -1321,6 +1329,8 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
     \label{fig:finalChar-PCTI-hist}
 \end{figure}
 
+\clearpage
+
 \subsubsection{Dark metrics}\label{final-dark-metrics}
 
 \paragraph{Dark current}\label{sec:finaldark-current}
@@ -1335,6 +1345,7 @@ Dark current measurements were extracted from the B-protocol runs. Across the fo
 \end{figure}
 
 The reduction in dark current in the subset of rafts is indicative of successful light leak mitigation, and lowers the dark current on local rafts to levels similar to the rest of the focal plane.
+\clearpage
 
 \paragraph{Bright defects}\label{final-bright-defects}
 
@@ -1349,6 +1360,7 @@ Bright defects are extracted using the B protocol runs, and show an extremely cl
 
 For additional discussion about defect stability, see Section~\ref{defect-stability}.
 
+\clearpage
 \subsubsection{Flat pair metrics}
 
 \begin{figure}[ht]
@@ -1357,6 +1369,7 @@ For additional discussion about defect stability, see Section~\ref{defect-stabil
     \caption{Comparison of PTCs from initial and final Run 7 conditions, evaluated on a central detector and amplifier.}
     \label{fig:finalChar-PTCComparison}
 \end{figure}
+\clearpage
 
 \paragraph{Linearity and PTC turnoff}\label{final-linearity-and-ptc-turnoff}
 
@@ -1389,6 +1402,7 @@ Early in LSST's design, a 90,000 e- full-well capacity was established as a requ
 \end{figure}
 
 
+\clearpage
 \paragraph{PTC Gain}\label{final-ptc-gain}
 
 PTC Gain was extracted from the PTC runs. PTC gain is extremely comparable between initial and final Run 7 conditions, with a minor increase in gain observed in e2v sensors.
@@ -1409,6 +1423,7 @@ The magnitude of the gain increase for e2v sensors in final Run 7 conditions is 
     \label{fig:finalChar-PTCGain_HistComp}
 \end{figure}
 
+\clearpage
 \paragraph{Brighter fatter $a_{00}$ coefficient}\label{final-brighter-fatter-a00-coefficient}
 
 The relative strength of the brighter-fatter effect, quantified by $a_{00}$ following the model from \cite{2019A&A...629A..36A}, is modified in the final Run 7 operating conditions by the lower parallel swing for e2v sensors. We observe an extremely high consistency for ITL sensors.
@@ -1429,6 +1444,7 @@ The change in the $a_{00}$ value for e2v sensors is illustrated in Figure~\ref{f
     \label{fig:finalChar-PTC_A00_E2VComp}
 \end{figure}
 
+\clearpage
 \paragraph{Brighter-Fatter Correlation}\label{final-brighter-fatter-correlation}
 
 The strength of the brighter fatter correlation was extracted from the PTC runs. In both instances, the correlation is extremely consistent across initial and final Run 7 operating conditions.
@@ -1450,6 +1466,7 @@ Both correlations vary by \lesssim 2.2\% on average, decreasing in both instance
 \end{figure}
 
 
+\clearpage
 \paragraph{Row-means variance}\label{final-row-means-var}
 
 Row means variance is extracted from the PTC runs, and shows an extremely tight correlation when comparing the initial and final operating conditions of Run 7. ITL sensors show an extremely tight agreement, while e2v sensors show a lower row-means variance by \textasciitilde1.8\% in the final operating conditions.
@@ -1461,6 +1478,7 @@ Row means variance is extracted from the PTC runs, and shows an extremely tight 
     \label{fig:finalChar-RowMeanVarSlope-5x5}
 \end{figure}
 
+\clearpage
 \paragraph{Divisadero Tearing}\label{final-divisadero-tearing}
 
 Divisadero tearing measurements were extracted from the B protocols, and are significantly different for e2v sensors in the final operating condition. The change in Divisadero strength is driven by idle flush, which is described in detail in Section~\ref{section:disablingIDLEFLUSH}. The e2v sensors show a 60.7\% decrease in the original Divisadero signal under the final operating conditions. ITL sensors show a 0.2\% increase in the original Divisadero signal under the final operating conditions.
@@ -1474,6 +1492,7 @@ Divisadero tearing measurements were extracted from the B protocols, and are sig
 
 In Figure \ref{fig:finalChar-Divisadero-5x5}, several e2v sensors do not follow the global trend of decreased Divisadero signal.  
 
+\clearpage
 \paragraph{Dark defects}\label{final-dark-defects}
 
 Dark defects in LSSTCam were extracted using the B protocols, and are contaminated by the picture frame effect regardless of operating conditions (see Sec.~\ref{dark-defects} for additional discussion). When applying a 9 pixel mask to the edges of each sensor, the picture frame signal is removed, leaving true dark defects acquired by the analysis pipeline.
@@ -1495,6 +1514,7 @@ dark pixel counts per detector centered on zero for both detector types (see Fig
     \label{fig:finalChar:darkDefectsComparison}
 \end{figure}
 
+\clearpage
 \subsubsection{Persistence}\label{final-persistence}
 
 The primary optimization target of Run 7 was to mitigate persistence, described in Section~\ref{persistence-optimization-1}. The major change in the final camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the e2v sensors only, as they are the subset of sensors that exhibit \geq 1 ADU persistence when using the Run 7 initial operating parameters.
