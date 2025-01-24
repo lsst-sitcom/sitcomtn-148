@@ -1,8 +1,8 @@
 \section{Introduction}
-The LSST Camera had been constructed at SLAC National Accelerator Laboratory in California, the US.
+The LSST Camera had been constructed at SLAC National Accelerator Laboratory in California, US.
 The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verify the Camera functionality and led discoveries of non-ideal features \citep{2024SPIE13096E..1SR}.
 
-In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was rolled into the white room at Level 3 in the Vera C. Rubin Observatory. The 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from September 2024 to December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
+In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was rolled into the white room at Level 3 in the Vera C. Rubin Observatory. Cooldown began by the end of August and then the 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from the end of September 2024 to the beginning of December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
 
 This document details initial testing results, giving focus on the following points:
 \begin{itemize}
@@ -14,6 +14,14 @@ This document details initial testing results, giving focus on the following poi
     \item Summarize the overall operations and issues during Run 7 (Section \ref{sec:issues})
 \end{itemize}
 All the results presented here are subject to future changes.
+
+Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSST focal plane consists of 21 Science Rafts and 4 Corner Rafts (cyan). Science Rafts have two varieties: whether the sensors are ITL (green) or e2v (yellow). Each sensor has 4k$\times$4k pixels, segmented by 16 channels to make the fastest readout as 2 sec. Corner Rafts have two different kinds of sensors: guider sensors and a wavefront sensor. Guider sensors are ITL sensors as are the other science sensors, while the wavefront sensor is split in the middle and packaged into one sensor with an offset by $\pm2$mm with respect to the other science sensors to provide off-focus point source images to measure "donut" -- an image of the pupil.
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/introduction/LSSTCam_fp_layout_Oct2024.pdf}
+    \caption{The focal plane layout}
+    \label{fig:focal-plane-layout}
+\end{figure}
 
 \section{Electro-optical setup}\label{electro-optical-setup}
 
@@ -148,7 +156,7 @@ projector.
 \subsection{Dark current and light
 leaks}\label{dark-current-and-light-leaks}
 
-This section describes dark current and light leaks in Run 7 testing.
+%This section describes dark current and light leaks in Run 7 testing.
 
 \subsubsection{Light leak mitigation with shrouding the camera
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
@@ -253,10 +261,21 @@ associated with the FES was eliminated (see right hand image of Fig.~\ref{fig:ac
 \end{centering}
 \end{figure}
 
-\paragraph{Shutter condition impact on
+\subsection{Shutter condition impact on
 darks}\label{shutter-condition-impact-on-darks}
 
-\paragraph{Filter condition impact on
+Two runs, E1075 and E1076, were dedicated to determining the effect of the shutter on darks by keeping the shutter closed and open respectively. Figure \ref{fig:shutter-darkcurrent} shows example images of the focal plane from both of these runs. No easily visible difference can be seen between the two images. This is most likely due to the shrouding of the camera (see Section \ref{light-leak-mitigation-with-shrouding-the-camera-body}) as well as the pinhole filter being in place for these runs.
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.48\textwidth]{figures/E1075_ShutterClosed.png}
+\includegraphics[width=0.48\textwidth]{figures/E1076_ShutterOpen.png}
+\caption{ (left) An example image of run E1075 (shutter closed). (right) An example image of run E1076 (shutter open). If there was a light leak, we would expect to see the 21 spots of the pinhole filter. However, there is no noticeable difference between the images, insuring that our shrouding in Section \ref{light-leak-mitigation-with-shrouding-the-camera-body} is good and that the shutter being open and closed doesn't affect the dark current. \label{fig:shutter-darkcurrent}}
+\end{centering}
+\end{figure}
+
+
+\subsection{Filter condition impact on
 darks}\label{filter-condition-impact-on-darks}
 
 To investigate how the filter affects the dark current, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/s with the empty filter to 0.0035 e-/s for $r$, 0.0011 e-/s for $y$, and 0.00063 e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
@@ -271,8 +290,8 @@ To investigate how the filter affects the dark current, we took 900 second darks
 \end{centering}
 \end{figure}
 
-\subsubsection{Final measurements of dark
-current}\label{final-measurements-of-dark-current}
+%\subsubsection{Final measurements of dark current}\label{final-measurements-of-dark-current}
+% we don't need this since it will be compared in the following sections.
 
 \clearpage
 
@@ -753,8 +772,7 @@ considered a consequence of the non-uniform distribution of holes. Over the past
 primary focus in the optimization of the operating parameters was mitigation of the tearing, and we successfully eliminated the tearing by changing the
 e2v voltages from unipolar (both parallel rails high and low
 are positive) to bipolar (the parallel high is positive, and
-the low is negative) following the Bipolar voltage formula
-\footnote{https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py}.
+the low is negative) following \href{https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py}{the Bipolar voltage formula}.
 However, the persistence issue
 remained unchanged.
 
@@ -792,11 +810,11 @@ swing also requires changes to all other voltages to
 operate the sensor properly, e.g., to properly reset the amplifier.
 The initial voltages were given in the original Bipolar formula
  but to decrease the parallel swing we had
-to switch to the new persistence mitigation formula in order to satisfy the constraints\footnote{Persitence mitigation voltage: \url{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}}
+to switch to the new persistence mitigation formula in order to satisfy the constraints\href{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}{Persitence mitigation voltage}
 
 \citet{2024SPIE13103E..21S}, set up a single sensor test-stand at UC
 Davis. They attempted multiple different approaches mentioned above and
-reported the results\footnote{Davis report: \url{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}}. The
+reported the results\href{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}{Davis report}. The
 summary is as follows:
 
 \begin{itemize}
@@ -1005,7 +1023,7 @@ To address this clear issue, we focused on updating the serial
 register field as the rows are moved into it. The constraint is that
 the changes introduced should not significantly increase the clear
 execution time. It should be noted that in 2021 we tried a sequencer
-called ``Deep Clear" \hyperref[sequencerV23_DC]{{[}sequencerV23\_DC{]}} as a first attempt to address the clear issue; it added one full row 
+called ``Deep Clear" \href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}{sequencerV23\_DC} as a first attempt to address the clear issue; it added one full row 
 flush on top of the existing one at the end of the clear. This sequencer
 did improve the clear, but did  not fully fix the clear issue (see
 Table~\ref{tab:clears}).
@@ -1047,7 +1065,7 @@ moves the charges from the image area to the serial register:
 \item
   The default clear (V29): In the default clear, all serial clock voltages are
   kept up as the parallel clocks move charges from the image area to the
-  serial register (\hyperref[sequencerV29]{{[}sequencerV29{]}}). The
+  serial register (\href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}{sequencerV29}). The
   charges once on the serial register are expected to flow to the ground;
   the serial register clocks being all up, without pixel boundaries, and
   with its amplifier in clear state. At the end of the clear, a full
@@ -1058,7 +1076,7 @@ moves the charges from the image area to the serial register:
   same configuration (S1 \& S2 up, S3 low) when the parallel clock P1
   moves the charges to the serial register than in a standard image read. Still we kept all phases up for the rest of the time for a fast clear
   of the charges along the serial register
-  (\hyperref[sequencerV29_Nop]{{[}sequencerV29\_Nop{]}}). The idea is
+  (\href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq}{sequencerV29\_Nop}). The idea is
   that the S3 phase is not designed to be up when charges are transferred
   to the serial register, and is probably playing a major role in the creation of pockets.
 \item
@@ -1069,18 +1087,9 @@ moves the charges from the image area to the serial register:
   image-serial register interface are then even more representative of
   what a standard read produces, and should further prevent the
   creation of pockets.
-  (\hyperref[sequencerV29_NopSf]{{[}sequencerV29\_NopSf{]}}).
+  (\href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_NopSf.seq}{sequencerV29\_NopSf}).
 \end{itemize}
-\begin{description}
-\item[\label{sequencerV23_DC}{sequencerV23\_DC}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}
-\item[\label{sequencerV29}{sequencerV29}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}
-\item[\label{sequencerV29_Nop}{sequencerV29\_Nop}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq}
-\item[\label{sequencerV29_NopSf}{sequencerV29\_NopSf}]
-\url{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_NopSf.seq}
-\end{description}
+
 
 \paragraph{Results on standard e2v and ITL CCDs}\label{results-on-standard-e2v-and-itl-ccd}
 
@@ -1197,7 +1206,45 @@ serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 The original clear (serial phase 3 always), slightly extended in time to match the NopSf e2v clear execution time, will stay the default method.
 
 \subsubsection{Toggling the RG Bit During Parallel Transfer for e2v sensors}\label{noRGe2v}
-This investigation comes from an analogy drawn with the ITL sequencer file. Although the vendor recommended toggling the RG bit at the end of the parallel transfer, it was unclear whether this step was truly necessary. Given the improvements observed in ITL devices \citep{2024SPIE13103E..0WU}, applying this approach to e2v devices also became an area of interest.
+During parallel transfer, it is common to  protect the CCD amplifier from large signal injection associated to the parallel clock swing by activating the Reset Gate of the ccd amplifiers. Still in our initial sensor operation, following ITL and e2v vendors practice at the time, this "RG protection" was not active during the last parallel clock swing.  Still this was chaged Given the improvements observed in ITL devices \citep{2024SPIE13103E..0WU}, applying this approach to e2v devices also became an area of interest.
+Following a dedicated investigation on ITL devices, this has been changed 2 years ago , keeping the Reset Gate active during the full parallel transfer, as a clear improvement in the biases  was observed  \citep{2024SPIE13103E..0WU} . 
+By analogy drawn with this ITL study  and noticing that today e2v, in its current documentation, also recommend to keep the  Reset Gate active during the full parallel transfer. this approach to e2v devices also became an area of interest. 
+
+At the end of Run 7, 2 runs ({\it E3578} and {\it E3628}) were collected using,for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
+
+Even if this was a limited data set a few observations have been made : 
+\begin{itemize}
+    \item For 2D overscan corrected images, no improvement in the stability of the bias shape overtime  or in the bias shape dependencies with exposure time   
+    \item For 2D overscan bias correction, left over bias structures (Figure~\ref{fig:2DNoRGRaw}) are unchanged between  sequencer{\bf V30} and sequencer{\bf V30\_NoRG} (Figure~\ref{fig:2DNoRGEffect})  .
+    \item For 1D overscan bias correction (serial bias overscan correction only), for detectors with a large  bias residuals, a clear improvement (\textasciitilde2 ADU = \textasciitilde 30\% reduction) has been observed with the {\bf V30\_NoRG} sequencer compared to the {\bf V30} one (Figure~\ref{fig:1DNoRGEffect}). 
+\end{itemize}
+
+So in practice running with {\bf V30\_NoRG} sequencer reduce the amplitude of the 2D bias shape of the biases : residual are smaller after 1D overscan bias correction.  This confirms  that part the 2D bias shape in e2v sensors is related to parallel clock usage during readout. 
+
+If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} sequencer and it will still request 2D overscan bias correction. The issue is that even after 2D overscan correction, we observe a few ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGRaw}). Unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residual after 2D overscan correction. The {\bf V30\_NoRG} sequencer will not be the solution to fix this problem. As those residuals are function of the exposure time, we still have to count on DARK to correct the 2D bias shape of some e2v sensors to reach residuals from bias correction bellow 1 ADU. 
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/PA_2D_filtred_RG_NoRG_FOnly__2024113000334.png}
+\end{centering}
+\caption{In 2D overscan corrected biases, here from {\it E3380} collected with sequencer{\bf V30}), we observe a few \textasciitilde+1 ADU residual, near the serial register (ex: bottom right of the focal plane), or over the CCD surface (ex: near the center) as the next plot show, those residual are the same with the sequencer{\bf V30\_NoRG }.}\label{fig:2DNoRGRaw}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/PA_2D_filtred_RG_NoRG_FOnly_2024120200302_2024120200195_2024113000334.png}
+\end{centering}
+\caption{For e2v sensors those differences of 2D overscan corrected biases, allow to compare  biases residual in run {\it E3380} collected  with sequencer{\bf V30}) with the one from runs  {\it E3578} and {\it E3628} collected with sequencer {\bf V30\_NoRG}. No obvious difference is observed.}\label{fig:2DNoRGEffect}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/PA_1D_filtred_RG_NoRG_FOnly_2024120200302_2024120200195_2024113000334.png}
+\end{centering}
+\caption{For e2v sensors those differences of 1D overscan corrected biases, allow to compare  biases residual in run {\it E3380} collected  with sequencer{\bf V30}) with the one from runs  {\it E3578} and {\it E3628} collected with sequencer {\bf V30\_NoRG}. \textasciitilde40 amplifiers show a smaller (1-2 ADU)  bias residual level in  the case of the {\it NoRG} sequencer run. }\label{fig:1DNoRGEffect}
+\end{figure}
+
+\clearpage
 
 \subsubsection{Disable IDLE FLUSH}\label{section:disablingIDLEFLUSH}
 
@@ -1608,7 +1655,24 @@ Next, we divide the mosaic images in each CCOB-wide LED by the illumination mode
 
 
 \subsection{Glow search}
-% eventually we move these two section after the final characterization
+A long dark image can be used to identify glow. Figure \ref{fig:glowsearch} shows an example of 900 sec dark with the ISR application, with a very narrow stretch from -5 to -5 ADUs. 
+Obvious glow can be found in 3 guider sensors of S04/SG0, S40/SG1 and S44/SG0 (see Figure \ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
+The other observation can be made on R12/S22, R14/S22, R23/S11 and some other minor ones. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
+In R43/S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50ADU/900sec. This was also present in Run 6 data (for example, MC\_C\_20231102\_000085).
+Otherwise, we didn't find any other glow in the focal plane.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/glowsearch/900sdark.png}
+    \caption{A 900sec dark image MC\_C\_20240922\_000432, after the ISR application.}
+    \label{fig:glowsearch}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/glowsearch/R43S21.png}
+    \caption{A close up of R43/S21 of a 900sec dark image MC\_C\_20240922\_000432}
+    \label{fig:glowsearch}
+\end{figure}
+\clearpage
 \subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
 
 We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2--2.0 (or 0.8--1.8 for BOT data). 
@@ -1699,6 +1763,10 @@ R44\_SG0\_C02  & HiNoise & always Hi Noise\\ \hline
 
 \subsection{Full well measurements}\label{fullwell}
 
+One of the goals of this run was to provide two initial metrics that could be used to determine where to set the SUSPECT and SAT pixel masks for on-sky data. For each amplifier, there were three values considered: the maximum value recorded on a saturated detection, the PTC turnoff, and the linearity turnoff (see Section \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these are currently determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (e.g. saturated pinhole values being higher/lower than the recorded maximum values for E2V/ITL detectors).
+
+As such, we decided to determine the full well using spots and to compare these values to the ones found with the flat illumination setup. These spots were made using the spot projector and are the circular spots as described in Section \ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1-100 seconds. 
+
 \subsection{Non-linearity studies}\label{nonlinearity}
 \begin{figure}[ht]
 \begin{centering}
@@ -1729,7 +1797,7 @@ We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them
 Beginning with Run 7, it became common to run the guider in its nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
 
 \subsubsection{Guide Mode}
-Because, different regions of pixels on each GREB sensor can be read out, the guider requires a version GREB firmware that implements a separate sequencer for each sensor. When in science, or full frame mode, there is only one sequencer in the GREB. Which controls the synchronous readout of both sensors and the interleaving of their data. Additionally, the DAQ embedded processor connected the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
+Because, different regions of pixels on each GREB sensor can be read out, the guider requires a version GREB firmware that implements a separate sequencer for each sensor. When in science, or full frame mode, there is only one sequencer in the GREB. However, because GREB can be configured to read out a different portion of each sensor, special firmware must be loaded which contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
 
 The main steps of the procedure to switch from science to guide mode is:
 \begin{enumerate}
@@ -2678,6 +2746,8 @@ In this section, we briefly report issues that we have experienced in the Run 7 
 
 \subsection{Timeline of events and issues}
 
+The Gantt Chart below shows the timeline of event, not only limits to the actual EO testing period, but also includes the preparation period prior to the run. For details on individual runs, see section \ref{relevant-runs} or visit \href{https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/reports/testresults/list/view?tql=testResult.projectId%20IN%20(10064)%20AND%20testPlan.key%20IN%20(%22BLOCK-P15%22)%20AND%20testPlan.onlyLastTestResult%20IS%20true&epicJQL=&title=Test%20execution%20results%20(list)&projectId=10064&traceabilityReportOption=COVERAGE_TEST_CASES&traceabilityTreeOption=COVERAGE_TEST_CASES&traceabilityCustomTreeDisplayOption=CONDENSED&traceabilityMatrixOption=COVERAGE_TEST_CASES&scorecardOption=EXECUTION_RESULTS&displayUnit=COUNT&period=MONTH}{Zephyr scale} (rubinobs.atlassian.net access required).
+
 \resizebox{\textwidth}{!}{
 \begin{ganttchart}[
     hgrid,                        % Horizontal grid
@@ -2690,52 +2760,52 @@ In this section, we briefly report issues that we have experienced in the Run 7 
     milestone/.append style={fill=red!70}, % Style for milestones
     bar height=0.6,               % Height of task bars
     group/.append style={fill=gray!30}  % Style for groups
-]{2024-08-01}{2024-12-15}
+]{2024-08-01}{2024-12-05}
 
 % Title Row
 \gantttitlecalendar{year, month=name} \\
 
 % Events
 \ganttbar{Rough Pumping}{2024-08-08}{2024-09-10} \\
-\ganttbar{PCS Chiller Below Room Temp}{2024-08-13}{2024-08-13} \\
+\ganttmilestone{PCS Chiller Below Room Temp}{2024-08-13}{2024-08-13} \\
+\ganttbar{Cryo Turbo Pump Braking Studies}{2024-08-14}{2024-08-27} \\
 \ganttbar{Cryo Lines Flush/Drydown}{2024-08-23}{2024-08-23} \\
 \ganttbar{Cryo Pressure Hold Test}{2024-08-28}{2024-08-28} \\
-\ganttbar{PCS Chiller Set to -25C}{2024-08-28}{2024-08-29} \\
-\ganttbar{REB Turn On}{2024-08-29}{2024-08-29} \\
-\ganttbar{RebPS 00 and 04 Tripped}{2024-08-29}{2024-08-29} \\
+\ganttmilestone{PCS Chiller Set to -25C}{2024-08-28}{2024-08-29} \\
+\ganttmilestone{REB Turn On}{2024-08-29}{2024-08-29} \\
+\ganttmilestone{RebPS 00 and 04 Tripped}{2024-08-29}{2024-08-29} \\
 \ganttbar{Cryo Evacuation}{2024-08-30}{2024-08-30} \\
-\ganttbar{Cryo Charging}{2024-09-03}{2024-09-03} \\
-\ganttbar{Cryo System Turned On}{2024-09-05}{2024-09-05} \\
-\ganttbar{Ion Pumps Turned On}{2024-09-05}{2024-09-05} \\
-\ganttbar{RebPS P04 Tripped}{2024-09-09}{2024-09-09} \\
-\ganttbar{CCDs Turned On}{2024-09-11}{2024-09-24} \\
-\ganttbar{Cryo Turbo Pump Braking Studies}{2024-08-14}{2024-08-27} \\
+\ganttmilestone{Cryo Charging}{2024-09-03}{2024-09-03} \\
+\ganttmilestone{Cryo System Turned On}{2024-09-05}{2024-09-05} \\
+\ganttmilestone{Ion Pumps Turned On}{2024-09-05}{2024-09-05} \\
 \ganttbar{CCS/DAQ Issues}{2024-09-05}{2024-09-14} \\
-\ganttbar{HV Turn On}{2024-09-17}{2024-09-17} \\
-\ganttbar{HV for All CCDs}{2024-09-24}{2024-09-24} \\
+\ganttmilestone{RebPS P04 Tripped}{2024-09-09}{2024-09-09} \\
+\ganttbar{CCDs Turned On}{2024-09-11}{2024-09-24} \\
+\ganttbar{CCD HV Turn On}{2024-09-17}{2024-09-24} \\
 \ganttbar{PS00 and PS01 Tripped}{2024-09-20}{2024-09-20} \\
-\ganttbar{EO Run with HV}{2024-09-24}{2024-09-24} \\
-\ganttbar{PCS Chiller Degradation}{2024-10-15}{2024-10-15} \\
+\ganttmilestone{HV for All CCDs}{2024-09-24}{2024-09-24} \\
+\ganttbar{Run 7}{2024-09-24}{2024-12-01} \\
 \ganttbar{FCS AC Problem}{2024-10-01}{2024-10-01} \\
-\ganttbar{R01/Reb Tripped}{2024-10-18}{2024-10-18} \\
-\ganttbar{R01/Reb 1.2 Tripped}{2024-10-23}{2024-10-23} \\
-\ganttbar{Glycol Chiller 03 Refrigerant}{2024-10-27}{2024-10-27} \\
-\ganttbar{First Glycol Valve Closing}{2024-10-30}{2024-10-30} \\
-\ganttbar{PCS Chiller Degraded}{2024-11-08}{2024-11-08} \\
-\ganttbar{Summit Power Outage (Morning)}{2024-11-10}{2024-11-10} \\
-\ganttbar{UT Leak Warning}{2024-11-10}{2024-11-10} \\
-\ganttbar{Summit Power Outage (Midnight)}{2024-11-11}{2024-11-11} \\
-\ganttbar{PCS, HV, CCDs, REBs Off}{2024-11-11}{2024-11-11} \\
+\ganttmilestone{PCS Chiller Degradation starts}{2024-10-15}{2024-10-15} \\
+\ganttmilestone{R01/Reb[12] Tripped}{2024-10-18}{2024-10-18} \\
+\ganttmilestone{R01/Reb[12] Tripped}{2024-10-23}{2024-10-23} \\
+\ganttmilestone{Glycol Chiller 03 Refrigerant issue}{2024-10-27}{2024-10-27} \\
+\ganttmilestone{First Glycol Valve Closing}{2024-10-30}{2024-10-30} \\
+\ganttbar{PCS Chiller Degraded significantly}{2024-11-02}{2024-11-08} \\
+\ganttmilestone{Summit Power Outage (Morning)}{2024-11-10}{2024-11-10} \\
+\ganttmilestone{UT Leak Warning}{2024-11-10}{2024-11-10} \\
+\ganttmilestone{Summit Power Outage (Midnight)}{2024-11-11}{2024-11-11} \\
+\ganttmilestone{EO testing pause. PCS, CCDs, REBs Off}{2024-11-11}{2024-11-11} \\
 \ganttbar{FCS Work}{2024-11-11}{2024-11-21} \\
-\ganttbar{REB Turn On (Start)}{2024-11-21}{2024-11-21} \\
-\ganttbar{PCS Chiller Turn On}{2024-11-21}{2024-11-21} \\
+\ganttmilestone{REB Turn On (Start)}{2024-11-21}{2024-11-21} \\
+\ganttmilestone{PCS Chiller Turn On}{2024-11-21}{2024-11-21} \\
 \ganttbar{PCS Chiller Adjustment}{2024-11-21}{2024-11-27} \\
-\ganttbar{PCS Chiller Turn On and Restore}{2024-11-28}{2024-11-28} \\
-\ganttbar{REB Turn On}{2024-11-28}{2024-11-28} \\
-\ganttbar{CCD Powered On}{2024-11-28}{2024-11-28} \\
+\ganttmilestone{PCS Chiller Turn On and Restore}{2024-11-28}{2024-11-28} \\
+\ganttmilestone{REB Turn On}{2024-11-28}{2024-11-28} \\
+\ganttmilestone{CCD Powered On}{2024-11-28}{2024-11-28} \\
 \ganttbar{DAQ Issues}{2024-11-28}{2024-11-29} \\
-\ganttbar{HV Restore}{2024-11-30}{2024-11-30} \\
-\ganttbar{EO Testing and Filter}{2024-11-30}{2024-12-02} \\
+\ganttmilestone{HV Restore}{2024-11-30}{2024-11-30} \\
+\ganttbar{EO and filter testing resumed}{2024-11-30}{2024-12-02} \\
 \ganttbar{Camera Warm Up}{2024-12-02}{2024-12-03} \\
 
 \end{ganttchart}
@@ -2802,12 +2872,57 @@ Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Lea
 
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}{A detailed note is available.}
 
-\subsection{Jgroups meltdown}
+\subsection{Camera Control Network performance}
+
+The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems ("CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
+
+At SLAC the entire network was configured using a single network switch in the IR2 cleanroom, but the setup in Chile was significantly more complex with different network switches on different levels of the observatory. We worked closely with the Rubin Chilean IT team to understand the network configuration, and to track down the cause of the problem. Key observations indicated that while normal CCS traffic was light (3.5Mb/s), meltdowns generated traffic exceeding 2Gb/s. Tests revealed that moderate multicast traffic (100MB/s), deliberately created using iperf, could consistently induce the failures. 
+
+Ultimately a number of changes were made:
+
+\begin{itemize}
+\item The network switch controlling the cleanroom was replaced, and the network configuration in general was simplified to reduce the number of different switches used by the camera.
+\item The total volume of network traffic generated by the camera was reduced and made more uniform over time by adjusting when large volume telemetry, in particular from the focal-plane and REB power systems, was published.
+\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ulitmately understood to be caused by "retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10Gb and 1Gb connections, so the control room servers (with 10Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1G) could handle.
+\item After discussing with the jGroups maintainers we upgraded the entire camera control system from jGroups4 to jGroups5, and added some custom code to reduce the maximum volume of retransmission messages.
+\item We discovered that the Beckhoff PTP module used in the camera shutter (lsstcam-shutter01-ptp) was only capable of handling 100Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
+\end{itemize}
+
+Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we don't think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
+
+\subsection{Data corruption}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/Issues/FirstObservationofCorruption.png}
+    \caption{The first observation of the data corruption in the full focal plane image.}
+    \label{fig:thefirstobservationofdatacorruption}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/Issues/horizontalstripes.png}
+    \caption{A close up view of the section of image showing the horizontal strips. (without the overscan subtraction)}
+    \label{fig:horizontal-stripes}
+\end{figure}
+After the temporary fix to the PCS degradation has been made, when we tried to turn of the CCDs, we observed horizontal stripes in the raw images (Figure \ref{fig:horizontal-stripes}), which made the overscan subtracted-image looks not normal (Figure \ref{fig:thefirstobservationofdatacorruption}).
+
+We rebooted DAQ, power cycle CCDs, REBs, focal-plane subsystem and Image-handling subsystem, however, none of them fixed this issue. 
+
+Restarting Data store RCEs finally brought back the system normal. 
+
+\href{https://rubinobs.atlassian.net/browse/FRACAS-256}{A FRACAS ticket 256} is filed. 
 
 \subsection{Guider high gain issue}
 When the guider sensors run in guider mode, they may enter an abnormal state with gain values $\sim10$ times as large as in a normal state. (Jackie is looking at all guider data to find high-gain state files).
 
+The guider sensor encountered issues while operating in guider mode, as it failed to produce reasonable images. The bias level was abnormally low, measured at 1.0–1.5k instead of the expected ~15k. Additionally, the CCOB flashes were not recorded correctly. Although two flashes of 1.2 seconds each occurred, the sensor did not provide a meaningful response. At the time, the guider was configured with an integration time of 50 milliseconds and a readout time of approximately 70 milliseconds. The sensor should have displayed flat illumination across several frames, but the mean image value remained unchanged, with only minimal variations in the standard deviation and maximum values.
 
+During troubleshooting, discussions were held on Slack, and diagnostic steps were undertaken. These conversations highlighted the behavior of the sensor, with reference to previous image acquisitions. For example, on September 18th, the guider had successfully produced a mean count of 15k during image acquisition with the partial focal plane, meeting expectations. Furthermore, the guider appeared to function normally in science mode, where no abnormalities were observed.
+
+Immediate actions included performing a full power cycle and switching back to science mode. However, the guider tripped off during power-on, requiring another power cycle. The issue was identified as related to REB PS 4, which had tripped with an error code indicating the clock high voltage was too low (0x00280040). This necessitated a reset of the RCE following the power cycling of the CCDs/REBs. Despite these challenges, the process of switching to guider mode was repeated, and this time the system returned to normal. The baseline signal level stabilized at 1.5k, and the sensor responded correctly to flashes.
+
+Although the immediate issue was resolved, no definitive root cause was identified. Further investigation is needed to understand the conditions that led to the tripping of REB PS 4 and to prevent such occurrences in the future.
+
+\href{https://rubinobs.atlassian.net/browse/FRACAS-246}{A FRACAS ticket 246} is filed. 
 
 \section{Conclusions}\label{conclusions}
 
@@ -3021,180 +3136,231 @@ This section describes Run 7 record runs. All runs use our camera operating conf
 Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-final-operating-parameters}) are denoted with \textbf{bold run ID}.
 
 % B Protocol
-\begin{table}[ht]\label{table:runs_BProtocol}
-\centering
-\caption{B Protocol Runs}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{B Protocol Runs}\label{table:runs_BProtocol} \\
 \hline
-Run ID & Links & Notes \\ \hline
-\textbf{E3380} & & First B protocol post-chiller recovery. v30, dp80, idle flush disabled. \\ \hline
-\textbf{E2233} & & Identical to E1880. Acquired after CCS subsystem reboot. dp80, idle flush disabled. \\ \hline
-\textbf{E1880}  &  Web report \newline Test Execution & Camera operating configuration \\ \hline
-E1812 & & v29 NopSf (no pocket serial flush running for both e2v and ITL clear sequencers). dp80 voltages, idle flush ?? [likely disabled but verification needed] \\ \hline
-E1497 & & v29 Nop sequencer, dp80, idle flush ?? [likely disabled but verification needed] \\ \hline
-E1429 & & First dp84 run. v29, idle flush disabled \\ \hline
-E1419 & & First dp88 run. v29, idle flush disabled \\ \hline
-E1411 & & First dp865 run. v29, idle flush disabled \\ \hline
-E1396 & & First dp80 run. v29 nonoverlapping sequencer, idle flush enabled \\ \hline
-E1392 & & First dp80 run. v29 sequencer, idle flush enabled \\ \hline
-E1290 & & using Guide sensors as guiders. v29, dp93, idle flush enabled \\ \hline
-E1245 & & Refrigeration system software update mid-run. v29 halfoverlapping sequencer. dp93, idle flush enabled \\ \hline
-E1195 & & v29 overlap113 sequencer (5\% overlap). dp93, idle flush enabled \\ \hline
-E1146 & & First run with v29 nonoverlapping. dp93, idle flush enabled \\ \hline
-E1144 & & First run with v29 Nop. dp93, idle flush enabled \\ \hline
-E1110 & & v29 run. dp93, idle flush enabled \\ \hline
-E1071 & & SOURCE = 63 in calib3.cfg. First run with HV on. dp93, v26 sequencer, idle flush enabled \\ \hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
 
-\end{tabular}
-\end{table}
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3380/w_2024_35/}{E3380}} & First B protocol post-chiller recovery. v30, dp80, idle flush disabled. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2024_35/}{E2233}} & Identical to E1880. Acquired after CCS subsystem reboot. dp80, idle flush disabled. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1880/w_2024_35/}{E1880}} & Camera operating configuration \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1812/w_2024_35/}{E1812} & v29 NopSf (no pocket serial flush running for both e2v and ITL clear sequencers). dp80 voltages, idle flush ?? [likely disabled but verification needed] \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1497/w_2024_35/}{E1497} & v29 Nop sequencer, dp80, idle flush ?? [likely disabled but verification needed] \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1429/w_2024_35/}{E1429} & First dp84 run. v29, idle flush disabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1419/w_2024_35/}{E1419} & First dp88 run. v29, idle flush disabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1411/w_2024_35/}{E1411} & First dp865 run. v29, idle flush disabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1396/w_2024_35/}{E1396} & First dp80 run. v29 nonoverlapping sequencer, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1392/w_2024_35/}{E1392} & First dp80 run. v29 sequencer, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1290/w_2024_35/}{E1290} & using Guide sensors as guiders. v29, dp93, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1245/w_2024_35/}{E1245} & Refrigeration system software update mid-run. v29 halfoverlapping sequencer. dp93, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1195/w_2024_35/}{E1195} & v29 overlap113 sequencer (5\% overlap). dp93, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1146/w_2024_35/}{E1146} & First run with v29 nonoverlapping. dp93, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1144/w_2024_35/}{E1144} & First run with v29 Nop. dp93, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1110/w_2024_35/}{E1110} & v29 run. dp93, idle flush enabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1071/w_2024_35/}{E1071} & SOURCE = 63 in calib3.cfg. First run with HV on. dp93, v26 sequencer, idle flush enabled \\ \hline
+
+\end{longtable}
+
 
 % PTCs
-\begin{table}[ht]\label{table:runs_PTCs}
-\centering
-\caption{PTC Runs}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{PTC Runs}\label{table:runs_PTCs} \\
 \hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
 
-Run ID & Links & Notes \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3630/w_2024_35/}{E3630}} & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3577/w_2024_35/}{E3577}} & Dense nm960 PTC. Final operating conditions of camera. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2237/w_2024_35/}{E2237}} & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E748/w_2024_35/}{E748}} & Final operating conditions of camera. nm960 dense \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2016/w_2024_35/}{E2016}} & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1886/w_2024_35/}{E1886}} & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1881/w_2024_35/}{E1881}} & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1765/w_2024_35/}{E1765} & Dense PTC, red, thresholded dark interleaves, overlaps in signal level for adjacent LED currents. v29 Nop sequencer, idle flush ?? \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1495/w_2024_35/}{E1495} & dp80, nopp config. Idle flush ?? \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1364/w_2024_35/}{E1364} & v29, dp80, idle flush ??. Possible incomplete data transfer \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1335/w_2024_35/}{E1335} & dp80 configuration, v29, idle flush ??. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1275/w_2024_35/}{E1275} & Ordered flats. Failed dark interleaving, incomplete data transfer. v29 sequencer. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1259/w_2024_35/}{E1259} & Randomized flats. v29 sequencer. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1258/w_2024_35/}{E1258} & Randomized flux levels. Starting with 3 preimages, then 100 15s darks, then PTC set. No dark interleaving. v29 sequencer. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1247/w_2024_35/}{E1247} & Re-do of E1188 (which lacked PD data). v29HalfOverlapping., Added pre-image acquisition to PTC-Red cfg file. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1212/w_2024_35/}{E1212} & 5\% overlapping sequencer \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1145/w_2024_35/}{E1145} & No pocket sequencer \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1113/w_2024_35/}{E1113} & v29 sequencer \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E749/w_2024_35/}{E749} & v26, dp93, idle flush enabled. First PTC of run. \\ \hline
 
-\textbf{E3630} & & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera.\\ \hline
-\textbf{E3577} & & Dense nm960 PTC. Final operating conditions of camera.\\ \hline
-\textbf{E2237} & & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \hline
-\textbf{E748} & & Final operating conditions of camera. nm960 dense \\ \hline
-\textbf{E2016} & & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
-\textbf{E1886} & & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \hline
-\textbf{E1881} & & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
-E1765 & & Dense PTC, red, thresholded dark interleaves, overlaps in signal level for adjacent LED currents. v29 Nop sequencer, idle flush ??\\ \hline
-E1495 & & dp80, nopp config. Idle flush ??\\ \hline
-E1364 & & v29, dp80, idle flush ??. Possible incomplete data transfer\\ \hline
-E1335 & & dp80 configuration, v29, idle flush ??.\\ \hline
-E1275 & & Ordered flats. Failed dark interleaving, incomplete data transfer. v29 sequencer.\\ \hline
-E1259 & & Randomized flats. v29 sequencer. \\ \hline
-E1258 & & Randomized flux levels. Starting with 3 preimages, then 100 15s darks, then PTC set. No dark interleaving. v29 sequencer. \\ \hline
-E1247 & & Re-do of E1188 (which lacked PD data). v29HalfOverlapping., Added pre-image acquisition to PTC-Red cfg file. \\ \hline
-E1212 & & 5\% overlapping sequencer\\ \hline
-E1145 & & No pocket sequencer\\ \hline
-E1113 & & v29 sequencer\\ \hline
-E749 & & v26, dp93, idle flush enabled. First PTC of run. \\ \hline
-\end{tabular}
-\end{table}
+\end{longtable}
 
 % Long Dark Acquisitions
-\begin{table}[ht]\label{table:runs_dark}
-\centering
-\caption{Long Dark Acquisitions}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{Long Dark Acquisitions}\label{table:runs_dark} \\
 \hline
-Run ID & Links & Notes \\ \hline
-\textbf{E3540} & & 900s dark. Shutter closed. \\ \hline
-\textbf{E3539} & & 900s dark. Shutter closed. \\ \hline
-\textbf{E3538} & & 900s dark. Shutter opened. \\ \hline
-E1140 & & Empty frame filter, shutter open, 24V clean and dirty FES changer powered off, one 900s dark image only.\\ \hline
-E1117 & & 900s dark. r filter, shutter open.\\ \hline
-E1116 & & 900s dark. y filter, shutter open.\\ \hline
-E1115 & & 900s dark. g filter, shutter open.\\ \hline
-E1114 & & 900s dark. EF filter, shutter open.\\ \hline
-E1076 & & PH filter in place. Shutter open. v26 no RG\\ \hline
-E1075 & & PH filter in place. v26 no RG\\ \hline
-\end{tabular}
-\end{table}
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
+
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3540/w_2024_35/}{E3540}} & 900s dark. Shutter closed. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3539/w_2024_35/}{E3539}} & 900s dark. Shutter closed. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3538/w_2024_35/}{E3538}} & 900s dark. Shutter opened. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1140/w_2024_35/}{E1140} & Empty frame filter, shutter open, 24V clean and dirty FES changer powered off, one 900s dark image only. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1117/w_2024_35/}{E1117} & 900s dark. r filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1116/w_2024_35/}{E1116} & 900s dark. y filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1115/w_2024_35/}{E1115} & 900s dark. g filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1114/w_2024_35/}{E1114} & 900s dark. EF filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1076/w_2024_35/}{E1076} & PH filter in place. Shutter open. v26 no RG \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1075/w_2024_35/}{E1075} & PH filter in place. v26 no RG \\ \hline
+
+\end{longtable}
 
 % Projector Acquisitions
-\begin{table}[ht]\label{table:runs_projector}
-\centering
-\caption{Projector Acquisitions}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{Projector Acquisitions}\label{table:runs_projector} \\
 \hline
-Run ID & Links & Notes \\ \hline
-E2184 & & 10 30\,s dark images to capture background pattern \\ \hline
-E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. e2v:v29Nop, ITL:v29Nopp \\ \hline
-E1586 & & One 100\,s flat exposure, spots moved to selected phosphorescent regions. e2v:v29Nop, ITL:v29Nopp \\ \hline
-E1558 & & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. e2v:v29Nop, ITL:v29Nopp \\ \hline
-E1553 & & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s intervals. e2v:v29Nop, ITL:v29Nopp \\ \hline
-\end{tabular}
-\end{table}
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
+
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2184/w_2024_35/}{E2184} & 10 30\,s dark images to capture background pattern \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2181/w_2024_35/}{E2181} & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. e2v:v29Nop, ITL:v29Nopp \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1586/w_2024_35/}{E1586} & One 100\,s flat exposure, spots moved to selected phosphorescent regions. e2v:v29Nop, ITL:v29Nopp \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1558/w_2024_35/}{E1558} & Flat pairs, fine scan in flux from 1--100\,s in 1\,s intervals. e2v:v29Nop, ITL:v29Nopp \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1553/w_2024_35/}{E1553} & Flat pairs, coarse scan in flux from 5--120\,s in 5\,s intervals. e2v:v29Nop, ITL:v29Nopp \\ \hline
+
+\end{longtable}
 
 % OpSim Runs
-\begin{table}[ht]\label{table:runs_opSim}
-\centering
-\caption{OpSim Runs}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{OpSim Runs}\label{table:runs_opSim} \\
 \hline
-Run ID & Links & Notes \\ \hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
 
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3629/w_2024_35/}{E3629}} & Mock OCS calibrations, failed \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3576/w_2024_35/}{E3576}} & Mock OCS calibrations, failed \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3570/w_2024_35/}{E3570}} & Mock OCS calibrations, failed \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2330/w_2024_35/}{E2330}} & Short dark sequence, filter changes in headers through OCS \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2329/w_2024_35/}{E2329}} & Mock OCS calibrations, failed \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2328/w_2024_35/}{E2328}} & Flats with shutter-controlled exposure \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2283/w_2024_35/}{E2283}} & Full night of OpSim flats, failed \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2280/w_2024_35/}{E2280}} & Mock OCS calibrations, failed \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2279/w_2024_35/}{E2279}} & Mock OCS calibrations, failed \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1717/w_2024_35/}{E1717} & Long dark sequence, no filter changes \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1657/w_2024_35/}{E1657} & 10 hour OpSim dark run, \textasciitilde50\% of darks were acquired properly \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1414/w_2024_35/}{E1414} & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1403/w_2024_35/}{E1403} & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1255/w_2024_35/}{E1255} & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1254/w_2024_35/}{E1254} & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1092/w_2024_35/}{E1092} & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
 
-\textbf{E3629} & & Mock OCS calibrations, failed\\ \hline 
-\textbf{E3576} & & Mock OCS calibrations, failed\\ \hline 
-\textbf{E3570} & & Mock OCS calibrations, failed\\ \hline 
-\textbf{E2330} & & Short dark sequence, filter changes in headers through OCS \\ \hline
-\textbf{E2329} & & Mock OCS calibrations, failed\\ \hline 
-\textbf{E2328} & & Flats with shutter-controlled exposure \\ \hline
-\textbf{E2283} & & Full night of OpSim flats, failed \\ \hline
-\textbf{E2280} & & Mock OCS calibrations, failed\\ \hline 
-\textbf{E2279} & & Mock OCS calibrations, failed\\ \hline 
-E1717 & & Long dark sequence, no filter changes \\ \hline
-E1657 & & 10 hour OpSim dark run, \textasciitilde50\% of darks were acquired properly \\ \hline
-E1414 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
-E1403 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
-E1255 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
-E1254 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
-E1092 & & 30 minutes OpSim run with shutter control, filter change, and realistic survey cadence \\ \hline
+\end{longtable}
 
-\end{tabular}
-\end{table}
 
 % Phosphorescence Datasets
-\begin{table}[ht]\label{table:runs_phosphorescence}
-\centering
-\caption{Phosphorescence Datasets}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{Phosphorescence Datasets}\label{table:runs_phosphorescence} \\
 \hline
-Run ID & Links & Notes \\ \hline
-\textbf{E2015} & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-\textbf{E2014} & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-\textbf{E2013} & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \hline
-\textbf{E2012} & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-\textbf{E2011} & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-\end{tabular}
-\end{table}
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
+
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2015/w_2024_35/}{E2015}} & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2014/w_2024_35/}{E2014}} & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2013/w_2024_35/}{E2013}} & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2012/w_2024_35/}{E2012}} & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2011/w_2024_35/}{E2011}} & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+
+\end{longtable}
 
 % Tree Ring Flats
-\begin{table}[ht]\label{table:runs_treeRing}
-\centering
-\caption{Tree Ring Flats}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{Tree Ring Flats}\label{table:runs_treeRing} \\
 \hline
-Run ID & Links & Notes \\ \hline
-E1050 & & Red LED. HV off. Diffuser installed. \\ \hline
-E1052 & & Blue LED. HV off. Diffuser installed. \\ \hline
-E1053 & & Nm750 LED. HV off. Diffuser installed. \\ \hline
-E1055 & & Nm850 LED. HV off. Diffuser installed. \\ \hline
-E1056 & & Nm960 LED. HV off. Diffuser installed. \\ \hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
 \hline
-E1021 & & Red LED. HV off. Diffuser removed. \\ \hline
-E1023 & & Blue LED. HV off. Diffuser removed. \\ \hline
-E1024 & & Nm750 LED. HV off. Diffuser removed. \\ \hline
-E1025 & & Nm850 LED. HV off. Diffuser removed. \\ \hline
-E1026 & & Nm960 LED. HV off. Diffuser removed. \\ \hline
-\end{tabular}
-\end{table}
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
+
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1050/w_2024_35/}{E1050} & Red LED. HV off. Diffuser installed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1052/w_2024_35/}{E1052} & Blue LED. HV off. Diffuser installed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1053/w_2024_35/}{E1053} & Nm750 LED. HV off. Diffuser installed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1055/w_2024_35/}{E1055} & Nm850 LED. HV off. Diffuser installed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1056/w_2024_35/}{E1056} & Nm960 LED. HV off. Diffuser installed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1021/w_2024_35/}{E1021} & Red LED. HV off. Diffuser removed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1023/w_2024_35/}{E1023} & Blue LED. HV off. Diffuser removed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1024/w_2024_35/}{E1024} & Nm750 LED. HV off. Diffuser removed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1025/w_2024_35/}{E1025} & Nm850 LED. HV off. Diffuser removed. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1026/w_2024_35/}{E1026} & Nm960 LED. HV off. Diffuser removed. \\ \hline
+
+\end{longtable}
 
 % Gain Stability Runs
-\begin{table}[ht]\label{table:runs_gainStability}
-\centering
-\caption{Gain Stability Runs}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{longtable}{|p{5.0cm}|p{8.5cm}|}
+\caption{Gain Stability Runs}\label{table:runs_gainStability} \\
 \hline
-Run ID & Links & Notes \\ \hline
-\textbf{E1955} & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled\\ \hline
-\textbf{E2008} & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB\\ \hline
-\textbf{E1968} & & 6h Stability run 2k 750 nm V30, dp80, idle flush disabled\\ \hline
-E1367 & & Changing PCS setpoint mid run., PCS changed from -45 deg C to -47 deg C at 10:40:06 AM UTC. 6h, 50k at 750nm, v29 seq, dp80 config. \\ \hline
-E1362 & & dp80, partial data ingestion. v29 sequencer. 6h 10k at 750nm. \\ \hline
-E756 & & dp 80, v29 sequencer. 6h 10k at 750nm. Partial data ingestion.\\ \hline
-E1496 & & dp80, nopp config, 6h 750nm at 10k\\ \hline
-\end{tabular}
-\end{table}
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endfirsthead
+\hline
+\textbf{Run ID} & \textbf{Notes} \\ \hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
+
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1955/w_2024_35/}{E1955}} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2008/w_2024_35/}{E2008}} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1968/w_2024_35/}{E1968}} & 6h Stability run 2k 750 nm V30, dp80, idle flush disabled \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1367/w_2024_35/}{E1367} & Changing PCS setpoint mid run., PCS changed from -45 deg C to -47 deg C at 10:40:06 AM UTC. 6h, 50k at 750nm, v29 seq, dp80 config. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1362/w_2024_35/}{E1362} & dp80, partial data ingestion. v29 sequencer. 6h 10k at 750nm. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E756/w_2024_35/}{E756} & dp 80, v29 sequencer. 6h 10k at 750nm. Partial data ingestion. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1496/w_2024_35/}{E1496} & dp80, nopp config, 6h 750nm at 10k \\ \hline
+
+\end{longtable}
 
 % Persistence Datasets
 \begin{table}[ht]
