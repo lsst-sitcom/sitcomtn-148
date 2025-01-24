@@ -6,12 +6,12 @@ In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by a
 
 This document details initial testing results, giving focus on the following points:
 \begin{itemize}
-    \item What is the difference of testing setup (Section \ref{electro-optical-setup})
+    \item What is the difference of testing setup? (Section \ref{electro-optical-setup})
     \item Does the Camera after the transportation still perform as we checked out in California? (Section \ref{reverification})
     \item Optimizations to the features that we found during previous EO testing such as persistence and bias instability. (Section \ref{sec:camera-optimization})
     \item How does the Camera perform after implementing those optimizations? (Section \ref{characterization-camera-stability})
     \item Investigating other features (Section \ref{sensor-features})
-    \item Summary of issues during Run 7 (Section \ref{sec:issues})
+    \item Summarize the overall operations and issues during Run 7 (Section \ref{sec:issues})
 \end{itemize}
 All the results presented here are subject to future changes.
 
@@ -273,6 +273,8 @@ To investigate how the filter affects the dark current, we took 900 second darks
 
 \subsubsection{Final measurements of dark
 current}\label{final-measurements-of-dark-current}
+
+\clearpage
 
 \section{Reverification}\label{reverification}
 
@@ -712,6 +714,7 @@ Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.
 \caption{Comparison of the median values of different parameters between Run 6 and Run 7, separated by detector type. For this comparison, only science detectors are considered.}
 \end{table}
 
+\clearpage
 
 \section{Camera Optimization}\label{sec:camera-optimization}
 
@@ -1248,6 +1251,7 @@ We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero
 
 
 
+\clearpage
 
 \section{Characterization \& Camera
 stability}\label{characterization-camera-stability}
@@ -1556,7 +1560,7 @@ All other metrics were not significantly impacted by the final operating conditi
 
 \subsection{Illumination corrected flat}
 
-To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
+To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between the e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
 
 \begin{figure}[ht]
     \centering
@@ -1564,6 +1568,22 @@ To assess the level of Gain matching over each CCD as well as to study relative 
     \caption{Focal Plane mosaic from a $750~nm$ lambda flat (left). Two-dimensional Chebyshev model illumination fit (right)}
     \label{fig:mosaic-modelfit}
 \end{figure}
+
+Next, we divide the mosaic images in each CCOB-wide LED by the illumination model fit to produce a relative QE mosaic, as shown in Figure~\ref{fig:mosaic-relativeqe}.  Visually the per-CCD gain matching looks good and we expect to refine this further by using PTC Gains from a dense PTC run and by using more of the ISR pipeline to correct these images. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/lambda_uv_E2233.png}
+    \includegraphics[width=0.4\linewidth]{figures/lambda_blue_E2233.png} \\
+    \includegraphics[width=0.4\linewidth]{figures/lambda_red_E2233.png}
+    \includegraphics[width=0.4\linewidth]{figures/lambda_nm750_E2233.png} \\
+    \includegraphics[width=0.4\linewidth]{figures/lambda_nm850_E2233.png}
+    \includegraphics[width=0.4\linewidth]{figures/lambda_nm960_E2233.png} \\
+    \caption{Focal Plane mosaic for each of the CCOB-wide lambda flats, divided by the illumination model.}
+    \label{fig:mosaic-relativeqe}
+\end{figure}
+
+\clearpage
 
 
 
@@ -1596,7 +1616,7 @@ A list of nonfunctional amplifiers on Science Rafts was produced from both singl
     \caption{Table of non-functioning Science Raft amplifiers. For hi-noise amplifiers the measured read noise is listed for levels above $12e^{-}$. \label{tab:BOTbadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391,13557,E1110,E1363,E1880,E2233,E3380) and PTC runs (13412,13591,E1113,E1364,E1881,E2237,E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figure~\ref{fig:ptc-badamps} and Figure~\ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $~10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two ones with the tiny signal had low current measurement of around 0.5mA when they looked dead, while it was 1.0mA when they looked alive. 
+Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range from $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391, 13557, E1110, E1363, E1880, E2233, E3380) and PTC runs (13412, 13591, E1113, E1364, E1881, E2237, E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  To study these further, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figure~\ref{fig:ptc-badamps} and Figure~\ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $\sim10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two ones with the tiny signal had low current measurement of around 0.5mA when they looked dead, while it was 1.0mA when they looked alive. 
 
 \begin{figure}[ht]
     \centering
@@ -1718,7 +1738,7 @@ For any guide configuration, the ROI size is the same for all sensors, but its l
 We also collected a set of data with ROIs of different size and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
 
 \subsubsection{Noise Investigation}
-We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of an entire ROI, and averaged over all frames from all of the 20 images. In cases where multiple sensors are running at the same time, the noise is also averaged over all sensors. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. An increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of an entire ROI, and averaged over all frames from all of the 20 images. In cases where multiple sensors are running at the same time, the noise is also averaged over all sensors. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
 
 %% jgt - here's the table with the configuratons and results (noise results omitted)
 \begin{longtable}{|c|c|c|c|c|c|c|}
@@ -1755,7 +1775,7 @@ We measure the noise level of ROIs acquired under various configurations, shown 
 400x400 &  50 & 1 & 1 & n/a       &  2.23 & 3.95 \\ % gds_roi_02.cfg
 400x400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
 10x10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
-400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 105.30 \\ % gds_roi_05.cfg
+400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 7.24, 7.09 \\ % gds_roi_05.cfg
 \hline
 \end{longtable}
 
@@ -2155,6 +2175,8 @@ In summary, we find
     \item Local amp-by-amp gain change is minimal $10^{-4}$ over 6 hours if the REB or the focal plane temperature is maintained at the same.
     \item Further analysis is needed in understanding the gain change in the beginning of Run and some random spikes is needed.
 \end{itemize}
+
+\clearpage
 
 \section{Sensor features}\label{sensor-features}
 
@@ -2629,67 +2651,10 @@ A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage 
   phosphorescence on spot projections
 \end{itemize}
 
+\clearpage
 
-\section{Issues}\label{sec:issues}
+\section{Overall operation and Issues}\label{sec:issues}
 In this section, we briefly report issues that we have experienced in the Run 7 period.
-
-\subsection{REB PS tripped off}
-In the evening of August 29, 2024, at 20:00 local time (00:00 UTC), two power units, R43 and R33, on RebPS P00, lost power. At that time, no one was at the summit.
-
-After 20:38 local time, two people on shift went up to the White Room from the hotel and conducted an inspection, but they found nothing unusual.
-
-It's unclear when they arrived at the summit. Another incident occurred. R21/Reb[12] and R42 on P04 also lost power.
-
-We suspect that this was caused by static electricity events. The Utility Trunk door appeared to be floating electrically, and the people who had worked on the LSSTCam in the White Room up to that date did not wear ESD straps. To address this issue, we grounded the Utility Trunk door and implemented an administrative control to ensure that everyone working around the camera wore ESD straps. Since then, we have not observed any more of these events.
-A full report is available\footnote{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/69763079/REB+trip+off+issue+08+29+24}.
-
-\subsection{FES latch sensor failure during motion}
-The FES software has internal protection that prevents any actions when one of the sensors is detected as faulty, regardless of what the PLC says or whether the sensor is currently in use.
-
-After analyzing the system, the French team believes that the openSensorBLatchXminus sensor is malfunctioning and should be enabled because its complementary sensor is disabled. It could be a short or a more permanent broken wire, but this situation puts the sensors in an "error" state.
-
-Since opening the latches is a risky operation, we cannot safely bypass the information the sensor is providing us while we do not get status from the sensors. This issue requires careful consideration to find a suitable solution.
-The full report is available\footnote{FRACAS-241}.
-
-\subsection{PCS degradation}
-After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, puttint the camera running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\linewidth]{figures//Issues/PCSTXVBulbAug11toOct17.png}
-    \caption{The trend of TXV Bulb temperature at PCS Stage 1, increasing trend showing degradation over time.}
-    \label{fig:pcsdegradation}
-\end{figure}
-
-Performance degradation was observed following the event. Several mitigation strategies were used as this issue continued, including:
-1. Closing the Glycol valve for the PCS for 70 seconds (subsequently increased to 120 seconds).
-2. Stopping the refrigeration compressor while allowing refrigerant flow to continue.
-3. Adding 250\,g refrigerant, or more.
-However, on November 10, the chiller no longer provided sufficient cooling capacity, resulting in the Camera being placed in a degraded mode where it lacks cold cooling while cryo cooling is active.
-
-A concern regarding the loss of refrigerant was raised. An action was taken to recover the PCS refrigerant for weighing purposes. The measured weight was 6.404\,kg, which deviated from the expected value of 6.804\,kg. The engineer deemed this discrepancy insufficient for the degradation of the system's performance. Therefore, the original mass of refrigerant (6.804 kg) was returned to the system. Subsequently, the superheat valve of the TXV was adjusted to fully open the valve. These actions resulted in a week of stable operation in the end of Run 7.
-
-The definitive resolution has not yet been made. Further analysis is required.
-
-
-\subsection{R24/Reb0 and UT Leak Fault issue}
-We were recovering operations from the PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
-
-After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: "Execution of command 'powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
-
-We power cycled the RebPS P02, which contains R24/Reb0, and it tripped off again with the same error.
-
-A few minutes later, we encountered a UTLeak Fault. UTLeak Fault became asserted, and the Camera was fully shut down. A crew went to the White Room but did not find any water leaks, nor did the leak detector. We have not identified the cause. (Note a few days later, we found a few drops of Dyanalene in the UT, although it was found that it was not enough to trigger UT leak.)
-
-On November 15, 2024, we set the Dynalene temperature to 4°C, then changed it to 8°C and 11°C. The temperature at the Camera side reached 12.5°C. RebPS/BoardTemp6 reached 13°C. Under these conditions, R24/Reb0 came on without any issues. Therefore, we determined that the low RebPS/PS02/BoardTemp6 of around 9°C was the cause of the problem. We note that this temperature is not a strict limit. Some power supply could run at this temperature. Also once it powers up it needs to be as low as 9°C so no to trip off the power supply by hitting the high temp limit.
-
-Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Leak" and ``UT Leak Fault." ``UT Leak" refers to an actual leak detected, while ``UT Leak Fault" indicates an issue with the leak detector itself. Subsequent investigations suggested that the DC-DC converter supplying power to the UT leak detector may not have been adequately loaded, leading to its shutdown and triggering the ``UT Leak Fault."
-
-A detailed note is available\footnote{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}.
-
-\subsection{Jgroups meltdown}
-
-\subsection{Guider high gain issue}
-
 
 \subsection{Timeline of events and issues}
 
@@ -2755,6 +2720,75 @@ A detailed note is available\footnote{https://rubinobs.atlassian.net/wiki/spaces
 
 \end{ganttchart}
 }
+
+Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of Cryo plate, one of CCDs, R01/S10, and the focal plane over the whole run period. These show smooth behavior except for the timing where we had troubles.
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/Issues/LSSTCam_Temps_Run7.png}
+    \caption{Temperatures of Cryo plate, one of CCDs, R01/S10, and the focal plane over the whole run period.}
+    \label{fig:tempsoverthewholeperiod}
+\end{figure}
+
+\subsection{REB PS tripped off}
+In the evening of August 29, 2024, at 20:00 local time (00:00 UTC), two power units, R43 and R33, on RebPS P00, lost power. At that time, no one was at the summit.
+
+After 20:38 local time, two people on shift went up to the White Room from the hotel and conducted an inspection, but they found nothing unusual.
+
+It's unclear when they arrived at the summit. Another incident occurred. R21/Reb[12] and R42 on P04 also lost power.
+
+We suspect that this was caused by static electricity events. The Utility Trunk door appeared to be floating electrically, and the people who had worked on the LSSTCam in the White Room up to that date did not wear ESD straps. To address this issue, we grounded the Utility Trunk door and implemented an administrative control to ensure that everyone working around the camera wore ESD straps. Since then, we have not observed any more of these events.
+\href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/69763079/REB+trip+off+issue+08+29+24}{A full report is available}.
+
+\subsection{FES latch sensor failure during motion}
+The FES software has internal protection that prevents any actions when one of the sensors is detected as faulty, regardless of what the PLC says or whether the sensor is currently in use.
+
+After analyzing the system, the French team believes that the openSensorBLatchXminus sensor is malfunctioning and should be enabled because its complementary sensor is disabled. It could be a short or a more permanent broken wire, but this situation puts the sensors in an "error" state.
+
+Since opening the latches is a risky operation, we cannot safely bypass the information the sensor is providing us while we do not get status from the sensors. This issue requires careful consideration to find a suitable solution.
+\href{https://rubinobs.atlassian.net/browse/FRACAS-241}{The full report is available}.
+
+\subsection{PCS degradation}
+After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, puttint the camera running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{figures//Issues/PCSTXVBulbAug11toOct17.png}
+    \caption{The trend of TXV Bulb temperature at PCS Stage 1, increasing trend showing degradation over time.}
+    \label{fig:pcsdegradation}
+\end{figure}
+
+Performance degradation was observed following the event. Several mitigation strategies were used as this issue continued, including:
+1. Closing the Glycol valve for the PCS for 70 seconds (subsequently increased to 120 seconds).
+2. Stopping the refrigeration compressor while allowing refrigerant flow to continue.
+3. Adding 250\,g refrigerant, or more.
+However, on November 10, the chiller no longer provided sufficient cooling capacity, resulting in the Camera being placed in a degraded mode where it lacks cold cooling while cryo cooling is active.
+
+A concern regarding the loss of refrigerant was raised. An action was taken to recover the PCS refrigerant for weighing purposes. The measured weight was 6.404\,kg, which deviated from the expected value of 6.804\,kg. The engineer deemed this discrepancy insufficient for the degradation of the system's performance. Therefore, the original mass of refrigerant (6.804 kg) was returned to the system. Subsequently, the superheat valve of the TXV was adjusted to fully open the valve. These actions resulted in a week of stable operation in the end of Run 7.
+
+The definitive resolution has not yet been made. Further analysis is required.
+
+
+\subsection{R24/Reb0 and UT Leak Fault issue}
+We were recovering operations from the PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
+
+After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: "Execution of command 'powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
+
+We power cycled the RebPS P02, which contains R24/Reb0, and it tripped off again with the same error.
+
+A few minutes later, we encountered a UTLeak Fault. UTLeak Fault became asserted, and the Camera was fully shut down. A crew went to the White Room but did not find any water leaks, nor did the leak detector. We have not identified the cause. (Note a few days later, we found a few drops of Dyanalene in the UT, although it was found that it was not enough to trigger UT leak.)
+
+On November 15, 2024, we set the Dynalene temperature to 4°C, then changed it to 8°C and 11°C. The temperature at the Camera side reached 12.5°C. RebPS/BoardTemp6 reached 13°C. Under these conditions, R24/Reb0 came on without any issues. Therefore, we determined that the low RebPS/PS02/BoardTemp6 of around 9°C was the cause of the problem. We note that this temperature is not a strict limit. Some power supply could run at this temperature. Also once it powers up it needs to be as low as 9°C so no to trip off the power supply by hitting the high temp limit.
+
+Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Leak" and ``UT Leak Fault." ``UT Leak" refers to an actual leak detected, while ``UT Leak Fault" indicates an issue with the leak detector itself. Subsequent investigations suggested that the DC-DC converter supplying power to the UT leak detector may not have been adequately loaded, leading to its shutdown and triggering the ``UT Leak Fault."
+
+\href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}{A detailed note is available.}
+
+\subsection{Jgroups meltdown}
+
+\subsection{Guider high gain issue}
+When the guider sensors run in guider mode, they may enter an abnormal state with gain values $\sim10$ times as large as in a normal state. (Jackie is looking at all guider data to find high-gain state files).
+
+
+
 \section{Conclusions}\label{conclusions}
 
 \subsection{Run 7 final operating
@@ -2838,51 +2872,96 @@ ITL & FP\_ITL\_2s\_l3cp\_v30.seq \\
 \subsection{Record runs}\label{record-runs} 
 
 This section describes Run 7 record runs. All runs use our camera operating configuration, unless otherwise noted.
-
-\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
+\begin{longtable}{|p{5.0cm}|p{1.5cm}|p{8.5cm}|}
 \hline
-\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
+\textbf{Run Type} & \textbf{Run ID} & \textbf{Notes} \\ \hline
 \endfirsthead
 \hline
-\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
+\textbf{Run Type} & \textbf{Run ID} & \textbf{Notes} \\ \hline
 \endhead
 \hline
 \endfoot
 \hline
 \endlastfoot
 
-\multirow{3}{*}{B-protocol} & E1880 & Web report \newline Test Execution & Initial B\_protocol taken with the new v30 definition. \\ \cline{2-4} 
-                            & E2233 &             & dp80, first run after full CCS system reboot \\ \cline{2-4} 
-                            & E3380 &             & First B protocol post-chiller recovery \\ \hline
+\multirow{3}{*}{B-protocol} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1880/w_2024_35/}{E1880} & Initial B\_protocol taken with the new v30 definition. \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2024_35/}{E2233} & dp80, first run after full CCS system reboot \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3380/w_2024_35/}{E3380} & First B protocol post-chiller recovery \\ \hline
 
-\multirow{7}{*}{PTC}        & E3630 &             & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera. \\ \cline{2-4} 
-                            & E3577 &             & Dense nm960 PTC. Final operating conditions of camera. \\ \cline{2-4} 
-                            & E2237 &             & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-4} 
-                            & E748  &             & Final operating conditions of camera. nm960 dense \\ \cline{2-4} 
-                            & E2016 &             & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-4} 
-                            & E1886 &             & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-4} 
-                            & E1881 &             & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
+\multirow{7}{*}{PTC}        & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3630/w_2024_35/}{E3630} & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera. \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3577/w_2024_35/}{E3577} & Dense nm960 PTC. Final operating conditions of camera. \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2237/w_2024_35/}{E2237} & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E748/w_2024_35/}{E748} & Final operating conditions of camera. nm960 dense \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2016/w_2024_35/}{E2016} & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1886/w_2024_35/}{E1886} & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-3} 
+                            & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1881/w_2024_35/}{E1881} & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
 
-\multirow{3}{*}{Gain Stability} & E1955 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \cline{2-4} 
-                                & E2008 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
+\multirow{3}{*}{Gain Stability} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1955/w_2024_35/}{E1955} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \cline{2-3} 
+                                & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2008/w_2024_35/}{E2008} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
 
-\multirow{3}{*}{Long dark acquisitions} & E3540 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
-                                       & E3539 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
-                                       & E3538 &  & 900s dark. Shutter opened. \\ \hline
+\multirow{3}{*}{Long dark acquisitions} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3540/w_2024_35/}{E3540} & 900s dark. Shutter closed. \\ \cline{2-3} 
+                                       & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3539/w_2024_35/}{E3539} & 900s dark. Shutter closed. \\ \cline{2-3} 
+                                       & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3538/w_2024_35/}{E3538} & 900s dark. Shutter opened. \\ \hline
 
-\multirow{2}{*}{Projector acquisitions} & E2184 &  & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-4} 
-                                        & E2181 &  & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
+\multirow{2}{*}{Projector acquisitions} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2184/w_2024_35/}{E2184} & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-3} 
+                                        & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2181/w_2024_35/}{E2181} & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
 
-\multirow{2}{*}{OpSim runs}  & E2330 &           & Short dark sequence, filter changes in headers through OCS \\ \cline{2-4} 
-                             & E2328 &           & Flats with shutter-controlled exposure \\ \hline
+\multirow{2}{*}{OpSim runs}  & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2330/w_2024_35/}{E2330} & Short dark sequence, filter changes in headers through OCS \\ \cline{2-3} 
+                             & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2328/w_2024_35/}{E2328} & Flats with shutter-controlled exposure \\ \hline
 
-\multirow{5}{*}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
-                                          & E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
-                                          & E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-4} 
-                                          & E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
-                                          & E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+\multirow{5}{*}{Phosphorescence datasets} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2015/w_2024_35/}{E2015} & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-3} 
+                                          & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2014/w_2024_35/}{E2014} & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-3} 
+                                          & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2013/w_2024_35/}{E2013} & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-3} 
+                                          & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2012/w_2024_35/}{E2012} & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-3} 
+                                          & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2011/w_2024_35/}{E2011} & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
 
 \end{longtable}
+
+
+%\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
+%\hline
+%\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
+%\endfirsthead
+%\hline
+%\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
+%\endhead
+%\hline
+%\endfoot
+%\hline
+%\endlastfoot
+%
+%\multirow{3}{*}{B-protocol} & E1880 & Web report \newline Test Execution & Initial B\_protocol taken with the new v30 definition. \\ \cline{2-4} 
+%                            & E2233 &             & dp80, first run after full CCS system reboot \\ \cline{2-4} 
+%                            & E3380 &             & First B protocol post-chiller recovery \\ \hline
+%
+%\multirow{7}{*}{PTC}        & E3630 &             & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera. \\ \cline{2-4} 
+%                            & E3577 &             & Dense nm960 PTC. Final operating conditions of camera. \\ \cline{2-4} 
+%                            & E2237 &             & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-4} 
+%                            & E748  &             & Final operating conditions of camera. nm960 dense \\ \cline{2-4} 
+%                            & E2016 &             & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-4} 
+%                            & E1886 &             & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-4} 
+%                            & E1881 &             & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
+%
+%\multirow{3}{*}{Gain Stability} & E1955 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \cline{2-4} 
+%                                & E2008 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
+%
+%\multirow{3}{*}{Long dark acquisitions} & E3540 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
+%                                       & E3539 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
+%                                       & E3538 &  & 900s dark. Shutter opened. \\ \hline
+%
+%\multirow{2}{*}{Projector acquisitions} & E2184 &  & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-4} 
+%                                        & E2181 &  & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
+%
+%\multirow{2}{*}{OpSim runs}  & E2330 &           & Short dark sequence, filter changes in headers through OCS \\ \cline{2-4} 
+%                             & E2328 &           & Flats with shutter-controlled exposure \\ \hline
+%
+%\multirow{5}{*}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
+%                                          & E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
+%                                          & E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-4} 
+%                                          & E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
+%                                          & E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
+%
+%\end{longtable}
 
 % \begin{table}[ht]
 % \centering
@@ -3155,5 +3234,6 @@ E1517 & & Different row for sensors on the same REB\\ \hline
 \end{tabular}
 \end{table}
 
+\clearpage
 
 % \appendix is defined in the top level. The following sections will be eventually moved to another tex files.
