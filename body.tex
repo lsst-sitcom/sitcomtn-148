@@ -4,11 +4,11 @@ The functionality and performance of the Camera had been studied in various inte
 
 In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was rolled into the white room at Level 3 in the Vera C. Rubin Observatory. Cooldown began by the end of August and then the 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from the end of September 2024 to the beginning of December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
 
-This document details initial testing results, giving focus on the following points:
+This document details initial interim testing results, giving focus on the following points:
 \begin{itemize}
     \item What is the difference of testing setup? (Section \ref{electro-optical-setup})
     \item Does the Camera after the transportation still perform as we checked out in California? (Section \ref{reverification})
-    \item Optimizations to the features that we found during previous EO testing such as persistence and bias instability. (Section \ref{sec:camera-optimization})
+    \item Optimizations to the features that we found during previous EO testings such as persistence and bias instability. (Section \ref{sec:camera-optimization})
     \item How does the Camera perform after implementing those optimizations? (Section \ref{characterization-camera-stability})
     \item Investigating other features (Section \ref{sensor-features})
     \item Summarize the overall operations and issues during Run 7 (Section \ref{sec:issues})
@@ -810,12 +810,12 @@ swing also requires changes to all other voltages to
 operate the sensor properly, e.g., to properly reset the amplifier.
 The initial voltages were given in the original Bipolar formula
  but to decrease the parallel swing we had
-to switch to the new persistence mitigation formula in order to satisfy the constraints\href{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}{Persitence mitigation voltage}
+to switch to the new persistence mitigation formula in order to satisfy the constraints (\href{https://github.com/lsst-camera-dh/e2v_voltages/blob/main/setup_e2v_v4.py}{Persitence mitigation voltage}).
 
 \citet{2024SPIE13103E..21S}, set up a single sensor test-stand at UC
 Davis. They attempted multiple different approaches mentioned above and
-reported the results\href{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}{Davis report}. The
-summary is as follows:
+reported the results in \href{https://docs.google.com/document/d/1V4o9tzKBLnI1nlOlMFImPko8pDkD6qE7jzzk-duE-Qo/edit?tab=t.0\#heading=h.frkqtvvyydkr}{Davis report}. 
+The summary is as follows:
 
 \begin{itemize}
 \tightlist
@@ -950,28 +950,7 @@ Several efforts were undertaken to optimize the sequencer configurations during 
 
 \begin{itemize}
 \item {\bf Clear}: Addressing the leftover charges at the image/serial register. The discussion is provided in Section \ref{sec:improved-clear}:
-%  \begin{itemize}
-%  \item
-%    \textbf{No Pocket}
-%  We introduced the v29\_Nop (No Pocket)
-%  sequencer, which is an improved clear method using a serial register
-%  configuration that reduces the formation of pockets at the Image/Serial
-%  register interface. This clear method showed an approximately 2$\times$
-%  improvement in the saturated image clear for e2v devices and completely
-%  resolved the issue for ITL devices, except for R01\_S11,
-%  where the No Pocket method performs approximately 2$\times$ worse than the default clear. 
-%  For an unknown reason, this ITL CCD retains a significant amount of uncleared charges 
-%  (hundreds of lines) after a saturated flat. This issue prevents the use of the No
-%  Pocket configuration with ITL devices.
-%
-%  \item
-%    \textbf{No Pocket with Serial Flush}
-%  We introduced V29NopSf (No Pocket with Serial Flush), an enhanced version of the No Pocket Clear
-%  sequencer, which includes a variable configuration of the serial register
-%  during the clear process (mimicking a serial flush), to further prevent the
-%  formation of pockets. This solution has been shown to completely prevent the presence of leftover charges after clearing a saturated image for e2v devices.
-%  \end{itemize}
-%  
+
 \item {\bf Whether toggling the RG output during the parallel transfer for the e2v sensors is needed or not.}: Given the fact that there was some impact on making the bias structure in ITL better. The same question was raised for e2v sensors. The detail is described in Section \ref{noRGe2v}
 \item {\bf Whether keeping the IDLE\_FLUSH running or not}: Addressing the worsening of the Divisadero tearing. The detail is described in Section \ref{section:disablingIDLEFLUSH}
 \item {\bf Phase overlap during parallel transfer for e2v}: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced.
@@ -1761,11 +1740,48 @@ R44\_SG0\_C02  & HiNoise & always Hi Noise\\ \hline
     \caption{Table of non-functioning Corner Raft amplifiers, from Runs 6a, 6b, and 7. Categories are OK, SometimesHiNoise, SometimesDead, HiNoise, Dead. \label{tab:badamps-corner}}
 \end{table}
 
+\clearpage
 \subsection{Full well measurements}\label{fullwell}
 
 One of the goals of this run was to provide two initial metrics that could be used to determine where to set the SUSPECT and SAT pixel masks for on-sky data. For each amplifier, there were three values considered: the maximum value recorded on a saturated detection, the PTC turnoff, and the linearity turnoff (see Section \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these are currently determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (e.g. saturated pinhole values being higher/lower than the recorded maximum values for E2V/ITL detectors).
 
-As such, we decided to determine the full well using spots and to compare these values to the ones found with the flat illumination setup. These spots were made using the spot projector and are the circular spots as described in Section \ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1-100 seconds. 
+As such, we decided to determine the full well using spots and to compare these values to the ones found with the flat illumination setup. These spots were made using the spot projector and are the circular spots as described in Section \ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1-100 seconds in one second intervals. To get the spot, we applied a very loose threshold ($1\sigma$ above the background) to return the footprint of the spot and calculate the centroid of the spot.
+
+Once we found the spot and the spot centroid, there were three different turnoffs that we used: Spot photometry, spot PTC, and spot shape.
+For spot photometry, we used the spot centroid to place a 5 pixel\footnote{We plotted the effect of changing the pixel aperture and found that the final turnoff value increases with aperture size. This is because this method is a proxy to measuring when the spot begins to bleed and when does the bleeding exceed the aperture size. As such, we decided to keep it small at 5 pixels.} aperture around the spot. We then plotted the aperture flux divided by the exposure time as a function of the measured peak of the spot as seen in Figure \ref{fig:Spot_Metrics}. This resulted in an almost constant value until a sudden drop in the flux rate. As such, our metric for the turnoff is when it first starts dropping, whenever the constant value drops below $3\sigma$ of its scatter. This turnoff is shown in Figure \ref{fig:Spot_Metrics} as the black line.
+
+For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10 by 10 pixel box around the core of the spot to use for our PTC. We then compared these 10 by 10 pixel between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find when the turnoff happens, we took the derivative of the variance vs spot mean curve and found the point that has the first large negative value. This curve and the turnoff are shown in Figure \ref{fig:Spot_Metrics}.
+
+Lastly, the final full well measurement we used as the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cutout the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more consistent measurements.}. We then plotted this against the spot peak. Similar to the Spot Photometry method, we were left with a constant value that drops off suddenly. We used a similar metric to the Spot Photometry of finding the value that falls below $3\sigma$ of the constant value. This method and turnoff is shown in Figure \ref{fig:Spot_Metrics}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.33\linewidth]{figures/Spot_Photometry.png}
+    \includegraphics[width=0.33\linewidth]{figures/Spot_PTC.png}
+    \includegraphics[width=0.33\linewidth]{figures/Spot_2ndMoment.png}
+    \caption{Example of the different spot metrics and their corresponding calculated turnoffs as the black vertical line for detector R21/S21 (88). (Left) Spot Photometry (left), Spot PTC (middle), and Spot Second Moments (right).}
+    \label{fig:Spot_Metrics}
+\end{figure}
+
+With these three new methods, we want to compare these results to the old results. Figure XXX shows an example comparison between the three metrics and the PTC and linearity turnoffs from the flat illuminated data for one detector, R21/S21. This shows that all three of these metrics are around, if not a little higher, than the linearity turnoff, providing support that the linearity turnoff is a good metric for the SAT pixel mask plane.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/Spot_EO_comparison.png}
+    \caption{Comparison between the calculated Spot fullwell metrics and the EO metrics. All the Spot metrics are around the level of the linearity turnoff.}
+    \label{fig:Spot_vs_EO_Metrics}
+\end{figure}
+
+\subsubsection{Spot Photometry Model}
+
+While R21/S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
+The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs don't work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
+\begin{equation*}
+    Flux \ rate=a-\frac{1}{bx+c}
+\end{equation*}
+where $a$, $b$, and $c$ are constants to be solved with the model via \texttt{scipy.optimize.curvefit} and $x$ is the peak value of the spot in ADU. We then classify the turnoff in two ways as when the model drops by 0.1\% and also when the derivative of the model drops below a certain amount. Figure XXX shows an example of the data, corresponding model, and the two turnoffs.
+
+Figure XXX then compares this with the linearity turnoff for the whole focal plane.
 
 \subsection{Non-linearity studies}\label{nonlinearity}
 \begin{figure}[ht]
@@ -1826,7 +1842,7 @@ For any guide configuration, the ROI size is the same for all sensors, but its l
 We also collected a set of data with ROIs of different size and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
 
 \subsubsection{Noise Investigation}
-We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of an entire ROI, and averaged over all frames from all of the 20 images. In cases where multiple sensors are running at the same time, the noise is also averaged over all sensors. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
 
 %% jgt - here's the table with the configuratons and results (noise results omitted)
 \begin{longtable}{|c|c|c|c|c|c|c|}
@@ -1845,17 +1861,17 @@ We measure the noise level of ROIs acquired under various configurations, shown 
 \multicolumn{7}{|c|}{\textbf{Noise Study Configurations}} \\
 \hline
 50x50   & 50  & 1 & 1 & n/a       &  9.28 & 5.60 \\ % gds_noise_01.cfg
-50x50   & 50  & 2 & 1 & aligned   &  9.27 & 4.57 \\ % gds_noise_02.cfg
-50x50   & 50  & 2 & 1 & unaligned &  9.26 & 6.98 \\ % gds_noise_03.cfg
-50x50   & 50  & 4 & 4 & aligned   &  9.26 & 4.70 \\ % gds_noise_04.cfg
-50x50   & 50  & 4 & 4 & unaligned &  9.26 & 4.71 \\ % gds_noise_05.cfg
-50x50   & 50  & 8 & 4 & aligned   &  9.23 & 4.61 \\ % gds_noise_06.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & 4.62 \\ % gds_noise_07.cfg
+50x50   & 50  & 2 & 1 & aligned   &  9.27 & 5.64 \\ % gds_noise_02.cfg
+50x50   & 50  & 2 & 1 & unaligned &  9.26 & 8.63 \\ % gds_noise_03.cfg
+50x50   & 50  & 4 & 4 & aligned   &  9.26 & 5.61 \\ % gds_noise_04.cfg
+50x50   & 50  & 4 & 4 & unaligned &  9.26 & 5.64 \\ % gds_noise_05.cfg
+50x50   & 50  & 8 & 4 & aligned   &  9.23 & 5.65 \\ % gds_noise_06.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & 5.68 \\ % gds_noise_07.cfg
 \hline
 \multicolumn{7}{|c|}{\textbf{Nominal Configurations}} \\
 \hline
-50x50   & 50  & 8 & 4 & aligned   &  9.22 & 4.61 \\ % gds_nom_aligned.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & 6.50 \\ % gds_nom_unaligned.cfg
+50x50   & 50  & 8 & 4 & aligned   &  9.22 & 5.65 \\ % gds_nom_aligned.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & 8.67 \\ % gds_nom_unaligned.cfg
 \hline
 \multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
 \hline
