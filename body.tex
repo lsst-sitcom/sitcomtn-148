@@ -2313,13 +2313,13 @@ In practice coherent mode in signal response over the focal plane does not reall
 \caption{REBs temperature change during the run E2008 (IDLE\_FLUSH Off). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each reb the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of R24 have larger variation than the one of R14} 
 \label{fig:tempE2008}
 \end{figure}
-%\begin{figure}[ht]
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/2025-01-24_19.20.26.png}
-%\end{centering}
-%\caption{We present here the ratio of the measured signal for the mean of all channels of the R24 to the one of R14, without temperature correction on the left, with temperature correction on the right. This confirm that there is a  dispersion in temperature that induces a dispersion in gain response. The crude gain correction ( 6.5$times 10^{-4}$ per deg C) based on the measured REB temperature, mainly fix the initial dispersion observed.   }
-%\label{fig:R24divR14}
-%\end{figure}
+\begin{figure}[ht] % this is causing a trouble. Let me (Yousuke) comment this out for a while to figure it out.
+\begin{centering}
+\includegraphics[width=\textwidth,viewport=0 0 1280 480,clip]{figures/2025-01-24_19.20.26.png}
+\end{centering}
+\caption{We present here the ratio of the measured signal for the mean of all channels of the R24 to the one of R14, without temperature correction on the left, with temperature correction on the right. This confirm that there is a  dispersion in temperature that induces a dispersion in gain response. The crude gain correction (6.5$times 10^{-4}$ per deg C) based on the measured REB temperature, mainly fix the initial dispersion observed.   }
+\label{fig:R24divR14}
+\end{figure}
 
 
 In the following  figures, \ref{fig:tempE1496} , \ref{fig:tempE2008} , we present the temperature variation measured per REBs during two long runs :  
@@ -2333,6 +2333,7 @@ All those temperature changes and non-uniformity are small: at max we observe a 
 In the figure \ref{fig:R24divR14}, we underline this non-uniformity , by comparing the average signal measurement in R24 (large Temperature variation observed) and R14 (minimal Temperature variation) over the run E1496. A crude temperature correction (we did apply a gain correction of $6.5\times10^{-4}$ per deg C to all amplifiers based on their REB temperature)  brings the response agreement between the 2 rafts at better than $1\times10^{-4}$.  
 
 
+\clearpage
 \subsubsection{ITL gain glitches} 
 Following studies done in Run 6, we know that subtle clock phase changes between REB, associated with the current DAQ clock scheme, induce from exposure to exposure BIAS and gain change in ITL sensor only.  We observed from exposure to exposure, BIAS shift of a few ADU and gain change in the worst case of 0.08\% (peak to peak). For ITL the system response aggregates in what we called family: a given amplifier having its gain changing among a limited set of possible values. We do observe the same effect in Run 7 (see Figure \ref{fig:ITLGglitch}). Notice that the channels with the largest gain changes observed in Run 7 (in the Run E1496 for this study), are  not for the same amplifiers than for the runs we studied in Run 6. As the timing de-synchronization between the REBs, will change each time the DAQ is re-started, we do expect such difference.
 
