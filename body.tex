@@ -25,7 +25,7 @@ Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSS
 
 \section{Electro-optical setup}\label{electro-optical-setup}
 
-\subsection{Run 7 Optical modifications}\label{run-7-optical-modifications}
+\subsection{Run 7 optical modifications}\label{run-7-optical-modifications}
 
 For Run 7 in the white room on Level 3 our electro-optical test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources or expertise to configure it. As
 such, the majority of the testing was done with the CCOB Wide Beam
@@ -257,7 +257,7 @@ associated with the FES was eliminated (see right hand image of Fig.~\ref{fig:ac
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/AC_LightLeak_study.png}
-\caption{ (left) The original impact of the AC light leak on a 900\,s dark difference image (AC on minus AC off). (right) The result after masking the LEDsc of the motor encoders in the AC.  No light associated with the FES is present in 900\,s dark difference image.  \label{fig:ac-light-leak}}
+\caption{ (left) The original impact of the AC light leak on a 900\,s dark difference image (AC on minus AC off) , we observe in particular a "bright triangle" on the right of this focal plane image. Notice also the presence of a non subtracted persistence of  \textasciitilde 10 ADU for  a few sensors , the same sensors than the one visible in the left figure \ref{fig:persistence-reduction} showing the persistence effect : in run7 we didn't collect the data to avoid a persistence contribution in such light leak image. (right) The result after masking the LEDs of the motor encoders in the AC.  No light associated with the FES is present in 900\,s dark difference image.  \label{fig:ac-light-leak}}
 \end{centering}
 \end{figure}
 
@@ -532,7 +532,7 @@ Run 7 PTC turnoff measurements agree closely between Run 6 and Run 7, differing 
 \end{figure}
 
 \clearpage
-\subsubsection{PTC Gain}\label{ptc-gain}
+\subsubsection{PTC gain}\label{ptc-gain}
 
 PTC gain is the conversion factor between digital output signal and the the number of electrons generated in the pixels of the CCD. It is one of the key parameters derived from the Photon Transfer
 Curve, as it is the slope above the flux range at which the variance is dominated by shot noise, and below the PTC turnoff. Gain is expressed in e$^-$/ADU, and scales the digitized analog signals from the ASPICs (Application Specific Photonic Integrated Circuits) to units of e$^{-1}$.
@@ -604,7 +604,7 @@ Differences in row-means variance between runs are evident, and are distinctly d
 \end{figure}
 
 \clearpage
-\subsubsection{Divisadero Tearing}
+\subsubsection{Divisadero tearing}
 
 Divisadero tearing (or Rabbit ears) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
 
@@ -945,7 +945,7 @@ more anisotropic: the ratio of parallel to serial nearest neighbor correlations 
 \end{figure}
 
 
-\subsection{Sequencer Optimization}\label{sequencer-optimization}
+\subsection{Sequencer optimization}\label{sequencer-optimization}
 Several efforts were undertaken to optimize the sequencer configurations during Run 7. The following points summarize the key investigations:
 
 \begin{itemize}
@@ -962,7 +962,7 @@ Several efforts were undertaken to optimize the sequencer configurations during 
 
 \end{itemize}
 
-\subsubsection{Improved Clear}\label{sec:improved-clear}
+\subsubsection{Improved clear}\label{sec:improved-clear}
 
 \paragraph{Overview}\label{overview}
 
@@ -1184,10 +1184,10 @@ R01\_S10 are forseen (e.g., investigate using a continuous
 serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 The original clear (serial phase 3 always), slightly extended in time to match the NopSf e2v clear execution time, will stay the default method.
 
-\subsubsection{Toggling the RG Bit During Parallel Transfer for e2v sensors}\label{noRGe2v}
-During parallel transfer, it is common to  protect the CCD amplifier from large signal injection associated to the parallel clock swing by activating the Reset Gate of the ccd amplifiers. Still in our initial sensor operation, following ITL and e2v vendors practice at the time, this "RG protection" was not active during the last parallel clock swing.  Still this was chaged Given the improvements observed in ITL devices \citep{2024SPIE13103E..0WU}, applying this approach to e2v devices also became an area of interest.
-Following a dedicated investigation on ITL devices, this has been changed 2 years ago , keeping the Reset Gate active during the full parallel transfer, as a clear improvement in the biases  was observed  \citep{2024SPIE13103E..0WU} . 
-By analogy drawn with this ITL study  and noticing that today e2v, in its current documentation, also recommend to keep the  Reset Gate active during the full parallel transfer. this approach to e2v devices also became an area of interest. 
+\subsubsection{Toggling the RG bit during parallel transfer for e2v sensors}\label{noRGe2v}
+During parallel transfer, it is common to  protect the CCD amplifier from large signal injection associated to the parallel clock swing by activating the Reset Gate of the ccd amplifiers. Nevertheless our initial default configuration, following ITL and e2v vendors practice at the time, this "RG protection" was not active during the last parallel clock swing. 
+Following a dedicated investigation on ITL devices, this has been changed 2 years ago as a clear improvement in the biases  was observed  \citep{2024SPIE13103E..0WU}, when keeping the Reset Gate active during the full parallel transfer. 
+By analogy drawn with this ITL study  and noticing that today e2v vendor, in its current documentation, also recommends to keep the  Reset Gate active during the full parallel transfer, such approach  became an area of interest for e2v device. 
 
 At the end of Run 7, 2 runs ({\it E3578} and {\it E3628}) were collected using,for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
 
@@ -1285,7 +1285,7 @@ We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero
 
 \clearpage
 
-\section{Characterization \& Camera
+\section{Characterization \& Performance
 stability}\label{characterization-camera-stability}
 
 
@@ -1638,7 +1638,7 @@ A long dark image can be used to identify glow. Figure \ref{fig:glowsearch} show
 Obvious glow can be found in 3 guider sensors of S04/SG0, S40/SG1 and S44/SG0 (see Figure \ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
 The other observation can be made on R12/S22, R14/S22, R23/S11 and some other minor ones. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
 In R43/S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50ADU/900sec. This was also present in Run 6 data (for example, MC\_C\_20231102\_000085).
-Otherwise, we didn't find any other glow in the focal plane.
+Otherwise, we did not find any other glow in the focal plane.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/glowsearch/900sdark.png}
@@ -1652,7 +1652,7 @@ Otherwise, we didn't find any other glow in the focal plane.
     \label{fig:glowsearch}
 \end{figure}
 \clearpage
-\subsection{List of Non-Functional Amplifiers}\label{deadamplifiers}
+\subsection{List of non-Functional amplifiers}\label{deadamplifiers}
 
 We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) for incident light, or if the read noise level is above $18e^{-}$ ({\it hi-noise}).  Dead amplifiers are found with either read noise levels below $4e^{-}$ which indicates no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2--2.0 (or 0.8--1.8 for BOT data). 
 
@@ -1772,7 +1772,7 @@ With these three new methods, we want to compare these results to the old result
     \label{fig:Spot_vs_EO_Metrics}
 \end{figure}
 
-\subsubsection{Spot Photometry Model}
+\subsubsection{Spot photometry model}
 
 While R21/S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
 The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs don't work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
@@ -1812,10 +1812,10 @@ We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them
 \subsection{Guider operation}\label{guider-operation}
 Beginning with Run 7, it became common to run the guider in its nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
 
-\subsubsection{Guide Mode}
-Because, different regions of pixels on each GREB sensor can be read out, the guider requires a version GREB firmware that implements a separate sequencer for each sensor. When in science, or full frame mode, there is only one sequencer in the GREB. However, because GREB can be configured to read out a different portion of each sensor, special firmware must be loaded which contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
+\subsubsection{Guide mode}
+Because different regions of pixels on each GREB sensor can be read out, the guider requires a version of GREB firmware that implements a separate sequencer for each sensor. When in science or full frame mode, there is only one sequencer in the GREB. However, because the GREB can be configured to read out a different portion of each sensor, special firmware must be loaded that contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected to the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
 
-The main steps of the procedure to switch from science to guide mode is:
+Switching from science to guide mode has several steps:
 \begin{enumerate}
     \item Power off HV bias and sensor power
     \item Reboot the GREB into the guider (multi-sequencer) firmware
@@ -1825,7 +1825,7 @@ The main steps of the procedure to switch from science to guide mode is:
 
 Currently, the GREBs will boot into the science firmware on power up, but we are expecting to change this default to guider firmware prior to operations. Similarly, though powering the HV bias off will always be necessary when rebooting the GREB, as it is controlled by the GREB firmware, but powering off the sensor was done out of an abundance of caution. If it becomes common to switch back and forth, which is not expected, it may be worth investigating whether this is actually necessary.
 
-\subsubsection{Guider Timing}
+\subsubsection{Guider timing}
 The guider is designed to operate in a continuous loop, alternating between integration and readout. To first order, the time between stamps is the sum of the integration time and the sequencer execution time. The sequencer execution time varies with the ROI size in a way that is fixed for a version of the sequencer program. However, due to the details of the DAQ implementation, there is also a contribution from transporting the data within the embedded DAQ processors. Figure \ref{fig:guider_timing} shows the inter-stamp timing for all guide-specific runs in the nominal ROI configuration. The beginning of the readout of each sensor is synchronized to +/- one system clock cycle (10ns) using the same mechanism as science readout. 
 
 \begin{figure}[ht]
@@ -1841,7 +1841,7 @@ For any guide configuration, the ROI size is the same for all sensors, but its l
 \paragraph*{ROI Study Configurations}
 We also collected a set of data with ROIs of different size and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
 
-\subsubsection{Noise Investigation}
+\subsubsection{Noise investigation}
 We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We take 20 images in each configuration, where each image undergoes a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormal high-gain sensor state, where the counts level in each image is about one-tenth of expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
 
 %% jgt - here's the table with the configuratons and results (noise results omitted)
@@ -2172,12 +2172,12 @@ Further studies are required in order to converge on the best mitigation
 strategy for the start of the LSST survey.
 
 \subsection{Gain stability}\label{sec:gain-stability-2}
-We use ``relative gain'' in this section to study gain stability over time. 
+We have used ``relative gain'' in this section to study gain stability over time. 
 The relative gain is defined as the ratio of the signal observed in a CCD image segment divided by the integration of the photodiode current with respect to an arbitrary normalization.
 With a fixed flat illumination, the variation of the relative gain over successive exposures can be utilized to investigate the gain stability. 
 In the past run \citep{2024SPIE13103E..0WU}, we used the run that was obtained at the constant temperature, which reflects the real observing condition. We repeated this test during Run 7 and we acquired flat images at the two representative flux level with two distinct temperature conditions: either intentionally altered or maintained constant.
 \begin{itemize}
-    \item E1496 (dp80, 6 hours, constant temp, v29\_Nop, nm750, 10k e-)
+    \item E1496 (dp80, 12 hours, constant temp, v29\_Nop, nm750, 10k e-)
     \item E1367 (dp80, 6 hours, temp swing, v29, nm750, 50k e-)
     \item E756 (dp80, 6 hours, gain stability @ 50k e-), unprocessed
     \item E1362 (dp80, 6 hours, 10k e-), unprocessed
@@ -2204,7 +2204,7 @@ Here we focus on E1496 and E1367 which have a difference in the temperature cond
 Figure \ref{fig:relgainparamE1496} shows the derived 
  relative gain change for one amplifier (R11/S00/C11) over time alogn with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and led1temp (the temperatue measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
  As the intention of the acquisition condition, the REB temperature was almost maintained at the same level within 0.2 deg, with a slight decreasing slope probably due to the change in the thermal load and stabilization process of the entire thermal system.
- At the same time the gain slowly increase over time, while other CCD, LED temperatures are kept at the same.
+ At the same time the gain slowly increase over time, while CCD temp is kept at the same and the LED temperatures wasn't controlled but kept with 0.1C.
 
  Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain and the REB temperature, with color coding by the speed of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result. The distribution of the data points has a more complicated structure than the linear relationship, while there is no obvious change in either CCD nor LED temperatures. 
 
@@ -2230,6 +2230,7 @@ Figure \ref{fig:relgainparamE1496} shows the derived
 Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of figures but for the Run that has a temperature change in the cold plate by 2 degrees.
 The temperature was kept the same in the beginning, but the set point was changed later, and then it was brought back to the original temperature. 
 Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temp relationship, which does not match the slope originally derived from the past run, although there are no obvious changes in the system other than the REB temperature.
+For this the LED board temp also decreased by more than 1 deg over the testing period.
 
 
 The reason why the relationship becomes much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temp, 2) illumination from the LED is somehow changing overtime, which is not correlated with the LED temp, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As the hysteresis is observed, the possibility 1 is definitely present but it cannot explain the gain temp change in the constant temperature. For the possibility 2, it is unlikely given the fact that Run 6 observed the complicated relationship. The option 3 could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to the turbulence in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For the possibility 4, we did visual check in a different period and we did not find anything obvious. 
@@ -2282,11 +2283,78 @@ In summary, we find
 
 \clearpage
 
+\subsection{Non uniformity in focal plane response change}\label{sec:gain-stability-3}
+In the long stability runs most of the observed variations are common to all amplifiers over the focal plane. We identified  3 sources of common mode : 
+\begin{itemize} 
+\item the light source intensity itself 
+\item a drift of the photo-diode measurement 
+\item a coherent temperature change of the REB electronic 
+\end{itemize}
+
+In practice the CCOB LEDs, only sensitive to their monitored temperature, appear to be extremely stable during run7.  In stability long run  it seems that the CCOB light source is more stable than the measured photo-diode that we used to correct it : for example in run E1496 a response drift of .3\% over the run appears only when the photo-diode correction is applied to the data.
+
+From run 6 studies we know that the usage of IDLE flush , that overheats the electronic when not acquiring data, induces  a coherent cool down of  the REB electronic at the start of each runs. So  the usage of Idle flush can generate a coherent increase of the electronic gain at the start of the run ( \~ 6.5e-4/deg C).  Due to this effect  , we had up to +0.1\% ( ~ -2 deg change) gain increases in the worst case  during the run 6.  
+
+In practice coherent mode in signal response over the focal plane doesn’t really matter for science, they will be absorbed in the common gray term measured with stars for each exposure. In the rest of this section we will focus on the changes in response not uniform over the focal plan. 
+
+\subsubsection{Non uniform temperature variation.} 
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/FocalPlanTempRun_E1496.png}
+\end{centering}
+\caption{REBs temperature change during the run E1496 (IDLE Flush On). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each reb the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of Raft 24 have larger variation than the one of RAFT 14}   
+\label{fig:tempE1496}
+\end{figure}
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/FocalPlanTempRun_E2008.png}
+\end{centering}
+\caption{REBs temperature change during the run E2008 (IDLE Flush Off). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each reb the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of Raft 24 have larger variation than the one of RAFT 14} 
+\label{fig:tempE2008}
+\end{figure}
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/2025-01-24_19.20.26.png}
+\end{centering}
+\caption{We present here the ratio of the measured signal for the mean of all channels of the RAFT 24 to the one of RAFT 14 , without temperature correction on the left , with temperature correction on the right. This confirm that there is a  dispersion in temperature that induces a dispersion in gain response. The crude gain correction ( 6.5E-4 per deg C ) based on the measured REB temperature, mainly fix the initial dispersion observed.   }
+\label{fig:R24divR14}
+\end{figure}
+
+
+In the following  figures, \ref{fig:tempE1496} , \ref{fig:tempE2008} , we present the temperature variation measured per REBs during two long runs :  
+
+\begin{itemize}
+\item Figure \ref{fig:tempE1496} , run E1496 , IDLEFlush active : we seen the common drop of the temperature at the start of the run , it’s in general extremely small ( -.1 deg ) , except for some REB ( ex   : RAFT24/reb 2 has a drop of .6 deg at the star of the run ) 
+\item Figure \ref{fig:tempE2008}, run E2008 , no IDLEFlush , there is for most of the REB a temperature dispersion $<$ .02 deg C , except for some REB ( ex RAFT24/reb 2) which have dispersion more than 3 times larger , ( a kind of oscillation with ,  peak to peak variation of \~ .3 deg ) 
+\end{itemize}
+
+All those temperature changes and non-uniformity are small : at max we observe  a change of .6 deg in run E1496, which will induce a gain change of \~ 4E-4. Also running the focal plane with more stable condition over time, like not using IDLEFlush ( in run E2008 , temperature at max induces a gain change of \~2E-4 )  , will further improve the gain stability. Notice that on this front we have a plan to further uniformize over time the REB usage ( mimic exposure readout , even when not taking exposure ) . Still it is interesting to notice that we have a dispersion in temperature change  over the focal plane for the REB electronic, with larger temperature variation for always the same REBs ( ex : RAFT24/ reb 2). At this stage the origin of this  non-uniformity is unknown. 
+In the figure \ref{fig:R24divR14}, we underline this non-uniformity , by comparing the average signal measurement in Raft24 (large Temperature variation observed) and Raf14 ( minimal Temperature variation) over the run E1496. A crude temperature correction ( we did apply a gain correction of 6.5E-4 per DEG C to all amplifiers based on their REB temperature )  brings the response agreement between the 2 rafts at better than 1 E-4 .  
+
+
+\subsubsection{ITL gain glitches.} 
+
+
+Following studies done in run 6 , we know that subtle clock phase changes between REB, associated with the current DAQ clock scheme, induce from exposure to exposure BIAS and gain change in ITL sensor only.  We observed  from exposure to exposure , BIAS shift of a few ADU and gain change in the worst case of 0.08\% (peak to peak) . For ITL the system response aggregates in what we called family : a given amplifier having its gain changing among a limited set of possible values . We do observe the same effect in run 7 (see Figure \ref{fig:ITLGglitch} ). Notice  that the channels with the largest gain changes observed in run 7 ( in the run E1496 for this study) ,are  not for the same amplifiers than for the runs we studied in run 6 . As the timing de-synchronization between the REBs , will change each time the DAQ is re-started, we do expect such difference.
+
+Following the studies done for the run 6, this effect will be extremely difficult to correct in the data. Even if it's small ($<1E-3$), we do explore a solution at the level of the DAQ to avoid it. The main interest of such hardware fix could be in the resulting  stability of the 2D BIAS shape, more than in avoiding this gain glitch which is small. 
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/Gain_variation_R01_S12_amp15_E1496.png}
+\end{centering}
+\caption{Measured signal for R01 S12 C01 over the run 1496, normalized to its mean over the run,after temperature correction and removing the common mode in signal variation using the mean of E2V sensors signal. This is the ITL channel with the largest gain glitch ( 0.8\% peak to peak ) in this run. We observe for this channel 3 possible values of gain (3 "families") , that we identify to different DAQ sync-configuration between the REBS of this raft. }
+\label{fig:ITLGglitch}
+\end{figure}
+
+
+
 \section{Sensor features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
 Tree rings is circular variations in silicon doping concentration which can be observed in flat images. The treerings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
-\subsubsection{Center of the Tree Ring}
+\subsubsection{Center of the tree ring}
 From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four (4) CCD is cut from one wafer. 
 So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude. However we have new data with 0\,V of back bias voltage, which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center.
 
@@ -2375,7 +2443,7 @@ Tree ring effect doesn't depend on wavelength much, as studied in \citep{2017Jin
 \label{fig:tree_ring_subtract_red_blue}
 \end{figure}
 
-\subsection{ITL Dips}\label{itl-dips}
+\subsection{ITL dips}\label{itl-dips}
 
 One of the phenomena that was studied in the later part of Run 7 was so-called 
 `ITL dips'. These were discovered in LSST ComCam on-sky data as
@@ -2789,37 +2857,38 @@ The Gantt Chart below shows the timeline of event, not only limits to the actual
 \ganttbar{Cryo Pressure Hold Test}{2024-08-28}{2024-08-28} \\
 \ganttmilestone{PCS Chiller Set to -25C}{2024-08-28}{2024-08-29} \\
 \ganttmilestone{REB Turn On}{2024-08-29}{2024-08-29} \\
-\ganttmilestone{RebPS 00 and 04 Tripped}{2024-08-29}{2024-08-29} \\
+\ganttbar[bar/.append style={fill=red!50}]{RebPS Tripped (\S\ref{sec:rebpstripped})}{2024-08-29}{2024-09-20} \\
+%\ganttmilestone{RebPS 00 and 04 Tripped}{2024-08-29}{2024-08-29} \\
 \ganttbar{Cryo Evacuation}{2024-08-30}{2024-08-30} \\
 \ganttmilestone{Cryo Charging}{2024-09-03}{2024-09-03} \\
 \ganttmilestone{Cryo System Turned On}{2024-09-05}{2024-09-05} \\
 \ganttmilestone{Ion Pumps Turned On}{2024-09-05}{2024-09-05} \\
-\ganttbar{CCS/DAQ Issues}{2024-09-05}{2024-09-14} \\
-\ganttmilestone{RebPS P04 Tripped}{2024-09-09}{2024-09-09} \\
+\ganttbar[bar/.append style={fill=red!50}]{CCS/DAQ Issues \S \ref{sec:ccsmeltdown}}{2024-09-05}{2024-09-14} \\
+%\ganttmilestone{RebPS P04 Tripped}{2024-09-09}{2024-09-09} \\
 \ganttbar{CCDs Turned On}{2024-09-11}{2024-09-24} \\
 \ganttbar{CCD HV Turn On}{2024-09-17}{2024-09-24} \\
-\ganttbar{PS00 and PS01 Tripped}{2024-09-20}{2024-09-20} \\
+%\ganttbar{PS00 and PS01 Tripped}{2024-09-20}{2024-09-20} \\
 \ganttmilestone{HV for All CCDs}{2024-09-24}{2024-09-24} \\
 \ganttbar{Run 7}{2024-09-24}{2024-12-01} \\
-\ganttbar{FCS AC Problem}{2024-10-01}{2024-10-01} \\
-\ganttmilestone{PCS Chiller Degradation starts}{2024-10-15}{2024-10-15} \\
-\ganttmilestone{R01/Reb[12] Tripped}{2024-10-18}{2024-10-18} \\
-\ganttmilestone{R01/Reb[12] Tripped}{2024-10-23}{2024-10-23} \\
-\ganttmilestone{Glycol Chiller 03 Refrigerant issue}{2024-10-27}{2024-10-27} \\
+\ganttbar[bar/.append style={fill=red!50}]{FCS AC Problem}{2024-10-01}{2024-11-28} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{PCS Chiller Degradation starts \S \ref{sec:pcsdegradation}}{2024-10-15}{2024-10-15} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-18}{2024-10-18} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-23}{2024-10-23} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{Glycol Chiller 03 Refrigerant issue}{2024-10-27}{2024-10-27} \\
 \ganttmilestone{First Glycol Valve Closing}{2024-10-30}{2024-10-30} \\
-\ganttbar{PCS Chiller Degraded significantly}{2024-11-02}{2024-11-08} \\
-\ganttmilestone{Summit Power Outage (Morning)}{2024-11-10}{2024-11-10} \\
-\ganttmilestone{UT Leak Warning}{2024-11-10}{2024-11-10} \\
-\ganttmilestone{Summit Power Outage (Midnight)}{2024-11-11}{2024-11-11} \\
+\ganttbar[bar/.append style={fill=red!50}]{PCS Chiller Degraded significantly}{2024-11-02}{2024-11-08} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{Summit Power Outage (Morning)}{2024-11-10}{2024-11-10} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{REB PS trip and UT Leak Detector Fault \S \ref{sec:lowtempissue}}{2024-11-10}{2024-11-10} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{Summit Power Outage (Midnight)}{2024-11-11}{2024-11-11} \\
 \ganttmilestone{EO testing pause. PCS, CCDs, REBs Off}{2024-11-11}{2024-11-11} \\
-\ganttbar{FCS Work}{2024-11-11}{2024-11-21} \\
+\ganttbar{FCS Work \S \ref{sec:feslatchissue}}{2024-11-11}{2024-11-21} \\
 \ganttmilestone{REB Turn On (Start)}{2024-11-21}{2024-11-21} \\
 \ganttmilestone{PCS Chiller Turn On}{2024-11-21}{2024-11-21} \\
 \ganttbar{PCS Chiller Adjustment}{2024-11-21}{2024-11-27} \\
 \ganttmilestone{PCS Chiller Turn On and Restore}{2024-11-28}{2024-11-28} \\
 \ganttmilestone{REB Turn On}{2024-11-28}{2024-11-28} \\
 \ganttmilestone{CCD Powered On}{2024-11-28}{2024-11-28} \\
-\ganttbar{DAQ Issues}{2024-11-28}{2024-11-29} \\
+\ganttbar[bar/.append style={fill=red!50}]{DAQ Issues \S \ref{sec:ccsmeltdown}}{2024-11-28}{2024-11-29} \\
 \ganttmilestone{HV Restore}{2024-11-30}{2024-11-30} \\
 \ganttbar{EO and filter testing resumed}{2024-11-30}{2024-12-02} \\
 \ganttbar{Camera Warm Up}{2024-12-02}{2024-12-03} \\
@@ -2835,7 +2904,7 @@ Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of Cryo 
     \label{fig:tempsoverthewholeperiod}
 \end{figure}
 
-\subsection{REB PS tripped off}
+\subsection{REB PS power trip}\label{sec:rebpstripped}
 In the evening of August 29, 2024, at 20:00 local time (00:00 UTC), two power units, R43 and R33, on RebPS P00, lost power. At that time, no one was at the summit.
 
 After 20:38 local time, two people on shift went up to the White Room from the hotel and conducted an inspection, but they found nothing unusual.
@@ -2845,7 +2914,7 @@ It's unclear when they arrived at the summit. Another incident occurred. R21/Reb
 We suspect that this was caused by static electricity events. The Utility Trunk door appeared to be floating electrically, and the people who had worked on the LSSTCam in the White Room up to that date did not wear ESD straps. To address this issue, we grounded the Utility Trunk door and implemented an administrative control to ensure that everyone working around the camera wore ESD straps. Since then, we have not observed any more of these events.
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/69763079/REB+trip+off+issue+08+29+24}{A full report is available}.
 
-\subsection{FES latch sensor failure during motion}
+\subsection{FES latch sensor failure during motion}\label{sec:feslatchissue}
 The FES software has internal protection that prevents any actions when one of the sensors is detected as faulty, regardless of what the PLC says or whether the sensor is currently in use.
 
 After analyzing the system, the French team believes that the openSensorBLatchXminus sensor is malfunctioning and should be enabled because its complementary sensor is disabled. It could be a short or a more permanent broken wire, but this situation puts the sensors in an "error" state.
@@ -2853,7 +2922,7 @@ After analyzing the system, the French team believes that the openSensorBLatchXm
 Since opening the latches is a risky operation, we cannot safely bypass the information the sensor is providing us while we do not get status from the sensors. This issue requires careful consideration to find a suitable solution.
 \href{https://rubinobs.atlassian.net/browse/FRACAS-241}{The full report is available}.
 
-\subsection{PCS degradation}
+\subsection{PCS degradation}\label{sec:pcsdegradation}
 After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, puttint the camera running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
 \begin{figure}[ht]
     \centering
@@ -2873,7 +2942,7 @@ A concern regarding the loss of refrigerant was raised. An action was taken to r
 The definitive resolution has not yet been made. Further analysis is required.
 
 
-\subsection{R24/Reb0 and UT Leak Fault issue}
+\subsection{R24/Reb0 and UT leak fault issue}\label{sec:lowtempissue}
 We were recovering operations from the PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
 
 After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: "Execution of command 'powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
@@ -2888,7 +2957,7 @@ Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Lea
 
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}{A detailed note is available.}
 
-\subsection{Camera Control Network performance}
+\subsection{Camera control network performance}\label{sec:ccsmeltdown}
 
 The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems ("CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
 
@@ -2906,7 +2975,7 @@ Ultimately a number of changes were made:
 
 Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we don't think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
 
-\subsection{Data corruption}
+\subsection{Data corruption}\label{sec:datacorruption}
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/Issues/FirstObservationofCorruption.png}
@@ -3374,7 +3443,7 @@ Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-fi
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1367/w_2024_35/}{E1367} & Changing PCS setpoint mid run., PCS changed from -45 deg C to -47 deg C at 10:40:06 AM UTC. 6h, 50k at 750nm, v29 seq, dp80 config. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1362/w_2024_35/}{E1362} & dp80, partial data ingestion. v29 sequencer. 6h 10k at 750nm. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E756/w_2024_35/}{E756} & dp 80, v29 sequencer. 6h 10k at 750nm. Partial data ingestion. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1496/w_2024_35/}{E1496} & dp80, nopp config, 6h 750nm at 10k \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1496/w_2024_35/}{E1496} & dp80, nopp config, 12h 750nm at 10k \\ \hline
 
 \end{longtable}
 
