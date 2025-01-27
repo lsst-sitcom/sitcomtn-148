@@ -2284,18 +2284,18 @@ In summary, we find
 \clearpage
 
 \subsection{Non uniformity in focal plane response change}\label{sec:gain-stability-3}
-In the long stability runs most of the observed variations are common to all amplifiers over the focal plane. We identified  3 sources of common mode : 
+In the long stability runs most of the observed variations are common to all amplifiers over the focal plane. We identified  3 sources of common mode: 
 \begin{itemize} 
 \item the light source intensity itself 
 \item a drift of the photo-diode measurement 
 \item a coherent temperature change of the REB electronic 
 \end{itemize}
 
-In practice the CCOB LEDs, only sensitive to their monitored temperature, appear to be extremely stable during run7.  In stability long run  it seems that the CCOB light source is more stable than the measured photo-diode that we used to correct it : for example in run E1496 a response drift of .3\% over the run appears only when the photo-diode correction is applied to the data.
+In practice the CCOB LEDs, only sensitive to their monitored temperature, appear to be extremely stable during Run 7.  In stability long run  it seems that the CCOB light source is more stable than the measured photo-diode that we used to correct it: for example in run E1496 a response drift of 0.3\% over the run appears only when the photo-diode correction is applied to the data.
 
-From run 6 studies we know that the usage of IDLE flush , that overheats the electronic when not acquiring data, induces  a coherent cool down of  the REB electronic at the start of each runs. So  the usage of Idle flush can generate a coherent increase of the electronic gain at the start of the run ( \~ 6.5e-4/deg C).  Due to this effect  , we had up to +0.1\% ( ~ -2 deg change) gain increases in the worst case  during the run 6.  
+From Run 6 studies we know that the usage of IDLE\_FLUSH, that overheats the electronic when not acquiring data, induces  a coherent cool down of the REB electronic at the start of each runs. So  the usage of Idle flush can generate a coherent increase of the electronic gain at the start of the run ( \textasciitilde 6.5$\times 10^{-4}$/deg C).  Due to this effect, we had up to +0.1\% (\textasciitilde-2 deg change) gain increases in the worst case  during the Run 6.  
 
-In practice coherent mode in signal response over the focal plane doesn’t really matter for science, they will be absorbed in the common gray term measured with stars for each exposure. In the rest of this section we will focus on the changes in response not uniform over the focal plan. 
+In practice coherent mode in signal response over the focal plane does not really matter for science, they will be absorbed in the common gray term measured with stars for each exposure. In the rest of this section we will focus on the changes in response not uniform over the focal plan. 
 
 \subsubsection{Non uniform temperature variation.} 
 
@@ -2303,48 +2303,46 @@ In practice coherent mode in signal response over the focal plane doesn’t real
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/FocalPlanTempRun_E1496.png}
 \end{centering}
-\caption{REBs temperature change during the run E1496 (IDLE Flush On). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each reb the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of Raft 24 have larger variation than the one of RAFT 14}   
+\caption{REBs temperature change during the run E1496 (IDLE\_FLUSH On). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each REB the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of R24 have larger variation than the one of R14}   
 \label{fig:tempE1496}
 \end{figure}
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/FocalPlanTempRun_E2008.png}
 \end{centering}
-\caption{REBs temperature change during the run E2008 (IDLE Flush Off). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each reb the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of Raft 24 have larger variation than the one of RAFT 14} 
+\caption{REBs temperature change during the run E2008 (IDLE\_FLUSH Off). In the plot the temperature of each REB is relative to the mean temperature of the last hour of the run . For each reb the value of this mean temperature ( $<>h-1$ ), the peak to peak temperature change ($\delta$) and the temperature dispersion over the run ($\sigma$) is given. We clearly see that not all temperature variation are the same , for example the REBs of R24 have larger variation than the one of R14} 
 \label{fig:tempE2008}
 \end{figure}
-\begin{figure}[ht]
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/2025-01-24_19.20.26.png}
-\end{centering}
-\caption{We present here the ratio of the measured signal for the mean of all channels of the RAFT 24 to the one of RAFT 14 , without temperature correction on the left , with temperature correction on the right. This confirm that there is a  dispersion in temperature that induces a dispersion in gain response. The crude gain correction ( 6.5E-4 per deg C ) based on the measured REB temperature, mainly fix the initial dispersion observed.   }
-\label{fig:R24divR14}
-\end{figure}
+%\begin{figure}[ht]
+%\begin{centering}
+%\includegraphics[width=0.9\textwidth]{figures/2025-01-24_19.20.26.png}
+%\end{centering}
+%\caption{We present here the ratio of the measured signal for the mean of all channels of the R24 to the one of R14, without temperature correction on the left, with temperature correction on the right. This confirm that there is a  dispersion in temperature that induces a dispersion in gain response. The crude gain correction ( 6.5$times 10^{-4}$ per deg C) based on the measured REB temperature, mainly fix the initial dispersion observed.   }
+%\label{fig:R24divR14}
+%\end{figure}
 
 
 In the following  figures, \ref{fig:tempE1496} , \ref{fig:tempE2008} , we present the temperature variation measured per REBs during two long runs :  
 
 \begin{itemize}
-\item Figure \ref{fig:tempE1496} , run E1496 , IDLEFlush active : we seen the common drop of the temperature at the start of the run , it’s in general extremely small ( -.1 deg ) , except for some REB ( ex   : RAFT24/reb 2 has a drop of .6 deg at the star of the run ) 
-\item Figure \ref{fig:tempE2008}, run E2008 , no IDLEFlush , there is for most of the REB a temperature dispersion $<$ .02 deg C , except for some REB ( ex RAFT24/reb 2) which have dispersion more than 3 times larger , ( a kind of oscillation with ,  peak to peak variation of \~ .3 deg ) 
+\item Figure \ref{fig:tempE1496}, run E1496, IDLE\_FLUSH active: we saw the common drop of the temperature at the start of the run, it’s in general extremely small (-0.1 deg), except for some REB (ex R24/Reb 2 has a drop of 0.6 deg at the star of the run) 
+\item Figure \ref{fig:tempE2008}, Run E2008, no IDLE\_FLUSH, there is for most of the REB a temperature dispersion $<$ 0.02 deg C, except for some REBs (ex R24/Reb2) which have dispersion more than 3 times larger, (a kind of oscillation with peak to peak variation of \textasciitilde 0.3 deg ) 
 \end{itemize}
 
-All those temperature changes and non-uniformity are small : at max we observe  a change of .6 deg in run E1496, which will induce a gain change of \~ 4E-4. Also running the focal plane with more stable condition over time, like not using IDLEFlush ( in run E2008 , temperature at max induces a gain change of \~2E-4 )  , will further improve the gain stability. Notice that on this front we have a plan to further uniformize over time the REB usage ( mimic exposure readout , even when not taking exposure ) . Still it is interesting to notice that we have a dispersion in temperature change  over the focal plane for the REB electronic, with larger temperature variation for always the same REBs ( ex : RAFT24/ reb 2). At this stage the origin of this  non-uniformity is unknown. 
-In the figure \ref{fig:R24divR14}, we underline this non-uniformity , by comparing the average signal measurement in Raft24 (large Temperature variation observed) and Raf14 ( minimal Temperature variation) over the run E1496. A crude temperature correction ( we did apply a gain correction of 6.5E-4 per DEG C to all amplifiers based on their REB temperature )  brings the response agreement between the 2 rafts at better than 1 E-4 .  
+All those temperature changes and non-uniformity are small: at max we observe a change of 0.6 deg in Run E1496, which will induce a gain change of \textasciitilde $4\times 10^{-4}$. Also running the focal plane with more stable condition over time, like not using IDLE\_FLUSH (in Run E2008, temperature at max induces a gain change of \textasciitilde$2\times 10^{-4}$), will further improve the gain stability. Notice that on this front we have a plan to further uniformize over time the REB usage (mimic exposure readout, even when not taking exposure). Still it is interesting to notice that we have a dispersion in temperature change  over the focal plane for the REB electronic, with larger temperature variation for always the same REBs (ex R24/Reb2). At this stage the origin of this  non-uniformity is unknown. 
+In the figure \ref{fig:R24divR14}, we underline this non-uniformity , by comparing the average signal measurement in R24 (large Temperature variation observed) and R14 (minimal Temperature variation) over the run E1496. A crude temperature correction (we did apply a gain correction of $6.5\times10^{-4}$ per deg C to all amplifiers based on their REB temperature)  brings the response agreement between the 2 rafts at better than $1\times10^{-4}$.  
 
 
-\subsubsection{ITL gain glitches.} 
+\subsubsection{ITL gain glitches} 
+Following studies done in Run 6, we know that subtle clock phase changes between REB, associated with the current DAQ clock scheme, induce from exposure to exposure BIAS and gain change in ITL sensor only.  We observed from exposure to exposure, BIAS shift of a few ADU and gain change in the worst case of 0.08\% (peak to peak). For ITL the system response aggregates in what we called family: a given amplifier having its gain changing among a limited set of possible values. We do observe the same effect in Run 7 (see Figure \ref{fig:ITLGglitch}). Notice that the channels with the largest gain changes observed in Run 7 (in the Run E1496 for this study), are  not for the same amplifiers than for the runs we studied in Run 6. As the timing de-synchronization between the REBs, will change each time the DAQ is re-started, we do expect such difference.
 
-
-Following studies done in run 6 , we know that subtle clock phase changes between REB, associated with the current DAQ clock scheme, induce from exposure to exposure BIAS and gain change in ITL sensor only.  We observed  from exposure to exposure , BIAS shift of a few ADU and gain change in the worst case of 0.08\% (peak to peak) . For ITL the system response aggregates in what we called family : a given amplifier having its gain changing among a limited set of possible values . We do observe the same effect in run 7 (see Figure \ref{fig:ITLGglitch} ). Notice  that the channels with the largest gain changes observed in run 7 ( in the run E1496 for this study) ,are  not for the same amplifiers than for the runs we studied in run 6 . As the timing de-synchronization between the REBs , will change each time the DAQ is re-started, we do expect such difference.
-
-Following the studies done for the run 6, this effect will be extremely difficult to correct in the data. Even if it's small ($<1E-3$), we do explore a solution at the level of the DAQ to avoid it. The main interest of such hardware fix could be in the resulting  stability of the 2D BIAS shape, more than in avoiding this gain glitch which is small. 
+Following the studies done for the run 6, this effect will be extremely difficult to correct in the data. Even if it's small ($<10^{-3}$), we do explore a solution at the level of the DAQ to avoid it. The main interest of such hardware fix could be in the resulting  stability of the 2D BIAS shape, more than in avoiding this gain glitch which is small. 
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/Gain_variation_R01_S12_amp15_E1496.png}
 \end{centering}
-\caption{Measured signal for R01 S12 C01 over the run 1496, normalized to its mean over the run,after temperature correction and removing the common mode in signal variation using the mean of E2V sensors signal. This is the ITL channel with the largest gain glitch ( 0.8\% peak to peak ) in this run. We observe for this channel 3 possible values of gain (3 "families") , that we identify to different DAQ sync-configuration between the REBS of this raft. }
+\caption{Measured signal for R01/S12/C01 over the Run 1496, normalized to its mean over the run, after temperature correction and removing the common mode in signal variation using the mean of E2V sensors signal. This is the ITL channel with the largest gain glitch (0.8\% peak to peak) in this run. We observe for this channel 3 possible values of gain (3 "families"), that we identify to different DAQ sync-configuration between the REBS of this raft. }
 \label{fig:ITLGglitch}
 \end{figure}
 
