@@ -782,11 +782,12 @@ Bright defects {[}count{]}         & Val               & \multicolumn{1}{l|}{0} 
 Linearity turnoff {[}e-{]}         & Val               & \multicolumn{1}{l|}{156,339} & 167,797 & \multicolumn{1}{l|}{172,580} & 178,154  \\ \hline
 PTC turnoff {[}e-{]}               & Val               & \multicolumn{1}{l|}{126,002}  & 132,963  & \multicolumn{1}{l|}{117,019}  & 128,595   \\ \hline
 PTC Gain {[}e- / ADU{]}            & Val               & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
+Read noise {[}e-{]}            & <9 e-               & \multicolumn{1}{l|}{}    &     & \multicolumn{1}{l|}{}    &      \\ \hline
 PTC $a_{00}$ [$\frac{1}{pix^2}$]   & Val               & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
 BF x-correlation                   & Val               & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
 BF y-correlation                   & Val               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
 Row-means variance                 & Val               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
-Dark defects {[}count{]}           & Val               & \multicolumn{1}{l|}{4} & 3 & \multicolumn{1}{l|}{9} & 8  \\ \hline
+Dark defects {[}count{]}           & <2\%               & \multicolumn{1}{l|}{4} & 3 & \multicolumn{1}{l|}{9} & 8  \\ \hline
 Divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
 Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.6673}    & 5.6435    & \multicolumn{1}{l|}{0.48018}   & 0.42051    \\ \hline
 \end{tabular}
@@ -1678,6 +1679,8 @@ Bright defects {[}count{]}        &                                & \multicolum
 Linearity turnoff {[}e-{]}        &                                & \multicolumn{1}{l|}{167,796}              &        136,302     & \multicolumn{1}{l|}{178,153}              &      178,177       \\ \hline
 PTC turnoff {[}e-{]}              &                                & \multicolumn{1}{l|}{132,963}              &      102,713       & \multicolumn{1}{l|}{128,594}              &        128,487     \\ \hline
 PTC Gain {[}e- / ADU{]}           &                                & \multicolumn{1}{l|}{1.4812}              &      1.5107       & \multicolumn{1}{l|}{1.6761}              &       1.6752      \\ \hline
+Read noise {[}e-{]}           &                                & \multicolumn{1}{l|}{}              &             & \multicolumn{1}{l|}{}              &             \\ \hline
+PTC Noise {[}{]}           &                                & \multicolumn{1}{l|}{}              &            & \multicolumn{1}{l|}{}              &           \\ \hline
 PTC $a_{00}$ [$\frac{1}{pix^2}$]  &                                & \multicolumn{1}{l|}{3.0863E-6}              &       3.4899E-6      & \multicolumn{1}{l|}{1.7031E-6}              &        1.7009E-6     \\ \hline
 BF x-correlation                  &                                & \multicolumn{1}{l|}{0.51693}              &     0.51022        & \multicolumn{1}{l|}{0.75212}              &       0.73648      \\ \hline
 BF y-correlation                  &                                & \multicolumn{1}{l|}{0.17077}              &       0.16740      & \multicolumn{1}{l|}{0.28695}              &        0.28439     \\ \hline
@@ -2297,7 +2300,7 @@ In summary, we find
 
 \clearpage
 
-\subsection{Non uniformity in focal plane response change}\label{sec:gain-stability-3}
+\subsubsection{Non uniformity in focal plane response change}\label{sec:gain-stability-3}
 In the long stability runs most of the observed variations are common to all amplifiers over the focal plane. We identified  3 sources of common mode: 
 \begin{itemize} 
 \item the light source intensity itself 
@@ -2770,7 +2773,7 @@ As a \href{https://rubin-obs.slack.com/archives/C07QJMQAP6E/p1731348605966989?th
 
 \subsection{Phosphorescence}\label{phosphorescence}
 
-The Run 7 persistence optimization process (cf. \S\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effects by reducing their clock swing voltages from 9.3\,V down to 8.0\,V, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
+The Run 7 {\it persistence} optimization process (cf. \S\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effects by reducing their clock swing voltages from 9.3\,V down to 8.0\,V, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
 
 The ITL sensors with the largest memory effect were evaluated, and the following observations were made:
 \begin{itemize}
