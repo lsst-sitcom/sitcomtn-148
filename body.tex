@@ -1,6 +1,6 @@
 \section{Introduction}
-The LSST Camera had been constructed at SLAC National Accelerator Laboratory in California, US.
-The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verify the Camera functionality and led discoveries of non-ideal features \citep{2024SPIE13096E..1SR}.
+The LSST Camera was constructed at the SLAC National Accelerator Laboratory in California, US.
+The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verified the Camera functionality and led to discoveries of non-ideal features and means of mitigating many of them \citep{2024SPIE13096E..1SR}.
 
 In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was rolled into the white room at Level 3 in the Vera C. Rubin Observatory. Cooldown began by the end of August and then the 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from the end of September 2024 to the beginning of December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
 
@@ -29,7 +29,7 @@ Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSS
 
 For Run 7 in the white room on Level 3 our electro-optical test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources or expertise to configure it. As
 such, the majority of the testing was done with the CCOB Wide Beam
-projector. We did obtain an additional projector, the 4K projector, partway through Run 7 that will be discussed later. With the CCOB Wide Beam,
+projector \citep{2024SPIE13103E..0WU}. We did obtain an additional projector, the 4K projector, partway through Run 7 that will be discussed later. With the CCOB Wide Beam,
 we used a cone attached to the L1 cover as well as a shroud to create a
 dark environment (Fig.~\ref{fig:LSSTCam_config}).
 
@@ -82,7 +82,7 @@ We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}
     \centering
     \includegraphics[width=\linewidth]{figures/Run7_WeatherDiffuser.png}
 \end{minipage}    
-    \caption{Full focal plane fractional difference images for Run 6 (left) and Run 7 (right).}
+    \caption{Full focal plane fractional difference of images for Run 6 (left) and Run 7 (right).}
 
 \label{fig:weather}
 \end{figure}
@@ -103,7 +103,7 @@ forward, being taken out only for pinhole projection runs and when using the
 
 \subsection{Projector spots}\label{projector-spots}
 The addition to the projectors used for EO testing was a 4K
-projector, similar to those used in conference rooms. This projector was
+projector (Epson LS11000 LCD), similar to those used in conference rooms. This projector was
 first tested at SLAC and arrived at the observatory about halfway through Run 7.
 It was used primarily as a spot projector, as the pinhole filter
 was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could
@@ -162,7 +162,16 @@ leaks}\label{dark-current-and-light-leaks}
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
 
 One of the first tests we attempted with LSSTCam was measuring dark
-current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Below shows the gaps that we could see between L1 and its cover.
+current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Figure XXX shows the gaps that we could see between L1 and its cover.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/Rectange_Detector_Ex.png}
+\includegraphics[width=0.48\textwidth]{figures/Rectange_Spot_Ex.png}
+% \includegraphics[width=0.32\textwidth]{figures/Rectange_Spot_Sat.png}
+\caption{Example}
+\label{fig:SpotProjector_Rect}
+\end{figure}
 
 Once these were sealed, we took some initial measurements and then
 started to cover the LSSTCam body with a blackout fabric shroud. Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
@@ -257,7 +266,7 @@ associated with the FES was eliminated (see right hand image of Fig.~\ref{fig:ac
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/AC_LightLeak_study.png}
-\caption{ (left) The original impact of the AC light leak on a 900\,s dark difference image (AC on minus AC off) , we observe in particular a "bright triangle" on the right of this focal plane image. Notice also the presence of a non subtracted persistence of  \textasciitilde 10 ADU for  a few sensors , the same sensors than the one visible in the left figure \ref{fig:persistence-reduction} showing the persistence effect : in run7 we didn't collect the data to avoid a persistence contribution in such light leak image. (right) The result after masking the LEDs of the motor encoders in the AC.  No light associated with the FES is present in 900\,s dark difference image.  \label{fig:ac-light-leak}}
+\caption{ (left) The original impact of the AC light leak on a 900\,s dark difference image (AC on minus AC off), we observe in particular a "bright triangle" on the right of this focal plane image. Notice also the presence of a non subtracted persistence of \textasciitilde 10 ADU for a few sensors, the same sensors than the one visible in the left figure \ref{fig:persistence-reduction} showing the persistence effect: in run7 we didn't collect the data to avoid a persistence contribution in such light leak image (right). The result after masking the LEDs of the motor encoders in the AC.  No light associated with the FES is present in 900\,s dark difference image.  \label{fig:ac-light-leak}}
 \end{centering}
 \end{figure}
 
@@ -278,7 +287,7 @@ Two runs, E1075 and E1076, were dedicated to determining the effect of the shutt
 \subsection{Filter condition impact on
 darks}\label{filter-condition-impact-on-darks}
 
-To investigate how the filter affects the dark current, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/s with the empty filter to 0.0035 e-/s for $r$, 0.0011 e-/s for $y$, and 0.00063 e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
+To investigate how the filter affects the dark measurement, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/s with the empty filter to 0.0035 e-/s for $r$, 0.0011 e-/s for $y$, and 0.00063 e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -490,6 +499,7 @@ The reason is not totally clear, but the difference in the illumination pattern 
 \begin{centering}
 \includegraphics[width=0.95\textwidth]{figures/baselineCharacterization/run7PTCsToDate.jpg}
 \caption{A comparison of Run 6 and Run 7 PTCs for a central amplifier.}
+\label{fig:initRever:PTC_Comparison}
 \end{centering}
 \end{figure}
 
@@ -548,6 +558,48 @@ PTC gain measurements agree extremely closely across all sensors in the
 focal plane.
 
 \clearpage
+
+\subsubsection{Read Noise}\label{sec:initialRever:ReadNoise}
+
+Read noise is induced charge during the readout process of the LSSTCam sensors. Common causes of read noise include thermal noise in the electronics or imperfect charge transfer. Read noise is measured in electrons, and is calculated by taking the standard deviation of the overscan region.
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_READ_NOISE_inset.png}
+\caption{A comparison of Run 6 and Run 7 amplifier measurements for read noise, separated by sensor type. For both sensor types, read noise is higher in Run 7.}
+\end{centering}
+\end{figure}
+
+The read noise is higher in run 7 than run 6 for both sensor types. The difference is on the order of 0.05 e-.
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/Read Noise (e-)_13550_E1071_diff.png}
+\caption{A comparison of Run 6 and Run 7 amplifier measurements for read noise, separated by sensor type. For both sensor types, read noise is higher in Run 7.}
+\end{centering}
+\end{figure}
+
+\subsubsection{PTC Noise}\label{sec:initialRever:PTCNoise}
+
+PTC noise is a fitted parameter in the PTC model, and is the foundation of the PTC model. In the shot noise regime, where the PTC slope is 1/2 in log-log space (from 500 - 10k ADU in figure \ref{fig:initRever:PTC_Comparison}), the data can be fitted to a line. The intercept of that line is the PTC noise, measured in ADU.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/baselineCharacterization/13550_E749_PTC_NOISE.png}
+    \caption{Comparison of amplifier measurements of PTC noise for initial and final Run 7 conditions.}
+    \label{fig:initRever-PTC_NOISE_5x5}
+\end{figure}
+
+PTC noise differs by $\lesssim$ 0.1 e- on average for science sensors. Notably, e2v sensors measure a PTC noise 0.02 e- lower in Run 7, while ITL sensors measure a PTC noise 0.08 e- higher in Run 7 (see figure \ref{fig:initRever:PTCNoise_hist_diff}).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/baselineCharacterization/PTC_NOISE_13550_E749_diff.png}
+    \caption{Comparison of the PTC noise measurements in different sensors and run types.}
+    \label{fig:initRever:PTCNoise_hist_diff}
+\end{figure}
+
+
 \subsubsection{Brighter fatter coefficients}\label{brighter-fatter-a00-coefficient}
 
 
@@ -604,7 +656,7 @@ Differences in row-means variance between runs are evident, and are distinctly d
 \end{figure}
 
 \clearpage
-\subsubsection{Divisadero tearing}
+\subsubsection{Divisadero tearing}\label{sec:divisadero:init}
 
 Divisadero tearing (or Rabbit ears) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
 
@@ -679,7 +731,7 @@ image and the average of the residual ADU in the final dark images. This residua
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1110_w_2024_35_20240926T235141Z.png}
-\caption{Persistence signal observed in R22\_S11 in Run 7 (E1110) as a function of time after the high-flux flat image.  The color coding indicates the individual amplifier segments.  The persistence metric is defined as the residual signal in the first dark image after the flat acquisition (red box).  Note that over time the signal does not decay entirely to zero.}
+\caption{Persistence signal observed in R22\_S11 in Run 7 (E1110) as a function of time after the high-flux flat image.  The color coding indicates the individual amplifier segments.  The persistence metric is defined as the residual signal in the first dark image after the flat acquisition (red box).  Note that over time the signal does not decay entirely to zero. This may be more due to bias fluctuation or incomplete image reduction. It definitely should return to 0 on some timescale.}
 \label{fig:persistence-decay}
 \end{centering}
 \end{figure}
@@ -767,7 +819,7 @@ During the EO testing in 2021 (Run 13177, for example) Run 5, we also found the 
 streak toward the readout direction from the place where a bright spot illumination occurred 
 in a previous image. We call this ``trailing persistence".
 
-As noted in Section (ref. tearing section above), depending on operating conditions e2v sensors have another major non-ideality, so-called ``tearing", which is
+As noted in Section \ref{sec:divisadero:init}, depending on operating conditions e2v sensors have another major non-ideality, so-called ``tearing", which is
 considered a consequence of the non-uniform distribution of holes. Over the past few years, our
 primary focus in the optimization of the operating parameters was mitigation of the tearing, and we successfully eliminated the tearing by changing the
 e2v voltages from unipolar (both parallel rails high and low
@@ -823,12 +875,13 @@ The summary is as follows:
   The new voltages following the persistence mitigation voltage rule produces reasonable bias, dark, flat images visually.
 \item
   Narrowing the parallel swing eliminates the persistence.
+\item Just decreasing the collecting voltage (PclkH) even without changing swing will decrease persistence as the charge packet is not pulled as close to the surface. We confirmed this at UCD.
 \item
   Lowering the parallel low voltage did not work
   as we expected; going to a more negative voltage is probably needed.
-\end{itemize}
+  \end{itemize}
 
-Note that the e2v sensor in the UCD setup did not exhibit persistence.
+Note that the e2v sensor in the UCD setup did not exhibit the same magnitude of persistence as the LSST Camera.
 This might be due to the characteristics of the sensor, or perhaps
 the differences in the electronics (e.g., the long cable between CCD and REB). They need to move the both parallel high and low up to reproduce persistence as the similar as the main Camera.
 
@@ -949,8 +1002,7 @@ more anisotropic: the ratio of parallel to serial nearest neighbor correlations 
 Several efforts were undertaken to optimize the sequencer configurations during Run 7. The following points summarize the key investigations:
 
 \begin{itemize}
-\item {\bf Clear}: Addressing the leftover charges at the image/serial register. The discussion is provided in Section \ref{sec:improved-clear}:
-
+\item {\bf Clear}: Addressing the leftover charges at the image/serial register. The discussion is provided in Section \ref{sec:improved-clear}.
 \item {\bf Whether toggling the RG output during the parallel transfer for the e2v sensors is needed or not.}: Given the fact that there was some impact on making the bias structure in ITL better. The same question was raised for e2v sensors. The detail is described in Section \ref{noRGe2v}
 \item {\bf Whether keeping the IDLE\_FLUSH running or not}: Addressing the worsening of the Divisadero tearing. The detail is described in Section \ref{section:disablingIDLEFLUSH}
 \item {\bf Phase overlap during parallel transfer for e2v}: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced.
@@ -1206,7 +1258,7 @@ If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} 
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/PA_2D_filtred_RG_NoRG_FOnly__2024113000334.png}
 \end{centering}
-\caption{In 2D overscan corrected biases, here from {\it E3380} collected with sequencer{\bf V30}), we observe a few \textasciitilde+1 ADU residual, near the serial register (ex: bottom right of the focal plane), or over the CCD surface (ex: near the center) as the next plot show, those residual are the same with the sequencer{\bf V30\_NoRG }.}\label{fig:2DNoRGRaw}
+\caption{In 2D overscan corrected biases, here from {\it E3380} collected with sequencer{\bf V30}), we observe a few \textasciitilde+1 ADU residual, near the serial register (ex: bottom right of the focal plane), or over the CCD surface (ex: near the center) as the next plot show, those residual are the same with the sequencer {\bf V30\_NoRG }.}\label{fig:2DNoRGRaw}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1285,12 +1337,11 @@ We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero
 
 \clearpage
 
-\section{Characterization \& Performance
-Stability}\label{characterization-camera-stability}
+\section{Characterization \& Performance Stability}\label{characterization-camera-stability}
 
 
 
-\subsection{Final characterization}
+\subsection{Final characterization}\label{finalCharacterization}
 \subsubsection{Background}\label{final_background}
 
 For a description of each quantity within this section and its acquisition process, refer to Section~\ref{reverification}. To compare initial and final camera metrics on Cerro Pachón, we used standard B protocol and dense red PTC data sets.
@@ -1450,6 +1501,47 @@ The magnitude of the gain increase for e2v sensors in final Run 7 conditions is 
 \end{figure}
 
 \clearpage
+
+\paragraph{Read Noise}\label{sec:finalChar:ReadNoise}
+
+Read noise is consistent for both E2V and ITL sensors when comparing initial and final run conditions. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_READ_NOISE_inset.png}
+    \caption{Comparison of amplifier measurements of read noise for initial and final Run 7 conditions.}
+    \label{fig:finalChar-READNoise}
+\end{figure}
+
+Both sensor types show a deviation in read noise of $\lesssim 0.1$ e- on average across both runs.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/ReadNoiseComp.jpg}
+    \caption{Comparison of the read noise measurements in different sensors and run types.}
+    \label{fig:finalChar:ReadNoiseByManu}
+\end{figure}
+
+\paragraph{PTC Noise}\label{sec:finalChar:PTCNoise}
+
+PTC noise between initial and final run 7 configurations remains consistent (see figure \ref{fig:finalChar-PTC_noise_5x5}). No significant deviation in measurements is observed.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1886_PTC_NOISE.png}
+    \caption{Comparison of amplifier measurements of PTC noise for initial and final Run 7 conditions.}
+    \label{fig:finalChar-PTC_noise_5x5}
+\end{figure}
+
+Average deviation in read noise measurements is $\lesssim$ 0.1 e- for both e2v and ITL detector types, with no significant biases emerging (see figure \ref{fig:finalChar:PTCNoise_diff_hist}).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTC_NOISE_E749_E1886_diff.png}
+    \caption{Comparison of the PTC noise measurements in different sensors and run types.}
+    \label{fig:finalChar:PTCNoise_diff_hist}
+\end{figure}
+
 \paragraph{Brighter fatter $a_{00}$ coefficient}\label{final-brighter-fatter-a00-coefficient}
 
 The relative strength of the brighter-fatter effect, quantified by $a_{00}$ following the model from \cite{2019A&A...629A..36A}, is modified in the final Run 7 operating conditions by the lower parallel swing for e2v sensors. We observe an extremely high consistency for ITL sensors.
@@ -1741,7 +1833,7 @@ R44\_SG0\_C02  & HiNoise & always Hi Noise\\ \hline
 \end{table}
 
 \clearpage
-\subsection{Full well measurements}\label{fullwell}
+\subsection{Full well measurements}\label{sec:bfullwellmeasurement}
 
 One of the goals of this run was to provide two initial metrics that could be used to determine where to set the SUSPECT and SAT pixel masks for on-sky data. For each amplifier, there were three values considered: the maximum value recorded on a saturated detection, the PTC turnoff, and the linearity turnoff (see Section \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these are currently determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (e.g. saturated pinhole values being higher/lower than the recorded maximum values for E2V/ITL detectors).
 
@@ -1756,9 +1848,9 @@ Lastly, the final full well measurement we used as the spot shape and its second
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.33\linewidth]{figures/Spot_Photometry.png}
-    \includegraphics[width=0.33\linewidth]{figures/Spot_PTC.png}
-    \includegraphics[width=0.33\linewidth]{figures/Spot_2ndMoment.png}
+    \includegraphics[width=0.30\linewidth]{figures/Spot_Photometry.png}
+    \includegraphics[width=0.30\linewidth]{figures/Spot_PTC.png}
+    \includegraphics[width=0.30\linewidth]{figures/Spot_2ndMoment.png}
     \caption{Example of the different spot metrics and their corresponding calculated turnoffs as the black vertical line for detector R21/S21 (88). (Left) Spot Photometry (left), Spot PTC (middle), and Spot Second Moments (right).}
     \label{fig:Spot_Metrics}
 \end{figure}
@@ -1783,6 +1875,7 @@ where $a$, $b$, and $c$ are constants to be solved with the model via \texttt{sc
 
 Figure XXX then compares this with the linearity turnoff for the whole focal plane.
 
+\clearpage
 \subsection{Non-linearity studies}\label{nonlinearity}
 \begin{figure}[ht]
 \begin{centering}
@@ -1946,7 +2039,7 @@ Bright defects are found to be stable and rare in the LSSTCam focal plane. Acros
 
 \subsubsection{Dark defects}
 
-Dark defects are less stable and more present across the focal plane than bright defects. Across detector types, 60\% of e2v detectors show a static bright defect mask. Dynamic e2v dark defect masks are distributed across the entire focal plane, with every e2v sensor registering a dynamic e2v dark defect mask across 13550, E1071, and E1880. For non-static e2v sensors, R34 dominated the subgroup, with R34\_S02, R34\_S12, and R34\_S22 registering 15 amplifiers with dynamic dark defect masks. ITL sensors are once again more dynamic than e2v sensors, with 39\% showing a static dark defect mask. The ITL non-static dark defect mask is present in every sensor across the focal plane, with sensors R01\_S12, R01\_S22, R41\_S02, R41\_S12, and R41\_S20 measuring a dynamic dark defect mask on every amplifier.
+Dark defects are less stable and more abundant across the focal plane than bright defects. Across detector types, 60\% of e2v detectors require a static bright defect mask. Dynamic e2v dark defect masks are distributed across the entire focal plane, with every e2v sensor registering a dynamic (i.e., time dependent) e2v dark defect mask across 13550, E1071, and E1880. Among dynamic e2v sensors, R34 dominated the subgroup, with R34\_S02, R34\_S12, and R34\_S22 registering 15 amplifiers with dynamic dark defect masks. ITL sensors are once again more dynamic than e2v sensors, with 39\% showing a static dark defect mask. The ITL non-static dark defect mask is present in every sensor across the focal plane, with sensors R01\_S12, R01\_S22, R41\_S02, R41\_S12, and R41\_S20 measuring a dynamic dark defect mask on every amplifier.
 
 
 % Plot here of a particularly interesting bright defect mask that changes substantially
@@ -1963,7 +2056,7 @@ We have found bias instabilities, typically above the 1 ADU level, for a number 
 \item
   e2v yellow corners : a residual 2D shape of the bias even after
   2D-overscan correction. These residuals depend on the acquisition
-  sequence and the exposure time, and the enhancement is greatest near the readout nodes (hence `yelllow corner').
+  sequence and the exposure time, and the enhancement is greatest near the readout nodes (hence `yellow corner').
 \end{enumerate}
 
 Both issues were observed and deeply studied in Run 6 EO data. The ITL
@@ -2354,8 +2447,8 @@ Following the studies done for the Run 6, this effect will be extremely difficul
 \subsection{Tree rings}\label{tree-rings}
 Tree rings is circular variations in silicon doping concentration which can be observed in flat images. The treerings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
 \subsubsection{Center of the tree ring}
-From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four (4) CCD is cut from one wafer. 
-So far we have been using the four average position for the center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude. However we have new data with 0\,V of back bias voltage, which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center.
+From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four CCD are cut from one wafer. 
+So far we have been using the four different average positions for each center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude, and "low contrast" with respect to other features such as "CMB pattern. However we have new data with 0\,V of back bias voltage with the diffuser installed (Section \ref{differences-from-previous-runs} and Figure \ref{fig:diffuser}), which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center (E1050 for red, E1052 for blue, E1055 for nm850, E1056 for nm960).
 
 \begin{figure}[ht]
 \begin{centering}
@@ -2442,6 +2535,7 @@ Tree ring effect doesn't depend on wavelength much, as studied in \citep{2017Jin
 \label{fig:tree_ring_subtract_red_blue}
 \end{figure}
 
+\clearpage
 \subsection{ITL dips}\label{itl-dips}
 
 One of the phenomena that was studied in the later part of Run 7 was so-called 
@@ -2903,6 +2997,7 @@ Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of Cryo 
     \label{fig:tempsoverthewholeperiod}
 \end{figure}
 
+\clearpage
 \subsection{REB PS power trip}\label{sec:rebpstripped}
 In the evening of August 29, 2024, at 20:00 local time (00:00 UTC), two power units, R43 and R33, on RebPS P00, lost power. At that time, no one was at the summit.
 
@@ -2913,14 +3008,22 @@ It's unclear when they arrived at the summit. Another incident occurred. R21/Reb
 We suspect that this was caused by static electricity events. The Utility Trunk door appeared to be floating electrically, and the people who had worked on the LSSTCam in the White Room up to that date did not wear ESD straps. To address this issue, we grounded the Utility Trunk door and implemented an administrative control to ensure that everyone working around the camera wore ESD straps. Since then, we have not observed any more of these events.
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/69763079/REB+trip+off+issue+08+29+24}{A full report is available}.
 
+\clearpage
 \subsection{FES latch sensor failure during motion}\label{sec:feslatchissue}
-The FES software has internal protection that prevents any actions when one of the sensors is detected as faulty, regardless of what the PLC says or whether the sensor is currently in use.
+At its arrival at the summit, the Filter Exchange System (FES), in the camera, was equipped with the new spare Autochanger (AC2 delivered at SLAC from France in fall 2023). The AC 2 has been tested in the camera in February 2024, just before the camera was shipped to Chile. For the first light, the plan is to use the well-known AC1, which, after four years of operation, underwent major maintenance in February 2024. The AC2 and AC1 were swapped in the camera in June 2024 at the summit, and Run 7 provided an opportunity to re-qualify AC1 following its maintenance.
 
-After analyzing the system, the French team believes that the openSensorBLatchXminus sensor is malfunctioning and should be enabled because its complementary sensor is disabled. It could be a short or a more permanent broken wire, but this situation puts the sensors in an "error" state.
 
-Since opening the latches is a risky operation, we cannot safely bypass the information the sensor is providing us while we do not get status from the sensors. This issue requires careful consideration to find a suitable solution.
+Unfortunately, two weeks into Run 7, one PLC signal for AC1 ( the X-open latch signal, related to the filter handling by the AC) was lost. Although the signal briefly returned, for safety reasons, the FES was not used until a dedicated intervention in November 2024.
+
+During AC1’s maintenance in February 2024, the cable associated to this PLC signal had  been identified as a potential issue:  the protective sheath around two cables associated with the AC latches (which secure the filter in the AC trucks ) was identified as fragile and a potential dust source in camera. These cables, which change shape during filter movement, could generate dust over time. However, due to time constraints, the cables were not replaced during the February 2024 maintenance. Instead, an additional protective sheath was added to contain any dust. Unfortunately, the increased rigidity of the cables caused excessive strain on the connectors, leading to problems with both latches.
+
+In November 2024, AC1 was removed from the camera, allowing the replacement of one of the two problematic cables: the latch X- probes cable, which was responsible for the faulty PLC signal causing the issue in September 2024. This repair resolved the problem. Due to tight scheduling, the second cable could not be replaced before AC1 was reinstalled in the camera. This second cable also showed an issue, preventing the full opening of the X+ latch. However all potential  issues with this cable were resolved with AC1 installed in the camera by reducing the strain caused by the stiff cable sheath.
+
+With these fixes, the “stiff cable issue” is now resolved. AC1 has been re-qualified through successful operation at the end of Run 7.
+
 \href{https://rubinobs.atlassian.net/browse/FRACAS-241}{The full report is available}.
 
+\clearpage
 \subsection{PCS degradation}\label{sec:pcsdegradation}
 After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, puttint the camera running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
 \begin{figure}[ht]
@@ -2941,6 +3044,7 @@ A concern regarding the loss of refrigerant was raised. An action was taken to r
 The definitive resolution has not yet been made. Further analysis is required.
 
 
+\clearpage
 \subsection{R24/Reb0 and UT leak fault issue}\label{sec:lowtempissue}
 We were recovering operations from the PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
 
@@ -2952,10 +3056,11 @@ A few minutes later, we encountered a UTLeak Fault. UTLeak Fault became asserted
 
 On November 15, 2024, we set the Dynalene temperature to 4°C, then changed it to 8°C and 11°C. The temperature at the Camera side reached 12.5°C. RebPS/BoardTemp6 reached 13°C. Under these conditions, R24/Reb0 came on without any issues. Therefore, we determined that the low RebPS/PS02/BoardTemp6 of around 9°C was the cause of the problem. We note that this temperature is not a strict limit. Some power supply could run at this temperature. Also once it powers up it needs to be as low as 9°C so no to trip off the power supply by hitting the high temp limit.
 
-Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Leak" and ``UT Leak Fault." ``UT Leak" refers to an actual leak detected, while ``UT Leak Fault" indicates an issue with the leak detector itself. Subsequent investigations suggested that the DC-DC converter supplying power to the UT leak detector may not have been adequately loaded, leading to its shutdown and triggering the ``UT Leak Fault."
+Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Leak" and ``UT Leak Fault." ``UT Leak" refers to an actual leak detected, while ``UT Leak Fault" indicates an issue with the leak detector itself. Subsequent investigations suggested that the DC-DC converter supplying power to the UT leak detector may not have been adequately loaded, leading to its shutdown and triggering the ``UT Leak Fault." We added a load resistor to the DC-DC converter to prevent future trouble.
 
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}{A detailed note is available.}
 
+\clearpage
 \subsection{Camera control network performance}\label{sec:ccsmeltdown}
 
 The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems ("CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
@@ -2974,7 +3079,9 @@ Ultimately a number of changes were made:
 
 Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we don't think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
 
+\clearpage
 \subsection{Data corruption}\label{sec:datacorruption}
+After the temporary fix to the PCS degradation has been made, when we tried to turn of the CCDs, we observed horizontal stripes in the raw images (Figure \ref{fig:horizontal-stripes}), which made the overscan subtracted-image looks not normal (Figure \ref{fig:thefirstobservationofdatacorruption}).
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/Issues/FirstObservationofCorruption.png}
@@ -2987,7 +3094,6 @@ Once these changes were made the network worked much more reliably, although the
     \caption{A close up view of the section of image showing the horizontal strips. (without the overscan subtraction)}
     \label{fig:horizontal-stripes}
 \end{figure}
-After the temporary fix to the PCS degradation has been made, when we tried to turn of the CCDs, we observed horizontal stripes in the raw images (Figure \ref{fig:horizontal-stripes}), which made the overscan subtracted-image looks not normal (Figure \ref{fig:thefirstobservationofdatacorruption}).
 
 We rebooted DAQ, power cycle CCDs, REBs, focal-plane subsystem and Image-handling subsystem, however, none of them fixed this issue. 
 
@@ -2995,8 +3101,9 @@ Restarting Data store RCEs finally brought back the system normal.
 
 \href{https://rubinobs.atlassian.net/browse/FRACAS-256}{A FRACAS ticket 256} is filed. 
 
+\clearpage
 \subsection{Guider high gain issue}
-When the guider sensors run in guider mode, they may enter an abnormal state with gain values $\sim10$ times as large as in a normal state. (Jackie is looking at all guider data to find high-gain state files).
+%When the guider sensors run in guider mode, they may enter an abnormal state with gain values $\sim10$ times as large as in a normal state. (Jackie is looking at all guider data to find high-gain state files).
 
 The guider sensor encountered issues while operating in guider mode, as it failed to produce reasonable images. The bias level was abnormally low, measured at 1.0–1.5k instead of the expected ~15k. Additionally, the CCOB flashes were not recorded correctly. Although two flashes of 1.2 seconds each occurred, the sensor did not provide a meaningful response. At the time, the guider was configured with an integration time of 50 milliseconds and a readout time of approximately 70 milliseconds. The sensor should have displayed flat illumination across several frames, but the mean image value remained unchanged, with only minimal variations in the standard deviation and maximum values.
 
@@ -3137,83 +3244,7 @@ This section describes Run 7 record runs. All runs use our camera operating conf
 \end{longtable}
 
 
-%\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
-%\hline
-%\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
-%\endfirsthead
-%\hline
-%\textbf{Run Type} & \textbf{Run ID} & \textbf{Links} & \textbf{Notes} \\ \hline
-%\endhead
-%\hline
-%\endfoot
-%\hline
-%\endlastfoot
-%
-%\multirow{3}{*}{B-protocol} & E1880 & Web report \newline Test Execution & Initial B\_protocol taken with the new v30 definition. \\ \cline{2-4} 
-%                            & E2233 &             & dp80, first run after full CCS system reboot \\ \cline{2-4} 
-%                            & E3380 &             & First B protocol post-chiller recovery \\ \hline
-%
-%\multirow{7}{*}{PTC}        & E3630 &             & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera. \\ \cline{2-4} 
-%                            & E3577 &             & Dense nm960 PTC. Final operating conditions of camera. \\ \cline{2-4} 
-%                            & E2237 &             & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-4} 
-%                            & E748  &             & Final operating conditions of camera. nm960 dense \\ \cline{2-4} 
-%                            & E2016 &             & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-4} 
-%                            & E1886 &             & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-4} 
-%                            & E1881 &             & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
-%
-%\multirow{3}{*}{Gain Stability} & E1955 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \cline{2-4} 
-%                                & E2008 &          & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
-%
-%\multirow{3}{*}{Long dark acquisitions} & E3540 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
-%                                       & E3539 &  & 900s dark. Shutter closed. \\ \cline{2-4} 
-%                                       & E3538 &  & 900s dark. Shutter opened. \\ \hline
-%
-%\multirow{2}{*}{Projector acquisitions} & E2184 &  & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-4} 
-%                                        & E2181 &  & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
-%
-%\multirow{2}{*}{OpSim runs}  & E2330 &           & Short dark sequence, filter changes in headers through OCS \\ \cline{2-4} 
-%                             & E2328 &           & Flats with shutter-controlled exposure \\ \hline
-%
-%\multirow{5}{*}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
-%                                          & E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
-%                                          & E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-4} 
-%                                          & E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4} 
-%                                          & E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-%
-%\end{longtable}
 
-% \begin{table}[ht]
-% \centering
-% \begin{tabular}{|p{2.5cm}|p{1.5cm}|p{2.9cm}|p{6.5cm}|}
-% \hline
-% Run Type                        & Run ID & Links & Notes                                                                   \\ \hline
-% \multirow{3}{*}{B-protocol}     & E1880  &  Web report \newline Test Execution     & Initial B\_protocol taken with the new v30 definition.                  \\ \cline{2-4} 
-%                                 & E2233  &       & dp80, first run after full CCS system reboot                            \\ \cline{2-4} 
-%                                 & E3380  &       & First B protocol post-chiller recovery                                  \\ \hline
-
-% \multirow{7}{*}{PTC} & E3630 & & Low flux red LED PTC, ND1 filter installed. Final operating conditions of camera.\\ \cline{2-4} 
-% & E3577 & & Dense nm960 PTC. Final operating conditions of camera.\\ \cline{2-4} 
-% & E2237 & & Final operating conditions of camera. Red LED dense. Acquired after CCS subsystem reboot. \\ \cline{2-4} 
-% & E748 & & Final operating conditions of camera. nm960 dense \\ \cline{2-4} 
-% & E2016 & & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \cline{2-4} 
-% & E1886 & & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \cline{2-4} 
-% & E1881 & & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
-% \multirow{3}{*}{Gain Stability} & E1955 & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled\\ \cline{2-4}
-%  & E2008 & & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB\\ \cline{2-4}
-% \multirow{3}{*}{Long dark acquisitions} & E3540 & & 900s dark. Shutter closed. \\ \cline{2-4}
-%  & E3539 & & 900s dark. Shutter closed. \\ \cline{2-4}
-%  & E3538 & & 900s dark. Shutter opened. \\ \hline
-% \multirow{2}{*}{Projector acquisitions} & E2184 & & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-4}
-% & E2181 & & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
-% \multirow{2}{*}{OpSim runs}  & E2330 & & Short dark sequence, filter changes in headers through OCS \\ \cline{2-4}
-%  & E2328 & & Flats with shutter-controlled exposure \\ \hline
-% \multirow{5}{*}{Phosphorescence datasets} & E2015 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4}
-%  & E2014 & & 1 flat at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4}
-%  & E2013 & & 10 flats at 10 ke$^-$ followed by 10$\times$15\,s darks. Interleaved biases with the darks \\ \cline{2-4}
-%  & E2012 & & 10 flats at 1 ke$^-$ followed by 10$\times$15\,s darks \\ \cline{2-4}
-%  & E2011 & & 20 flats at 10 ke$^-$ followed by 10$\times$15\,s darks \\ \hline
-% \end{tabular}
-% \end{table}
 
 \subsection{Other runs of relevance}\label{relevant-runs}
 
@@ -3450,59 +3481,61 @@ Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-fi
 \begin{table}[ht]
 \centering
 \caption{Persistence Datasets\label{table:runs_persistence}}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{tabular}{|p{1.5cm}|p{9cm}|}
 \hline
-Run ID & Links & Notes \\ \hline
-\textbf{E2286} & & 30k uv flash with increased hilim\\ \hline
-E1507 & & dp80, uv led @ 30k \\ \hline
-E1506 & & dp80, uv led @ 10k\\ \hline
-E1505 & & dp80, uv led @ 5k\\ \hline
-E1504 & & dp80, uv led @ 3k\\ \hline
-E1503 & & dp80, uv led @ 1k\\ \hline
-E1502 & & dp80, blue led @ 1k\\ \hline
-E1501 & & dp80, blue led @ 3k\\ \hline
-E1500 & & dp80, blue led @ 5k\\ \hline
-E1499 & & dp80, blue led @ 10k\\ \hline
-E1498 & & dp80, blue led @ 30k\\ \hline
-E1494 & & dp80, nm960 led @ 50k\\ \hline
-E1493 & & dp80, nm850 led @ 50k\\ \hline
-E1492 & & dp80, nm750 led @ 50k\\ \hline
-E1491 & & dp80, blue led @ 50k\\ \hline
-E1490 & & dp80, red led @ 50k\\ \hline
-E1489 & & dp80, nm960 led @ 150k\\ \hline
-E1488 & & dp80, nm850 led @ 150k\\ \hline
-E1487 & & dp80, nm750 led @ 150k\\ \hline
-E1486 & & dp80, red led @ 150k\\ \hline
-E1485 & & dp80, blue led @ 150k\\ \hline
-E1484 & & dp80, blue led @ 400k\\ \hline
-E1483 & & dp80, red led @ 400k\\ \hline
-E1479 & & dp80, nm750 led @ 400k\\ \hline
-E1478 & & dp80, nm960 led @ 400k\\ \hline
-E1477 & & dp80, nm850 led @ 400k\\ \hline
+Run ID & Notes \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2286/w_2024_35/}{E2286}} & 30k uv flash with increased hilim\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1507/w_2024_35/}{E1507} & dp80, uv led @ 30k \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1506/w_2024_35/}{E1506} & dp80, uv led @ 10k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1505/w_2024_35/}{E1505} & dp80, uv led @ 5k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1504/w_2024_35/}{E1504} & dp80, uv led @ 3k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1503/w_2024_35/}{E1503} & dp80, uv led @ 1k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1502/w_2024_35/}{E1502} & dp80, blue led @ 1k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1501/w_2024_35/}{E1501} & dp80, blue led @ 3k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1500/w_2024_35/}{E1500} & dp80, blue led @ 5k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1499/w_2024_35/}{E1499} & dp80, blue led @ 10k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1498/w_2024_35/}{E1498} & dp80, blue led @ 30k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1494/w_2024_35/}{E1494} & dp80, nm960 led @ 50k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1493/w_2024_35/}{E1493} & dp80, nm850 led @ 50k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1492/w_2024_35/}{E1492} & dp80, nm750 led @ 50k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1491/w_2024_35/}{E1491} & dp80, blue led @ 50k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1490/w_2024_35/}{E1490} & dp80, red led @ 50k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1489/w_2024_35/}{E1489} & dp80, nm960 led @ 150k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1488/w_2024_35/}{E1488} & dp80, nm850 led @ 150k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1487/w_2024_35/}{E1487} & dp80, nm750 led @ 150k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1486/w_2024_35/}{E1486} & dp80, red led @ 150k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1485/w_2024_35/}{E1485} & dp80, blue led @ 150k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1484/w_2024_35/}{E1484} & dp80, blue led @ 400k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1483/w_2024_35/}{E1483} & dp80, red led @ 400k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1479/w_2024_35/}{E1479} & dp80, nm750 led @ 400k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1478/w_2024_35/}{E1478} & dp80, nm960 led @ 400k\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1477/w_2024_35/}{E1477} & dp80, nm850 led @ 400k\\ \hline
 \end{tabular}
 \end{table}
+
 
 % Guider ROI Acquisitions
 \begin{table}[ht]\label{table:runs_guider}
 \centering
 \caption{Guider ROI Acquisitions}
-\begin{tabular}{|p{1.5cm}|p{2.9cm}|p{9cm}|}
+\begin{tabular}{|p{1.5cm}|p{9cm}|}
 \hline
-Run ID & Links & Notes \\ \hline
-E1509 & & ROI reference dataset\\ \hline
-E1510 & & ROI crossing amplifier segments\\ \hline
-E1518 & & 200ms integration time\\ \hline
-E1519 & & 100ms integration time\\ \hline
-E1508 & & 50ms integration time\\ \hline
-E1520 & & 400x400 pixel ROIs\\ \hline
-E1511 & & 200x200 pixel ROIs\\ \hline
-E1521 & & 100x100 pixel ROIs\\ \hline
-E1512 & & New row from reference dataset\\ \hline
-E1513 & & New column from reference dataset\\ \hline
-E1514 & & New column and row from reference dataset\\ \hline
-E1517 & & Different row for sensors on the same REB\\ \hline
+Run ID & Notes \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1509/w_2024_35/}{E1509} & ROI reference dataset\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1510/w_2024_35/}{E1510} & ROI crossing amplifier segments\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1518/w_2024_35/}{E1518} & 200ms integration time\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1519/w_2024_35/}{E1519} & 100ms integration time\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1508/w_2024_35/}{E1508} & 50ms integration time\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1520/w_2024_35/}{E1520} & 400x400 pixel ROIs\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1511/w_2024_35/}{E1511} & 200x200 pixel ROIs\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1521/w_2024_35/}{E1521} & 100x100 pixel ROIs\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1512/w_2024_35/}{E1512} & New row from reference dataset\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1513/w_2024_35/}{E1513} & New column from reference dataset\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1514/w_2024_35/}{E1514} & New column and row from reference dataset\\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1517/w_2024_35/}{E1517} & Different row for sensors on the same REB\\ \hline
 \end{tabular}
 \end{table}
+
 
 \clearpage
 

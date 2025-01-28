@@ -1,11 +1,136 @@
-\section{FCS work}
-\clearpage
-
 \section{Reference figures}
 
 % All the figures from Jim's web reports that have been used here
-% 5x5 plots
-% differential histograms
+
+\subsection{From sections \ref{reverification} and \ref{finalCharacterization}}
+\subsubsection{5x5 figures}
+
+\subsubsection{Differential histograms}
+
+% \subsubsection{Measurement histograms}
+% \subsubsection{PTC curve}
+
+\subsection{Web report reference figures}
+
+A common tool for rapidly reviewing LSSTCam EO data are \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/}{web reports}, which provide full focal-plane, raft level, and sensor level figures of reference for prompt analysis of data runs. Web reports from runs 6 and 7 are available.
+
+\subsubsection{Focal-plane level}
+% \paragraph{Focal-plane layout}
+
+\paragraph{Focal-plane mosaics for different quantities}
+
+Focal plane mosaics consist of fully assembled focal planes, with amplifiers colored according to the associated measurement. The full focal-plane mosaics are generated for most eo-pipe parameters and are scaled appropriately for each parameter. These plots provide a visualization that shows differences in e2v and ITL sensors across the focal plane, and the uniformity.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/ptc_gain_plot_LSSTCam_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
+    \caption{A focal plane mosaic from run E1881 for PTC gain}
+    \label{fig:ref:fpMosaic}
+\end{figure}
+
+\paragraph{Histograms}
+
+In addition to focal-plane mosaics, histograms are created for all eo-pipe metrics. These histograms have bins and ranges specific to each parameter. For some parameters, the histograms provide a neat visualization to quantify differences in e2v and ITL measurements, such as figure \ref{fig:ref:histogram} for PTC $a_{00}$. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/ptc_a00_hist_LSSTCam_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
+    \caption{A histogram from run E1881 for PTC $a_{00}$}
+    \label{fig:ref:histogram}
+\end{figure}
+
+\subsubsection{Raft level}
+
+\paragraph{Correlation figures}
+
+Correlation figures are created on the raft level for all science rafts. Two types of correlation figures are created; one for the imaging region, and one for the overscan region. The correlation computed is a Pearson correlation coefficient.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/overscan_correlation_plot_LSSTCam_R22_S00_u_lsstccs_eo_raft_amp_correlations_E1880_w_2024_35_20241101T015955Z.png}
+    \caption{Overscan correlations for R22\_S11 in run E1880.}
+    \label{fig:ref:overscanCorrelations}
+\end{figure}
+
+\paragraph{Lambda mosaics}
+
+As a part of the standard B protocol, flats are taken in different LEDs to provide a chromatic response across the bandpass relevant to LSST. The mosaic is assembled on the raft level, and short wavelength flats show the laser annealing pattern characteristic to e2v sensors (see figure \ref{fig:ref:blueLambda}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/eoRaftMosaic_LSSTCam_blue_MC_C_20241030_000276_R22_S00_u_lsstccs_eo_raft_lambda_mosaics_E1880_w_2024_35_20241101T020341Z.png}
+    \caption{Blue led mosaic for R22 from run E1880.}
+    \label{fig:ref:blueLambda}
+\end{figure}
+
+\paragraph{Calibration frames}
+
+For runs with bias dark and flat frames (most commonly B protocols), combined calibrations are produced and assembled on the raft level. These mosaics are gain corrected.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/eoDarkRaftMosaic_LSSTCam_R22_S00_u_lsstccs_eo_raft_calib_mosaics_E1880_w_2024_35_20241101T020324Z.png}
+    \caption{Calibration dark for R22 from run E1880, extracted using B protocol dark sequence.}
+    \label{fig:ref:calibFrame}
+\end{figure}
+
+\paragraph{Bias stability}
+
+Bias stability figures are created for acquisition sequences that acquire multiple bias frames. Three different bias stability plots are created; amp-wise mean vs time, amp-wise standard deviation vs time, amp-wise mean vs time for region covering the readout corner.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/bias_rc_mean_vs_time_plot_LSSTCam_R22_S00_u_lsstccs_eo_bias_stability_E1880_w_2024_35_20241101T020021Z.png}
+    \caption{Bias stability mean vs time in readout corner for R22 from run E1880.}
+    \label{fig:ref:biasStability}
+\end{figure}
+
+\paragraph{Divisadero profiles}
+
+Divisadero tearing profiles are created for each raft, with divisadero response grouped along the mid-line break. The regions of individual amplifiers are marked by dashed lines to show regions where divisadero response is expected.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/divisadero_raft_plot_LSSTCam_R22_S00_u_lsstccs_eo_divisadero_tearing_E1880_w_2024_35_20241101T020421Z.png}
+    \caption{Divisadero tearing profile for R22 from run E1880.}
+    \label{fig:ref:divisaderoProfile}
+\end{figure}
+
+\subsubsection{Sensor level}
+
+\paragraph{Bias profiles}
+
+Bias profiles are created for each sensor, along both serial and parallel directions. Amplifiers are plotted separately to allow for amplifier dependent response to be identified. Different columns/rows are plotted in different colors to allow for identification of problematic columns/rows.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/bias_parallel_profile_plots_LSSTCam_R22_S11_u_lsstccs_eo_bias_stability_E1880_w_2024_35_20241101T020021Z.png}
+    \caption{Median bias profile in the parallel direction for R22\_S11 from run E1880.}
+    \label{fig:ref:biasProfile}
+\end{figure}
+
+\paragraph{PTCs}
+
+PTC plots are created for each sensor, and separated by amplifier. For each amplifier, a PTC curve is created. PTC gain, $a_{00}$, and turnoff (in ADU) is shown for each amplifier.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/ptc_plots_LSSTCam_R22_S11_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
+    \caption{PTC plots for R22\_S11 from run E1881.}
+    \label{fig:ref:PTCs}
+\end{figure}
+
+\paragraph{Nonlinearity}
+
+\paragraph{Data from flat pairs}
+
+\paragraph{CTI}
+
+\paragraph{BF covariances}
+
+\paragraph{Persistence figure}
+
+
 \clearpage
 
 \section{OCS integration}
