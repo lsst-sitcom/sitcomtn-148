@@ -162,15 +162,15 @@ leaks}\label{dark-current-and-light-leaks}
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
 
 One of the first tests we attempted with LSSTCam was measuring dark
-current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Figure XXX shows the gaps that we could see between L1 and its cover.
+current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Figure \ref{fig:L1_Gaps} shows the gaps that we could see between L1 and its cover. The inaccessible locations were later covered with shroud.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/Rectange_Detector_Ex.png}
 \includegraphics[width=0.48\textwidth]{figures/Rectange_Spot_Ex.png}
 % \includegraphics[width=0.32\textwidth]{figures/Rectange_Spot_Sat.png}
-\caption{Example}
-\label{fig:SpotProjector_Rect}
+\caption{Example photos of the L1 cover gaps. These were covered by tape where we could safely apply it and by the black shroud.}
+\label{fig:L1_Gaps}
 \end{figure}
 
 Once these were sealed, we took some initial measurements and then
@@ -178,17 +178,14 @@ started to cover the LSSTCam body with a blackout fabric shroud. Figure~\ref{fig
 camera.
 We also found light leaks
 where the light cone attached to L1 was housed, and from the Utility
-Trunk. 
-
-
-Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark
+Trunk, which were covered with shroud. Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark
 currents, and comments on what changed during the leak chasing.
 
 \begin{longtable}{|l|c|l|l|l|}
 \caption{Summary of the 15\,s dark exposures, the different conditions, and the resulting dark current.
 Exposure ID is preceded by ``MC\_C202409".  The shroud was in place for each of these measurements.  (``Initial Covering" was just the CCOB cone and around the L1 cover.) \label{tab:leak_chasing}} \\
 \hline
-\textbf{Exposure} & \textbf{Dark Current} & \textbf{Room Lights} &\textbf{Shutter} & \textbf{Comments} \\
+\textbf{Exposure} & \textbf{Dark Current} (ADU/s) & \textbf{Room Lights} &\textbf{Shutter} & \textbf{Comments} \\
 
 \hline
 \endfirsthead
@@ -574,7 +571,7 @@ The read noise is higher in run 7 than run 6 for both sensor types. The differen
 
 \begin{figure}[ht]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/Read Noise (e-)_13550_E1071_diff.png}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/ReadNoisee-_13550_E1071_diff.png}
 \caption{A comparison of Run 6 and Run 7 amplifier measurements for read noise, separated by sensor type. For both sensor types, read noise is higher in Run 7.}
 \end{centering}
 \end{figure}
@@ -2585,11 +2582,11 @@ pattern of the projector, but no 2\% dip.
 \end{figure}
 
 While we were not able to find evidence of the ITL dip in Run 7 data, it
-is still not clear whether the effect will be visible in LSSTCam on-sky data.
-The electron rate of the in-lab data was roughly XXX per second for the 15\,s exposures. The stars that were seen in ComCam with the ITL dip
-have a magnitude of XXX corresponding to a electron rate of XXX. This is
-combined with a sky background of XXX as compared with the lab sensor
-background of XXX.
+is still not clear whether the effect will be visible in LSSTCam on-sky data. It is possible that the contrast and brightness 
+% The electron rate of the in-lab data was roughly XXX per second for the 15\,s exposures. The stars that were seen in ComCam with the ITL dip
+% have a magnitude of XXX corresponding to a electron rate of XXX. This is
+% combined with a sky background of XXX as compared with the lab sensor
+% background of XXX.
 
 Also, the CCD operating temperature of ComCam, which was $\sim$ -90C or higher, was higher than -100C for the LSSTCam. It is not clear if this is related or not.
 
