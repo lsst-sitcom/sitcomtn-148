@@ -166,8 +166,8 @@ current and sources of light leaks in the camera body. Before beginning we cover
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/Rectange_Detector_Ex.png}
-\includegraphics[width=0.48\textwidth]{figures/Rectange_Spot_Ex.png}
+\includegraphics[width=0.48\textwidth]{figures/L1_Gap1.png}
+\includegraphics[width=0.48\textwidth]{figures/L1_Gap2.png}
 % \includegraphics[width=0.32\textwidth]{figures/Rectange_Spot_Sat.png}
 \caption{Example photos of the L1 cover gaps. These were covered by tape where we could safely apply it and by the black shroud.}
 \label{fig:L1_Gaps}
@@ -802,7 +802,7 @@ Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.
 
 
 Leftover signal (``persistence") in the first dark image acquired after intense illumination has
-been observed \ref{initPersistenceChar}.  Persistence has been observed
+been observed Section \ref{initPersistenceChar}.  Persistence has been observed
 in an early prototype e2v sensor as early as 2014
 \citep{2014SPIE.9154E..18D}. It was confirmed that the amplitude of
 the persistence decreased as the parallel swing voltage was decreased.
@@ -812,7 +812,7 @@ at the surface layer. The level of persistence is about 10--20 ADU,
 and the decay time constant is about 30\,s
 \citep{dmtn-276}.
 
-During the EO testing in 2021 (Run 13177, for example) Run 5, we also found the persistence made a
+During the EO testing in 2021 (Run 13177, for example, Run 5), we also found the persistence made a
 streak toward the readout direction from the place where a bright spot illumination occurred 
 in a previous image. We call this ``trailing persistence".
 
@@ -872,7 +872,7 @@ The summary is as follows:
   The new voltages following the persistence mitigation voltage rule produces reasonable bias, dark, flat images visually.
 \item
   Narrowing the parallel swing eliminates the persistence.
-\item Just decreasing the collecting voltage (PclkH) even without changing swing will decrease persistence as the charge packet is not pulled as close to the surface. We confirmed this at UCD.
+\item Just decreasing the collecting voltage (PclkH) even without changing swing will decrease persistence as the charge packet is not pulled as close to the surface. 
 \item
   Lowering the parallel low voltage did not work
   as we expected; going to a more negative voltage is probably needed.
@@ -1293,7 +1293,7 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/divisadero.png}
 \end{centering}
-\caption{Impact of disabling IDLE\_FLUSH on Divisadero tearing}\label{IdleFlushEffect:divisadero}
+\caption{Impact of disabling IDLE\_FLUSH on Divisadero tearing metric.}\label{IdleFlushEffect:divisadero}
 \end{figure}
 Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings in chronological order. There were few changes: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some minor variations in each changes are also included such as changing the number of clears, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the clear). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the higher one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought the overall distribution down. The two distributions became indistinguishable, which indicates the majority of the Divisadero tearing for e2v is mitigated.
 
@@ -1325,7 +1325,7 @@ During Run 7, several changes were implemented, as described below:
 \item\href{https://rubinobs.atlassian.net/browse/LSSTCAM-34}{v29 introduced changes to speed up the guider.}
 \item
   \href{https://github.com/lsst-camera-dh/sequencer-files/pull/17}{v30 primarily focused on e2v}. We introduced a new approach to NopSf
-  for e2v CCDs. \href{https://github.com/lsst-camera-dh/sequencer-files/pull/18}{T align timing with the ITL version, a change was made.}
+  for e2v CCDs. \href{https://github.com/lsst-camera-dh/sequencer-files/pull/18}{Timing align with the ITL version, a change was made.}
 \end{itemize}
 
 We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero tearing.
@@ -1693,53 +1693,7 @@ Persistence {[}ADU{]}             &       None                         & \multic
 
 All other metrics were not significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSSTCam as a result of Run 7 testing, see Section~\ref{run-7-final-operating-parameters}.
 
-\subsection{Illumination corrected flat}
 
-To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between the e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.95\linewidth]{figures/lambda_nm750_withfit.png}
-    \caption{Focal Plane mosaic from a $750~nm$ lambda flat (left). Two-dimensional Chebyshev model illumination fit (right)}
-    \label{fig:mosaic-modelfit}
-\end{figure}
-
-Next, we divide the mosaic images in each CCOB-wide LED by the illumination model fit to produce a relative QE mosaic, as shown in Figure~\ref{fig:mosaic-relativeqe}.  Visually the per-CCD gain matching looks good and we expect to refine this further by using PTC Gains from a dense PTC run and by using more of the ISR pipeline to correct these images. 
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.4\linewidth]{figures/lambda_uv_E2233.png}
-    \includegraphics[width=0.4\linewidth]{figures/lambda_blue_E2233.png} \\
-    \includegraphics[width=0.4\linewidth]{figures/lambda_red_E2233.png}
-    \includegraphics[width=0.4\linewidth]{figures/lambda_nm750_E2233.png} \\
-    \includegraphics[width=0.4\linewidth]{figures/lambda_nm850_E2233.png}
-    \includegraphics[width=0.4\linewidth]{figures/lambda_nm960_E2233.png} \\
-    \caption{Focal Plane mosaic for each of the CCOB-wide lambda flats, divided by the illumination model.}
-    \label{fig:mosaic-relativeqe}
-\end{figure}
-
-\clearpage
-
-
-
-\subsection{Glow search}
-A long dark image can be used to identify glow. Figure \ref{fig:glowsearch} shows an example of 900 sec dark with the ISR application, with a very narrow stretch from -5 to -5 ADUs. 
-Obvious glow can be found in 3 guider sensors of S04/SG0, S40/SG1 and S44/SG0 (see Figure \ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
-The other observation can be made on R12/S22, R14/S22, R23/S11 and some other minor ones. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
-In R43/S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50ADU/900sec. This was also present in Run 6 data (for example, MC\_C\_20231102\_000085).
-Otherwise, we did not find any other glow in the focal plane.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/glowsearch/900sdark.png}
-    \caption{A 900sec dark image MC\_C\_20240922\_000432, after the ISR application.}
-    \label{fig:glowsearch}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/glowsearch/R43S21.png}
-    \caption{A close up of R43/S21 of a 900sec dark image MC\_C\_20240922\_000432}
-    \label{fig:glowsearch}
-\end{figure}
 \clearpage
 \subsection{List of non-Functional amplifiers}\label{deadamplifiers}
 
@@ -1828,159 +1782,6 @@ R44\_SG0\_C02  & HiNoise & always Hi Noise\\ \hline
     \end{tabular}
     \caption{Table of non-functioning Corner Raft amplifiers, from Runs 6a, 6b, and 7. Categories are OK, SometimesHiNoise, SometimesDead, HiNoise, Dead. \label{tab:badamps-corner}}
 \end{table}
-
-\clearpage
-\subsection{Full well measurements}\label{sec:bfullwellmeasurement}
-
-One of the goals of this run was to provide two initial metrics that could be used to determine where to set the SUSPECT and SAT pixel masks for on-sky data. For each amplifier, there were three values considered: the maximum value recorded on a saturated detection, the PTC turnoff, and the linearity turnoff (see Section \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these are currently determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (e.g. saturated pinhole values being higher/lower than the recorded maximum values for E2V/ITL detectors).
-
-As such, we decided to determine the full well using spots and to compare these values to the ones found with the flat illumination setup. These spots were made using the spot projector and are the circular spots as described in Section \ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1-100 seconds in one second intervals. To get the spot, we applied a very loose threshold ($1\sigma$ above the background) to return the footprint of the spot and calculate the centroid of the spot.
-
-Once we found the spot and the spot centroid, there were three different turnoffs that we used: Spot photometry, spot PTC, and spot shape.
-For spot photometry, we used the spot centroid to place a 5 pixel\footnote{We plotted the effect of changing the pixel aperture and found that the final turnoff value increases with aperture size. This is because this method is a proxy to measuring when the spot begins to bleed and when does the bleeding exceed the aperture size. As such, we decided to keep it small at 5 pixels.} aperture around the spot. We then plotted the aperture flux divided by the exposure time as a function of the measured peak of the spot as seen in Figure \ref{fig:Spot_Metrics}. This resulted in an almost constant value until a sudden drop in the flux rate. As such, our metric for the turnoff is when it first starts dropping, whenever the constant value drops below $3\sigma$ of its scatter. This turnoff is shown in Figure \ref{fig:Spot_Metrics} as the black line.
-
-For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10 by 10 pixel box around the core of the spot to use for our PTC. We then compared these 10 by 10 pixel between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find when the turnoff happens, we took the derivative of the variance vs spot mean curve and found the point that has the first large negative value. This curve and the turnoff are shown in Figure \ref{fig:Spot_Metrics}.
-
-Lastly, the final full well measurement we used as the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cutout the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more consistent measurements.}. We then plotted this against the spot peak. Similar to the Spot Photometry method, we were left with a constant value that drops off suddenly. We used a similar metric to the Spot Photometry of finding the value that falls below $3\sigma$ of the constant value. This method and turnoff is shown in Figure \ref{fig:Spot_Metrics}.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.30\linewidth]{figures/Spot_Photometry.png}
-    \includegraphics[width=0.30\linewidth]{figures/Spot_PTC.png}
-    \includegraphics[width=0.30\linewidth]{figures/Spot_2ndMoment.png}
-    \caption{Example of the different spot metrics and their corresponding calculated turnoffs as the black vertical line for detector R21/S21 (88). (Left) Spot Photometry (left), Spot PTC (middle), and Spot Second Moments (right).}
-    \label{fig:Spot_Metrics}
-\end{figure}
-
-With these three new methods, we want to compare these results to the old results. Figure XXX shows an example comparison between the three metrics and the PTC and linearity turnoffs from the flat illuminated data for one detector, R21/S21. This shows that all three of these metrics are around, if not a little higher, than the linearity turnoff, providing support that the linearity turnoff is a good metric for the SAT pixel mask plane.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.95\linewidth]{figures/Spot_EO_comparison.png}
-    \caption{Comparison between the calculated Spot fullwell metrics and the EO metrics. All the Spot metrics are around the level of the linearity turnoff.}
-    \label{fig:Spot_vs_EO_Metrics}
-\end{figure}
-
-\subsubsection{Spot photometry model}
-
-While R21/S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
-The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs don't work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
-\begin{equation*}
-    Flux \ rate=a-\frac{1}{bx+c}
-\end{equation*}
-where $a$, $b$, and $c$ are constants to be solved with the model via \texttt{scipy.optimize.curvefit} and $x$ is the peak value of the spot in ADU. We then classify the turnoff in two ways as when the model drops by 0.1\% and also when the derivative of the model drops below a certain amount. Figure XXX shows an example of the data, corresponding model, and the two turnoffs.
-
-Figure XXX then compares this with the linearity turnoff for the whole focal plane.
-
-\clearpage
-\subsection{Non-linearity studies}\label{nonlinearity}
-\begin{figure}[ht]
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
-\end{centering}
-\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right : r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
-
-\end{figure}
-
-PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, obtained using the CCOB wide-beam described in \ref{electro-optical-setup}. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
-
-For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
-
-Technically, we model the nonlinearity using a spline function that we fit to the CCD/photodiode data pairs by minimizing:
-\begin{equation}
-Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2
-\label{eq:nonlin0}
-\end{equation}
-where $Q_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
-$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode factor" for current $i$, $S$ is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints: the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. If we choose equal fitting weights $w_{ij}=1$, the residuals exhibit a scatter that varies a lot with signal level, and hence forbid meaningful outlier detection. We model the fitting weights $w_{ij}$ using an expression determined empirically, $w_{ij} = 1/\sqrt{c^2+v^2/\mu_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by turning the least-squares expression \ref{eq:nonlin0} into a maximum likelihood one:
-\begin{equation}
-Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} \log w_{ij}
-\label{eq:nonlin1}
-\end{equation}
-We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
-
-\subsection{Guider operation}\label{guider-operation}
-Beginning with Run 7, it became common to run the guider in its nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
-
-\subsubsection{Guide mode}
-Because different regions of pixels on each GREB sensor can be read out, the guider requires a version of GREB firmware that implements a separate sequencer for each sensor. When in science or full frame mode, there is only one sequencer in the GREB. However, because the GREB can be configured to read out a different portion of each sensor, special firmware must be loaded that contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected to the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
-
-Switching from science to guide mode has several steps:
-\begin{enumerate}
-    \item Power off HV bias and sensor power
-    \item Reboot the GREB into the guider (multi-sequencer) firmware
-    \item Reconfigure the DAQ and CCS
-    \item Power on the sensors and HV bias
-\end{enumerate}
-
-Currently, the GREBs will boot into the science firmware on power up, but we are expecting to change this default to guider firmware prior to operations. Similarly, though powering the HV bias off will always be necessary when rebooting the GREB, as it is controlled by the GREB firmware, but powering off the sensor was done out of an abundance of caution. If it becomes common to switch back and forth, which is not expected, it may be worth investigating whether this is actually necessary.
-
-\subsubsection{Guider timing}
-The guider is designed to operate in a continuous loop, alternating between integration and readout. To first order, the time between stamps is the sum of the integration time and the sequencer execution time. The sequencer execution time varies with the ROI size in a way that is fixed for a version of the sequencer program. However, due to the details of the DAQ implementation, there is also a contribution from transporting the data within the embedded DAQ processors. Figure \ref{fig:guider_timing} shows the inter-stamp timing for all guide-specific runs in the nominal ROI configuration. The beginning of the readout of each sensor is synchronized to +/- one system clock cycle (10\,ns) using the same mechanism as science readout. 
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.95\linewidth]{figures/guider_timing.png}
-    \caption{Inter-stamp time for nominal ROI}
-    \label{fig:guider_timing}
-\end{figure}
-
-\paragraph*{Noise Study Configurations}
-For any guider configuration, the ROI size is the same for all guide sensors, but its location on each sensor varies. This means that the total readout time is the same, but at any given time within that total, any given sensor can be fast-flushing rows, flushing columns, or reading out pixels. To examine the sensitivity of the GREB to noise induced by the phasing of readout and clearing, a series of configurations was defined. Beginning with a single sensor as the baseline, two sensors on the same GREB were configured to read out with their ROI locations the same (\textit{aligned}) and not overlapping (\textit{unaligned}.) This was to measure whether noise can be induced on sensors within the same GREB. This was followed by four aligned ROIs, one sensor on each GREB and four sensors all unaligned, to check for noise between GREBs. Finally, with an ROI defined on each of the eight sensors all aligned and all unaligned between GREBs.
-
-\paragraph*{ROI Study Configurations}
-We also collected a set of data with ROIs of different sizes and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
-
-\subsubsection{Noise investigation}
-We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov.= 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
-
-%% jgt - here's the table with the configuratons and results (noise results omitted)
-\begin{longtable}{|c|c|c|c|c|c|c|}
-\caption{Summary of results for the different Guider configurations. \label{tab:gds_configs}} \\
-\hline
-\makecell{\textbf{ROI} \\ \textbf{Size}} & 
-\makecell{\textbf{Integration} \\ \textbf{Time (ms)}} & 
-\makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Sensors}} &
-\makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Rafts}} &
-\makecell{\textbf{ROI} \\ \textbf{Alignment}} &
-\makecell{\textbf{Rate} \\ \textbf{(Hz)}} &
-\makecell{\textbf{Noise} \\ \textbf{(ADU)}} \\
-\hline
-\hline
-\endhead
-\multicolumn{7}{|c|}{\textbf{Noise Study Configurations}} \\
-\hline
-50x50   & 50  & 1 & 1 & n/a       &  9.28 & 5.60 \\ % gds_noise_01.cfg
-50x50   & 50  & 2 & 1 & aligned   &  9.27 & 5.64 \\ % gds_noise_02.cfg
-50x50   & 50  & 2 & 1 & unaligned &  9.26 & 8.63 \\ % gds_noise_03.cfg
-50x50   & 50  & 4 & 4 & aligned   &  9.26 & 5.61 \\ % gds_noise_04.cfg
-50x50   & 50  & 4 & 4 & unaligned &  9.26 & 5.64 \\ % gds_noise_05.cfg
-50x50   & 50  & 8 & 4 & aligned   &  9.23 & 5.65 \\ % gds_noise_06.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & 5.68 \\ % gds_noise_07.cfg
-\hline
-\multicolumn{7}{|c|}{\textbf{Nominal Configurations}} \\
-\hline
-50x50   & 50  & 8 & 4 & aligned   &  9.22 & 5.65 \\ % gds_nom_aligned.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & 8.67 \\ % gds_nom_unaligned.cfg
-\hline
-\multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
-\hline
-400x400 & 200 & 1 & 1 & n/a       &  1.67 & 4.03 \\ % gds_roi_01.cfg
-400x400 &  50 & 1 & 1 & n/a       &  2.23 & 3.95 \\ % gds_roi_02.cfg
-400x400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
-10x10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
-400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 7.24, 7.09 \\ % gds_roi_05.cfg
-\hline
-\end{longtable}
-
-\subsubsection*{Impact on science sensors}\label{sec:guiderimpactonscience}
-We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sensors in guider mode), to study the impact on science sensors from running guide sensors in guider mode. Fig.~\ref{fig:guider_noise} demonstrates that the read noise is consistent between the two runs.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.95\linewidth]{figures/E1110_E1290_READ_NOISE.png}
-    \caption{Impact on science sensors read noise from guide sensors running in guider mode. E1110 has the guide sensors in imaging mode, and E1290 has the guide sensors in guiding mode. The two runs have consistent read noise.}
-    \label{fig:guider_noise}
-\end{figure}
 
 \subsection{Defect stability}\label{defect-stability}
 
@@ -2260,6 +2061,129 @@ amplifiers.
 
 Further studies are required in order to converge on the best mitigation
 strategy for the start of the LSST survey.
+\clearpage
+\subsection{Glow search}
+A long dark image can be used to identify glow. Figure \ref{fig:glowsearch} shows an example of 900 sec dark with the ISR application, with a very narrow stretch from -5 to -5 ADUs. 
+Obvious glow can be found in 3 guider sensors of S04/SG0, S40/SG1 and S44/SG0 (see Figure \ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
+The other observation can be made on R12/S22, R14/S22, R23/S11 and some other minor ones. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
+In R43/S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50ADU/900sec (Figure \ref{fig:glowsearch:closeup}. This was also present in Run 6 data (for example, MC\_C\_20231102\_000085).
+Otherwise, we did not find any other glow in the focal plane.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/glowsearch/900sdark.png}
+    \caption{A 900sec dark image MC\_C\_20240922\_000432, after the ISR application.}
+    \label{fig:glowsearch}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/glowsearch/R43S21.png}
+    \caption{A close up of R43/S21 of a 900sec dark image MC\_C\_20240922\_000432}
+    \label{fig:glowsearch:closeup}
+\end{figure}
+
+\clearpage
+\subsection{Illumination corrected flat}
+
+To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between the e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/lambda_nm750_withfit.png}
+    \caption{Focal Plane mosaic from a $750~nm$ lambda flat (left). Two-dimensional Chebyshev model illumination fit (right)}
+    \label{fig:mosaic-modelfit}
+\end{figure}
+
+Next, we divide the mosaic images in each CCOB-wide LED by the illumination model fit to produce a relative QE mosaic, as shown in Figure~\ref{fig:mosaic-relativeqe}.  Visually the per-CCD gain matching looks good and we expect to refine this further by using PTC Gains from a dense PTC run and by using more of the ISR pipeline to correct these images. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/lambda_uv_E2233.png}
+    \includegraphics[width=0.4\linewidth]{figures/lambda_blue_E2233.png} \\
+    \includegraphics[width=0.4\linewidth]{figures/lambda_red_E2233.png}
+    \includegraphics[width=0.4\linewidth]{figures/lambda_nm750_E2233.png} \\
+    \includegraphics[width=0.4\linewidth]{figures/lambda_nm850_E2233.png}
+    \includegraphics[width=0.4\linewidth]{figures/lambda_nm960_E2233.png} \\
+    \caption{Focal Plane mosaic for each of the CCOB-wide lambda flats, divided by the illumination model.}
+    \label{fig:mosaic-relativeqe}
+\end{figure}
+
+\clearpage
+
+\clearpage
+\subsection{Full well measurements}\label{sec:bfullwellmeasurement}
+
+One of the goals of this run was to provide two initial metrics that could be used to determine what pixel value to set the SUSPECT and SAT pixel masks for on-sky data. These pixel masks mask pixels as saturated (SAT) and pixel levels that might be subject to non-linear effects (e.g. Brighter-Fatter effect) and need further inspection before being used (SUSPECT). For each amplifier, there were three values considered: the maximum value recorded on a saturated detection, the PTC turnoff, and the linearity turnoff (see Section \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these are currently determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (e.g. saturated pinhole values being higher/lower than the recorded maximum values for E2V/ITL detectors).
+
+As such, we decided to determine the full well using spots and to compare these values to the ones found with the flat illumination setup. These spots were made using the spot projector and are the circular spots as described in Section \ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1-100 seconds in one second intervals. To get the spot, we applied a very loose threshold ($1\sigma$ above the background) to return the footprint of the spot and calculate the centroid of the spot.
+
+Once we found the spot and the spot centroid, there were three different turnoffs that we used: Spot photometry, spot PTC, and spot shape.
+For spot photometry, we used the spot centroid to place a 5 pixel\footnote{We plotted the effect of changing the pixel aperture and found that the final turnoff value increases with aperture size. This is because this method is a proxy to measuring when the spot begins to bleed and when does the bleeding exceed the aperture size. As such, we decided to keep it small at 5 pixels.} aperture around the spot. We then plotted the aperture flux divided by the exposure time as a function of the measured peak of the spot as seen in Figure \ref{fig:Spot_Metrics}. This resulted in an almost constant value until a sudden drop in the flux rate. As such, our metric for the turnoff is when it first starts dropping, whenever the constant value drops below $3\sigma$ of its scatter. This turnoff is shown in Figure \ref{fig:Spot_Metrics} as the black line.
+
+For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10 by 10 pixel box around the core of the spot to use for our PTC. We then compared these 10 by 10 pixel between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find when the turnoff happens, we took the derivative of the variance vs spot mean curve and found the point that has the first large negative value. This curve and the turnoff are shown in Figure \ref{fig:Spot_Metrics}.
+
+Lastly, the final full well measurement we used as the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cutout the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more consistent measurements.}. We then plotted this against the spot peak. Similar to the Spot Photometry method, we were left with a constant value that drops off suddenly. We used a similar metric to the Spot Photometry of finding the value that falls below $3\sigma$ of the constant value. This method and turnoff is shown in Figure \ref{fig:Spot_Metrics}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.30\linewidth]{figures/Spot_Photometry.png}
+    \includegraphics[width=0.30\linewidth]{figures/Spot_PTC.png}
+    \includegraphics[width=0.30\linewidth]{figures/Spot_2ndMoment.png}
+    \caption{Example of the different spot metrics and their corresponding calculated turnoffs as the black vertical line for detector R21/S21 (88). (Left) Spot Photometry (left), Spot PTC (middle), and Spot Second Moments (right).}
+    \label{fig:Spot_Metrics}
+\end{figure}
+
+With these three new methods, we want to compare these results to the old results. Figure XXX shows an example comparison between the three metrics and the PTC and linearity turnoffs from the flat illuminated data for one detector, R21/S21. This shows that all three of these metrics are around, if not a little higher, than the linearity turnoff, providing support that the linearity turnoff is a good metric for the SAT pixel mask plane.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/Spot_EO_comparison.png}
+    \caption{Comparison between the calculated Spot fullwell metrics and the EO metrics. All the Spot metrics are around the level of the linearity turnoff.}
+    \label{fig:Spot_vs_EO_Metrics}
+\end{figure}
+
+\subsubsection{Spot photometry model}
+
+While R21/S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
+The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs don't work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
+\begin{equation*}
+    Flux \ rate=a-\frac{1}{bx+c}
+\end{equation*}
+where $a$, $b$, and $c$ are constants to be solved with the model via \texttt{scipy.optimize.curvefit} and $x$ is the peak value of the spot in ADU. We then classify the turnoff in two ways as when the model drops by 0.1\% and also when the derivative of the model drops below a certain amount. Figure XXX shows an example of the data, corresponding model, and the two turnoffs.
+
+
+This also needs some tuning but should be less susceptible to changes across the focal plane (i.e. nosier data and different spot light levels). The work to apply this to whole focal plane is still on-going.
+% Figure XXX then compares this with the linearity turnoff for the whole focal plane.
+
+\clearpage
+\subsection{Non-linearity studies}\label{nonlinearity}
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
+\end{centering}
+\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right : r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
+
+\end{figure}
+
+PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, obtained using the CCOB wide-beam described in \ref{electro-optical-setup}. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
+
+For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
+
+Technically, we model the nonlinearity using a spline function that we fit to the CCD/photodiode data pairs by minimizing:
+\begin{equation}
+Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2
+\label{eq:nonlin0}
+\end{equation}
+where $Q_{ij}$ is the CCD signal measured in exposure $j$ at LED current $i$,
+$D_{ij}$ is the corresponding photodiode signal, $f_i$ is the ``photodiode factor" for current $i$, $S$ is the spline nonlinearity correction, and $w_{ij}$ is some weight. We add two constraints: the average of the spline over the fitting range is zero $<S(\mu)=0>$, and $S(0) = 0$. If we choose equal fitting weights $w_{ij}=1$, the residuals exhibit a scatter that varies a lot with signal level, and hence forbid meaningful outlier detection. We model the fitting weights $w_{ij}$ using an expression determined empirically, $w_{ij} = 1/\sqrt{c^2+v^2/\mu_{ij}}$, and the two extra parameters, $c$ and $v$ are also fitted by turning the least-squares expression \ref{eq:nonlin0} into a maximum likelihood one:
+\begin{equation}
+Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \right)^2 - 2 \sum_{ij} \log w_{ij}
+\label{eq:nonlin1}
+\end{equation}
+We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
+
+
+
+
 
 \subsection{Gain stability}\label{sec:gain-stability-2}
 We have used ``relative gain'' in this section to study gain stability over time. 
@@ -2437,7 +2361,88 @@ Following the studies done for the Run 6, this effect will be extremely difficul
 \label{fig:ITLGglitch}
 \end{figure}
 
+\subsection{Guider operation}\label{guider-operation}
+Beginning with Run 7, it became common to run the guider in its nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
 
+\subsubsection{Guide mode}
+Because different regions of pixels on each GREB sensor can be read out, the guider requires a version of GREB firmware that implements a separate sequencer for each sensor. When in science or full frame mode, there is only one sequencer in the GREB. However, because the GREB can be configured to read out a different portion of each sensor, special firmware must be loaded that contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected to the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
+
+Switching from science to guide mode has several steps:
+\begin{enumerate}
+    \item Power off HV bias and sensor power
+    \item Reboot the GREB into the guider (multi-sequencer) firmware
+    \item Reconfigure the DAQ and CCS
+    \item Power on the sensors and HV bias
+\end{enumerate}
+
+Currently, the GREBs will boot into the science firmware on power up, but we are expecting to change this default to guider firmware prior to operations. Similarly, though powering the HV bias off will always be necessary when rebooting the GREB, as it is controlled by the GREB firmware, but powering off the sensor was done out of an abundance of caution. If it becomes common to switch back and forth, which is not expected, it may be worth investigating whether this is actually necessary.
+
+\subsubsection{Guider timing}
+The guider is designed to operate in a continuous loop, alternating between integration and readout. To first order, the time between stamps is the sum of the integration time and the sequencer execution time. The sequencer execution time varies with the ROI size in a way that is fixed for a version of the sequencer program. However, due to the details of the DAQ implementation, there is also a contribution from transporting the data within the embedded DAQ processors. Figure \ref{fig:guider_timing} shows the inter-stamp timing for all guide-specific runs in the nominal ROI configuration. The beginning of the readout of each sensor is synchronized to +/- one system clock cycle (10\,ns) using the same mechanism as science readout. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/guider_timing.png}
+    \caption{Inter-stamp time for nominal ROI}
+    \label{fig:guider_timing}
+\end{figure}
+
+\paragraph*{Noise Study Configurations}
+For any guider configuration, the ROI size is the same for all guide sensors, but its location on each sensor varies. This means that the total readout time is the same, but at any given time within that total, any given sensor can be fast-flushing rows, flushing columns, or reading out pixels. To examine the sensitivity of the GREB to noise induced by the phasing of readout and clearing, a series of configurations was defined. Beginning with a single sensor as the baseline, two sensors on the same GREB were configured to read out with their ROI locations the same (\textit{aligned}) and not overlapping (\textit{unaligned}.) This was to measure whether noise can be induced on sensors within the same GREB. This was followed by four aligned ROIs, one sensor on each GREB and four sensors all unaligned, to check for noise between GREBs. Finally, with an ROI defined on each of the eight sensors all aligned and all unaligned between GREBs.
+
+\paragraph*{ROI Study Configurations}
+We also collected a set of data with ROIs of different sizes and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
+
+\subsubsection{Noise investigation}
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov.= 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
+
+%% jgt - here's the table with the configuratons and results (noise results omitted)
+\begin{longtable}{|c|c|c|c|c|c|c|}
+\caption{Summary of results for the different Guider configurations.} \label{tab:gds_configs} \\
+\hline
+\makecell{\textbf{ROI} \\ \textbf{Size}} & 
+\makecell{\textbf{Integration} \\ \textbf{Time (ms)}} & 
+\makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Sensors}} &
+\makecell{\textbf{Number} \\ \textbf{of} \\ \textbf{Rafts}} &
+\makecell{\textbf{ROI} \\ \textbf{Alignment}} &
+\makecell{\textbf{Rate} \\ \textbf{(Hz)}} &
+\makecell{\textbf{Noise} \\ \textbf{(ADU)}} \\
+\hline
+\hline
+\endhead
+\multicolumn{7}{|c|}{\textbf{Noise Study Configurations}} \\
+\hline
+50x50   & 50  & 1 & 1 & n/a       &  9.28 & 5.60 \\ % gds_noise_01.cfg
+50x50   & 50  & 2 & 1 & aligned   &  9.27 & 5.64 \\ % gds_noise_02.cfg
+50x50   & 50  & 2 & 1 & unaligned &  9.26 & 8.63 \\ % gds_noise_03.cfg
+50x50   & 50  & 4 & 4 & aligned   &  9.26 & 5.61 \\ % gds_noise_04.cfg
+50x50   & 50  & 4 & 4 & unaligned &  9.26 & 5.64 \\ % gds_noise_05.cfg
+50x50   & 50  & 8 & 4 & aligned   &  9.23 & 5.65 \\ % gds_noise_06.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & 5.68 \\ % gds_noise_07.cfg
+\hline
+\multicolumn{7}{|c|}{\textbf{Nominal Configurations}} \\
+\hline
+50x50   & 50  & 8 & 4 & aligned   &  9.22 & 5.65 \\ % gds_nom_aligned.cfg
+50x50   & 50  & 8 & 4 & unaligned &  9.23 & 8.67 \\ % gds_nom_unaligned.cfg
+\hline
+\multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
+\hline
+400x400 & 200 & 1 & 1 & n/a       &  1.67 & 4.03 \\ % gds_roi_01.cfg
+400x400 &  50 & 1 & 1 & n/a       &  2.23 & 3.95 \\ % gds_roi_02.cfg
+400x400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
+10x10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
+400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 7.24, 7.09 \\ % gds_roi_05.cfg
+\hline
+\end{longtable}
+
+\subsubsection*{Impact on science sensors}\label{sec:guiderimpactonscience}
+We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sensors in guider mode), to study the impact on science sensors from running guide sensors in guider mode. Fig.~\ref{fig:guider_noise} demonstrates that the read noise is consistent between the two runs.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/E1110_E1290_READ_NOISE.png}
+    \caption{Impact on science sensors read noise from guide sensors running in guider mode. E1110 has the guide sensors in imaging mode, and E1290 has the guide sensors in guiding mode. The two runs have consistent read noise.}
+    \label{fig:guider_noise}
+\end{figure}
 
 \section{Sensor features}\label{sensor-features}
 
@@ -2920,6 +2925,7 @@ In this section, we briefly report issues that we have experienced in the Run 7 
 \subsection{Timeline of events and issues}
 
 The Gantt Chart below shows the timeline of event, not only limits to the actual EO testing period, but also includes the preparation period prior to the run. For details on individual runs, see section \ref{relevant-runs} or visit \href{https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/reports/testresults/list/view?tql=testResult.projectId%20IN%20(10064)%20AND%20testPlan.key%20IN%20(%22BLOCK-P15%22)%20AND%20testPlan.onlyLastTestResult%20IS%20true&epicJQL=&title=Test%20execution%20results%20(list)&projectId=10064&traceabilityReportOption=COVERAGE_TEST_CASES&traceabilityTreeOption=COVERAGE_TEST_CASES&traceabilityCustomTreeDisplayOption=CONDENSED&traceabilityMatrixOption=COVERAGE_TEST_CASES&scorecardOption=EXECUTION_RESULTS&displayUnit=COUNT&period=MONTH}{Zephyr scale} (rubinobs.atlassian.net access required).
+The blue bars show the activities that are needed while the red bar show the issues. Each correspond to the later sections.
 
 \resizebox{\textwidth}{!}{
 \begin{ganttchart}[
@@ -2939,6 +2945,7 @@ The Gantt Chart below shows the timeline of event, not only limits to the actual
 \gantttitlecalendar{year, month=name} \\
 
 % Events
+\ganttbar[bar/.append style={fill=red!50}]{CCS Issues \S \ref{sec:ccsmeltdown}}{2024-08-01}{2024-11-14} \\
 \ganttbar{Rough Pumping}{2024-08-08}{2024-09-10} \\
 \ganttmilestone{PCS Chiller Below Room Temp}{2024-08-13}{2024-08-13} \\
 \ganttbar{Cryo Turbo Pump Braking Studies}{2024-08-14}{2024-08-27} \\
@@ -2952,14 +2959,13 @@ The Gantt Chart below shows the timeline of event, not only limits to the actual
 \ganttmilestone{Cryo Charging}{2024-09-03}{2024-09-03} \\
 \ganttmilestone{Cryo System Turned On}{2024-09-05}{2024-09-05} \\
 \ganttmilestone{Ion Pumps Turned On}{2024-09-05}{2024-09-05} \\
-\ganttbar[bar/.append style={fill=red!50}]{CCS/DAQ Issues \S \ref{sec:ccsmeltdown}}{2024-09-05}{2024-09-14} \\
 %\ganttmilestone{RebPS P04 Tripped}{2024-09-09}{2024-09-09} \\
 \ganttbar{CCDs Turned On}{2024-09-11}{2024-09-24} \\
 \ganttbar{CCD HV Turn On}{2024-09-17}{2024-09-24} \\
 %\ganttbar{PS00 and PS01 Tripped}{2024-09-20}{2024-09-20} \\
 \ganttmilestone{HV for All CCDs}{2024-09-24}{2024-09-24} \\
 \ganttbar{Run 7}{2024-09-24}{2024-12-01} \\
-\ganttbar[bar/.append style={fill=red!50}]{FCS AC Problem}{2024-10-01}{2024-11-28} \\
+\ganttbar[bar/.append style={fill=red!50}]{FCS AC Problem \S \ref{sec:feslatchissue}}{2024-10-01}{2024-11-28} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{PCS Chiller Degradation starts \S \ref{sec:pcsdegradation}}{2024-10-15}{2024-10-15} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-18}{2024-10-18} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-23}{2024-10-23} \\
@@ -2970,7 +2976,7 @@ The Gantt Chart below shows the timeline of event, not only limits to the actual
 \ganttmilestone[bar/.append style={fill=red!50}]{REB PS trip and UT Leak Detector Fault \S \ref{sec:lowtempissue}}{2024-11-10}{2024-11-10} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{Summit Power Outage (Midnight)}{2024-11-11}{2024-11-11} \\
 \ganttmilestone{EO testing pause. PCS, CCDs, REBs Off}{2024-11-11}{2024-11-11} \\
-\ganttbar{FCS Work \S \ref{sec:feslatchissue}}{2024-11-11}{2024-11-21} \\
+\ganttbar{FCS Work}{2024-11-11}{2024-11-21} \\
 \ganttmilestone{REB Turn On (Start)}{2024-11-21}{2024-11-21} \\
 \ganttmilestone{PCS Chiller Turn On}{2024-11-21}{2024-11-21} \\
 \ganttbar{PCS Chiller Adjustment}{2024-11-21}{2024-11-27} \\
@@ -2992,6 +2998,25 @@ Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of Cryo 
     \caption{Temperatures of Cryo plate, one of CCDs, R01/S10, and the focal plane over the whole run period.}
     \label{fig:tempsoverthewholeperiod}
 \end{figure}
+
+\clearpage
+\subsection{Camera control network performance}\label{sec:ccsmeltdown}
+
+The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems ("CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
+
+At SLAC the entire network was configured using a single network switch in the IR2 cleanroom, but the setup in Chile was significantly more complex with different network switches on different levels of the observatory. We worked closely with the Rubin Chilean IT team to understand the network configuration, and to track down the cause of the problem. Key observations indicated that while normal CCS traffic was light (3.5Mb/s), meltdowns generated traffic exceeding 2Gb/s. Tests revealed that moderate multicast traffic (100MB/s), deliberately created using iperf, could consistently induce the failures. 
+
+Ultimately a number of changes were made:
+
+\begin{itemize}
+\item The network switch controlling the cleanroom was replaced, and the network configuration in general was simplified to reduce the number of different switches used by the camera.
+\item The total volume of network traffic generated by the camera was reduced and made more uniform over time by adjusting when large volume telemetry, in particular from the focal-plane and REB power systems, was published.
+\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ulitmately understood to be caused by "retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10Gb and 1Gb connections, so the control room servers (with 10Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1G) could handle.
+\item After discussing with the jGroups maintainers we upgraded the entire camera control system from jGroups4 to jGroups5, and added some custom code to reduce the maximum volume of retransmission messages.
+\item We discovered that the Beckhoff PTP module used in the camera shutter (lsstcam-shutter01-ptp) was only capable of handling 100Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
+\end{itemize}
+
+Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we don't think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
 
 \clearpage
 \subsection{REB PS power trip}\label{sec:rebpstripped}
@@ -3056,24 +3081,7 @@ Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Lea
 
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/228065378/R24+Reb0+and+UT+leak+detector+fault}{A detailed note is available.}
 
-\clearpage
-\subsection{Camera control network performance}\label{sec:ccsmeltdown}
 
-The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems ("CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
-
-At SLAC the entire network was configured using a single network switch in the IR2 cleanroom, but the setup in Chile was significantly more complex with different network switches on different levels of the observatory. We worked closely with the Rubin Chilean IT team to understand the network configuration, and to track down the cause of the problem. Key observations indicated that while normal CCS traffic was light (3.5Mb/s), meltdowns generated traffic exceeding 2Gb/s. Tests revealed that moderate multicast traffic (100MB/s), deliberately created using iperf, could consistently induce the failures. 
-
-Ultimately a number of changes were made:
-
-\begin{itemize}
-\item The network switch controlling the cleanroom was replaced, and the network configuration in general was simplified to reduce the number of different switches used by the camera.
-\item The total volume of network traffic generated by the camera was reduced and made more uniform over time by adjusting when large volume telemetry, in particular from the focal-plane and REB power systems, was published.
-\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ulitmately understood to be caused by "retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10Gb and 1Gb connections, so the control room servers (with 10Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1G) could handle.
-\item After discussing with the jGroups maintainers we upgraded the entire camera control system from jGroups4 to jGroups5, and added some custom code to reduce the maximum volume of retransmission messages.
-\item We discovered that the Beckhoff PTP module used in the camera shutter (lsstcam-shutter01-ptp) was only capable of handling 100Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
-\end{itemize}
-
-Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we don't think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
 
 \clearpage
 \subsection{Data corruption}\label{sec:datacorruption}
@@ -3111,6 +3119,7 @@ Although the immediate issue was resolved, no definitive root cause was identifi
 
 \href{https://rubinobs.atlassian.net/browse/FRACAS-246}{A FRACAS ticket 246} is filed. 
 
+\clearpage
 \section{Conclusions}\label{conclusions}
 
 \subsection{Run 7 final operating

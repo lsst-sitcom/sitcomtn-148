@@ -1,12 +1,30 @@
 \section{Reference figures}
 
-% All the figures from Jim's web reports that have been used here
-
 \subsection{From sections \ref{reverification} and \ref{finalCharacterization}}
-\subsubsection{5x5 figures}
+\subsubsection{Focal-plane measurement figures}
 
+One of two common plots from sections \ref{reverification} and \ref{finalCharacterization} is a focal-plane measurement plot, showing eo-pipe measurements in different runs. These plots are constructed to show measurements arranged localized to the LSSTCam focal plane orientation. Different sensors are plotted in different colors, with one point plotted for each amplifier on each sensor. The plots are arranged such that an apples-to-apples comparison is made between two different runs (see figure \ref{fig:ref:eoPipeFP_5x5}). On one axis is the measurements from one run, while the other axis has the measurements from a different run. If the measurements are consistent, the points should fall along the identity line. Deviations from measurements on the identity line indicate that one run is measuring the quantity at a higher or lower value than the other run. This plot is useful for identifying localized deviations between different runs, and also e2v and ITL specific behavior.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/baselineCharacterization/13550_E1071_DIVISADERO_TEARING_inset.png}
+    \caption{Full focal plane measurements of divisadero tearing between runs 13550 and E1071, with populations separated by manufacturer type.}
+    \label{fig:ref:eoPipeFP_5x5}
+\end{figure}
+
+\clearpage
 \subsubsection{Differential histograms}
 
+Another common plot from sections \ref{reverification} and \ref{finalCharacterization} is a histogram, where the counts in histogram bins are differences of amplifier measurements for a given quantity. These histograms are commonly separated by detector type, to show any detector-dependent response. For a consistent measurement, these histograms should be Gaussian centered around zero, with no bias in one direction or another. Distributions that are not centered around zero indicate a change in the measurement between different runs.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/baselineCharacterization/DIVISIDERO_TEARING_13550_E1071_diff.png}
+    \caption{Differential histogram of divisadero tearing between runs 13550 and E1071, with populations separated by manufacturer type.}
+    \label{fig:ref:histDiff}
+\end{figure}
+
+\clearpage
 % \subsubsection{Measurement histograms}
 % \subsubsection{PTC curve}
 
@@ -23,11 +41,11 @@ Focal plane mosaics consist of fully assembled focal planes, with amplifiers col
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/ptc_gain_plot_LSSTCam_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
+    \includegraphics[width=0.7\linewidth]{figures/ReferenceFigures/ptc_gain_plot_LSSTCam_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
     \caption{A focal plane mosaic from run E1881 for PTC gain}
     \label{fig:ref:fpMosaic}
 \end{figure}
-
+\clearpage
 \paragraph{Histograms}
 
 In addition to focal-plane mosaics, histograms are created for all eo-pipe metrics. These histograms have bins and ranges specific to each parameter. For some parameters, the histograms provide a neat visualization to quantify differences in e2v and ITL measurements, such as figure \ref{fig:ref:histogram} for PTC $a_{00}$. 
@@ -38,7 +56,7 @@ In addition to focal-plane mosaics, histograms are created for all eo-pipe metri
     \caption{A histogram from run E1881 for PTC $a_{00}$}
     \label{fig:ref:histogram}
 \end{figure}
-
+\clearpage
 \subsubsection{Raft level}
 
 \paragraph{Correlation figures}
@@ -51,7 +69,7 @@ Correlation figures are created on the raft level for all science rafts. Two typ
     \caption{Overscan correlations for R22\_S11 in run E1880.}
     \label{fig:ref:overscanCorrelations}
 \end{figure}
-
+\clearpage
 \paragraph{Lambda mosaics}
 
 As a part of the standard B protocol, flats are taken in different LEDs to provide a chromatic response across the bandpass relevant to LSST. The mosaic is assembled on the raft level, and short wavelength flats show the laser annealing pattern characteristic to e2v sensors (see figure \ref{fig:ref:blueLambda}).
@@ -62,7 +80,7 @@ As a part of the standard B protocol, flats are taken in different LEDs to provi
     \caption{Blue led mosaic for R22 from run E1880.}
     \label{fig:ref:blueLambda}
 \end{figure}
-
+\clearpage
 \paragraph{Calibration frames}
 
 For runs with bias dark and flat frames (most commonly B protocols), combined calibrations are produced and assembled on the raft level. These mosaics are gain corrected.
@@ -73,7 +91,7 @@ For runs with bias dark and flat frames (most commonly B protocols), combined ca
     \caption{Calibration dark for R22 from run E1880, extracted using B protocol dark sequence.}
     \label{fig:ref:calibFrame}
 \end{figure}
-
+\clearpage
 \paragraph{Bias stability}
 
 Bias stability figures are created for acquisition sequences that acquire multiple bias frames. Three different bias stability plots are created; amp-wise mean vs time, amp-wise standard deviation vs time, amp-wise mean vs time for region covering the readout corner.
@@ -84,7 +102,7 @@ Bias stability figures are created for acquisition sequences that acquire multip
     \caption{Bias stability mean vs time in readout corner for R22 from run E1880.}
     \label{fig:ref:biasStability}
 \end{figure}
-
+\clearpage
 \paragraph{Divisadero profiles}
 
 Divisadero tearing profiles are created for each raft, with divisadero response grouped along the mid-line break. The regions of individual amplifiers are marked by dashed lines to show regions where divisadero response is expected.
@@ -95,7 +113,7 @@ Divisadero tearing profiles are created for each raft, with divisadero response 
     \caption{Divisadero tearing profile for R22 from run E1880.}
     \label{fig:ref:divisaderoProfile}
 \end{figure}
-
+\clearpage
 \subsubsection{Sensor level}
 
 \paragraph{Bias profiles}
@@ -108,7 +126,7 @@ Bias profiles are created for each sensor, along both serial and parallel direct
     \caption{Median bias profile in the parallel direction for R22\_S11 from run E1880.}
     \label{fig:ref:biasProfile}
 \end{figure}
-
+\clearpage
 \paragraph{PTCs}
 
 PTC plots are created for each sensor, and separated by amplifier. For each amplifier, a PTC curve is created. PTC gain, $a_{00}$, and PTC turnoff (in ADU) is shown for each amplifier. The red points in PTC curves (figure \ref{fig:ref:PTCs}) denote all measurements before PTC turnoff.
@@ -119,29 +137,77 @@ PTC plots are created for each sensor, and separated by amplifier. For each ampl
     \caption{PTC plots for R22\_S11 from run E1881.}
     \label{fig:ref:PTCs}
 \end{figure}
-
+\clearpage
 \paragraph{Nonlinearity}
 
-Linearity plots are created for each sensor, and separated by amplifier. For each amplifier, a linearity curve is created showing photodiode current integral vs. e-/pixel for all flat pairs. Maximum fractional deviation, maximum observed signal, and linearity turnoff (in ADU) is shown for each amplifier. The red points in PTC curves (figure \ref{fig:ref:PTCs}) denote all measurements before PTC turnoff.
+Linearity plots are created for each sensor, and separated by amplifier. For each amplifier, a linearity curve is created showing photodiode current integral vs. e-/pixel for all flat pairs. Maximum fractional deviation, maximum observed signal, and linearity turnoff (in ADU) is shown for each amplifier. The red points in the linearity curves (figure \ref{fig:ref:linearity}) denote all measurements between 100 e-/pixel and linearity turnoff.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/ptc_plots_LSSTCam_R22_S11_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
-    \caption{PTC plots for R22\_S11 from run E1881.}
-    \label{fig:ref:PTCs}
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/linearity_fit_plot_LSSTCam_R22_S11_u_lsstccs_eo_linearity_plots_E1881_w_2024_35_20241105T131453Z.png}
+    \caption{Linearity plots for R22\_S11 from run E1881.}
+    \label{fig:ref:linearity}
+\end{figure}
+\clearpage
+Plots for linearity residuals are also generated, showing the fractional residuals for each amplifier as a function of the photodiode current integral.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/linearity_residuals_plot_LSSTCam_R22_S11_u_lsstccs_eo_linearity_plots_E1881_w_2024_35_20241105T131453Z.png}
+    \caption{Linearity residual plots for R22\_S11 from run E1881.}
+    \label{fig:ref:linearityResids}
 \end{figure}
 
+\clearpage
 \paragraph{Data from flat pairs}
 
+To support studies of row-means variance, a plot showing the row-to-row mean vs. variance of differences between a pair of flats is created. This plot shows different amplifiers in different colors, and allows for identification of changes in correlated noise along with row for individual amplifiers.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/row_means_variance_plot_LSSTCam_R22_S11_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
+    \caption{Row means variance plot for R22\_S11 from run E1880.}
+    \label{fig:ref:rowMeansVar}
+\end{figure}
+
+\clearpage
 \paragraph{CTI}
 
-\paragraph{BF covariances}
+Plots for showing the charge transfer inefficiency as a function of signal. Different amplifiers are plotted in different colors. CTI plots are generated for serial and parallel CTI.
 
-\paragraph{Persistence figure}
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/scti_vs_flux_plot_LSSTCam_R22_S11_u_lsstccs_eo_cti_vs_flux_E1880_w_2024_35_20241101T020455Z.png}
+    \caption{Serial CTI plot for R22\_S11 from run E1880.}
+    \label{fig:ref:scti}
+\end{figure}
 
 \clearpage
 
+\paragraph{BF covariances}
+
+To complement flat pair acquisitions, plots measuring the brighter fatter covariance as a function of flux are generated. Amplifiers are plotted in different colors to easily identify outliers on individual sensors. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/bf_covariance_plots_LSSTCam_R22_S11_u_lsstccs_eo_bf_analysis_E1881_w_2024_35_20241105T131510Z.png}
+    \caption{Brighter-fatter covariance plot for R22\_S11 from run E1880.}
+    \label{fig:ref:bfCov}
+\end{figure}
+
+\clearpage
+\paragraph{Persistence}
+
+B protocols include a persistence acquisition, which is a saturated flat (usually at 400k e-), followed by a sequence of multiple 15 sec dark images. To complement this image acquisition, persistence plots are generated that show the decay of residual signal in the dark sequence. These plots are in units of ADU, and are color coded according to each amplifier.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/persistence_plot_LSSTCam_R22_S11_u_lsstccs_eo_persistence_E1880_w_2024_35_20241101T020526Z.png}
+    \caption{Persistence plot for R22\_S11 from run E1880.}
+    \label{fig:ref:persistence}
+\end{figure}
+
+\clearpage
 \section{OCS integration}
 
 \clearpage
