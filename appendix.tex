@@ -111,7 +111,7 @@ Bias profiles are created for each sensor, along both serial and parallel direct
 
 \paragraph{PTCs}
 
-PTC plots are created for each sensor, and separated by amplifier. For each amplifier, a PTC curve is created. PTC gain, $a_{00}$, and turnoff (in ADU) is shown for each amplifier. The red points in PTC curves (figure \ref{fig:ref:PTCs}) denote all measurements before PTC turnoff.
+PTC plots are created for each sensor, and separated by amplifier. For each amplifier, a PTC curve is created. PTC gain, $a_{00}$, and PTC turnoff (in ADU) is shown for each amplifier. The red points in PTC curves (figure \ref{fig:ref:PTCs}) denote all measurements before PTC turnoff.
 
 \begin{figure}
     \centering
@@ -122,7 +122,14 @@ PTC plots are created for each sensor, and separated by amplifier. For each ampl
 
 \paragraph{Nonlinearity}
 
+Linearity plots are created for each sensor, and separated by amplifier. For each amplifier, a linearity curve is created showing photodiode current integral vs. e-/pixel for all flat pairs. Maximum fractional deviation, maximum observed signal, and linearity turnoff (in ADU) is shown for each amplifier. The red points in PTC curves (figure \ref{fig:ref:PTCs}) denote all measurements before PTC turnoff.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/ReferenceFigures/ptc_plots_LSSTCam_R22_S11_u_lsstccs_eo_ptc_plots_E1881_w_2024_35_20241105T131208Z.png}
+    \caption{PTC plots for R22\_S11 from run E1881.}
+    \label{fig:ref:PTCs}
+\end{figure}
 
 \paragraph{Data from flat pairs}
 
