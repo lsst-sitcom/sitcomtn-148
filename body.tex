@@ -2,7 +2,7 @@
 The LSST Camera was constructed at the SLAC National Accelerator Laboratory in California, US.
 The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verified the Camera functionality and led to discoveries of non-ideal features and means of mitigating many of them \citep{2024SPIE13096E..1SR}.
 
-In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was rolled into the white room at Level 3 in the Vera C. Rubin Observatory. Cooldown began by the end of August and then the 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from the end of September 2024 to the beginning of December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
+In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón at 2700m in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was transferred from the truck to a support structure which was then rolled into the cleanroom, known as the "white room", on Level 3 of the Vera C. Rubin Observatory. After connecting lines for power and cooling and verifying the integrity of the vaccum, cool down began by the end of August. Following this, the 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from the end of September 2024 to the beginning of December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
 
 This document details initial interim testing results, giving focus on the following points:
 \begin{itemize}
@@ -15,7 +15,7 @@ This document details initial interim testing results, giving focus on the follo
 \end{itemize}
 All the results presented here are subject to future changes.
 
-Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSST focal plane consists of 21 Science Rafts and 4 Corner Rafts (cyan). Science Rafts have two varieties: whether the sensors are ITL (green) or e2v (yellow). Each sensor has 4k$\times$4k pixels, segmented by 16 channels to make the fastest readout as 2 sec. Corner Rafts have two different kinds of sensors: guider sensors and a wavefront sensor. Guider sensors are ITL sensors as are the other science sensors, while the wavefront sensor is split in the middle and packaged into one sensor with an offset by $\pm2$mm with respect to the other science sensors to provide off-focus point source images to measure ``donuts" -- an image of the pupil.
+Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSST focal plane consists of 21 Science Rafts and 4 Corner Rafts (cyan). Science Rafts have two varieties: whether the sensors are ITL (green) or e2v (yellow). Each sensor has 4k$\times$4k pixels, segmented by 16 channels to make the fastest readout being 2 seconds. Corner Rafts have two different kinds of sensors: guider sensors and a wavefront sensor. Guider sensors are ITL sensors as are some of the other science sensors, while the wavefront sensor is split in the middle and packaged into one sensor with an offset by $\pm2$mm with respect to the other science sensors to provide off-focus point source images to measure ``donuts" -- an image of the pupil.
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{figures/introduction/LSSTCam_fp_layout_Oct2024.pdf}
@@ -41,24 +41,10 @@ dark environment (Fig.~\ref{fig:LSSTCam_config}).
 \label{fig:LSSTCam_config}
 \end{figure}
 
-This allowed us to operate on Level 3 with a dark current of
-\textless0.1 ADU/sec with the shutter open. The initial setup of the
-CCOB Wide Beam projector was the same as for Run 6, with a minimal ND filter (10\%)
-attached to a C-mount lens. One difference was that the f/stop of the lens
-was changed from 2.6 to 1.6 (fully open). This was done to try to
-reduce the effect of the `weather' and
-the `CMB pattern' two effects that we
-found in Run 6 and were found to be due to our projection setup (see
-\citet{2024arXiv241113386B}). While changing  the f/stop  did
-reduce the weather pattern, it also caused a much steeper illumination roll-off
-across the focal plane. We evaluated the weather pattern and illumination roll-off relative to Run 6.
+This allowed us to operate on Level 3 with a dark current of \textless0.1 ADU/sec with the shutter open. The initial setup of the CCOB Wide Beam projector was the same as for Run 6, with a minimal ND filter (10\%) attached to a C-mount lens. One difference was that the f/stop of the lens was changed from 2.6 to 1.6 (fully open). This was done to try to reduce the effect of the `weather' and the `CMB pattern' two effects that we found in Run 6 and were found to be due to our projection setup (see \citet{2024arXiv241113386B}). While changing  the f/stop  did reduce the weather pattern, it also caused a much steeper illumination roll-off across the focal plane. We evaluated the weather pattern and illumination roll-off relative to Run 6.
 
 
-To both reduce the effects of the
-`weather' and
-`CMB' but retain uniform illumination
-across the focal plane, we installed a diffuser in the cone attached to
-L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the cone.  The diffuser used is a $60^o$ diffusing angle unmounted sheet from Edmunds Optics.
+To both reduce the effects of the `weather' and `CMB' but retain uniform illumination across the focal plane, we installed a diffuser in the cone attached to L1. Figure~\ref{fig:diffuser} shows the placement of the diffuser within the cone.  The diffuser used is a $60^o$ diffusing angle unmounted sheet from Edmunds Optics.
 
 \begin{figure}[ht]
 \centering
@@ -97,20 +83,11 @@ We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}
 
 
 
-The diffuser was installed for all B protocol and PTC runs (see Section \ref{reverification}) moving
-forward, being taken out only for pinhole projection runs and when using the
-4K projector.
+The diffuser was installed for all B protocol and PTC runs (see Section \ref{reverification}) moving forward, being taken out only for pinhole projection runs and when using the 4K projector.
 
 \subsection{Projector spots}\label{projector-spots}
-The addition to the projectors used for EO testing was a 4K
-projector (Epson LS11000 LCD), similar to those used in conference rooms. This projector was
-first tested at SLAC and arrived at the observatory about halfway through Run 7.
-It was used primarily as a spot projector, as the pinhole filter
-was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could
-illuminate all 3206 amplifiers instead of just the 21 illuminated by the
-pinhole projector. Figure \ref{fig:SpotProjector_L3_FP} shows both the setup of the projector on Level 3 and an example of a spot image and the spots across the focal plane. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One
-downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had
-structure that changed with time and could not be easily subtracted. Figure \ref{fig:SpotProjector_Spots} shows an example of a spot image of just one detector as well as a zoomed in image of a single spot which highlights the background structure. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
+The addition to the projectors used for EO testing was a 4K projector (Epson LS11000 LCD), similar to those used in conference rooms. This projector was first tested at SLAC and arrived at the observatory about halfway through Run 7. It was used primarily as a spot projector, as the pinhole filter was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could illuminate all 3206 amplifiers instead of just the 21 illuminated by the
+pinhole projector. Figure \ref{fig:SpotProjector_L3_FP} shows both the setup of the projector on Level 3 and an example of a spot image and the spots across the focal plane. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had structure that changed with time and could not be easily subtracted. Figure \ref{fig:SpotProjector_Spots} shows an example of a spot image of just one detector as well as a zoomed in image of a single spot which highlights the background structure. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
 measurements increased the contrast ratio to 30. Examples of the rectangles can be seen in Figure \ref{fig:SpotProjector_Rect}. Though the contrast was much improved, there was still a background structure as can be seen in the saturated image of the figure.
 
 \begin{figure}[htbp]
@@ -143,14 +120,10 @@ projector.
 
 \begin{itemize}
 \tightlist
-\item
-  Projector background
-\item
-  Spots on many amps
-\item
-  Spots on one amp
-\item
-  Optical setup
+\item  Projector background
+\item  Spots on many amps
+\item  Spots on one amp
+\item  Optical setup
 \end{itemize}
 
 \subsection{Dark current and light
@@ -176,10 +149,7 @@ current and sources of light leaks in the camera body. Before beginning we cover
 Once these were sealed, we took some initial measurements and then
 started to cover the LSSTCam body with a Thorlabs blackout fabric shroud (BK5). Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
 camera.
-We also found light leaks
-where the light cone attached to L1 was housed, and from the Utility
-Trunk, which were covered with shroud. Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark
-currents, and comments on what changed during the leak chasing.
+We also found light leaks where the light cone attached to L1 was housed, and from the Utility Trunk, which were covered with shroud. Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark currents, and comments on what changed during the chasing of the leaks.
 
 \begin{longtable}{|l|c|l|l|l|}
 \caption{Summary of the 15\,s dark exposures, the different conditions, and the resulting dark current.
@@ -398,7 +368,7 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 The CTI along the serial registers of the amplifier segments of the LSSTCam CCDs is consistent between Run 6 and
 Run 7 (Fig.~\ref{fig:serial-cti}). Both sensor types show low CTI,
 span a range  of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
-by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}).
+by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}). 
 
 \begin{figure}[ht]
 \begin{centering}
@@ -414,7 +384,7 @@ by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-c
 The CTI along the parallel direction is consistent between Run 6 and
 Run 7 (Fig.~\ref{fig:parallel-cti}). Both sensor types are found to have extremely low CTI on the order of $10^{-5}$ \%,
 and span a range of \textasciitilde$1 \times 10^{-5}$ \% for e2v sensors, and
-by \textasciitilde$7 \times 10^{-4}$ \% for ITL sensors (Fig.~\ref{fig:parallel-cti-dist}).
+by \textasciitilde$7 \times 10^{-4}$ \% for ITL sensors (Fig.~\ref{fig:parallel-cti-dist}). Both of these measurements pass the CTI requirements (see table \ref{tab:initRever:Table}).
 
 \begin{figure}[ht]
 \begin{centering}
@@ -618,7 +588,15 @@ The brighter-fatter effect in CCDs refers to the phenomenon where brighter sourc
   \end{centering}
   \end{figure}
 
-The distribution of difference of $a_{00}$ measurements is displayed in Figure \ref{fig:ptc_a00_diff_hist}, and shows a tight agreement for both sensor types.
+The distribution of difference of $a_{00}$ measurements is displayed in figures \ref{fig:ptc_a00_diff_hist} and \ref{fig:ptc_a00_5x5}.
+
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13591_E749_PTC_A00.png}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in the $a_{00}$ coefficient, separated by amplifier across the focal plane. The amplifiers associated with R10 and R11 are noted outliers, as seen in figure \ref{fig:ratio_bf_coeff_6_7}.}
+\label{fig:ptc_a00_5x5}
+\end{centering}
+\end{figure}
 
 \begin{figure}[ht]
 \begin{centering}
@@ -773,23 +751,24 @@ All camera performance metrics from the summit show close agreement with SLAC IR
 \hline
 \multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                    &                                & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
-Serial CTI {[}\%{]}                & Val               & \multicolumn{1}{l|}{3.7068E-5} & 1.1357E-5 & \multicolumn{1}{l|}{1.1488E-4} & 1.6478E-4  \\ \hline
-Parallel CTI {[}\%{]}              & Val               & \multicolumn{1}{l|}{1.2162E-5} & 1.1534E-5 & \multicolumn{1}{l|}{3.4067E-7} & -4.7849E-6 \\ \hline
-Dark current {[}e-/pix/s{]}        & Val               & \multicolumn{1}{l|}{5.5439E-2} & 2.4783E-2 & \multicolumn{1}{l|}{4.6424E-2} & 2.1217E-2  \\ \hline
-Bright defects {[}count{]}         & Val               & \multicolumn{1}{l|}{0}          & 0         & \multicolumn{1}{l|}{0}          & 0          \\ \hline
-Linearity turnoff {[}e-{]}         & Val               & \multicolumn{1}{l|}{156,339} & 167,797 & \multicolumn{1}{l|}{172,580} & 178,154  \\ \hline
-PTC turnoff {[}e-{]}               & Val               & \multicolumn{1}{l|}{126,002}  & 132,963  & \multicolumn{1}{l|}{117,019}  & 128,595   \\ \hline
-PTC Gain {[}e- / ADU{]}            & Val               & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
-Read noise {[}e-{]}            & <9 e-               & \multicolumn{1}{l|}{}    &     & \multicolumn{1}{l|}{}    &      \\ \hline
-PTC $a_{00}$ [$\frac{1}{pix^2}$]   & Val               & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
-BF x-correlation                   & Val               & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
-BF y-correlation                   & Val               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
-Row-means variance                 & Val               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
+Serial CTI {[}\%{]}                & $5\times10^{-4}$               & \multicolumn{1}{l|}{3.7068E-5} & 1.1357E-5 & \multicolumn{1}{l|}{1.1488E-4} & 1.6478E-4  \\ \hline
+Parallel CTI {[}\%{]}              & $3\times10^{-4}$               & \multicolumn{1}{l|}{1.2162E-5} & 1.1534E-5 & \multicolumn{1}{l|}{3.4067E-7} & -4.7849E-6 \\ \hline
+Dark current {[}e-/pix/s{]}        & None               & \multicolumn{1}{l|}{5.5439E-2} & 2.4783E-2 & \multicolumn{1}{l|}{4.6424E-2} & 2.1217E-2  \\ \hline
+Bright defects {[}count{]}         & None               & \multicolumn{1}{l|}{0}          & 0         & \multicolumn{1}{l|}{0}          & 0          \\ \hline
+Linearity turnoff {[}e-{]}         & >90,000 e-               & \multicolumn{1}{l|}{156,339} & 167,797 & \multicolumn{1}{l|}{172,580} & 178,154  \\ \hline
+PTC turnoff {[}e-{]}               & >90,000 e-               & \multicolumn{1}{l|}{126,002}  & 132,963  & \multicolumn{1}{l|}{117,019}  & 128,595   \\ \hline
+PTC Gain {[}e- / ADU{]}            & None               & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
+Read noise {[}e-{]}            & <9 e-               & \multicolumn{1}{l|}{5.2984}    &   5.3147  & \multicolumn{1}{l|}{6.1965}    &  6.2576    \\ \hline
+PTC $a_{00}$ [$\frac{1}{pix^2}$]   & None               & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
+BF x-correlation                   & None               & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
+BF y-correlation                   & None               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
+Row-means variance                 & None               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
 Dark defects {[}count{]}           & <2\%               & \multicolumn{1}{l|}{4} & 3 & \multicolumn{1}{l|}{9} & 8  \\ \hline
 Divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
 Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.6673}    & 5.6435    & \multicolumn{1}{l|}{0.48018}   & 0.42051    \\ \hline
 \end{tabular}
 }
+\label{tab:initRever:Table}
 \caption{Comparison of the median values of different parameters between Run 6 and Run 7, separated by detector type. For this comparison, only science detectors are considered.}
 \end{table}
 
@@ -1090,16 +1069,15 @@ moves the charges from the image area to the serial register:
 \item
   The default clear (V29): In the default clear, all serial clock voltages are
   kept up as the parallel clocks move charges from the image area to the
-  serial register (\href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}{sequencerV29}). The
-  charges once on the serial register are expected to flow to the ground;
-  the serial register clocks being all up, without pixel boundaries, and
-  with its amplifier in clear state. At the end of the clear, a full
-  flush of the serial register is done (\textasciitilde{} the serial
-  clocks changes to read a single row).
+  serial register (\href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29.seq}{sequencerV29}).
+  The charges on the serial register are expected to flow to the ground;
+  the serial register clocks being held all up, without pixel boundaries, and
+  with the Reset Gate of the amplifiers On. At the end of the clear, a full
+  flush of the serial register is done.
 \item
   The No-pocket Clear (Nop): a clear where the serial register has the
   same configuration (S1 \& S2 up, S3 low) when the parallel clock P1
-  moves the charges to the serial register than in a standard image read. Still we kept all phases up for the rest of the time for a fast clear
+  moves the charges to the serial register from the image region. We kept all phases up for the rest of the time for a fast clear
   of the charges along the serial register
   (\href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run7/FP_E2V_2s_l3cp_v29_Nop.seq}{sequencerV29\_Nop}). The idea is
   that the S3 phase is not designed to be up when charges are transferred
@@ -1463,7 +1441,7 @@ For e2v sensors we find the reduction in full-well to be significant, \textascii
 \end{figure}
 
 
-Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands. If linearity turnoff is the metric used to quantify full-well, all e2v amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% e2v amplifiers do not pass this system requirement (120/1872 total amplifiers). 
+Early in LSST's design, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands\cite{AndyFullWell}. If linearity turnoff is the metric used to quantify full-well, all e2v amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.41\% e2v amplifiers do not pass this system requirement (120/1872 total amplifiers). Photometry can be made up to the linearity turnoff whereas the shape measurement is up to the PTC turnoff, and shape is not made at high flux near the PTC turnoff. For these reasons, we consider this requirement passed.
 
 \begin{figure}[ht]
     \centering
@@ -1602,7 +1580,6 @@ Divisadero tearing measurements were extracted from the B protocols, and are sig
     \label{fig:finalChar-Divisadero-5x5}
 \end{figure}
 
-In Figure \ref{fig:finalChar-Divisadero-5x5}, several e2v sensors do not follow the global trend of decreased Divisadero signal.  
 
 \clearpage
 \paragraph{Dark defects}\label{final-dark-defects}
@@ -1668,20 +1645,20 @@ Comparing the initial and final Run 7 measurements, there are four metrics that 
 \hline
 \multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                   &                                & \multicolumn{1}{l|}{R7 initial} & R7 final & \multicolumn{1}{l|}{R7 initial} & R7 final \\ \hline
-Serial CTI {[}\%{]}               &                                & \multicolumn{1}{l|}{1.1357E-5}              &      7.3015E-6       & \multicolumn{1}{l|}{1.6478E-4}              &        1.5221E-4     \\ \hline
-Parallel CTI {[}\%{]}             &                                & \multicolumn{1}{l|}{1.0555E-5}              &       1.1111E-5      & \multicolumn{1}{l|}{-4.7850E-6}              &       1.2103E-6      \\ \hline
-Dark current {[}e-/pix/s{]}       &                                & \multicolumn{1}{l|}{0.024783}              &       0.023188      & \multicolumn{1}{l|}{0.021217}              &       0.020734      \\ \hline
-Bright defects {[}count{]}        &                                & \multicolumn{1}{l|}{0}              &   0          & \multicolumn{1}{l|}{0}              &          0   \\ \hline
-Linearity turnoff {[}e-{]}        &                                & \multicolumn{1}{l|}{167,796}              &        136,302     & \multicolumn{1}{l|}{178,153}              &      178,177       \\ \hline
-PTC turnoff {[}e-{]}              &                                & \multicolumn{1}{l|}{132,963}              &      102,713       & \multicolumn{1}{l|}{128,594}              &        128,487     \\ \hline
-PTC Gain {[}e- / ADU{]}           &                                & \multicolumn{1}{l|}{1.4812}              &      1.5107       & \multicolumn{1}{l|}{1.6761}              &       1.6752      \\ \hline
-Read noise {[}e-{]}           &                                & \multicolumn{1}{l|}{}              &             & \multicolumn{1}{l|}{}              &             \\ \hline
-PTC Noise {[}{]}           &                                & \multicolumn{1}{l|}{}              &            & \multicolumn{1}{l|}{}              &           \\ \hline
-PTC $a_{00}$ [$\frac{1}{pix^2}$]  &                                & \multicolumn{1}{l|}{3.0863E-6}              &       3.4899E-6      & \multicolumn{1}{l|}{1.7031E-6}              &        1.7009E-6     \\ \hline
-BF x-correlation                  &                                & \multicolumn{1}{l|}{0.51693}              &     0.51022        & \multicolumn{1}{l|}{0.75212}              &       0.73648      \\ \hline
-BF y-correlation                  &                                & \multicolumn{1}{l|}{0.17077}              &       0.16740      & \multicolumn{1}{l|}{0.28695}              &        0.28439     \\ \hline
-Row-means variance                &                                & \multicolumn{1}{l|}{0.88367}              &      0.86809       & \multicolumn{1}{l|}{0.94664}              &        0.94633     \\ \hline
-Dark defects {[}count{]}          &                                & \multicolumn{1}{l|}{3}              &       3      & \multicolumn{1}{l|}{7}              &       7      \\ \hline
+Serial CTI {[}\%{]}               &           $5\times10^{-4}$                     & \multicolumn{1}{l|}{1.1357E-5}              &      7.3015E-6       & \multicolumn{1}{l|}{1.6478E-4}              &        1.5221E-4     \\ \hline
+Parallel CTI {[}\%{]}             &           $3\times10^{-4}$                     & \multicolumn{1}{l|}{1.0555E-5}              &       1.1111E-5      & \multicolumn{1}{l|}{-4.7850E-6}              &       1.2103E-6      \\ \hline
+Dark current {[}e-/pix/s{]}       &             None                   & \multicolumn{1}{l|}{0.024783}              &       0.023188      & \multicolumn{1}{l|}{0.021217}              &       0.020734      \\ \hline
+Bright defects {[}count{]}        &              None                  & \multicolumn{1}{l|}{0}              &   0          & \multicolumn{1}{l|}{0}              &          0   \\ \hline
+Linearity turnoff {[}e-{]}        &            >90,000 e-                          & \multicolumn{1}{l|}{167,796}              &        136,302     & \multicolumn{1}{l|}{178,153}              &      178,177       \\ \hline
+PTC turnoff {[}e-{]}              &           >90,000 e-                           & \multicolumn{1}{l|}{132,963}              &      102,713       & \multicolumn{1}{l|}{128,594}              &        128,487     \\ \hline
+PTC Gain {[}e- / ADU{]}           &          None                      & \multicolumn{1}{l|}{1.4812}              &      1.5107       & \multicolumn{1}{l|}{1.6761}              &       1.6752      \\ \hline
+PTC noise {[}e-{]}           &          None                         & \multicolumn{1}{l|}{5.5079}              &      5.6455       & \multicolumn{1}{l|}{6.5156}              &    6.4991         \\ \hline
+Read Noise {[}{]}           &                      <9 e-        & \multicolumn{1}{l|}{5.3147}              &      5.3993      & \multicolumn{1}{l|}{6.2576}              &      6.2121     \\ \hline
+PTC $a_{00}$ [$\frac{1}{pix^2}$]  &      None                          & \multicolumn{1}{l|}{3.0863E-6}              &       3.4899E-6      & \multicolumn{1}{l|}{1.7031E-6}              &        1.7009E-6     \\ \hline
+BF x-correlation                  &      None                          & \multicolumn{1}{l|}{0.51693}              &     0.51022        & \multicolumn{1}{l|}{0.75212}              &       0.73648      \\ \hline
+BF y-correlation                  &        None                        & \multicolumn{1}{l|}{0.17077}              &       0.16740      & \multicolumn{1}{l|}{0.28695}              &        0.28439     \\ \hline
+Row-means variance                &       None                         & \multicolumn{1}{l|}{0.88367}              &      0.86809       & \multicolumn{1}{l|}{0.94664}              &        0.94633     \\ \hline
+Dark defects {[}count{]}          &       <2\%                          & \multicolumn{1}{l|}{3}              &       3      & \multicolumn{1}{l|}{7}              &       7      \\ \hline
 Divisadero tearing maximum {[}\%{]} &     None                     & \multicolumn{1}{l|}{0.62622}              &       0.24599      & \multicolumn{1}{l|}{0.27348}              &       0.27414      \\ \hline
 Persistence {[}ADU{]}             &       None                         & \multicolumn{1}{l|}{5.6673}              &       0.40181      & \multicolumn{1}{l|}{0.48018}              &       0.32639      \\ \hline
 \end{tabular}
@@ -1689,6 +1666,22 @@ Persistence {[}ADU{]}             &       None                         & \multic
 \caption{Comparison of median parameter values on each amplifier between Run 7 initial and final measurements, separated by detector type.}
 \label{table:FinalChar-paramTable}
 \end{table}
+
+
+None            
+None            
+     
+None            
+          
+None            
+None            
+None            
+None            
+<2\%            
+None            
+None            
+
+
 
 All other metrics were not significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSSTCam as a result of Run 7 testing, see Section~\ref{run-7-final-operating-parameters}.
 
@@ -1825,7 +1818,6 @@ Each individual defect mask can be scaled by $2^{n-1}$, where $\{n:1,2,3,... \}$
 
 Bright defects are found to be stable and rare in the LSSTCam focal plane. Across detector types, 93\% of e2v detectors show a static bright defect mask. For e2v sensors that had changes in bright defects, R30 dominated the subgroup with 17 amplifiers (or 11.8\% of amplifiers on the raft) with a dynamic bright defect mask. Bright pixel masks of ITL sensors are more dynamic than for e2v sensors, with 18\% having changes in their bright defect masks. The most dynamic bright defect masks were for R10\_S02 and R10\_S10, which each have nine amplifiers with a dynamic bright defect mask.
 
-% Plot here of a particularly interesting bright defect mask that changes substantially
 
 \begin{figure}[ht]
     \centering
@@ -1862,7 +1854,7 @@ Electronics Boards (REBs) because REBs rely on the frequency converted
 from their natural frequency. We tried to mitigate the e2v issue by
 optimizing the acquisition configuration in Run 7.
 
-For the baseline acquisition configuration (see conclusion), three
+For the baseline acquisition configuration (see section \ref{conclusions}), three
 relevant stability runs were recorded:
 
 \begin{enumerate}
@@ -1930,7 +1922,7 @@ three runs.
 \hfill
 \begin{minipage}[b]{0.45\textwidth}
     \centering
-    % 空白セルとして保持
+    % kept as a blank cell
 \end{minipage}
 \caption{Bias level variations for R33\_S02, an unstable e2v CCD for three runs:  (upper left) E2136, (upper right) E2236, (lower left) E2330.  The segments CXX and CYY are most strongly variable in each run.  Note that the range of the time axis is different in each plot.}
 \label{fig:r33_s02_bias}
@@ -2063,7 +2055,7 @@ strategy for the start of the LSST survey.
 \clearpage
 \subsection{Glow search}
 A long dark image can be used to identify glowing regions. Figure \ref{fig:glowsearch} shows an example of 900\,s dark after ISR application, with a very narrow stretch from -5 to -5 ADUs. 
-Obvious glow can be found in 3 guider sensors of S04\_SG0, S40\_SG1 and S44\_SG0 (see Fig.~\ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
+Obvious glow can be found in 3 guider sensors of S04\_SG0, S40\_SG1 and S44\_SG0 (see Fig.~\ref{fig:focal-plane-layout} to locate each sensor). They have been identified since their construction.
 Glowing regions can be observed in R12\_S22, R14\_S22, R23\_S11, as well, along with some other minor glowing regions elsewhere. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
 In R43\_S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50\,ADU/900\,s (Fig. \ref{fig:glowsearch:closeup}. This was also present in Run 6 data (e.g., in MC\_C\_20231102\_000085).
 Otherwise, we did not find any other glowing regions in the focal plane.
@@ -2241,15 +2233,15 @@ Figure \ref{fig:relgainparamE1496} shows the derived
 \end{minipage}
 \end{figure}
 
-Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of plots but for the run that has a temperature change in the cold plate by 2 degrees.
+Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of plots but for the run that has a cold plate temperature change of 2 degrees.
 The temperature was kept the same in the beginning, but the set point was changed later, and then it was brought back to the original temperature. 
-Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temp relationship, which does not match the slope originally derived from the past run, although there are no obvious changes in the system other than the REB temperature.
-For this the LED board temp also decreased by more than 1 deg over the testing period.
+Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temperature relationship, which does not match the slope originally derived from past runs, although there are no obvious changes in the system other than the REB temperature.
+During this run the LED board temp also decreased by more than 1 deg over the testing period.
 
 
-The reason why the relationship becomes much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temp, 2) illumination from the LED is somehow changing overtime, which is not correlated with the LED temp, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As the hysteresis is observed, the possibility 1 is definitely present but it cannot explain the gain temp change in the constant temperature. For the possibility 2, it is unlikely given the fact that Run 6 observed the complicated relationship. The option 3 could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to the turbulence in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For the possibility 4, we did visual check in a different period and we did not find anything obvious. 
+The reason why the relationship becomes much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temperature, 2) illumination from the LED is somehow changing over time, which is not correlated with the LED temperature, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As hysteresis is observed, the possibility 1) is definitely present but it cannot explain the gain temp change in the constant temperature. Possibility 2) is unlikely given the fact that the complicated relationship was observed as well in Run 6. Possibility 3) could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to turbulence of the air in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For possibility 4), we made a visual check in a different period and we did not find anything obvious. 
 
-The gain change issue can be split into 2 categories: global or local in an amplifier.  The global coherent change can be, in principle, correctable as it degenerates with the atmospheric transparency, which will be corrected by the calibration process. The local amp-by-amp change is a more serious issue in respect because the number of stars might not be sufficient for making the precise photometric calibration statistically. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
+Gain changes can be split into 2 categories: global or local in an amplifier.  A global coherent change can be, in principle, correctable as it is degenerate with the atmospheric transparency variations, which will be corrected by the calibration process. A local amplifier-by-amplifier change would be a more serious issue because the number of stars in an amplifier segment might not be sufficient for making precise photometric calibration statistically. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
 
 \begin{figure}[ht]
     \centering
@@ -2257,7 +2249,7 @@ The gain change issue can be split into 2 categories: global or local in an ampl
     \caption{Differential gain change with respect to the median of relative gain change for the whole focal plane, for E1496}
     \label{fig:relative-gain-E1496}
 \end{figure}
-The differential gain change with respect to global change for the constant temperature appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11/S12, R12/S10, R12/S22, R24/S11, R34/S20 have one amplifier that have a higher relative gain than up to $5\times 10^{-4}$ but others behave stable. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed. Another interesting behavior is seen in R11/S2x. There were a spike in three sensors at the same time. We have not figured out what happened at that time.
+The differential gain change with respect to the global change for the constant temperature case appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11\_S12, R12\_S10, R12\_S22, R24\_S11, R34\_S20 have one amplifier that has a higher relative gain up to $5\times 10^{-4}$ but others behave stably. This could be contaminated by the yellow corner in e2v sensors but this could be mitigated by throwing away the first few exposures, which probably required for other aspect such as bias instability. Further investigation is needed. Another interesting behavior is seen in R11\_S2x. The three sensors had a spike simultaneously. We have not figured out what happened at that time.
 
 \begin{figure}[ht]
     \centering
@@ -2265,7 +2257,7 @@ The differential gain change with respect to global change for the constant temp
     \caption{Same as Figure \ref{fig:relative-gain-E1496} but for E1367}
     \label{fig:relative-gain-E1367}
 \end{figure} 
-The case for the temperature swing is complicated. Some of the amplifiers behave as well as the ones for the constant temperature case, but some of the amplifiers show correlation with the temp change in the Cold plate temp. This indicates that the relative gain change among amplifiers with respect to REB/Cold plate temperature exists. 
+The case with the temperature swing is complicated. Some of the amplifiers behave as well as the ones for the constant temperature case, but some of the amplifiers show correlation with the temp change in the Cold plate temp. This indicates that the relative gain change among amplifiers with respect to REB/Cold plate temperature exists. 
 Note that E1367 has a 5 times higher flux than E1496, which reduces shot noises in the measurement. However, the conclusion still holds. 
 
 To further study, we step back to the raw measurements. Figure \ref{fig:separateE1496} shows the constant temperature case. The change in the relative gain is a level of $2\times 10^{-4}$, which appears to be driven by the photodiode integration.
@@ -3010,7 +3002,7 @@ Ultimately a number of changes were made:
 \begin{itemize}
 \item The network switch controlling the cleanroom was replaced, and the network configuration in general was simplified to reduce the number of different switches used by the camera.
 \item The total volume of network traffic generated by the camera was reduced and made more uniform over time by adjusting when large volume telemetry, in particular from the focal-plane and REB power systems, was published.
-\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ulitmately understood to be caused by ``retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10\,Gb and 1\,Gb connections, so the control room servers (with 10\,Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1\,G) could handle.
+\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ultimately understood to be caused by ``retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10\,Gb and 1\,Gb connections, so the control room servers (with 10\,Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1\,G) could handle.
 \item After discussing with the jGroups maintainers we upgraded the entire camera control system from jGroups4 to jGroups5, and added some custom code to reduce the maximum volume of retransmission messages.
 \item We discovered that the Beckhoff PTP module used in the camera shutter (lsstcam-shutter01-ptp) was only capable of handling 100\,Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
 \end{itemize}
@@ -3542,5 +3534,3 @@ Run ID & Notes \\ \hline
 
 
 \clearpage
-
-% \appendix is defined in the top level. The following sections will be eventually moved to another tex files.
