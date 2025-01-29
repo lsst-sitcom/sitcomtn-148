@@ -15,7 +15,7 @@ This document details initial interim testing results, giving focus on the follo
 \end{itemize}
 All the results presented here are subject to future changes.
 
-Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSST focal plane consists of 21 Science Rafts and 4 Corner Rafts (cyan). Science Rafts have two varieties: whether the sensors are ITL (green) or e2v (yellow). Each sensor has 4k$\times$4k pixels, segmented by 16 channels to make the fastest readout as 2 sec. Corner Rafts have two different kinds of sensors: guider sensors and a wavefront sensor. Guider sensors are ITL sensors as are the other science sensors, while the wavefront sensor is split in the middle and packaged into one sensor with an offset by $\pm2$mm with respect to the other science sensors to provide off-focus point source images to measure "donut" -- an image of the pupil.
+Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSST focal plane consists of 21 Science Rafts and 4 Corner Rafts (cyan). Science Rafts have two varieties: whether the sensors are ITL (green) or e2v (yellow). Each sensor has 4k$\times$4k pixels, segmented by 16 channels to make the fastest readout as 2 sec. Corner Rafts have two different kinds of sensors: guider sensors and a wavefront sensor. Guider sensors are ITL sensors as are the other science sensors, while the wavefront sensor is split in the middle and packaged into one sensor with an offset by $\pm2$mm with respect to the other science sensors to provide off-focus point source images to measure ``donuts" -- an image of the pupil.
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{figures/introduction/LSSTCam_fp_layout_Oct2024.pdf}
@@ -174,7 +174,7 @@ current and sources of light leaks in the camera body. Before beginning we cover
 \end{figure}
 
 Once these were sealed, we took some initial measurements and then
-started to cover the LSSTCam body with a blackout fabric shroud. Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
+started to cover the LSSTCam body with a Thorlabs blackout fabric shroud (BK5). Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
 camera.
 We also found light leaks
 where the light cone attached to L1 was housed, and from the Utility
@@ -263,7 +263,7 @@ associated with the FES was eliminated (see right hand image of Fig.~\ref{fig:ac
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{figures/AC_LightLeak_study.png}
-\caption{ (left) The original impact of the AC light leak on a 900\,s dark difference image (AC on minus AC off), we observe in particular a "bright triangle" on the right of this focal plane image. Notice also the presence of a non subtracted persistence of \textasciitilde 10 ADU for a few sensors, the same sensors than the one visible in the left figure \ref{fig:persistence-reduction} showing the persistence effect: in run7 we didn't collect the data to avoid a persistence contribution in such light leak image (right). The result after masking the LEDs of the motor encoders in the AC.  No light associated with the FES is present in 900\,s dark difference image.  \label{fig:ac-light-leak}}
+\caption{ (left) The original impact of the AC light leak on a 900\,s dark difference image (AC on minus AC off), we observe in particular a ``bright triangle" on the right of this focal plane image. We also note the presence of the persistence of \textasciitilde 10 ADU for a few sensors, the same e2v sensors than the one visible in the left figure \ref{fig:persistence-reduction}. We did not collect the exactly same condition image, a dark without the AC leak mitigation with the persistence mitigation voltages (see Sect. \ref{persistence-optimization-1}). (right) The result after masking the LEDs of the motor encoders in the AC.  No light associated with the FES is present in 900\,s dark difference image.  \label{fig:ac-light-leak}}
 \end{centering}
 \end{figure}
 
@@ -276,7 +276,7 @@ Two runs, E1075 and E1076, were dedicated to determining the effect of the shutt
 \begin{centering}
 \includegraphics[width=0.48\textwidth]{figures/E1075_ShutterClosed.png}
 \includegraphics[width=0.48\textwidth]{figures/E1076_ShutterOpen.png}
-\caption{ (left) An example image of run E1075 (shutter closed). (right) An example image of run E1076 (shutter open). If there was a light leak, we would expect to see the 21 spots of the pinhole filter. However, there is no noticeable difference between the images, insuring that our shrouding in Section \ref{light-leak-mitigation-with-shrouding-the-camera-body} is good and that the shutter being open and closed doesn't affect the dark current. \label{fig:shutter-darkcurrent}}
+\caption{ (left) An example image of run E1075 (shutter closed). (right) An example image of run E1076 (shutter open). If there was a light leak, we would expect to see the 21 spots of the pinhole filter. However, there is no noticeable difference between the images, insuring that our shrouding in Section \ref{light-leak-mitigation-with-shrouding-the-camera-body} is good and that the shutter being open and closed does not affect the dark current. \label{fig:shutter-darkcurrent}}
 \end{centering}
 \end{figure}
 
@@ -424,8 +424,6 @@ by \textasciitilde$7 \times 10^{-4}$ \% for ITL sensors (Fig.~\ref{fig:parallel-
 \end{centering}
 \end{figure}
 
-R00 observations
-
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/PCTI_13550_E1071_diff.png}
@@ -479,7 +477,7 @@ In the context of LSSTCam, we identify and exclude bright pixels from the dark c
 
 Evaluating the change in defect counts on each amplifier segment between Run 6 and Run 7, and aggregating the amplifiers by the detector manufacturer shows a small increase of bright defects in Run 7 (Fig.~\ref{fig:bright}). Figure~\ref{fig:dark-dist}) displays differences of the measurements. The median values agree well, while there are signs of the positive tail. For ITL sensors, we find that 12\% of the amplifiers have more bright pixels than in Run 6. For e2v sensors, we find 4\% of the amplifiers that have more bright pixels. Despite this, the number of bright defects between runs does not increase for most sensors.
 
-The reason is not totally clear, but the difference in the illumination pattern as described in Section \ref{run-7-optical-modifications} might play a role, which implies that a small number of defects could be involved by optical path.
+The reason is not totally clear, but the difference in the illumination pattern as described in Section \ref{run-7-optical-modifications} might play a role, which implies that a small number of defects could be created in the CCOB optical path.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -600,7 +598,7 @@ PTC noise differs by $\lesssim$ 0.1 e- on average for science sensors. Notably, 
 \subsubsection{Brighter fatter coefficients}\label{brighter-fatter-a00-coefficient}
 
 
-The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or "fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from  
+The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from  
 \citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The Run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In {\tt eo\_pipe}, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[ht]
@@ -643,7 +641,7 @@ Row-means variance is a metric that measures the mean row-to-row variance of dif
 \end{centering}
 \end{figure}
 
-Differences in row-means variance between runs are evident, and are distinctly different for different detector types. The difference between runs is more significant for ITL sensors, \textasciitilde9\% smaller on average in Run 7. For e2v sensors, the effect is \textasciitilde3\% smaller in Run 7. This indicates that either row-by-row correlated noise or row-by-row gain change is less in Run 7b. Since we did not change the sequencer file, the most natural explanation is the row-by-row correlated noise. But further investigation is needed.
+Differences in row-means variance between runs are evident, and are distinctly different for different detector types. The difference between runs is more significant for ITL sensors, \textasciitilde9\% smaller on average in Run 7. For e2v sensors, the effect is \textasciitilde3\% smaller in Run 7. This indicates that either row-by-row correlated noise or row-by-row gain change is less in Run 6. Since we did not change the sequencer file, the most natural explanation is the row-by-row correlated noise. But further investigation is needed.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -746,7 +744,7 @@ present images at the same level as in Run 6.
 \end{figure}
 
 The persistence signal is generally consistent in e2v sensors between Run 6 and Run 7. Several e2v CCDs have greater persistence metric value in Run 7 (Fig.~\ref{fig:persistence-comp}). The outliers in
-these persistence measurements are due to higher initial residual ADU, resulting in an excess of \textasciitilde5 ADU when comparing Run 6 with Run 7 (see Fig.~\ref{fig:persistence-decay-comp}).
+persistence measurements are due to higher initial residual ADU in a subset of rafts, resulting in an excess of \textasciitilde5 ADU when comparing Run 6 with Run 7 (see Fig.~\ref{fig:persistence-decay-comp}).
 
 
 \begin{figure}[ht]
@@ -954,7 +952,7 @@ fractional difference. The median of each peak are 133065e-, 102728e-, and the m
 \includegraphics[width=0.9\textwidth]{figures/PtcTurnoffRatio.png}
 \end{centering}
 \caption{Histograms of the PTC turnoff values scaled to electron units (left) and the ratios of
-differences (right) between E1113 (9.3\,V) vs E1335 (8.0\,V). The median of
+differences (right) between E1113 (9.3\,V) vs. E1335 (8.0\,V). The median of
 the reduction is 22\%.}
 \label{fig:ptc-turnoff}
 \end{figure}
@@ -1027,9 +1025,7 @@ which leave signal in the first row of the subsequent exposure. The effect has a
 
 \begin{itemize}
 \item
-  In all ITL CCDs (except in R01\_S10 for which
-  the effect is much more significant and which will be addressed later
-  in this section): After a very bright exposure that saturates the overscan, the first row of the subseqeunt image has residual charges which are close to saturation. In most cases a small leftover signal in the second row is also present.
+  In all ITL CCDs (except in R01\_S10 for which the effect is much more significant and which will be addressed later in this section): After a very bright exposure that saturates the overscan, the first row of the subsequent image has residual charges which are close to saturation. In most cases a small leftover signal in the second row is also present.
 \item
   In e2v CCDs: the first row read after an exposure that follows an exposure with saturated
   overscan, has residual charges which are close to saturation, and a significant signal is visible
@@ -1235,22 +1231,22 @@ serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 The original clear (serial phase 3 always), slightly extended in time to match the NopSf e2v clear execution time, will stay the default method.
 
 \subsubsection{Toggling the RG bit during parallel transfer for e2v sensors}\label{noRGe2v}
-During parallel transfer, it is common to  protect the CCD amplifier from large signal injection associated to the parallel clock swing by activating the Reset Gate of the ccd amplifiers. Nevertheless our initial default configuration, following ITL and e2v vendors practice at the time, this "RG protection" was not active during the last parallel clock swing. 
+During parallel transfer, it is common to  protect the CCD amplifier from large signal injection associated to the parallel clock swing by activating the Reset Gate of the ccd amplifiers. Nevertheless our initial default configuration, following ITL and e2v vendors practice at the time, this ``RG protection" was not active during the last parallel clock swing. 
 Following a dedicated investigation on ITL devices, this has been changed 2 years ago as a clear improvement in the biases  was observed  \citep{2024SPIE13103E..0WU}, when keeping the Reset Gate active during the full parallel transfer. 
 By analogy drawn with this ITL study  and noticing that today e2v vendor, in its current documentation, also recommends to keep the  Reset Gate active during the full parallel transfer, such approach  became an area of interest for e2v device. 
 
 At the end of Run 7, 2 runs ({\it E3578} and {\it E3628}) were collected using,for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
 
-Even if this was a limited data set a few observations have been made : 
+Even if this was a limited data set a few observations can be made: 
 \begin{itemize}
     \item For 2D overscan corrected images, no improvement in the stability of the bias shape overtime  or in the bias shape dependencies with exposure time   
-    \item For 2D overscan bias correction, left over bias structures (Figure~\ref{fig:2DNoRGRaw}) are unchanged between  sequencer{\bf V30} and sequencer{\bf V30\_NoRG} (Figure~\ref{fig:2DNoRGEffect})  .
+    \item For 2D overscan bias correction, left over bias structures (Figure~\ref{fig:2DNoRGRaw}) are unchanged between  sequencer{\bf V30} and sequencer{\bf V30\_NoRG} (Fig.~\ref{fig:2DNoRGEffect}).
     \item For 1D overscan bias correction (serial bias overscan correction only), for detectors with a large  bias residuals, a clear improvement (\textasciitilde2 ADU = \textasciitilde 30\% reduction) has been observed with the {\bf V30\_NoRG} sequencer compared to the {\bf V30} one (Figure~\ref{fig:1DNoRGEffect}). 
 \end{itemize}
 
-So in practice running with {\bf V30\_NoRG} sequencer reduce the amplitude of the 2D bias shape of the biases : residual are smaller after 1D overscan bias correction.  This confirms  that part the 2D bias shape in e2v sensors is related to parallel clock usage during readout. 
+So in practice running with {\bf V30\_NoRG} sequencer reduce the amplitude of the 2D bias shape of the biases: residual are smaller after 1D overscan bias correction.  This confirms  that part the 2D bias shape in e2v sensors is related to parallel clock usage during readout. 
 
-If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} sequencer and it will still request 2D overscan bias correction. The issue is that even after 2D overscan correction, we observe a few ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGRaw}). Unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residual after 2D overscan correction. The {\bf V30\_NoRG} sequencer will not be the solution to fix this problem. As those residuals are function of the exposure time, we still have to count on DARK to correct the 2D bias shape of some e2v sensors to reach residuals from bias correction bellow 1 ADU. 
+If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} sequencer and it will still request 2D overscan bias correction. The issue is that even after 2D overscan correction, we observe a few ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGRaw}). Unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residual after 2D overscan correction. The {\bf V30\_NoRG} sequencer will not be the solution to fix this problem. As those residuals are function of the exposure time, we still have to count on DARK to correct the 2D bias shape of some e2v sensors to reach residuals from bias correction below 1 ADU. 
 
 \begin{figure}[ht]
 \begin{centering}
@@ -1277,7 +1273,7 @@ If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} 
 
 \subsubsection{Disable IDLE FLUSH}\label{section:disablingIDLEFLUSH}
 
-IDLE\_FLUSH is one of the "mains" settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \citet{2024SPIE13103E..0WU}).
+IDLE\_FLUSH is one of the ``mains" settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \citet{2024SPIE13103E..0WU}).
 
 However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 deg C between periods of image acquisition and idle periods (Figure~\ref{fig:IdleFlushEffect}).
 
@@ -1410,7 +1406,7 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
 
 \paragraph{Dark current}\label{sec:finaldark-current}
 
-Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was mitigated as part of optimization efforts (see Sec.~\ref{successful-autochanger-light-leaks-masking}).
+Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was not mitigated until after E1880 (see Sec.~\ref{successful-autochanger-light-leaks-masking}). The physical source of the improvement in this raft is not clear.
 
 \begin{figure}[ht]
     \centering
@@ -1662,7 +1658,7 @@ Comparing the initial and final Run 7 measurements, there are four metrics that 
   \item \textbf{Persistence:} We minimized persistence in e2v sensors, the main optimization target of Run 7, decreasing it from 5.66 ADU to 0.40 ADU on average with the red LED (LSST-r band), and maintaining sub-ADU levels across the entire LSST bandpass. Due to no change in ITL voltages and lack of an initial persistence feature, ITL sensors do not show a significant change in persistence, and remain at a sub-ADU level (0.48 ADU \rightarrow 0.32 ADU).
   \item \textbf{Full well capacity:} As a direct consequence of lower parallel swing in e2v sensors, the full-well capacity of e2v sensors decreased significantly with the final operating parameters. For linearity turnoff, e2v sensors decrease from 167,796 e- \rightarrow 136,302 e-. PTC turnoff measurements decrease from 132,963 e- \rightarrow 102,713 e-. ITL sensors do not show a significant change, and remain consistent between initial and final runs.
   \item \textbf{Brighter-fatter strength (PTC $a_{00}$):} The strength of the brighter fatter effect is also significantly impacted by the change in parallel swing for e2v sensors. The $a_{00}$ parameter increases from $3.08\times10^{-6} \rightarrow 3.49\times10^{-6}$ for e2v sensors, a 13\% increase. ITL sensors are not significantly impacted.% Consequence of changed dP
-  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush. For e2v sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of Divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
+  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush. For e2v sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong Divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of Divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
 \end{itemize}
 
 \begin{table}[ht]
@@ -1852,10 +1848,10 @@ We have found bias instabilities, typically above the 1 ADU level, for a number 
 \begin{enumerate}
 \tightlist
 \item
-  ITL bias jumps : large variations of the column-wise structure from
+  ITL bias jumps: large variations of the column-wise structure from
   exposure to exposure.
 \item
-  e2v yellow corners : a residual 2D shape of the bias even after
+  e2v yellow corners: a residual 2D shape of the bias even after
   2D-overscan correction. These residuals depend on the acquisition
   sequence and the exposure time, and the enhancement is greatest near the readout nodes (hence `yellow corner').
 \end{enumerate}
@@ -1936,7 +1932,7 @@ three runs.
     \centering
     % 空白セルとして保持
 \end{minipage}
-\caption{Bias level variations for R33\_S02, an unstable e2v CCD for three runs:  (upper left) E2136, (upper right) E2236, (lower left) E2330.  The segments CXX and CYY are most strongly variable in each run.  Note that the range of the time axes is different in each plot.}
+\caption{Bias level variations for R33\_S02, an unstable e2v CCD for three runs:  (upper left) E2136, (upper right) E2236, (lower left) E2330.  The segments CXX and CYY are most strongly variable in each run.  Note that the range of the time axis is different in each plot.}
 \label{fig:r33_s02_bias}
 \end{figure}
 
@@ -1979,7 +1975,7 @@ amplifier C01 is different in the 3 cases.
 \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/E2136_dark15_R33_S02.png}
-    \caption{15-s dark exposure, run E2136 in 'stable' conditions, R33\_S02}
+    \caption{15\,s dark exposure, run E2136 in 'stable' conditions, R33\_S02}
     \label{fig:r33_s02_2136}
 \end{minipage}
 
@@ -2062,32 +2058,33 @@ amplifiers.
 %in run E2136}
 %\end{figure}
 
-Further studies are required in order to converge on the best mitigation
+Further studies are required to converge on the best mitigation
 strategy for the start of the LSST survey.
 \clearpage
 \subsection{Glow search}
-A long dark image can be used to identify glow. Figure \ref{fig:glowsearch} shows an example of 900 sec dark with the ISR application, with a very narrow stretch from -5 to -5 ADUs. 
-Obvious glow can be found in 3 guider sensors of S04/SG0, S40/SG1 and S44/SG0 (see Figure \ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
-The other observation can be made on R12/S22, R14/S22, R23/S11 and some other minor ones. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
-In R43/S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50ADU/900sec (Figure \ref{fig:glowsearch:closeup}. This was also present in Run 6 data (for example, MC\_C\_20231102\_000085).
-Otherwise, we did not find any other glow in the focal plane.
+A long dark image can be used to identify glowing regions. Figure \ref{fig:glowsearch} shows an example of 900\,s dark after ISR application, with a very narrow stretch from -5 to -5 ADUs. 
+Obvious glow can be found in 3 guider sensors of S04\_SG0, S40\_SG1 and S44\_SG0 (see Fig.~\ref{fig:focal-plane-layout} to locate each sensor). There have been confirmed since their construction.
+Glowing regions can be observed in R12\_S22, R14\_S22, R23\_S11, as well, along with some other minor glowing regions elsewhere. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
+In R43\_S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50\,ADU/900\,s (Fig. \ref{fig:glowsearch:closeup}. This was also present in Run 6 data (e.g., in MC\_C\_20231102\_000085).
+Otherwise, we did not find any other glowing regions in the focal plane.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/glowsearch/900sdark.png}
-    \caption{A 900sec dark image MC\_C\_20240922\_000432, after the ISR application.}
+    \caption{A 900\, s dark image MC\_C\_20240922\_000432, after the ISR application.}
     \label{fig:glowsearch}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/glowsearch/R43S21.png}
-    \caption{A close up of R43/S21 of a 900sec dark image MC\_C\_20240922\_000432}
+    \caption{A close up of R43\_S21 of a 900\,s dark image MC\_C\_20240922\_000432}
     \label{fig:glowsearch:closeup}
 \end{figure}
 
 \clearpage
 \subsection{Illumination corrected flat}
 
-To assess the level of Gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the $750 nm$ LED, since the QE is identical between the e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B Sequence Run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity, as determined from this B Sequence run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
+To assess the quality of gain matching over each CCD as well as to study relative QE, we fit the CCOB-wide illumination to a smooth model and plotted mosaics of the full focal plane corrected by the illumination model. The illumination pattern is optimally fit using the 750\,nm LED, since the QE is identical between the e2v and ITL CCDs at this wavelength. To capture the spatial variation of the illumination we fit the response of the focal plane using a {\it lambda} flat image with {\it physical\_filter = 'nm750'} from B protocol run E2233, using cp\_pipe processing with the latest ISRTask, see  \url{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2025_02/}. PTC gains and linearity corrections, as determined from this B protocol run, are applied to the image and the resulting {\it postISRCCD} is then down-sampled into $32x32$ super-pixels for ease of analysis. We take care to remove super-pixels with values in both low and high tails.  We modeled the illumination with a two-dimensional product of Chebyshev polynomials: $ I(x,y) = \sum_{i=0}^{5} \sum_{j=0}^{5} c_{ij} T_i(x) T_j(y)$, and fit the coefficients with the {\it least\_squares} method in {\it scipy.optimize}.  The $750~nm$ flat and the model fit are shown in Figure~\ref{fig:mosaic-modelfit}.
 
 \begin{figure}[ht]
     \centering
@@ -2096,7 +2093,7 @@ To assess the level of Gain matching over each CCD as well as to study relative 
     \label{fig:mosaic-modelfit}
 \end{figure}
 
-Next, we divide the mosaic images in each CCOB-wide LED by the illumination model fit to produce a relative QE mosaic, as shown in Figure~\ref{fig:mosaic-relativeqe}.  Visually the per-CCD gain matching looks good and we expect to refine this further by using PTC Gains from a dense PTC run and by using more of the ISR pipeline to correct these images. 
+Next, we divide the mosaic images in each CCOB-wide LED by the illumination model fit to produce a relative QE mosaic, as shown in Figure~\ref{fig:mosaic-relativeqe}.  Visually the per-CCD gain matching looks good and we expect to refine this further by using PTC gains from a dense PTC run and by using more of the ISR pipeline to correct these images. 
 
 \begin{figure}[ht]
     \centering
@@ -2106,7 +2103,7 @@ Next, we divide the mosaic images in each CCOB-wide LED by the illumination mode
     \includegraphics[width=0.4\linewidth]{figures/lambda_nm750_E2233.png} \\
     \includegraphics[width=0.4\linewidth]{figures/lambda_nm850_E2233.png}
     \includegraphics[width=0.4\linewidth]{figures/lambda_nm960_E2233.png} \\
-    \caption{Focal Plane mosaic for each of the CCOB-wide lambda flats, divided by the illumination model.}
+    \caption{Focal plane mosaic for each of the CCOB-wide lambda flats, divided by the corresponding illumination model.}
     \label{fig:mosaic-relativeqe}
 \end{figure}
 
@@ -2115,27 +2112,27 @@ Next, we divide the mosaic images in each CCOB-wide LED by the illumination mode
 \clearpage
 \subsection{Full well measurements}\label{sec:bfullwellmeasurement}
 
-One of the goals of this run was to provide two initial metrics that could be used to determine what pixel value to set the SUSPECT and SAT pixel masks for on-sky data. These pixel masks mask pixels as saturated (SAT) and pixel levels that might be subject to non-linear effects (e.g. Brighter-Fatter effect) and need further inspection before being used (SUSPECT). For each amplifier, there were three values considered: the maximum value recorded on a saturated detection, the PTC turnoff, and the linearity turnoff (see Section \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these are currently determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (e.g. saturated pinhole values being higher/lower than the recorded maximum values for E2V/ITL detectors).
+One of the goals of this run was to provide two initial metrics that could be used to determine what pixel value to set the SAT and SUSPECT pixel masks for on-sky data. These pixel masks flag saturated pixels (SAT) and those with levels great enough to be subject to non-linear effects (e.g. brighter-fatter effect) and need further inspection before being used (SUSPECT). For each amplifier, three values were considered: the maximum value recorded for a saturated detection, the PTC turnoff level, and the linearity turnoff (see Sec. \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these were determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (saturated pinhole values being higher/lower than the recorded maximum values for e2v/ITL detectors).
 
-As such, we decided to determine the full well using spots and to compare these values to the ones found with the flat illumination setup. These spots were made using the spot projector and are the circular spots as described in Section \ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1-100 seconds in one second intervals. To get the spot, we applied a very loose threshold ($1\sigma$ above the background) to return the footprint of the spot and calculate the centroid of the spot.
+As such, we decided to determine the full well levels using spot images and to compare them to those found with the flat illumination setup. The spots were made using the spot projector and are the circular spots as described in Section~\ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1--100 seconds in one second intervals. To measure a spot, we applied a very loose threshold ($1\sigma$ above the background) to return the footprint and when evaluating the centroid of the spot.
 
-Once we found the spot and the spot centroid, there were three different turnoffs that we used: Spot photometry, spot PTC, and spot shape.
-For spot photometry, we used the spot centroid to place a 5 pixel\footnote{We plotted the effect of changing the pixel aperture and found that the final turnoff value increases with aperture size. This is because this method is a proxy to measuring when the spot begins to bleed and when does the bleeding exceed the aperture size. As such, we decided to keep it small at 5 pixels.} aperture around the spot. We then plotted the aperture flux divided by the exposure time as a function of the measured peak of the spot as seen in Figure \ref{fig:Spot_Metrics}. This resulted in an almost constant value until a sudden drop in the flux rate. As such, our metric for the turnoff is when it first starts dropping, whenever the constant value drops below $3\sigma$ of its scatter. This turnoff is shown in Figure \ref{fig:Spot_Metrics} as the black line.
+Once we found the spot and its centroid, we evaluated three different turnoff levels: spot photometry, spot PTC, and spot shape.
+For spot photometry, we used the spot centroid to place a 5\,pixel\footnote{We plotted the effect of changing the pixel aperture and found that the final turnoff value increases with aperture size. This is because this method is a proxy for measuring when the spot begins to bleed and when the bleeding exceeded the aperture size. As such, we decided to keep it small at 5 pixels.} aperture around the spot. We then plotted the aperture flux divided by the exposure time as a function of the measured peak of the spot as shown in Figure~\ref{fig:Spot_Metrics}. This resulted in an almost constant value until a sudden drop in the flux rate. As such, our metric for the turnoff is when it first starts dropping, whenever the constant value drops below $3\sigma$ of its scatter. This turnoff is shown in Figure\,\ref{fig:Spot_Metrics} as the black line.
 
-For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10 by 10 pixel box around the core of the spot to use for our PTC. We then compared these 10 by 10 pixel between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find when the turnoff happens, we took the derivative of the variance vs spot mean curve and found the point that has the first large negative value. This curve and the turnoff are shown in Figure \ref{fig:Spot_Metrics}.
+For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10$\times$10 pixel box around the core of the spot to use for our PTC. We then compared these 10$\times$10 pixel cutout between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find the turnoff level, we evaluated the derivative of the variance vs. spot mean and found the point that has the first large negative value. This curve and the turnoff are shown in Figure~\ref{fig:Spot_Metrics}.
 
-Lastly, the final full well measurement we used as the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cutout the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more consistent measurements.}. We then plotted this against the spot peak. Similar to the Spot Photometry method, we were left with a constant value that drops off suddenly. We used a similar metric to the Spot Photometry of finding the value that falls below $3\sigma$ of the constant value. This method and turnoff is shown in Figure \ref{fig:Spot_Metrics}.
+Lastly, we used the final full well measurement to evaluate the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cut out the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more consistent measurements.}. We then plotted this against the spot peak. Similarly to the spot photometry method, we were left with a constant value that drops off suddenly. We used an approach similar to that for the spot photometry measurements by finding the value that falls below $3\sigma$ of the constant value. The results from applying this method as well as the turnoff values are shown in Figure~\ref{fig:Spot_Metrics}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.30\linewidth]{figures/Spot_Photometry.png}
     \includegraphics[width=0.30\linewidth]{figures/Spot_PTC.png}
     \includegraphics[width=0.30\linewidth]{figures/Spot_2ndMoment.png}
-    \caption{Example of the different spot metrics and their corresponding calculated turnoffs as the black vertical line for detector R21/S21 (88). (Left) Spot Photometry (left), Spot PTC (middle), and Spot Second Moments (right).}
+    \caption{Example of the different spot metrics and their corresponding calculated turnoffs as the black vertical line for detector R21\_S21 (88). (Left) Spot photometry, (middle) Spot PTC, and (right) Spot second moments.}
     \label{fig:Spot_Metrics}
 \end{figure}
 
-With these three new methods, we want to compare these results to the old results. Figure XXX shows an example comparison between the three metrics and the PTC and linearity turnoffs from the flat illuminated data for one detector, R21/S21. This shows that all three of these metrics are around, if not a little higher, than the linearity turnoff, providing support that the linearity turnoff is a good metric for the SAT pixel mask plane.
+We compare these results from Run 7 to the earlier results for flat images. Figure~\ref{fig:Spot_vs_EO_Metrics} shows an example comparison between the three metrics and the PTC and linearity turnoffs from the flat illuminated data for one detector, R21\_S21. This shows that all three of these metrics correspond to levels a bit greater than the linearity turnoff, providing support that the linearity turnoff is a good metric for defining the SAT pixel mask plane.
 
 \begin{figure}[ht]
     \centering
@@ -2146,8 +2143,8 @@ With these three new methods, we want to compare these results to the old result
 
 \subsubsection{Spot photometry model}
 
-While R21/S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
-The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs don't work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
+While R21\_S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
+The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs do not work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
 \begin{equation*}
     Flux \ rate=a-\frac{1}{bx+c}
 \end{equation*}
@@ -2163,7 +2160,7 @@ This also needs some tuning but should be less susceptible to changes across the
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
 \end{centering}
-\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right : r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
+\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of the central CCD. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right: r.m.s of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
 
 \end{figure}
 
@@ -2221,7 +2218,7 @@ Here we focus on E1496 and E1367 which have a difference in the temperature cond
 Figure \ref{fig:relgainparamE1496} shows the derived 
  relative gain change for one amplifier (R11/S00/C11) over time alogn with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and led1temp (the temperatue measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
  As the intention of the acquisition condition, the REB temperature was almost maintained at the same level within 0.2 deg, with a slight decreasing slope probably due to the change in the thermal load and stabilization process of the entire thermal system.
- At the same time the gain slowly increase over time, while CCD temp is kept at the same and the LED temperatures wasn't controlled but kept with 0.1C.
+ At the same time the gain slowly increase over time, while CCD temp is kept at the same and the LED temperatures was not controlled but kept with 0.1C.
 
  Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain and the REB temperature, with color coding by the speed of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result. The distribution of the data points has a more complicated structure than the linear relationship, while there is no obvious change in either CCD nor LED temperatures. 
 
@@ -2244,7 +2241,7 @@ Figure \ref{fig:relgainparamE1496} shows the derived
 \end{minipage}
 \end{figure}
 
-Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of figures but for the Run that has a temperature change in the cold plate by 2 degrees.
+Figures \ref{fig:relgainparamE1367} and \ref{fig:gaintempE1367} show the same set of plots but for the run that has a temperature change in the cold plate by 2 degrees.
 The temperature was kept the same in the beginning, but the set point was changed later, and then it was brought back to the original temperature. 
 Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency but also hysteresis in the gain-temp relationship, which does not match the slope originally derived from the past run, although there are no obvious changes in the system other than the REB temperature.
 For this the LED board temp also decreased by more than 1 deg over the testing period.
@@ -2453,7 +2450,7 @@ We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sens
 Tree rings is circular variations in silicon doping concentration which can be observed in flat images. The treerings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
 \subsubsection{Center of the tree ring}
 From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four CCD are cut from one wafer. 
-So far we have been using the four different average positions for each center of the Tree ring, according to the pattern direction, because it was difficult to make measurement of the treering for all the sensors due to their low amplitude, and "low contrast" with respect to other features such as "CMB pattern. However we have new data with 0\,V of back bias voltage with the diffuser installed (Section \ref{differences-from-previous-runs} and Figure \ref{fig:diffuser}), which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center (E1050 for red, E1052 for blue, E1055 for nm850, E1056 for nm960).
+So far we have been using the four different average positions for each center of the Tree ring, according to the pattern direction, because it was difficult to make measurements of the tree rings for all the sensors due to their low amplitude, and ``low contrast" with respect to other features such as ``CMB pattern. However we have new data with 0\,V of back bias voltage with the diffuser installed (Section \ref{differences-from-previous-runs} and Figure \ref{fig:diffuser}), which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center (E1050 for red, E1052 for blue, E1055 for nm850, E1056 for nm960).
 
 \begin{figure}[ht]
 \begin{centering}
@@ -2516,7 +2513,7 @@ We expect that with the diffuser installed, there will be less contribution from
 \end{figure}
 
 \subsubsection{Wavelength dependency}
-Tree ring effect doesn't depend on wavelength much, as studied in \citep{2017Jinst..12C05015,2020JATIS...6a1005P}. However, when you compare the flat images in different wavelengths, we can see the other sensor effects dominates in lower wavelength (laser annealing) and higher wavelength (fringe) over the tree ring patterns. Figure~\ref{fig:tree_ring_wavelength_dep} shows the Tree rings in red and blue flat images, and Figure~\ref{fig:tree_ring_subtract_red_blue} shows the subtracted image from red to blue to show the difference between two wavelength images. We can see that the laser annealing effect is left since tree ring effect of blue and red images are similar. 
+The tree ring effect does not depend much on wavelength, as studied in \citep{2017Jinst..12C05015,2020JATIS...6a1005P}. However, when you compare the flat images in different wavelengths, we can see the other sensor effects dominates in lower wavelength (laser annealing) and higher wavelength (fringe) over the tree ring patterns. Figure~\ref{fig:tree_ring_wavelength_dep} shows the tree rings in red and blue flat images, and Figure~\ref{fig:tree_ring_subtract_red_blue} shows the subtracted image from red to blue to show the difference between two wavelength images. We can see that the laser annealing effect is left since tree ring effect of blue and red images are similar. 
 
 \begin{figure}[ht]
 \centering
@@ -2601,21 +2598,21 @@ is still not clear whether the effect will be visible in LSSTCam on-sky data. It
 
 A category of sensor feature found on some ITL sensors, that has recently benefited from fresh attention, now has a new name. They are called {\it vampire pixels} because of their curious flat field response: a group of pixels with photo-response exceeding the flat-field mean, surrounded by a concentric distribution of pixels with photo-response below the same flat-field mean. The {\it vampire pixel} name sticks because the over-responsive pixels have apparently ``sucked'' signal from the rightful owners, a sort of {\it reverse brighter-fatter} effect excited simply with flat-field illumination. 
 
-The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius, which place strong constraints on their origin. Also, it turns out that all prominent {\it vampire pixel} complexes are also seen in their (ITL) phosphorescence response which is indicative of the backside surface layer ({\it cf.} \S\ref{phosphorescence}). This means that {\it vampire pixels} are likely to appear also in dark images, but only if trigger illumination is delivered a few tens of seconds prior to the dark acquisition ({\it cf.} vampire transients, Tab.~\ref{qualitative_assessment:itl_sensors}).
+The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius, which place strong constraints on their origin. Also, it turns out that all prominent {\it vampire pixel} complexes are also seen in their (ITL) phosphorescence response which is indicative of the backside surface layer ({\it cf.} Sec.~\ref{phosphorescence}). This means that {\it vampire pixels} are likely to appear also in dark images, but only if trigger illumination is delivered a few tens of seconds prior to the dark acquisition ({\it cf.} vampire transients, Tab.~\ref{qualitative_assessment:itl_sensors}).
 
-All known cases appear to round or with circular symmetry. There are plenty of cases with similar pixel complexes that lack the central group of pixels with {\it high-amplitude} photo-response excess, but that the photo-response excess is simply divided into a larger number of pixels. We suggest that the underlying origin of these is common with the easier-to-detect {\it bright pixels} ({\it cf.}\S\ref{first-observations}) but appear with different response properties simply because of mundane geometric details. Different detection algorithms may therefore be required finding those {\it vampire pixel} complexes that do {\it not} show central bright pixels as opposed those that {\it do}. Moving forward, we choose not to invent a new name for the former type, but call them both {\it vampire pixel} complexes.
+All known cases appear to round or with circular symmetry. There are plenty of cases with similar pixel complexes that lack the central group of pixels with {\it high-amplitude} photo-response excess, but that the photo-response excess is simply divided into a larger number of pixels. We suggest that the underlying origin of these is common with the easier-to-detect {\it bright pixels} (cf. Sec.~\ref{first-observations}) but appear with different response properties simply because of mundane geometric details. Different detection algorithms may therefore be required finding those {\it vampire pixel} complexes that do {\it not} show central bright pixels as opposed those that {\it do}. Moving forward, we choose not to invent a new name for the former type, but call them both {\it vampire pixel} complexes.
 
 \subsubsection{First observations}\label{first-observations}
 
-Initial identification of these on ComCam may have been in a study that called them {\it bright pixels} by A. Roodman \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Bad%20Pixels%20and%20Bright%20Spots.pdf?version=1&modificationDate=1724769154615&api=v2}{(20240827)} and quantified in more depth by A. Fert\'e in a ComCam defects study \href{https://rubin-obs.slack.com/files/U07MZAE6V3P/F080JU4CH8A/isr_science_unit_meeting__11_12_2024_-_vampire_pixels.pdf}{(20241112)}. First electrostatic simulations performed to help understand them were made by C.~Lage \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Vampire_Pixel_Simulations_18Nov24.pdf?version=1&modificationDate=1731964502136&api=v2}{(20241119)} who inferred that a circumferential surface charge variations\footnote{We suggest that any such variations would necessarily require that the backside electrode ceases to act as an electrostatic equipotential as it does elsewhere on the sensor, with total surface charge density governed only by the normal component of the electric field strength within the silicon, responding to the HV Bias potential, and so on.} 
-on the backside electrode could reproduce the sort of charge redistribution observed (while conserving photo-conversion charge) -- and so these may be effectively described as pixel boundary distortions throughout, mediated simply by lateral (non-axial) contributions to the drift field. Any such lateral fields would mean a localized loss in pixel fidelity, not limited to the sensor's thickness scale (10 pix) as are apparently in effect in other known pixel distortion mechanisms (brighter-fatter effect, tree rings, edge rolloff, tearing, pixel boundary distortions due to midline implant \& hot columns).
+Initial identification of these on ComCam may have been in a study that called them {\it bright pixels} by A. Roodman \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Bad%20Pixels%20and%20Bright%20Spots.pdf?version=1&modificationDate=1724769154615&api=v2}{(20240827)} and quantified in more depth by A. Fert\'e in a ComCam defects study \href{https://rubin-obs.slack.com/files/U07MZAE6V3P/F080JU4CH8A/isr_science_unit_meeting__11_12_2024_-_vampire_pixels.pdf}{(20241112)}. First electrostatic simulations performed to help understand them were made by C.~Lage \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Vampire_Pixel_Simulations_18Nov24.pdf?version=1&modificationDate=1731964502136&api=v2}{(20241119)} who inferred that a circumferential surface charge variation\footnote{We suggest that any such variations would necessarily require that the backside electrode ceases to act as an electrostatic equipotential as it does elsewhere on the sensor, with total surface charge density governed only by the normal component of the electric field strength within the silicon, responding to the HV Bias potential, and so on.} 
+on the backside electrode could reproduce the sort of charge redistribution observed (while conserving photo-conversion charge) -- and so these may be effectively described as pixel boundary distortions throughout, mediated simply by lateral (non-axial) contributions to the drift field. Any such lateral fields would mean a localized loss in pixel fidelity, not limited to the sensor's thickness scale (10 pix) as are apparently relevant in other known pixel distortion mechanisms (brighter-fatter effect, tree rings, edge rolloff, tearing, pixel boundary distortions due to midline implant, and hot columns).
 
-Since ComCam on-sky data has been available, more attention has been paid to these features and how they may impact source detection and photometric determination of field sources next to them. Luckily, {\it vampire pixels} are less common on average in the 88 ITL sensors of the Main Camera than they are in the 9 sensors of ComCam. 
+Since ComCam on-sky data became available, more attention has been paid to these features and how they may impact source detection and photometric determination of nearby field sources. Luckily, {\it vampire pixels} are less common on average in the 88 ITL sensors of LSSTCam than they are in the nine sensors of ComCam. 
 
 \subsubsection{LSSTCam vampire pixel
 features}\label{lsstcam-vampire-pixel-features}
 
-One prominent example of such a feature is located in the Main Camera on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity to it (when HV Bias is on). In Figure~\ref{fig:vamp:ffresp} and Table~\ref{tab:vamp:samples} we include this example along with two other prominent {\it vampire pixel} complexes (and others) located on ITL sensors in the Main Camera's focal plane to describe their individual properties. Inspection reveals a broad parameter space that describe these pixel complexes that can cause distortion in one way or another as soon as they are used to record cosmic sources: astrometric and shape transfer errors inferred from flat response, and background estimation or source confusion errors from the pixel complexes' phosphorescence properties!
+One prominent example of such a feature is located in the LSSTCam focal plane on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity (when HV Bias is on). In Figure~\ref{fig:vamp:ffresp} and Table~\ref{tab:vamp:samples} we include this example along with two other prominent {\it vampire pixel} complexes (and others) located on ITL sensors in LSSTCam to describe their individual properties. Inspection reveals a broad parameter space describing these pixel complexes that can cause distortion in one way or another as soon as they are used to record cosmic sources: astrometric and shape transfer errors inferred from flat response, and background estimation or source confusion errors from the pixel complexes' phosphorescence properties.
 
 %Because of the variation in how they appear, no doubt a flexible finding algorithm will need to be written.
 
@@ -2646,7 +2643,7 @@ One prominent example of such a feature is located in the Main Camera on R01\_S0
      \label{subfig:vamp_desc_R20_S20}
  \end{subfigure}  
  \newline
-\caption{Three prototypical {\it vampire pixel} complexes occurring in the Main Camera. Each of these have counterparts that appear in phosphorescence (transient dark). These are each described in Table XX. In R01\_S00, Two ``baby'' vampires appear in the 8:00 and 8:30 positions that each posess 300-400\% nominal flat response. The recorded phosphorescent counterparts for R03\_S10 and R20\_S20 are dependent on HV Bias (cf. Figs.~\ref{subfig:hvb_off_R03_S10} through \ref{subfig:hvb_on_R20_S20}) and should provide some constraints as to the pixel astrometric shifts at play near these {\it vampire pixel} complexes.}
+\caption{Three prototypical {\it vampire pixel} complexes occurring in LSSTCam. Each of these have counterparts that appear in phosphorescence (transient dark). These are each described in Table XX. In R01\_S00, Two ``baby'' vampires appear in the 8:00 and 8:30 positions that each posess 300-400\% nominal flat response. The recorded phosphorescent counterparts for R03\_S10 and R20\_S20 are dependent on HV Bias (cf. Figs.~\ref{subfig:hvb_off_R03_S10} through \ref{subfig:hvb_on_R20_S20}) and should provide some constraints as to the pixel astrometric shifts at play near these {\it vampire pixel} complexes.}
 \label{fig:vamp:ffresp}
 \end{figure}
 
@@ -2697,7 +2694,7 @@ There are a handful of dust spots seen in these images that were not included in
 %\end{itemize}
 %
 
-An imperfect listing of ITL sensors in the Main Camera focal-plane showing such {\it vampire pixel} complexes is given in a table in a later section (\S\ref{phosphorescence}, Tab.~\ref{qualitative_assessment:itl_sensors}). This list shows that 83 of the 88 Main Camera ITL sensors contain finite numbers of {\it vampire pixel} complexes, typically fewer than 30, revealed by spot-like phosphorescence counts. There would be significant overlaps with pixel complex lists generated using only stacks of flat-field response, which would also be sensitive to dust spots (in {\it dark pixels}), which are likely to have greater numbers (and may be partially salvageable depending on host surface and dust opacity). Meanwhile, {\it bright pixels} will also pinpoint the larger particulates that reflect light while also casting shadows (such cases are seen in the data, but their discussion is outside scope of this section). 
+An imperfect listing of ITL sensors in the Main Camera focal-plane showing such {\it vampire pixel} complexes is given in a table in Section~\ref{phosphorescence}, Table~\ref{qualitative_assessment:itl_sensors}). This list shows that 83 of the 88 Main Camera ITL sensors contain finite numbers of {\it vampire pixel} complexes, typically fewer than 30, revealed by spot-like phosphorescence counts. There would be significant overlaps with pixel complex lists generated using only stacks of flat-field response, which would also be sensitive to dust spots (in {\it dark pixels}), which are likely to have greater numbers (and may be partially salvageable depending on host surface and dust opacity). Meanwhile, {\it bright pixels} will also pinpoint the larger particulates that reflect light while also casting shadows (such cases are seen in the data, but their discussion is outside scope of this section). 
 
 Based on this listing, a total of 17 ITL sensors in the Main Camera host more than 30 {\it vampire pixel} complexes each. These identifications may be used to study in depth more fully the science impact of their transverse electric fields as well as their phosphorescent properties (when recording is preceded directly by illumination by a star in the previous image).
 
@@ -2773,7 +2770,7 @@ As a \href{https://rubin-obs.slack.com/archives/C07QJMQAP6E/p1731348605966989?th
 
 \subsection{Phosphorescence}\label{phosphorescence}
 
-The Run 7 {\it persistence} optimization process (cf. \S\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effects by reducing their clock swing voltages from 9.3\,V down to 8.0\,V, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This late discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
+The Run 7 {\it persistence} optimization process (cf. Sec.~\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effects by reducing their clock swing voltages from 9.3\,V down to 8.0\,V, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This late discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
 
 The ITL sensors with the largest memory effect were evaluated, and the following observations were made:
 \begin{itemize}
@@ -2948,7 +2945,7 @@ The blue bars show the activities that are needed while the red bar show the iss
 \gantttitlecalendar{year, month=name} \\
 
 % Events
-\ganttbar[bar/.append style={fill=red!50}]{CCS Issues \S \ref{sec:ccsmeltdown}}{2024-08-01}{2024-11-14} \\
+\ganttbar[bar/.append style={fill=red!50}]{CCS Issues Sec.~\ref{sec:ccsmeltdown}}{2024-08-01}{2024-11-14} \\
 \ganttbar{Rough Pumping}{2024-08-08}{2024-09-10} \\
 \ganttmilestone{PCS Chiller Below Room Temp}{2024-08-13}{2024-08-13} \\
 \ganttbar{Cryo Turbo Pump Braking Studies}{2024-08-14}{2024-08-27} \\
@@ -2956,27 +2953,26 @@ The blue bars show the activities that are needed while the red bar show the iss
 \ganttbar{Cryo Pressure Hold Test}{2024-08-28}{2024-08-28} \\
 \ganttmilestone{PCS Chiller Set to -25C}{2024-08-28}{2024-08-29} \\
 \ganttmilestone{REB Turn On}{2024-08-29}{2024-08-29} \\
-\ganttbar[bar/.append style={fill=red!50}]{RebPS Tripped (\S\ref{sec:rebpstripped})}{2024-08-29}{2024-09-20} \\
+\ganttbar[bar/.append style={fill=red!50}]{RebPS Tripped (Sec.~\ref{sec:rebpstripped})}{2024-08-29}{2024-09-20} \\
 %\ganttmilestone{RebPS 00 and 04 Tripped}{2024-08-29}{2024-08-29} \\
 \ganttbar{Cryo Evacuation}{2024-08-30}{2024-08-30} \\
 \ganttmilestone{Cryo Charging}{2024-09-03}{2024-09-03} \\
 \ganttmilestone{Cryo System Turned On}{2024-09-05}{2024-09-05} \\
 \ganttmilestone{Ion Pumps Turned On}{2024-09-05}{2024-09-05} \\
-%\ganttmilestone{RebPS P04 Tripped}{2024-09-09}{2024-09-09} \\
 \ganttbar{CCDs Turned On}{2024-09-11}{2024-09-24} \\
 \ganttbar{CCD HV Turn On}{2024-09-17}{2024-09-24} \\
 %\ganttbar{PS00 and PS01 Tripped}{2024-09-20}{2024-09-20} \\
 \ganttmilestone{HV for All CCDs}{2024-09-24}{2024-09-24} \\
 \ganttbar{Run 7}{2024-09-24}{2024-12-01} \\
-\ganttbar[bar/.append style={fill=red!50}]{FCS AC Problem \S \ref{sec:feslatchissue}}{2024-10-01}{2024-11-28} \\
-\ganttmilestone[bar/.append style={fill=red!50}]{PCS Chiller Degradation starts \S \ref{sec:pcsdegradation}}{2024-10-15}{2024-10-15} \\
+\ganttbar[bar/.append style={fill=red!50}]{FCS AC Problem Sec.~\ref{sec:feslatchissue}}{2024-10-01}{2024-11-28} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{PCS Chiller Degradation starts}{2024-10-15}{2024-10-15} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-18}{2024-10-18} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-23}{2024-10-23} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{Glycol Chiller 03 Refrigerant issue}{2024-10-27}{2024-10-27} \\
 \ganttmilestone{First Glycol Valve Closing}{2024-10-30}{2024-10-30} \\
-\ganttbar[bar/.append style={fill=red!50}]{PCS Chiller Degraded significantly}{2024-11-02}{2024-11-08} \\
+\ganttbar[bar/.append style={fill=red!50}]{PCS Chiller Degraded significantly Sec.~\ref{sec:pcsdegradation}}{2024-11-02}{2024-11-08} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{Summit Power Outage (Morning)}{2024-11-10}{2024-11-10} \\
-\ganttmilestone[bar/.append style={fill=red!50}]{REB PS trip and UT Leak Detector Fault \S \ref{sec:lowtempissue}}{2024-11-10}{2024-11-10} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{REB PS trip and UT Leak Detector Fault Sec.~\ref{sec:lowtempissue}}{2024-11-10}{2024-11-10} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{Summit Power Outage (Midnight)}{2024-11-11}{2024-11-11} \\
 \ganttmilestone{EO testing pause. PCS, CCDs, REBs Off}{2024-11-11}{2024-11-11} \\
 \ganttbar{FCS Work}{2024-11-11}{2024-11-21} \\
@@ -2986,7 +2982,7 @@ The blue bars show the activities that are needed while the red bar show the iss
 \ganttmilestone{PCS Chiller Turn On and Restore}{2024-11-28}{2024-11-28} \\
 \ganttmilestone{REB Turn On}{2024-11-28}{2024-11-28} \\
 \ganttmilestone{CCD Powered On}{2024-11-28}{2024-11-28} \\
-\ganttbar[bar/.append style={fill=red!50}]{DAQ Issues \S \ref{sec:ccsmeltdown}}{2024-11-28}{2024-11-29} \\
+\ganttbar[bar/.append style={fill=red!50}]{DAQ Issues Sec.~\ref{sec:ccsmeltdown}}{2024-11-28}{2024-11-29} \\
 \ganttmilestone{HV Restore}{2024-11-30}{2024-11-30} \\
 \ganttbar{EO and filter testing resumed}{2024-11-30}{2024-12-02} \\
 \ganttbar{Camera Warm Up}{2024-12-02}{2024-12-03} \\
@@ -3005,7 +3001,7 @@ Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of Cryo 
 \clearpage
 \subsection{Camera control network performance}\label{sec:ccsmeltdown}
 
-The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems ("CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
+The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using JGroups[http://jgroups.org/]. This system functioned reliably with the full camera at SLAC during the 2023 testing, as well as with AuxTel and ComCam in Chile, but after moving the full camera to Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems (``CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
 
 At SLAC the entire network was configured using a single network switch in the IR2 cleanroom, but the setup in Chile was significantly more complex with different network switches on different levels of the observatory. We worked closely with the Rubin Chilean IT team to understand the network configuration, and to track down the cause of the problem. Key observations indicated that while normal CCS traffic was light (3.5Mb/s), meltdowns generated traffic exceeding 2Gb/s. Tests revealed that moderate multicast traffic (100MB/s), deliberately created using iperf, could consistently induce the failures. 
 
@@ -3014,12 +3010,12 @@ Ultimately a number of changes were made:
 \begin{itemize}
 \item The network switch controlling the cleanroom was replaced, and the network configuration in general was simplified to reduce the number of different switches used by the camera.
 \item The total volume of network traffic generated by the camera was reduced and made more uniform over time by adjusting when large volume telemetry, in particular from the focal-plane and REB power systems, was published.
-\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ulitmately understood to be caused by "retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10Gb and 1Gb connections, so the control room servers (with 10Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1G) could handle.
+\item Extensive diagnostics were added to the camera control system to help us identify the cause of the meltdowns. This was ulitmately understood to be caused by ``retransmission storms" triggered by the mechansism built-in to jGroups to recover from packet loss, but which were in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10\,Gb and 1\,Gb connections, so the control room servers (with 10\,Gb connections) were able to generate far more traffic than the MOXA switch in the camera (1\,G) could handle.
 \item After discussing with the jGroups maintainers we upgraded the entire camera control system from jGroups4 to jGroups5, and added some custom code to reduce the maximum volume of retransmission messages.
-\item We discovered that the Beckhoff PTP module used in the camera shutter (lsstcam-shutter01-ptp) was only capable of handling 100Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
+\item We discovered that the Beckhoff PTP module used in the camera shutter (lsstcam-shutter01-ptp) was only capable of handling 100\,Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
 \end{itemize}
 
-Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we don't think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
+Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we do not think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
 
 \clearpage
 \subsection{REB PS power trip}\label{sec:rebpstripped}
@@ -3049,7 +3045,7 @@ With these fixes, the “stiff cable issue” is now resolved. AC1 has been re-q
 
 \clearpage
 \subsection{PCS degradation}\label{sec:pcsdegradation}
-After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, puttint the camera running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
+After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, resulting in LCCTCam running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1\linewidth]{figures//Issues/PCSTXVBulbAug11toOct17.png}
@@ -3072,7 +3068,7 @@ The definitive resolution has not yet been made. Further analysis is required.
 \subsection{R24/Reb0 and UT leak fault issue}\label{sec:lowtempissue}
 We were recovering operations from the PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
 
-After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: "Execution of command 'powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
+After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: ``Execution of command `powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
 
 We power cycled the RebPS P02, which contains R24/Reb0, and it tripped off again with the same error.
 

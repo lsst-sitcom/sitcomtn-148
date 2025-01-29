@@ -212,7 +212,12 @@ B protocols include a persistence acquisition, which is a saturated flat (usuall
 
 \clearpage
 \section{Phosphorescence}\label{appendix:phosphorescence}
-Because we have noticed or discovered the phosphorescence in ITL sensors recently, we have cobbled together the following data products, estimated to be appropriate for quantitative characterization of the systematics. Happily, the {\it persistence} seen in e2v sensors has been strongly suppressed with only parallel clock swing voltage adjustment ({\it cf.} Fig.~\ref{fig:ref:persistence} for performance pre-mitigation),  
+Because we have discovered the phosphorescence in ITL sensors only recently, we have here cobbled together the following data products. We believe they are appropriate for quantitative characterization of the systematics. Happily, the {\it persistence} seen in e2v sensors has been strongly suppressed with only parallel clock swing voltage adjustment ({\it cf.} Fig.~\ref{fig:ref:persistence} for post-mitigation performance). Although the working assumption of the {\it e2v persistence} was that it affected all pixels identically, this has not been demonstrated, and only sensor-averaged {\it persistence} expression were evaluated until recently. The current {\it persistence} mitigation performance ({\it cf.} Fig~\ref{fig:finalChar-persistenceAllLEDs}) provide indirect evidence of the spatial dependence to the {\it persistence}, revealed in the {\it skew} of the distributions quantified:\footnote{NB. It is still difficult to disentangle true {\it persistence} from residual charge read out following {\it clear} operations with finite inefficiency. However, it is believed that operating with {\bf NopSf} removes nearly all residual signal resulting from incomplete clear.} Especially with {\it y-band} illumination, the significant skew apparently indicates significant pixel-to-pixel variation in persistence, which hasn't yet received adequate attention as a mechanism that would fall within ISR scope.
+
+The {\it phosphorescence} seen in ITL sensors is also highly position dependent. This was first revealed plainly in the morphology of post-illumination dark images of R43\_S11 ({\it cf.} Fig.~\ref{subfig:hvb_on_R43_S11}) and R00\_SW1 ({\it cf.} Fig.~\ref{fig:phos:stains}). Clearly, the methodology of {\it persistence} estimation feedback, used while tuning clock swing, is not suitable for quantifying {\it phosphorescence} in the ITL set of sensors.
+
+
+
 \clearpage
 \input{phosphorescence_identification_appendix}
 \clearpage
