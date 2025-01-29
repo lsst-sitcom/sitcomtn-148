@@ -569,7 +569,15 @@ PTC noise differs by $\lesssim$ 0.1 e- on average for science sensors. Notably, 
 
 
 The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from  
-\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Fig. \ref{fig:ratio_bf_coeff_6_7} compares the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The Run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In {\tt eo\_pipe}, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
+\citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Figs. \ref{fig:hist_as_run6_7} and \ref{fig:ratio_bf_coeff_6_7} compare the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The Run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In {\tt eo\_pipe}, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
+
+\begin{figure}[ht]
+    \begin{centering}
+  \includegraphics[width=0.7\linewidth]{figures/hist_as_run6_7.png}
+
+  \caption{Distributions of $a_{00}$, $a_{01}$ and $a_{10}$ at run 6 and run 7. Those are very similar, except for 2 rafts, which had a lower drift electric field(45 V vs 50 V) at run 6. The ratios are displayed in fig \ref{fig:ratio_bf_coeff_6_7}.\label{fig:hist_as_run6_7}}
+  \end{centering}
+  \end{figure}
 
 \begin{figure}[ht]
   \begin{centering}
@@ -584,7 +592,7 @@ The brighter-fatter effect in CCDs refers to the phenomenon where brighter sourc
   \endminipage\hfill
   
 
-\caption{Ratio of amplifier measurements of $a_{00}$, $a_{01}$ and $a_{10}$ coefficients at Run 6 and Run 7. They are very consistent, except for two rafts (R10 and R11) where the high voltage was changed between the two runs. the sense \label{fig:ratio_bf_coeff_6_7}}
+\caption{Ratio of measurements of $a_{00}$, $a_{01}$ and $a_{10}$ coefficients (One per amplifier) at Run 6 and Run 7. They are very consistent, except for two rafts (R10 and R11) where the high voltage was changed between the two runs\label{fig:ratio_bf_coeff_6_7}}
   \end{centering}
   \end{figure}
 
