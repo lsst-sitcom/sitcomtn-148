@@ -1665,21 +1665,7 @@ Persistence {[}ADU{]}             &       None                         & \multic
 }
 \caption{Comparison of median parameter values on each amplifier between Run 7 initial and final measurements, separated by detector type.}
 \label{table:FinalChar-paramTable}
-\end{table}
-
-
-None            
-None            
-     
-None            
-          
-None            
-None            
-None            
-None            
-<2\%            
-None            
-None            
+\end{table}      
 
 
 
@@ -2386,7 +2372,7 @@ For any guider configuration, the ROI size is the same for all guide sensors, bu
 We also collected a set of data with ROIs of different sizes and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
 
 \subsubsection{Noise investigation}
-We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov.= 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
 
 %% jgt - here's the table with the configuratons and results (noise results omitted)
 \begin{longtable}{|c|c|c|c|c|c|c|}
