@@ -2,12 +2,12 @@
 The LSST Camera was constructed at the SLAC National Accelerator Laboratory in California, US.
 The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verified the Camera functionality and led to discoveries of non-ideal features and means of mitigating many of them \citep{2024SPIE13096E..1SR}.
 
-In May 2024, the Camera got loaded into a Boeing 747 in San Francisco, flew by air, and transported by trucks from Santiago to Cerro Pachón at 2700m in Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was transferred from the truck to a support structure which was then rolled into the cleanroom, known as the "white room", on Level 3 of the Vera C. Rubin Observatory. After connecting lines for power and cooling and verifying the integrity of the vaccum, cool down began by the end of August. Following this, the 7-th electro-optical testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA) was conducted from the end of September 2024 to the beginning of December 2024 in order to reverify its performance and further optimization. We collected 56066 exposures during this testing campaign.
+In May 2024,  LSSTCam was loaded into a Boeing 747 in San Francisco, flown by air, and transported by trucks from Santiago to Cerro Pachón at 2700\,m in Chile, where the Vera C. Rubin Observatory is being constructed. LSSTCam was transferred from the truck to a support structure which was then rolled into the clean room, known as the White Room, on Level 3 of the Vera C. Rubin Observatory. After connecting lines for power and cooling and verifying the integrity of the vacuum, cool down began in late August. Following this, the seventh series of electro-optical (EO) testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA), was conducted from the end of September 2024 to the beginning of December 2024 to reverify its performance and undertake further optimization. We collected 56,066 exposures during this testing campaign.
 
-This document details initial interim testing results, giving focus on the following points:
+This document details initial interim testing results, with a focus on several points:
 \begin{itemize}
-    \item What is the difference of testing setup? (Section \ref{electro-optical-setup})
-    \item Does the Camera after the transportation still perform as we checked out in California? (Section \ref{reverification})
+    \item What is the difference of testing setup? (Section~\ref{sec:electro-optical-setup})
+    \item Does the Camera after the transportation still perform as we checked out in California? (Section \ref{sec:reverification})
     \item Optimizations to the features that we found during previous EO testings such as persistence and bias instability. (Section \ref{sec:camera-optimization})
     \item How does the Camera perform after implementing those optimizations? (Section \ref{characterization-camera-stability})
     \item Investigating other features (Section \ref{sensor-features})
@@ -23,11 +23,11 @@ Figure \ref{fig:focal-plane-layout} shows the layout of the focal plane. The LSS
     \label{fig:focal-plane-layout}
 \end{figure}
 
-\section{Electro-optical setup}\label{electro-optical-setup}
+\section{Electro-optical setup}\label{sec:electro-optical-setup}
 
 \subsection{Run 7 optical modifications}\label{run-7-optical-modifications}
 
-For Run 7 in the white room on Level 3 our electro-optical test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources or expertise to configure it. As
+For Run 7 in the white room on Level 3 our EO test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources to configure it. As
 such, the majority of the testing was done with the CCOB Wide Beam
 projector \citep{2024SPIE13103E..0WU}. We did obtain an additional projector, the 4K projector, partway through Run 7 that will be discussed later. With the CCOB Wide Beam,
 we used a cone attached to the L1 cover as well as a shroud to create a
@@ -83,7 +83,7 @@ We found that the diffuser greatly reduced the `weather' (Fig.~\ref{fig:weather}
 
 
 
-The diffuser was installed for all B protocol and PTC runs (see Section \ref{reverification}) moving forward, being taken out only for pinhole projection runs and when using the 4K projector.
+The diffuser was installed for all B protocol and PTC runs (see Sec. \ref{sec:reverification}) moving forward, being taken out only for pinhole projection runs and when using the 4K projector.
 
 \subsection{Projector spots}\label{projector-spots}
 The addition to the projectors used for EO testing was a 4K projector (Epson LS11000 LCD), similar to those used in conference rooms. This projector was first tested at SLAC and arrived at the observatory about halfway through Run 7. It was used primarily as a spot projector, as the pinhole filter was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could illuminate all 3206 amplifiers instead of just the 21 illuminated by the
@@ -221,7 +221,7 @@ Clamps, so we had to tune/qualify the masking of those encoders directly on the 
 
 For both AC 1 and 2, the encoders of the five motors with the vendor issue on
 their LED masking have been successfully enveloped in a light-tight
-mask.
+mask (see Figure \ref{fig:CoderLight}).
 
 We note that the AC was turned off starting on 27 September 2024 at 21:15 UTC in the
 first part of Run 7. For the second part of Run 7 (i.e., after
@@ -229,6 +229,23 @@ mid-November) the AC was back on: as the AC 1 was back in LSSTCam with
 the new light masks in place on the motor encorders, we were able to take a new series of
 900\,s darks with the AC turned on and off, confirming that the light leak
 associated with the FES was eliminated (see right hand image of Fig.~\ref{fig:ac-light-leak}).
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{0.32\textwidth}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/Codershape.png}
+\end{subfigure}%
+\begin{subfigure}{0.32\textwidth}
+  \centering
+  \includegraphics[width=1\textwidth]{figures/Coderligth.png}
+\end{subfigure}
+\begin{subfigure}{0.32\textwidth}
+  \centering
+  \includegraphics[width=1\textwidth]{figures/X-OnlineCoder.png}
+\end{subfigure}
+\caption{On the left a picture of one AC coder . In the center a 60s exposure , with the same coder On , light in the room off : light leak is obvious , mainly associated to holes on the top of the coder cover . On the left , the X- Online coder after masking .}
+\label{fig:CoderLight}
+\end{figure}
 
 \begin{figure}[ht]
 \begin{centering}
@@ -271,12 +288,12 @@ To investigate how the filter affects the dark measurement, we took 900 second d
 
 \clearpage
 
-\section{Reverification}\label{reverification}
+\section{Reverification}\label{sec:reverification}
 
-All electro-optical (EO) camera test data is processed through the
+All EO camera test data is processed through the
 \underline{\href{https://github.com/lsst/cp_pipe/tree/main}{calibration products}} and
 \underline{\href{https://github.com/lsst-camera-dh/eo_pipe/tree/main}{electro-optical}}
-pipelines to extract key metrics from the data run. The key camera
+pipelines to extract key metrics from the data run. The key LSSTCam
 metrics from Run 7, and their comparison to previous runs are discussed
 below.
 
@@ -285,7 +302,7 @@ below.
 
 Among the motivations for these measurements, the primary concern is whether LSSTCam has
 maintained its performance characteristics between Run 6 and Run 7, since LSSTCam was transported from SLAC to Cerro Pachon.
-The testing condition is supposed to be identical; however as described in Section \ref{brighter-fatter-a00-coefficient}, two Rafts have slightly different voltages between two runs.
+The testing condition is supposed to be identical; however as described in Section \ref{brighter-fatter-a00-coefficient}, two rafts have slightly different voltages between two runs.
 
 \subsection{Background}\label{background}
 
@@ -296,7 +313,7 @@ image acquisition sequences.
 \tightlist
 \item
   B protocols: this acquisition sequence consists of the minimal set of
-  camera acquisitions for electro-optical testing, including
+  camera acquisitions for EO testing, including
 
   \begin{itemize}
   \tightlist
@@ -1206,7 +1223,7 @@ parallel overscan, will present the same clear issue.
 For e2v sensors, Run 7 finds the NopSf clear fully clear the leftover electrons at the image and the serial register interface.
 The NopSf clear grants that the first 50 rows of e2v CCDs that had leftover electrons from the previous exposure are now free of such contamination. NopSf will be the default clear method.
 
-For the ITL sensors, the improvement is still needed even if Nop or NopSf overcome the clear issue because there is the exception of R01\_S10 prevented the usage of those sequencers for ITL devices for Run 7. Note that
+For the ITL sensors, the improvement is still needed even if Nop or NopSf overcome the clear issue because there is the significant exception of R01\_S10 prevented the usage of those sequencers for ITL devices for Run 7. Note that
 aside from R01\_S10 the numbers of lines potentially
 ``not cleared" in ITL devices after saturated images are small (2 first rows), and they
 correspond to a CCD area that is difficult to use anyway (sensor edges with low
@@ -1278,13 +1295,13 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 \end{centering}
 \caption{Impact of disabling IDLE\_FLUSH on Divisadero tearing metric.}\label{IdleFlushEffect:divisadero}
 \end{figure}
-Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. The runs shown here are selected B protocol runs with different settings in chronological order. There were few changes: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some minor variations in each changes are also included such as changing the number of clears, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the clear). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the higher one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought the overall distribution down. The two distributions became indistinguishable, which indicates the majority of the Divisadero tearing for e2v is mitigated.
+Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. Shown there are selected B protocol runs with different settings in chronological order. A few changes of settings were tested: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some minor variations in each changes are also included such as changing the number of clears, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the clear). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the upper one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought down the overall distribution. The two distributions became indistinguishable, which indicates that the majority of the Divisadero tearing for e2v is mitigated.
 
-E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System. This fact confirms that the metric is consistent over power cycling of LSSTCam.
+E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System. The stability of the results confirms that the metric is consistent over power cycling of LSSTCam.
 
 \subsection{Summary}\label{summary:optimization}
 
-e2v sensors had persistence. We confirmed that narrowing the parallel swing voltage of the e2v CCD operation greatly reduced persistence. As penalties, we observed a full well reduction of 22\% and a \textasciitilde10\% increase of the
+Some e2v sensors exhibited persistence in dark images acquired after images with bright spot illumination. We confirmed that reducing the parallel swing voltage of the e2v CCD operation greatly reduced persistence. As penalties, we observed a full well reduction of 22\% and a \textasciitilde10\% increase of the
 brighter-fatter effect, essentially in an isotropic way.
 
 Sequencer files have undergone evolution for both ITL and e2v versions.
@@ -1324,12 +1341,12 @@ We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero
 \subsection{Final characterization}\label{finalCharacterization}
 \subsubsection{Background}\label{final_background}
 
-For a description of each quantity within this section and its acquisition process, refer to Section~\ref{reverification}. To compare initial and final camera metrics on Cerro Pachón, we used standard B protocol and dense red PTC data sets.
+For a description of each quantity within this section and how it is derived from the EO test data, refer to Section~\ref{sec:reverification}. To compare initial and final camera metrics on Cerro Pachón, we used standard B protocol and dense red PTC data sets (Tab.~\ref{tab:runTable}.
 
 \begin{table}[ht]
 \centering
 \caption{Reference runs for initial and final Run 7 comparisons}
-\label{runTable}
+\label{tab:runTable}
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Run Type} & \textbf{Cerro Pachón Initial Run} & \textbf{Cerro Pachón Final Run} \\ \hline
@@ -1339,13 +1356,13 @@ PTC        & E749  & E1881 \\ \hline
 \end{table}
 
 
-For the final operating parameters of LSSTCam for Run 7, see Section \ref{run-7-final-operating-parameters}.
+The final operating parameters of LSSTCam for Run 7 are presented in Section \ref{run-7-final-operating-parameters}.
 
 \subsubsection{Stability flat metrics}\label{sec:finalstability-flat-metrics}
 
 \paragraph{Serial CTI}\label{sec:finalChar-serial-cti}
 
-Serial CTI is extracted from the B protocols, and show high consistency between initial and final operating parameters. 
+Serial CTI is extracted from the B protocol runs, and show high consistency between initial and final operating parameters (Fig.~\ref{fig:finalChar-SCTI-5x5}). 
 
 \begin{figure}[ht]
     \centering
@@ -1354,12 +1371,12 @@ Serial CTI is extracted from the B protocols, and show high consistency between 
     \label{fig:finalChar-SCTI-5x5}
 \end{figure}
 
-The serial CTI for both sensor types is a noisy measurement, but serial CTI is not impacted by the changes to the camera operating configuration.
+The serial CTI for both sensor types is a noisy measurement, but serial CTI is not impacted by the changes to the LSSTCam operating configuration.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/SCTIComp.jpg}
-    \caption{Histogram of serial CTI measurements for initial and final Run 7 configurations, separated by detector type.}
+    \caption{Histogram of serial CTI measurements for initial and final Run 7 configurations, by detector type.}
     \label{fig:finalChar-SCTI-hist}
 \end{figure}
 
@@ -1368,7 +1385,7 @@ The serial CTI for both sensor types is a noisy measurement, but serial CTI is n
 
 \paragraph{Parallel CTI}\label{sec:finalChar-parallel-cti}
 
-Parallel CTI is extracted from the B protocols, and show high consistency between initial and final operating parameters. 
+Parallel CTI is extracted from the B protocol runs, and the values are consistent between initial and final Run 7 configurations. 
 
 \begin{figure}[ht]
     \centering
@@ -1377,7 +1394,7 @@ Parallel CTI is extracted from the B protocols, and show high consistency betwee
     \label{fig:finalChar-PCTI-5x5}
 \end{figure}
 
-Similar to serial CTI, the parallel CTI for both sensor types is a noisy measurement, but is not impacted by the changes to the camera operating configuration. 
+Similar to serial CTI, the parallel CTI for both sensor types is a noisy measurement, but is not impacted by the changes to the LSSTCam operating configuration (Fig.~\ref{fig:finalChar-PCTI-hist}). 
 
 \begin{figure}[ht]
     \centering
@@ -1392,16 +1409,16 @@ Similar to serial CTI, the parallel CTI for both sensor types is a noisy measure
 
 \paragraph{Dark current}\label{sec:finaldark-current}
 
-Dark current measurements were extracted from the B-protocol runs. Across the focal plane, dark current measurements are consistent with initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are local to the autochanger light leak, which was not mitigated until after E1880 (see Sec.~\ref{successful-autochanger-light-leaks-masking}). The physical source of the improvement in this raft is not clear.
+Dark current measurements were extracted from the B protocol runs. Across the focal plane, dark current measurements are consistent between the initial and final Run 7 runs. In a subset of rafts, a notable decrease in dark current is observed. These rafts are illuminated by the autochanger light leak, which was not mitigated until after E1880 (see Sec.~\ref{successful-autochanger-light-leaks-masking}). The physical source of the improvement in this raft is not clear.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E1071_E1880_DARK_CURRENT_MEDIAN.png}
-    \caption{Comparison of dark current measurements for initial and final Run 7 measurements. A marked decrease in dark current is present in rafts local to the autochanger light leak (see Sec.~\ref{successful-autochanger-light-leaks-masking})}
+    \caption{Comparison of dark currents for initial and final Run 7 measurements. A marked decrease in dark current is found for the rafts that were affected by the autochanger light leak during the initial run (see Sec.~\ref{successful-autochanger-light-leaks-masking})}
     \label{fig:finalChar-DarkCurrent-5x5}
 \end{figure}
 
-The reduction in dark current in the subset of rafts is indicative of successful light leak mitigation, and lowers the dark current on local rafts to levels similar to the rest of the focal plane.
+The reduction in dark current in the subset of rafts is indicative of successful light leak mitigation, and the final dark currents of those rafts are similar to the rest of the focal plane.
 \clearpage
 
 \paragraph{Bright defects}\label{final-bright-defects}
@@ -1454,7 +1471,7 @@ Early in LSST's design, a 90,000 e- full-well capacity was established as a requ
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/fullWellComparisons.jpg}
-    \caption{Comparisons of PTC turnoff and linearity turnoff for e2v science sensors. The runs analyzed here are the PTC runs noted in table \ref{runTable}. Note that both metrics have been gain corrected.}
+    \caption{Comparisons of PTC turnoff and linearity turnoff for e2v science sensors. The runs analyzed here are the PTC runs noted in table \ref{tab:runTable}. Note that both metrics have been gain corrected.}
     \label{fig:finalChar-fullWell}
 \end{figure}
 
@@ -1786,7 +1803,7 @@ To measure differences between defect masks from different runs, we can compare 
 
 %% Maybe add a figure/cartoon here that shows the process of combining the different masks
 
-Each individual defect mask can be scaled by $2^{n-1}$, where $\{n:1,2,3,... \}$ denotes an index associated with a defect mask. It is then possible to recover the uniqueness and stability of a defect mask by comparing the composition bitvalues to the mask indices. This analysis can be performed on dark and bright defects, enabling detailed study of defect evolution. 
+Each individual defect mask can be scaled by $2^{n-1}$, where $\{n:1,2,3,... \}$ denotes an index associated with a defect mask. It is then possible to recover the uniqueness and stability of a defect mask by comparing the composition bit values to the mask indices. This analysis can be performed on dark and bright defects, enabling detailed study of defect evolution. 
 
 \begin{table}[ht]\label{table:defectStability:measurements}
 \centering
@@ -2046,11 +2063,13 @@ amplifiers.
 
 Further studies are required to converge on the best mitigation
 strategy for the start of the LSST survey.
+
+
 \clearpage
 \subsection{Glow search}
 A long dark image can be used to identify glowing regions. Figure \ref{fig:glowsearch} shows an example of 900\,s dark after ISR application, with a very narrow stretch from -5 to -5 ADUs. 
 Obvious glow can be found in 3 guider sensors of S04\_SG0, S40\_SG1 and S44\_SG0 (see Fig.~\ref{fig:focal-plane-layout} to locate each sensor). They have been identified since their construction.
-Glowing regions can be observed in R12\_S22, R14\_S22, R23\_S11, as well, along with some other minor glowing regions elsewhere. These are so-called yellow corner, which we discsussed in Section \ref{sec:bias-stability-2}.
+Glowing regions can be observed in R12\_S22, R14\_S22, R23\_S11, as well, along with some other minor glowing regions elsewhere. These are so-called yellow corner, which we discussed in Section \ref{sec:bias-stability-2}.
 In R43\_S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50\,ADU/900\,s (Fig. \ref{fig:glowsearch:closeup}. This was also present in Run 6 data (e.g., in MC\_C\_20231102\_000085).
 Otherwise, we did not find any other glowing regions in the focal plane.
 
@@ -2098,16 +2117,16 @@ Next, we divide the mosaic images in each CCOB-wide LED by the illumination mode
 \clearpage
 \subsection{Full well measurements}\label{sec:bfullwellmeasurement}
 
-One of the goals of this run was to provide two initial metrics that could be used to determine what pixel value to set the SAT and SUSPECT pixel masks for on-sky data. These pixel masks flag saturated pixels (SAT) and those with levels great enough to be subject to non-linear effects (e.g. brighter-fatter effect) and need further inspection before being used (SUSPECT). For each amplifier, three values were considered: the maximum value recorded for a saturated detection, the PTC turnoff level, and the linearity turnoff (see Sec. \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these were determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (saturated pinhole values being higher/lower than the recorded maximum values for e2v/ITL detectors).
+One of the goals of Run 7 was to provide two initial metrics that could be used to determine what pixel value to set the SAT and SUSPECT pixel masks for on-sky data. These pixel masks flag saturated pixels (SAT) and those with levels great enough to be subject to non-linear effects (e.g. brighter-fatter effect) and need further inspection before being used (SUSPECT). For each amplifier, three values were considered: the maximum value recorded for a saturated detection, the PTC turnoff level, and the linearity turnoff (see Sec. \ref{linearity-and-ptc-turnoff} for the definitions used for the linearity and PTC turnoffs). Currently, the SUSPECT pixel mask is set by the PTC turnoff and the SAT pixel mask is set by the linearity turnoff. However, these were determined by flat illuminated images and during Run 6, we found that these values do not match what is found in saturated pinhole images (saturated pinhole values being higher (lower) than the recorded maximum values for e2v (ITL) detectors).
 
 As such, we decided to determine the full well levels using spot images and to compare them to those found with the flat illumination setup. The spots were made using the spot projector and are the circular spots as described in Section~\ref{projector-spots}. For these analyses, we took pairs of images ranging from exposure times of 1--100 seconds in one second intervals. To measure a spot, we applied a very loose threshold ($1\sigma$ above the background) to return the footprint and when evaluating the centroid of the spot.
 
 Once we found the spot and its centroid, we evaluated three different turnoff levels: spot photometry, spot PTC, and spot shape.
 For spot photometry, we used the spot centroid to place a 5\,pixel\footnote{We plotted the effect of changing the pixel aperture and found that the final turnoff value increases with aperture size. This is because this method is a proxy for measuring when the spot begins to bleed and when the bleeding exceeded the aperture size. As such, we decided to keep it small at 5 pixels.} aperture around the spot. We then plotted the aperture flux divided by the exposure time as a function of the measured peak of the spot as shown in Figure~\ref{fig:Spot_Metrics}. This resulted in an almost constant value until a sudden drop in the flux rate. As such, our metric for the turnoff is when it first starts dropping, whenever the constant value drops below $3\sigma$ of its scatter. This turnoff is shown in Figure\,\ref{fig:Spot_Metrics} as the black line.
 
-For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10$\times$10 pixel box around the core of the spot to use for our PTC. We then compared these 10$\times$10 pixel cutout between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find the turnoff level, we evaluated the derivative of the variance vs. spot mean and found the point that has the first large negative value. This curve and the turnoff are shown in Figure~\ref{fig:Spot_Metrics}.
+For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10$\times$10 pixel box around the core of the spot to use for our PTC. We then compared these 10$\times$10 pixel cutout between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find the turnoff level, we evaluated the derivative of the variance vs. spot mean and found the point that has the first large negative value (-2000 ADU/s/ADU). This curve and the turnoff are shown in Figure~\ref{fig:Spot_Metrics}.
 
-Lastly, we used the final full well measurement to evaluate the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cut out the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more consistent measurements.}. We then plotted this against the spot peak. Similarly to the spot photometry method, we were left with a constant value that drops off suddenly. We used an approach similar to that for the spot photometry measurements by finding the value that falls below $3\sigma$ of the constant value. The results from applying this method as well as the turnoff values are shown in Figure~\ref{fig:Spot_Metrics}.
+Lastly, we used the final full well measurement to evaluate the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cut out the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e1$\footnote{$e2$ is also measured but we found that $e1$ had more accurate measurements, mostly likely due to it being less sensitive to small changes in the spot shape.}. We then plotted this against the spot peak. Similarly to the spot photometry method, we were left with a constant value that drops off suddenly. We used an approach similar to that for the spot photometry measurements by finding the value that falls below $3\sigma$ of the constant value. The results from applying this method as well as the turnoff values are shown in Figure~\ref{fig:Spot_Metrics}.
 
 \begin{figure}[ht]
     \centering
@@ -2129,7 +2148,7 @@ We compare these results from Run 7 to the earlier results for flat images. Figu
 
 \subsubsection{Spot photometry model}
 
-While R21\_S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likley due to the fact the this detector is in the center of the focal plane compared to the ITLs on the outside. 
+While R21\_S21 gives good results for all three of these methods, the other detectors are not so clean, especially the ITLs. This is most likely because this detector is in the center of the focal plane compared to the ITLs on the outside. 
 The data for the ITLs is messier and the same assumptions and metrics for determining the cutoffs do not work as well. To overcome this, we started using models for the data. Right now, this has only been tested on the spot photometry, whose model takes the shape of
 \begin{equation*}
     Flux \ rate=a-\frac{1}{bx+c}
@@ -2137,7 +2156,7 @@ The data for the ITLs is messier and the same assumptions and metrics for determ
 where $a$, $b$, and $c$ are constants to be solved with the model via \texttt{scipy.optimize.curvefit} and $x$ is the peak value of the spot in ADU. We then classify the turnoff in two ways as when the model drops by 0.1\% and also when the derivative of the model drops below a certain amount. Figure XXX shows an example of the data, corresponding model, and the two turnoffs.
 
 
-This also needs some tuning but should be less susceptible to changes across the focal plane (i.e. nosier data and different spot light levels). The work to apply this to whole focal plane is still on-going.
+This also needs some tuning but should be less susceptible to changes across the focal plane (i.e. noisier data and different spot light levels). The work to apply this to whole focal plane is still on-going.
 % Figure XXX then compares this with the linearity turnoff for the whole focal plane.
 
 \clearpage
@@ -2150,7 +2169,7 @@ This also needs some tuning but should be less susceptible to changes across the
 
 \end{figure}
 
-PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, obtained using the CCOB wide-beam described in \ref{electro-optical-setup}. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
+PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, obtained using the CCOB wide-beam described in Section~\ref{sec:electro-optical-setup}. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
 
 For the nonlinearity study, we use the average signal measured on each CCD channel separately, using 2D overscan subtraction and masking outlier pixels. The photodiode signal is simply bias-subtracted and time-integrated. 
 
@@ -2168,7 +2187,8 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5 \% of the data points (this small rates validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
 
-
+\subsection{ADC differential nonlinearity}
+ADC differential nonlinearity (DNL) was studied in earlier runs and will be analyzed separately for Run 7.
 
 
 \subsection{Gain stability}\label{sec:gain-stability-2}
@@ -2202,11 +2222,11 @@ Here we focus on E1496 and E1367 which have a difference in the temperature cond
 \end{minipage}
 \end{figure}
 Figure \ref{fig:relgainparamE1496} shows the derived 
- relative gain change for one amplifier (R11/S00/C11) over time alogn with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and led1temp (the temperatue measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
+ relative gain change for one amplifier (R11/S00/C11) over time along with other representative parameters such as an aggregated REB temperature (TEMP6+TEMP10)/2, CCD temp, and LED1TEMP (the temperature measured at the LED board on the CCOB projector). The REB temp was determined as a good proxy for the relative gain change in the past run.
  As the intention of the acquisition condition, the REB temperature was almost maintained at the same level within 0.2 deg, with a slight decreasing slope probably due to the change in the thermal load and stabilization process of the entire thermal system.
- At the same time the gain slowly increase over time, while CCD temp is kept at the same and the LED temperatures was not controlled but kept with 0.1C.
+ At the same time the gain slowly increased over time, while the CCD temperature was kept steady and the LED temperature was not controlled but stayed within an 0.1\,C range.
 
- Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain and the REB temperature, with color coding by the speed of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result. The distribution of the data points has a more complicated structure than the linear relationship, while there is no obvious change in either CCD nor LED temperatures. 
+ Figure \ref{fig:gaintempE1496} shows the relationship between the relative gain and the REB temperature, with color coding by the rate of temperature change, along with its fit. A reference line from the past result is overlaid with an arbitrary vertical offset. Clearly, the gain-temp relationship is steeper than the previous result. The distribution of the data points has a more complicated structure than the linear relationship, while there is no obvious change in either CCD nor LED temperatures. 
 
 
 
@@ -2233,7 +2253,7 @@ Clearly, Figure \ref{fig:gaintempE1367} shows not only temperature dependency bu
 During this run the LED board temp also decreased by more than 1 deg over the testing period.
 
 
-The reason why the relationship becomes much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temperature, 2) illumination from the LED is somehow changing over time, which is not correlated with the LED temperature, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As hysteresis is observed, the possibility 1) is definitely present but it cannot explain the gain temp change in the constant temperature. Possibility 2) is unlikely given the fact that the complicated relationship was observed as well in Run 6. Possibility 3) could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to turbulence of the air in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For possibility 4), we made a visual check in a different period and we did not find anything obvious. 
+The reason why the relationship becomes much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temperature, 2) illumination from the LED is somehow changing over time, which is not correlated with the LED temperature, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As hysteresis is observed, the possibility 1) is definitely present but it cannot explain the gain changes when the temperature is constant. Possibility 2) is unlikely given the fact that the complicated relationship was observed as well in Run 6. Possibility 3) could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to turbulence of the air in the lens volume. However, it is not clear if any kind of long-term trending over 6 hours can be explained by this. For possibility 4), we made a visual check in a different period and we did not find anything obvious. 
 
 Gain changes can be split into 2 categories: global or local in an amplifier.  A global coherent change can be, in principle, correctable as it is degenerate with the atmospheric transparency variations, which will be corrected by the calibration process. A local amplifier-by-amplifier change would be a more serious issue because the number of stars in an amplifier segment might not be sufficient for making precise photometric calibration statistically. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1496} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
 
@@ -2348,7 +2368,7 @@ Following the studies done for the Run 6, this effect will be extremely difficul
 \end{figure}
 
 \subsection{Guider operation}\label{guider-operation}
-Beginning with Run 7, it became common to run the guider in its nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
+Beginning with Run 7, it became common to run the corner rafts in their nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
 
 \subsubsection{Guide mode}
 Because different regions of pixels on each GREB sensor can be read out, the guider requires a version of GREB firmware that implements a separate sequencer for each sensor. When in science or full frame mode, there is only one sequencer in the GREB. However, because the GREB can be configured to read out a different portion of each sensor, special firmware must be loaded that contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected to the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation. 
@@ -2364,7 +2384,7 @@ Switching from science to guide mode has several steps:
 Currently, the GREBs will boot into the science firmware on power up, but we are expecting to change this default to guider firmware prior to operations. Similarly, though powering the HV bias off will always be necessary when rebooting the GREB, as it is controlled by the GREB firmware, but powering off the sensor was done out of an abundance of caution. If it becomes common to switch back and forth, which is not expected, it may be worth investigating whether this is actually necessary.
 
 \subsubsection{Guider timing}
-The guider is designed to operate in a continuous loop, alternating between integration and readout. To first order, the time between stamps is the sum of the integration time and the sequencer execution time. The sequencer execution time varies with the ROI size in a way that is fixed for a version of the sequencer program. However, due to the details of the DAQ implementation, there is also a contribution from transporting the data within the embedded DAQ processors. Figure \ref{fig:guider_timing} shows the inter-stamp timing for all guide-specific runs in the nominal ROI configuration. The beginning of the readout of each sensor is synchronized to +/- one system clock cycle (10\,ns) using the same mechanism as science readout. 
+The guider is designed to operate in a continuous loop, alternating between integration and readout. A set of integration and readout makes an image, a stamp. To first order, the time between stamps is the sum of the integration time and the sequencer execution time. The sequencer execution time varies with the ROI size in a way that is fixed for a version of the sequencer program, since the ROI size determines the number of parallel/serial transfers. However, due to the details of the DAQ implementation, there is also a contribution from transporting the data within the embedded DAQ processors. Figure \ref{fig:guider_timing} shows the inter-stamp timing for all guide-specific runs in the nominal ROI configuration. The beginning of the readout of each sensor is synchronized to +/- one system clock cycle (10\,ns) using the same mechanism as science readout. 
 
 \begin{figure}[ht]
     \centering
@@ -2380,7 +2400,7 @@ For any guider configuration, the ROI size is the same for all guide sensors, bu
 We also collected a set of data with ROIs of different sizes and with different integration times to measure the guiding rate and noise. These were single sensor configurations to be compared with the nominal size baseline from the noise study configurations. ROIs can also be specified to span sensor segment boundaries, and so a configuration was defined for that.
 
 \subsubsection{Noise investigation}
-We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values. This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
+We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values (Section \ref{sec:guider:highgain}). This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
 
 %% jgt - here's the table with the configuratons and results (noise results omitted)
 \begin{longtable}{|c|c|c|c|c|c|c|}
@@ -2422,7 +2442,7 @@ We measure the noise level of ROIs acquired under various configurations, shown 
 \end{longtable}
 
 \subsubsection*{Impact on science sensors}\label{sec:guiderimpactonscience}
-We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sensors in guider mode), to study the impact on science sensors from running guide sensors in guider mode. Fig.~\ref{fig:guider_noise} demonstrates that the read noise is consistent between the two runs.
+We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sensors in guider mode), to study the impact on science sensors from running guide sensors in guider mode. Fig.~\ref{fig:guider_noise} demonstrates that the read noise is mostly consistent between the two runs. The only exception is R01\_S02 on which a few channels have slightly lower read noise in E1290, and R01\_S11 C00 which has a higher noise in E1290. Fig.~\ref{fig:guider_noise_outliers} shows the read noise comparison of R01.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{figures/E1110_E1290_READ_NOISE.png}
@@ -2430,34 +2450,43 @@ We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sens
     \label{fig:guider_noise}
 \end{figure}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/E1110_E1290_READ_NOISE_outliers.png}
+    \caption{Read noise of R01 compared between run E1110 (guiders in imaging mode) and E1290 (guiders in guiding mode). Sensor S02 has lower read noises in E1290, and S11\_C00 has a higher noise in E1290.}
+    \label{fig:guider_noise_outliers}
+\end{figure}
+
+\clearpage
 \section{Sensor features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
-Tree rings is circular variations in silicon doping concentration which can be observed in flat images. The treerings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe an attempt to measure tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
-\subsubsection{Center of the tree ring}
-From the past study, the center of tree rings is known to have 4 distinct positions with respect to each sensor. This is because four CCD are cut from one wafer. 
-So far we have been using the four different average positions for each center of the Tree ring, according to the pattern direction, because it was difficult to make measurements of the tree rings for all the sensors due to their low amplitude, and ``low contrast" with respect to other features such as ``CMB pattern. However we have new data with 0\,V of back bias voltage with the diffuser installed (Section \ref{differences-from-previous-runs} and Figure \ref{fig:diffuser}), which increases the amplitude of the treering, allowing us to revisit the measurement of each individual center (E1050 for red, E1052 for blue, E1055 for nm850, E1056 for nm960).
+Tree rings are concentric variations in silicon doping concentration which can be observed in flat images. The tree rings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe an attempt to measure the tree rings for each sensor from the laboratory data taken in Run 6 and Run 7.
+\subsubsection{Centers of the tree rings}
+From the characterization study cited above, the center of the tree rings pattern is known to have four possible positions with respect to the center of a sensor. This is because four CCD are cut from one wafer. 
+So far we have been using the four different average positions for each center of the Tree ring, according to the pattern direction, because measuring the tree ring patterns for each sensor is difficult due to their low amplitude, and ``low contrast" with respect to other features such as the ``CMB" pattern. However we have new data with 0\,V of back bias voltage with the diffuser installed (Sec.~\ref{differences-from-previous-runs} and Fig. \ref{fig:diffuser}), which increases the amplitude of the tree ring pattern in the images, allowing us to revisit the measurement of each individual center (E1050 for red, E1052 for blue, E1055 for nm850, E1056 for nm960).
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/TR_centers.png}
 \end{centering}
-\caption{The center of the Tree Rings were measured for all 189 LSST sensors. Red point indicates the average center on each direction.}
+\caption{The center of the tree rings pattern measured for all 189 LSSTCam science sensors. Red points indicate the average center for each direction.}
 \label{fig:tree_ring_center}
 \end{figure}
-Figure~\ref{fig:tree_ring_center} shows the positions of the Tree ring centers measured for the 189 sensors. All the measurements are concentrated around each averaged position, however, as now we have better individual measurements, we decided to use center of each sensor instead of the average value. 
+
+Figure~\ref{fig:tree_ring_center} shows the positions of the tree ring centers measured for the 189 science sensors. All the measurements are concentrated around each averaged position, however, as now we have better individual measurements, we decided to use center of each sensor instead of the average value. 
 
 
 \subsubsection{Radial study}
 Radial study for Tree rings pattern has been done to see if the rings are perfectly circular in shape. 
 
 %This is the image of transforming the 
-Figure~\ref{fig:tree-ring-radial-transform} illustrates the transformation of a flat image into a radial profile plot as the y axis to be the distance from the center of the rings. 
+Figure~\ref{fig:tree-ring-radial-transform} illustrates the transformation of a flat image into a radial profile plot as the x axis to be the distance from the center of the rings. 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/TR_subtraction.png}
-\caption{Folding image on diagonal line from the center of the ring, and subtracting from each other.}
+\caption{A flipped image on diagonal line from the center of the ring, and subtracting from each other.}
 \label{fig:tree-ring-radial-transform}
 \end{figure}
 
@@ -2595,8 +2624,7 @@ on the backside electrode could reproduce the sort of charge redistribution obse
 
 Since ComCam on-sky data became available, more attention has been paid to these features and how they may impact source detection and photometric determination of nearby field sources. Luckily, {\it vampire pixels} are less common on average in the 88 ITL sensors of LSSTCam than they are in the nine sensors of ComCam. 
 
-\subsubsection{LSSTCam vampire pixel
-features}\label{lsstcam-vampire-pixel-features}
+\subsubsection{LSSTCam vampire pixel features}\label{lsstcam-vampire-pixel-features}
 
 One prominent example of such a feature is located in the LSSTCam focal plane on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity (when HV Bias is on). In Figure~\ref{fig:vamp:ffresp} and Table~\ref{tab:vamp:samples} we include this example along with two other prominent {\it vampire pixel} complexes (and others) located on ITL sensors in LSSTCam to describe their individual properties. Inspection reveals a broad parameter space describing these pixel complexes that can cause distortion in one way or another as soon as they are used to record cosmic sources: astrometric and shape transfer errors inferred from flat response, and background estimation or source confusion errors from the pixel complexes' phosphorescence properties.
 
@@ -2756,7 +2784,7 @@ As a \href{https://rubin-obs.slack.com/archives/C07QJMQAP6E/p1731348605966989?th
 
 \subsection{Phosphorescence}\label{phosphorescence}
 
-The Run 7 {\it persistence} optimization process (cf. Sec.~\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effects by reducing their clock swing voltages from 9.3\,V down to 8.0\,V, a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This late discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
+The Run 7 {\it persistence} optimization process (cf. Sec.~\ref{persistence-optimization-1}) used a short EO image acquisition sequence and analysis script, which rapidly provided persistence performance metrics as feedback for each configuration tested. Thus, as soon as the e2v sensors were shown to be nearly free of {\it their} undesirable effects by reducing their clock swing voltages from 9.3\,V down to 8.0\,V (Section \ref{sec:persistence-optimization}), a similar persistence (or memory effect) was immediately noticed, affecting a subset of the ITL sensors. This late discovery gained immediate interest for at least two reasons: (1) that it had not been detected in prior EO campaigns, and (2) that the new memory effect on certain ITL sensors was morphologically distinct from what had just been cured on the e2vs. 
 
 The ITL sensors with the largest memory effect were evaluated, and the following observations were made:
 \begin{itemize}
@@ -2947,13 +2975,13 @@ The blue bars show the activities that are needed while the red bar show the iss
 \ganttmilestone{Ion Pumps Turned On}{2024-09-05}{2024-09-05} \\
 \ganttbar{CCDs Turned On}{2024-09-11}{2024-09-24} \\
 \ganttbar{CCD HV Turn On}{2024-09-17}{2024-09-24} \\
-%\ganttbar{PS00 and PS01 Tripped}{2024-09-20}{2024-09-20} \\
+\ganttbar{PS0[01] hit the high temp limit}{2024-09-20}{2024-09-20} \\
 \ganttmilestone{HV for All CCDs}{2024-09-24}{2024-09-24} \\
 \ganttbar{Run 7}{2024-09-24}{2024-12-01} \\
 \ganttbar[bar/.append style={fill=red!50}]{FCS AC Problem Sec.~\ref{sec:feslatchissue}}{2024-10-01}{2024-11-28} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{PCS Chiller Degradation starts}{2024-10-15}{2024-10-15} \\
-\ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-18}{2024-10-18} \\
-\ganttmilestone[bar/.append style={fill=red!50}]{R01/Reb[12] Tripped}{2024-10-23}{2024-10-23} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{Overexposure tripped off R01/Reb[12]}{2024-10-18}{2024-10-18} \\
+\ganttmilestone[bar/.append style={fill=red!50}]{Overexposure tripped off R01/Reb[12]}{2024-10-23}{2024-10-23} \\
 \ganttmilestone[bar/.append style={fill=red!50}]{Glycol Chiller 03 Refrigerant issue}{2024-10-27}{2024-10-27} \\
 \ganttmilestone{First Glycol Valve Closing}{2024-10-30}{2024-10-30} \\
 \ganttbar[bar/.append style={fill=red!50}]{PCS Chiller Degraded significantly Sec.~\ref{sec:pcsdegradation}}{2024-11-02}{2024-11-08} \\
@@ -3031,7 +3059,7 @@ With these fixes, the “stiff cable issue” is now resolved. AC1 has been re-q
 
 \clearpage
 \subsection{PCS degradation}\label{sec:pcsdegradation}
-After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, resulting in LCCTCam running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
+After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, resulting in LSSTCam running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1\linewidth]{figures//Issues/PCSTXVBulbAug11toOct17.png}
@@ -3052,7 +3080,7 @@ The definitive resolution has not yet been made. Further analysis is required.
 
 \clearpage
 \subsection{R24/Reb0 and UT leak fault issue}\label{sec:lowtempissue}
-We were recovering operations from the PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
+We were recovering operations from the Pumped Coolant System (PCS) PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
 
 After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: ``Execution of command `powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
 
@@ -3091,7 +3119,7 @@ Restarting Data store RCEs finally brought back the system normal.
 \href{https://rubinobs.atlassian.net/browse/FRACAS-256}{A FRACAS ticket 256} is filed. 
 
 \clearpage
-\subsection{Guider high gain issue}
+\subsection{Guider high gain issue}\label{sec:guider:highgain}
 %When the guider sensors run in guider mode, they may enter an abnormal state with gain values $\sim10$ times as large as in a normal state. (Jackie is looking at all guider data to find high-gain state files).
 
 The guider sensor encountered issues while operating in guider mode, as it failed to produce reasonable images. The bias level was abnormally low, measured at 1.0–1.5k instead of the expected ~15k. Additionally, the CCOB flashes were not recorded correctly. Although two flashes of 1.2 seconds each occurred, the sensor did not provide a meaningful response. At the time, the guider was configured with an integration time of 50 milliseconds and a readout time of approximately 70 milliseconds. The sensor should have displayed flat illumination across several frames, but the mean image value remained unchanged, with only minimal variations in the standard deviation and maximum values.
