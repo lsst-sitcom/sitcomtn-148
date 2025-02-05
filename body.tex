@@ -2,7 +2,7 @@
 The LSST Camera was constructed at the SLAC National Accelerator Laboratory in California, US.
 The functionality and performance of the Camera had been studied in various integration phases from two rafts testing (Run 1; March 2019--April 2019 and Run 2; June 2019), nine rafts testing (Run 3; Oct 2019--Nov 2019), the full focal plane testing (Run4; Aug 2020--Nov 2020 and Jan 2020--Feb 2021), the full focal plane with the utility trunk (Run 5; Nov 2021--Jan 2022), and the full Camera testing (Run 6a; June 2023 and Run 6b; Oct 2023--Oct 2024). These testings verified the Camera functionality and led to discoveries of non-ideal features and means of mitigating many of them \citep{2024SPIE13096E..1SR}.
 
-In May 2024,  LSSTCam was loaded into a Boeing 747 in San Francisco, flown by air, and transported by trucks from Santiago to Cerro Pachón at 2700\,m in Chile, where the Vera C. Rubin Observatory is being constructed. LSSTCam was transferred from the truck to a support structure which was then rolled into the clean room, known as the White Room, on Level 3 of the Vera C. Rubin Observatory. After connecting lines for power and cooling and verifying the integrity of the vacuum, cool down began in late August. Following this, the seventh series of electro-optical (EO) testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA), was conducted from the end of September 2024 to the beginning of December 2024 to reverify its performance and undertake further optimization. We collected 56,066 exposures during this testing campaign.
+In May 2024,  LSST Camera was loaded into a Boeing 747 in San Francisco, flown by air, and transported by trucks from Santiago to Cerro Pachón at 2700\,m in Chile, where the Vera C. Rubin Observatory is being constructed. LSST Camera was transferred from the truck to a support structure which was then rolled into the clean room, known as the White Room, on Level 3 of the Vera C. Rubin Observatory. After connecting lines for power and cooling and verifying the integrity of the vacuum, cool down began in late August. Following this, the seventh series of electro-optical (EO) testing, Run 7, prior to installation on the Telescope Mount Assembly (TMA), was conducted from the end of September 2024 to the beginning of December 2024 to reverify its performance and undertake further optimization. We collected 56,066 exposures during this testing campaign.
 
 This document details initial interim testing results, with a focus on several points:
 \begin{itemize}
@@ -37,7 +37,7 @@ dark environment (Fig.~\ref{fig:LSSTCam_config}).
 \centering
     \includegraphics[width=0.6\textwidth]{figures/Camera_Shroud.jpg} 
     \includegraphics[width=0.35\textwidth]{figures/CCOB_Wide_Shroud.jpg} \\
-\caption{(left) Final shroud configuration of LSSTCam in Level 3 to reduce light leaks. (right) CCOB Wide Beam attached to the cone and shrouded.}
+\caption{(left) Final shroud configuration of LSST Camera in Level 3 to reduce light leaks. (right) CCOB Wide Beam attached to the cone and shrouded.}
 \label{fig:LSSTCam_config}
 \end{figure}
 
@@ -134,7 +134,7 @@ leaks}\label{dark-current-and-light-leaks}
 \subsubsection{Light leak mitigation with shrouding the camera
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
 
-One of the first tests we attempted with LSSTCam was measuring dark
+One of the first tests we attempted with LSST Camera was measuring dark
 current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Figure \ref{fig:L1_Gaps} shows the gaps that we could see between L1 and its cover. The inaccessible locations were later covered with shroud.
 
 \begin{figure}[htbp]
@@ -147,10 +147,11 @@ current and sources of light leaks in the camera body. Before beginning we cover
 \end{figure}
 
 Once these were sealed, we took some initial measurements and then
-started to cover the LSSTCam body with a Thorlabs blackout fabric shroud (BK5). Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
+started to cover the LSST Camera body with a Thorlabs blackout fabric shroud (BK5). Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
 camera.
 We also found light leaks where the light cone attached to L1 was housed, and from the Utility Trunk, which were covered with shroud. Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark currents, and comments on what changed during the chasing of the leaks.
 
+{\small
 \begin{longtable}[ht]{|l|c|l|l|l|}
 \caption{Summary of the 15\,s dark exposures, the different conditions, and the resulting dark current.
 Exposure ID is preceded by ``MC\_C202409".  The shroud was in place for each of these measurements.  (``Initial Covering" was just the CCOB cone and around the L1 cover.) \label{tab:leak_chasing}} \\
@@ -175,6 +176,7 @@ Exposure ID is preceded by ``MC\_C202409".  The shroud was in place for each of 
 10\_000031 & 0.03 & On & Open &  + Blanket over AND under the FCS + UT \\
 
 \end{longtable}
+}
 
 
 \subsubsection{Filter Exchange System Autochanger light leak
@@ -186,7 +188,7 @@ in summer 2023 and a localized faint light source of up to
 the AC.
 
 In the AC this voltage is used to power some probes and all
-controllers. In February 2024, as AC-1 was extracted from LSSTCam for
+controllers. In February 2024, as AC-1 was extracted from LSST Camera for
 global maintenance, a direct investigation to localize the light
 source was performed unsuccessfully. A light source in the AC
 was not expected, as in the AC all controllers' LEDs have
@@ -204,15 +206,15 @@ of the five main motors of the AC had only partial documentation from the
 vendor that did not mention the presence of LEDs. After interaction with the
 vendor, the encoders were understood to contain \textasciitilde700\,nm LEDs. The hypothesis of \textasciitilde700\,nm LED sources has been
 found compatible with the observation as no AC light leaks were detected
-using various filters (g, r, and y) in LSSTCam at the start of Run 7 (g, r, and y
+using various filters (g, r, and y ; all opaque at 700 nm ) in LSST Camera at the start of Run 7 (g, r, and y
 filters). A dedicated test in Paris using an AC spare encoder and a
 precision photometric set-up allowed identification of the leak in the masking of
-those LEDs in the vendor packaging. A complementary masking method based
+those LEDs in the vendor packaging (see Figure \ref{fig:CoderLight}). A complementary masking method based
 on a 3D printed part + tape + cable tie was qualified in Paris.  It was
-found to mask the light leak and to be safe (all parts correctly secured).
+found to mask the light leak and to be safe (all parts correctly secured, see Figure \ref{fig:CoderLight})).
 
 In November 2024, we masked all the lights in the back of the Level 3 white
-room (not the part containing LSSTCam) to set up a high-quality dark room
+room (not the part containing LSST Camera) to set up a high-quality dark room
 allowing a direct observation with a CMOS camera of the light leak on
 the AC2 motor encoders. The level of darkness reached allowed us to
 validate the quality of the light masking of the AC encoders. Notice that the
@@ -225,7 +227,7 @@ mask (see Figure \ref{fig:CoderLight}).
 
 We note that the AC was turned off starting on 27 September 2024 at 21:15 UTC in the
 first part of Run 7. For the second part of Run 7 (i.e., after
-mid-November) the AC was back on: as the AC 1 was back in LSSTCam with
+mid-November) the AC was back on: as the AC 1 was back in LSST Camera with
 the new light masks in place on the motor encorders, we were able to take a new series of
 900\,s darks with the AC turned on and off, confirming that the light leak
 associated with the FES was eliminated (see right-hand image of Fig.~\ref{fig:ac-light-leak}).
@@ -293,20 +295,20 @@ To investigate how the filter affects the dark measurement, we took 900 second d
 All EO camera test data is processed through the
 \underline{\href{https://github.com/lsst/cp_pipe/tree/main}{calibration products}} and
 \underline{\href{https://github.com/lsst-camera-dh/eo_pipe/tree/main}{electro-optical}}
-pipelines to extract key metrics from the data run. The key LSSTCam
+pipelines to extract key metrics from the data run. The key LSST Camera
 metrics from Run 7, and their comparison to previous runs are discussed
 below.
 
 
 
 
-Among the motivations for these measurements, the primary concern is whether LSSTCam has
-maintained its performance characteristics between Run 6 and Run 7, since LSSTCam was transported from SLAC to Cerro Pachon.
+Among the motivations for these measurements, the primary concern is whether LSST Camera has
+maintained its performance characteristics between Run 6 and Run 7, since LSST Camera was transported from SLAC to Cerro Pachon.
 The testing condition is supposed to be identical; however as described in Section \ref{brighter-fatter-a00-coefficient}, two rafts have slightly different voltages between two runs.
 
 \subsection{Background}\label{background}
 
-Initial characterization studies performed on LSSTCam during Run 7 primarily used two
+Initial characterization studies performed on LSST Camera during Run 7 primarily used two
 image acquisition sequences.
 
 \begin{itemize}
@@ -361,7 +363,7 @@ PTC        & 13591 & E749 \\
 \end{tabular}
 \end{table}
 
-The naming of the EO runs was established during initial LSSTCam
+The naming of the EO runs was established during initial LSST Camera
 integration and testing. The final SLAC IR2 run from November 2023 was
 named ``Run 6", while the data acquisitions from Cerro Pachon from September through December 2024 are considered ``Run 7". Additionally, individual EO acquisitions are tagged with a run identifier. This is commonly referred to as a Run ID. For all SLAC runs, the run identifier was a five digit numeric code, while the Cerro Pachon runs were ``E-numbers" that started with a capital E followed by a numeric code.
 
@@ -371,7 +373,7 @@ named ``Run 6", while the data acquisitions from Cerro Pachon from September thr
 \subsubsection{Charge transfer
 inefficiency}\label{charge-transfer-inefficiency}
 
-CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from row to row during readout, and appears as trailing charge in the image area. Consequences of high CTI include loss of charge, distorted signals in the direction of parallel transfer, and reduced sensitivity in low light imaging. CTI measurements are made using the EPER method \citep{2021JATIS...7d8002S}, for which the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region is evaluated. In the context of LSSTCam, we measure CTI along both the serial and parallel directions.
+CTI, or charge transfer inefficiency, measures the fraction of charge that fails to transfer from row to row during readout, and appears as trailing charge in the image area. Consequences of high CTI include loss of charge, distorted signals in the direction of parallel transfer, and reduced sensitivity in low light imaging. CTI measurements are made using the EPER method \citep{2021JATIS...7d8002S}, for which the ratio of the residual charge in the overscan pixels to the total signal charge in the imaging region is evaluated. In the context of LSST Camera, we measure CTI along both the serial and parallel directions.
 
 \paragraph{Serial CTI}\label{serial-cti}
 
@@ -382,7 +384,7 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 \end{centering}
 \end{figure}
 
-The CTI along the serial registers of the amplifier segments of the LSSTCam CCDs is consistent between Run 6 and
+The CTI along the serial registers of the amplifier segments of the LSST Camera CCDs is consistent between Run 6 and
 Run 7 (Fig.~\ref{fig:serial-cti}). Both sensor types show low CTI,
 span a range  of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
 by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}). 
@@ -433,7 +435,7 @@ a common method to reduce it in sensitive imaging applications. Dark
 current introduces noise into an image, particularly in low-sky background conditions in long exposures.
 The measurement of dark includes the dark current and stray light, making them impossible to distinguish each other since they both linearly evolve with time.
 In the context
-of LSSTCam, we measure dark current from the combined dark images across
+of LSST Camera, we measure dark current from the combined dark images across
 all amplifiers as the upper limit.
 
 \begin{figure}[ht]
@@ -452,7 +454,7 @@ Run 6 (Fig.~\ref{fig:dark}). We do not attach particular significance to the fin
 
 Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the semiconductor material or manufacturing process of the CCD. Bright defects can manifest as ``hot pixels" with consistently high dark current, small clusters of pixels with elevated dark current, or as ``hot columns" (pixels along the same column that have high dark current). 
 
-In the context of LSSTCam, we identify and exclude bright pixels from the dark current measurement, with the threshold for a bright defect set at 5 e$^-$/pix/s, above which the pixel/cluster/column is registered as a bright defect. In addition to the bright pixel metric, eo-pipe also computes a bright column metric, which is any region of bright pixels that is contiguous over 50 pixels or more.
+In the context of LSST Camera, we identify and exclude bright pixels from the dark current measurement, with the threshold for a bright defect set at 5 e$^-$/pix/s, above which the pixel/cluster/column is registered as a bright defect. In addition to the bright pixel metric, eo-pipe also computes a bright column metric, which is any region of bright pixels that is contiguous over 50 pixels or more.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -543,7 +545,7 @@ focal plane.
 
 \subsubsection{Read Noise}\label{sec:initialRever:ReadNoise}
 
-Read noise is induced charge during the readout process of the LSSTCam sensors. Common causes of read noise include thermal noise in the electronics or imperfect charge transfer. Read noise is measured in electrons, and is calculated by taking the standard deviation of the overscan region.
+Read noise is induced charge during the readout process of the LSST Camera sensors. Common causes of read noise include thermal noise in the electronics or imperfect charge transfer. Read noise is measured in electrons, and is calculated by taking the standard deviation of the overscan region.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -665,19 +667,19 @@ Divisadero tearing (or Rabbit ears) is manifested as signal variations near ampl
 \end{centering}
 \end{figure}
 
-Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower Divisadero tearing in Run 7. Taking amplifier differences, e2v sensors show a weaker Divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see Fig.~\ref{fig:divisidero_diff_baseline}).
+Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower Divisadero tearing in Run 7. Taking amplifier differences, e2v sensors show a weaker Divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see Fig.~\ref{fig:divisadero_diff_baseline}).
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/baselineCharacterization/DIVISIDERO_TEARING_13550_E1071_diff.png}
-    \caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, Divisadero tearing is weaker in Run 7.}
-    \label{fig:divisidero_diff_baseline}
+    \caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, divisadero tearing is weaker in Run 7.}
+    \label{fig:divisadero_diff_baseline}
 \end{figure}
 
 \clearpage
 \subsubsection{Dark defects}\label{dark-defects}
 
-Dark defects are localized regions or individual pixels that produce abnormally low signal levels, even in the presence of light. Similar to bright pixels, dark pixels are also quantified in dark columns over 50 pixel contiguous regions. These
+Dark defects are localized regions or individual pixels that produce abnormally low signal levels, even in the presence of light. Similarly to bright pixels, dark pixels are also quantified in dark columns over 50 pixel contiguous regions. These
 defects are caused by imperfections in the semiconductor
 material, imperfections during the manufacturing process of a CCD. For our evaluation, we extract dark pixels from combined flats, with the threshold for a dark defect defined as a $-$20\% deficit from the average flat field flux measured in the image segment.
 
@@ -735,7 +737,7 @@ image and the average of the residual ADU in the final dark images. This residua
 \end{figure}
 
 In the initial Run 7 measurements, we had not changed any operating
-parameters of LSSTCam, so we would expect persistence to still be
+parameters of LSST Camera, so we would expect persistence to still be
 present images at the same level as in Run 6.
 
 \begin{figure}[ht]
@@ -767,7 +769,7 @@ persistence measurements are due to higher initial residual ADU in a subset of r
 \clearpage
 \subsection{Differences between Run 6 and Run 7}\label{differences-from-previous-runs}
 
-All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and Divisadero tearing show improved performance compared to Run 6, while the Persistence feature is still prominent in e2v sensors. 
+All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and divisadero tearing show improved performance compared to Run 6, while the Persistence feature is still prominent in e2v sensors. 
 
 \begin{table}[ht]
 \centering
@@ -789,7 +791,7 @@ BF x-correlation                   & None               & \multicolumn{1}{l|}{0.
 BF y-correlation                   & None               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
 Row-means variance                 & None               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
 Dark defects {[}count{]}           & <2\%               & \multicolumn{1}{l|}{4} & 3 & \multicolumn{1}{l|}{9} & 8  \\ \hline
-Divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
+divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
 Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.6673}    & 5.6435    & \multicolumn{1}{l|}{0.48018}   & 0.42051    \\ \hline
 \end{tabular}
 }
@@ -886,7 +888,7 @@ the differences in the electronics (e.g., the long cable between CCD and REB). T
 
 \subsubsection{Persistence optimization}\label{persistence-optimization-1}
 Based on this test result, we decided to test the new voltages with
-the narrower parallel swing on the LSSTCam focal plane. Keeping the
+the narrower parallel swing on the LSST Camera focal plane. Keeping the
 parallel low voltage at -6\,V in order to operate the sensor safely (very
 conservative limit), we changed the parallel swing voltage from 9.3\,V to
 8.0\,V as well as all the other voltages using the new formula. We
@@ -1003,7 +1005,7 @@ Several efforts were undertaken to optimize the sequencer configurations during 
 \begin{itemize}
 \item {\bf Clear}: Addressing the leftover charges at the image/serial register. The discussion is provided in Section \ref{sec:improved-clear}.
 \item {\bf Whether toggling the RG output during the parallel transfer for the e2v sensors is needed or not.}: Given the fact that there was some impact on making the bias structure in ITL better. The same question was raised for e2v sensors. The detail is described in Section \ref{noRGe2v}
-\item {\bf Whether keeping the IDLE\_FLUSH running or not}: Addressing the worsening of the Divisadero tearing. The detail is described in Section \ref{section:disablingIDLEFLUSH}
+\item {\bf Whether keeping the IDLE\_FLUSH running or not}: Addressing the worsening of the divisadero tearing. The detail is described in Section \ref{section:disablingIDLEFLUSH}
 \item {\bf Phase overlap during parallel transfer for e2v}: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced.
 \begin{itemize}
     \item Sequencer files that are based on the regular v29 but have changes in the parallel transfer by having a half overlap of what it was in the original (\_halfoverlapping.seq), a small amount of overlap compared to what it was in the original (\_overlap113.seq), ero overlapping at all (\_nonoverlapping.seq) are created.
@@ -1277,7 +1279,7 @@ If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} 
 
 IDLE\_FLUSH is one of the ``mains" settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \citet{2024SPIE13103E..0WU}).
 
-However, it was reported that running IDLE\_FLUSH exacerbates the Divisidero tearing issue. Divisidero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 deg C between periods of image acquisition and idle periods (Figure~\ref{fig:IdleFlushEffect}).
+However, it was reported that running IDLE\_FLUSH exacerbates the divisadero tearing issue. divisadero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the highest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2 deg C between periods of image acquisition and idle periods (Figure~\ref{fig:IdleFlushEffect}).
 
 \begin{figure}[ht]
 \begin{centering}
@@ -1292,11 +1294,11 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/divisadero.png}
 \end{centering}
-\caption{Impact of disabling IDLE\_FLUSH on Divisadero tearing metric.}\label{IdleFlushEffect:divisadero}
+\caption{Impact of disabling IDLE\_FLUSH on divisadero tearing metric.}\label{IdleFlushEffect:divisadero}
 \end{figure}
-Figure \ref{IdleFlushEffect:divisadero} shows the impact on the Divisadero tearing. Shown there are selected B protocol runs with different settings in chronological order. A few changes of settings were tested: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some runs with these different settings also included some minor additional changes in settings, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the number of clears). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the upper one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought down the overall distribution. The two distributions became indistinguishable, which indicates that the majority of the Divisadero tearing for e2v is mitigated.
+Figure \ref{IdleFlushEffect:divisadero} shows the impact on the divisadero tearing. Shown there are selected B protocol runs with different settings in chronological order. A few changes of settings were tested: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some runs with these different settings also included some minor additional changes in settings, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the number of clears). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the upper one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought down the overall distribution. The two distributions became indistinguishable, which indicates that the majority of the divisadero tearing for e2v is mitigated.
 
-E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System (See Section \ref{ganttchart}).. The stability of the results confirms that the metric is consistent over power cycling of LSSTCam.
+E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System (See Section \ref{ganttchart}).. The stability of the results confirms that the metric is consistent over power cycling of LSST Camera.
 
 \subsection{Summary}\label{summary:optimization}
 
@@ -1327,7 +1329,7 @@ During Run 7, several changes were implemented, as described below:
   for e2v CCDs. \href{https://github.com/lsst-camera-dh/sequencer-files/pull/18}{Timing align with the ITL version, a change was made.}
 \end{itemize}
 
-We also disabled IDLE\_FLUSH to improve the thermal situation and the Divisadero tearing.
+We also disabled IDLE\_FLUSH to improve the thermal situation and the divisadero tearing.
 
 
 
@@ -1355,7 +1357,7 @@ PTC        & E749  & E1881 \\ \hline
 \end{table}
 
 
-The final operating parameters of LSSTCam for Run 7 are presented in Section \ref{run-7-final-operating-parameters}.
+The final operating parameters of LSST Camera for Run 7 are presented in Section \ref{run-7-final-operating-parameters}.
 
 \subsubsection{Stability flat metrics}\label{sec:finalstability-flat-metrics}
 
@@ -1370,7 +1372,7 @@ Serial CTI is extracted from the B protocol runs, and show high consistency betw
     \label{fig:finalChar-SCTI-5x5}
 \end{figure}
 
-The serial CTI for both sensor types is a noisy measurement, but serial CTI is not impacted by the changes to the LSSTCam operating configuration.
+The serial CTI for both sensor types is a noisy measurement, but serial CTI is not impacted by the changes to the LSST Camera operating configuration.
 
 \begin{figure}[ht]
     \centering
@@ -1393,7 +1395,7 @@ Parallel CTI is extracted from the B protocol runs, and the values are consisten
     \label{fig:finalChar-PCTI-5x5}
 \end{figure}
 
-Similar to serial CTI, the parallel CTI for both sensor types is a noisy measurement, but is not impacted by the changes to the LSSTCam operating configuration (Fig.~\ref{fig:finalChar-PCTI-hist}). 
+Similar to serial CTI, the parallel CTI for both sensor types is a noisy measurement, but is not impacted by the changes to the LSST Camera operating configuration (Fig.~\ref{fig:finalChar-PCTI-hist}). 
 
 \begin{figure}[ht]
     \centering
@@ -1534,7 +1536,7 @@ PTC noise is consistent between the initial and final Run 7 configurations (Fig.
     \label{fig:finalChar-PTC_noise_5x5}
 \end{figure}
 
-The average deviation of PTC noise measurements between initital and final runs is $\lesssim$ 0.1 e- for both e2v and ITL detector types, with no significant biases emerging (Fig.~\ref{fig:finalChar:PTCNoise_diff_hist}).
+The average deviation of PTC noise measurements between initial and final runs is $\lesssim$ 0.1 e- for both e2v and ITL detector types, with no significant biases emerging (Fig.~\ref{fig:finalChar:PTCNoise_diff_hist}).
 
 \begin{figure}[ht]
     \centering
@@ -1545,7 +1547,7 @@ The average deviation of PTC noise measurements between initital and final runs 
 
 \paragraph{Brighter-fatter $a_{00}$ coefficient}\label{final-brighter-fatter-a00-coefficient}
 
-The relative strength of the brighter-fatter effect, quantified by $a_{00}$ following the model of \cite{2019A&A...629A..36A}, is modified in the final Run 7 operating conditions by the lower parallel swing for e2v sensors. We observe an extremely high consistency for ITL sensors (Fig.~\ref{fig:finalChar-PTC_A00_5x5}).
+The principle area change component closely related to the brighter-fatter effect, quantified by $a_{00}$ following the model of \cite{2019A&A...629A..36A}, is modified in the final Run 7 operating conditions by the lower parallel swing for e2v sensors. We observe an extremely high consistency for ITL sensors (Fig.~\ref{fig:finalChar-PTC_A00_5x5}).
 
 \begin{figure}[ht]
     \centering
@@ -1598,9 +1600,9 @@ The row means variance is extracted from the PTC runs, and the correlation betwe
 \end{figure}
 
 \clearpage
-\paragraph{Divisadero Tearing}\label{final-divisadero-tearing}
+\paragraph{divisadero Tearing}\label{final-divisadero-tearing}
 
-Divisadero tearing measurements were extracted from the B protocol runs, and the results are significantly different for e2v sensors in the final operating condition (Fig.~\ref{fig:finalChar-Divisadero-5x5}). The change in divisadero strength is driven by whether idle flush is enabled.  Idle flush is described in detail in Section~\ref{section:disablingIDLEFLUSH}. The e2v sensors show a 60.7\% decrease in the original divisadero signal under the final operating conditions. ITL sensors show a 0.2\% increase in the original divisadero signal under the final operating conditions.
+Divisadero tearing measurements were extracted from the B protocol runs, and the results are significantly different for e2v sensors in the final operating condition (Fig.~\ref{fig:finalChar-Divisadero-5x5}). The change in divisadero strength is driven by whether idle flush is enabled.  Idle flush is described in detail in Section~\ref{section:disablingIDLEFLUSH}. The e2v sensors show a 61\% decrease in the original divisadero signal under the final operating conditions. ITL sensors show virtually no change (a 0.2\% increase) in the original divisadero signal under the final operating conditions.
 
 \begin{figure}[ht]
     \centering
@@ -1613,7 +1615,7 @@ Divisadero tearing measurements were extracted from the B protocol runs, and the
 \clearpage
 \paragraph{Dark defects}\label{final-dark-defects}
 
-Dark defects in the LSSTCam sensors were identified using the B protocol runs.  The measurement is contaminated by the picture frame effect regardless of operating conditions (see Sec.~\ref{dark-defects} for additional discussion). When applying a 9 pixel wide mask to the edges of each sensor, the picture frame signal is removed, leaving true dark defects as identified by the analysis pipeline.
+Dark defects in the LSST Camera sensors were identified using the B protocol runs.  The measurement is contaminated by the picture frame effect regardless of operating conditions (see Sec.~\ref{dark-defects} for additional discussion). When applying a 9 pixel wide mask to the edges of each sensor, the picture frame signal is removed, leaving true dark defects as identified by the analysis pipeline.
 
 \begin{figure}[ht]
     \centering
@@ -1635,7 +1637,7 @@ dark pixel counts per detector centered on zero for both detector types (see Fig
 \clearpage
 \subsubsection{Persistence}\label{final-persistence}
 
-The primary optimization target of Run 7 was to mitigate persistence, described in Section~\ref{persistence-optimization-1}. The major change in the final LSSTCam operating conditions to combat persistence is decreased parallel swing. This change is applied to the e2v sensors only, as they are the sensors that exhibit \geq 1 ADU persistence with the Run 7 initial operating parameters.
+The primary optimization goal of Run 7 was to mitigate the persistence effect, described in Section~\ref{persistence-optimization-1}. The major change in the final LSST Camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the e2v sensors only, as they are the sensors that exhibit \geq 1 ADU persistence with the Run 7 initial operating parameters.
 
 \begin{figure}[ht]
     \centering
@@ -1644,7 +1646,7 @@ The primary optimization target of Run 7 was to mitigate persistence, described 
     \label{fig:finalChar-Persist-5x5}
 \end{figure}
 
-The per-amplifier measurements of persistence using the metric described in Section~\ref{sec:initPersistenceChar} show a significant decrease in persistence signal in e2v sensors due to the lower parallel swing (Fig.~\ref{fig:finalChar-Persist-5x5}), from 5.66 ADU \rightarrow 0.40 ADU on average when measured using the red LED (corresponding to the LSST r band filter).
+The per-amplifier measurements of persistence using the metric described in Section~\ref{sec:initPersistenceChar} show a significant decrease in persistence signal in e2v sensors due to the lower parallel swing (Fig.~\ref{fig:finalChar-Persist-5x5}), from 5.7\,ADU \rightarrow 0.4\,ADU on average when measured using the red LED (corresponding to the LSST r band filter).
 
 \begin{figure}[ht]
     \centering
@@ -1655,7 +1657,7 @@ The per-amplifier measurements of persistence using the metric described in Sect
 
 B protocol runs acquire persistence datasets using the red LED, which is flashed to provide equivalent of 400k e- per pixel, i.e., saturation only (a description of B protocol persistence acquisitions is provided in Sec.~\ref{background}). Additional persistence datasets were acquired using other LEDs and other exposure levels with the CCOB wide beam projector. This was to verify that persistence was mitigated for the complete LSST photometric range. The runs used for this analysis are listed in Table~\ref{table:runs_persistence}. 
 
-We find that $\geq$95\% of e2v sensors exhibit a persistence signal $\leq$ 0.55 ADU at all flux levels below full-well capacity. The CCOB requested flux varied by $\sim$ 10\% across the focal plane, and the maximum PTC turnoff for e2v amplifiers under the final operating conditions was 123,243 e- (see Fig.~\ref{fig:finalChar-fullWell}), within the flux levels probed in Figure~\ref{fig:finalChar-persistenceAllLEDs}.
+We find that $\geq$95\% of e2v sensors exhibit a persistence signal $\leq$ 0.55 ADU at all flux levels below full-well capacity. The CCOB illumination varied by $\sim$ 10\% across the focal plane, and the maximum PTC turnoff for e2v amplifiers under the final operating conditions was 123k\,e- (see Fig.~\ref{fig:finalChar-fullWell}), within the flux levels probed in Figure~\ref{fig:finalChar-persistenceAllLEDs}.
 
 \subsubsection{Differences between Run 7 initial and Run 7 final measurements}\label{final-differences-from-previous-runs}
 
@@ -1664,7 +1666,7 @@ Comparing the initial and final Run 7 measurements, four metrics are impacted by
   \item \textbf{Persistence:} We minimized persistence in e2v sensors, the main optimization target of Run 7, decreasing it from 5.66 ADU to 0.40 ADU on average with the red LED (LSST-r band), and maintaining sub-ADU levels across the entire LSST bandpass. Due to no change in ITL voltages and lack of an initial persistence feature, ITL sensors do not show a significant change in persistence, and remain at a sub-ADU level (0.48 ADU \rightarrow 0.32 ADU).
   \item \textbf{Full well capacity:} As a direct consequence of lower parallel swing in e2v sensors, the full-well capacity of e2v sensors decreased significantly with the final operating parameters. For linearity turnoff, e2v sensors decrease from 167,796 e- \rightarrow 136,302 e-. PTC turnoff measurements decrease from 132,963 e- \rightarrow 102,713 e-. ITL sensors do not show a significant change, and remain consistent between initial and final runs.
   \item \textbf{Brighter-fatter strength (PTC $a_{00}$):} The strength of the brighter-fatter effect is also significantly impacted by the change in parallel swing for e2v sensors. The $a_{00}$ parameter increases from $3.08\times10^{-6} \rightarrow 3.49\times10^{-6}$ for e2v sensors, a 13\% increase. ITL sensors are not significantly impacted.% Consequence of changed dP
-  \item \textbf{Divisadero:} The strength of Divisadero tearing is impacted by idle flush. For e2v sensors, we measure a reduction in maximum Divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong Divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum Divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of Divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
+  \item \textbf{Divisadero:} The strength of divisadero tearing is impacted by idle flush. For e2v sensors, we measure a reduction in maximum divisadero signal from 0.62\% \rightarrow 0.25\%, a 60\% reduction in signal. ITL sensors did not exhibit a strong divisadero signal under the initial conditions, and therefore did not measure a reduction in maximum divisadero signal (0.273\% \rightarrow 0.274\%). The initial strength of divisadero tearing in ITL sensors is taken as a reference size, and is therefore not minimized by the change in idle flush.
 \end{itemize}
 
 \begin{table}[ht]
@@ -1698,7 +1700,7 @@ Persistence {[}ADU{]}             &       None                         & \multic
 
 
 
-All other metrics were not significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSSTCam as a result of Run 7 testing, see Section~\ref{run-7-final-operating-parameters}.
+No other metrics were significantly impacted by the final operating conditions. For a complete list of the final operating conditions of LSST Camera as a result of Run 7 testing, see Section~\ref{run-7-final-operating-parameters}.
 
 
 \clearpage
@@ -1792,7 +1794,7 @@ R44\_SG0\_C02  & HiNoise & always Hi Noise\\ \hline
 
 \subsection{Defect stability}\label{defect-stability}
 
-EO Defect masks are generated for LSSTCam images using two different protocols; one for dark defects, and one for bright defects. Dark defects are generated using flat calibrations, by identifying pixels with deviation from the median flat value. The default dark defect deviation is $\geq 20\%$ deviation from flatness. Bright defects are identified from elevated dark current. The default bright defect condition is $\geq$5 \,e-/pix/s.
+EO Defect masks are generated for LSST Camera images using two different protocols; one for dark defects, and one for bright defects. Dark defects are generated using flat calibrations, by identifying pixels with deviation from the median flat value. The default dark defect deviation is $\geq 20\%$ deviation from flatness. Bright defects are identified from elevated dark current. The default bright defect condition is $\geq$5 \,e-/pix/s.
 
 As shown in Table~\ref{table:FinalChar-paramTable}, the median number of defects in an amplifier is $\leq 10$, or $\sim0.001 \%$ of an amplifier for both sensor manufacturers. This contribution is extremely small relative to the useful pixels in a given amplifier. Studying any temporal dependence of defect masks on the amplifiers would be worthwhile.  %, and how static the bright and dark defects are across sensors of interest.
 
@@ -1826,12 +1828,12 @@ Each individual defect mask can be scaled by $2^{n-1}$, where $\{n:1,2,3,... \}$
 \multicolumn{1}{|c|}{E2V} & \multicolumn{1}{c|}{23.9316}  & 60.5769     \\ \hline
 \multicolumn{1}{|c|}{ITL} & \multicolumn{1}{c|}{11.6319}  & 39.5833     \\ \hline
 \end{tabular}
-\caption{Measurements of the percentages of science sensor amplifiers that meet different masking criteria, when compared across 13550 (Run 6), E1071 (Run 7 initial), and E1880 (Run 7 final). For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bitvalues 0 and $2^3-1=7$ only. For this tabulation we removed a 9-pixel border from each dark mask to remove the edge response from the dark defect data set. Other masking configurations were set to the LSSTCam defaults.}
+\caption{Measurements of the percentages of science sensor amplifiers that meet different masking criteria, when compared across 13550 (Run 6), E1071 (Run 7 initial), and E1880 (Run 7 final). For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bitvalues 0 and $2^3-1=7$ only. For this tabulation we removed a 9-pixel border from each dark mask to remove the edge response from the dark defect data set. Other masking configurations were set to the LSST Camera defaults.}
 \end{table}
 
 \subsubsection{Bright defects}
 
-Bright defects are found to be stable and rare in the LSSTCam focal plane. Across detector types, 93\% of e2v detectors show a static bright defect mask. For e2v sensors that had changes in bright defects, R30 dominated the subgroup with 17 amplifiers (or 11.8\% of amplifiers on the raft) with a dynamic bright defect mask. Bright pixel masks of ITL sensors are more dynamic than for e2v sensors, with 18\% having changes in their bright defect masks. The most dynamic bright defect masks were for R10\_S02 and R10\_S10, which each have nine amplifiers with a dynamic bright defect mask.
+Bright defects are found to be stable and rare in the LSST Camera focal plane. Across detector types, 93\% of e2v detectors show a static bright defect mask. For e2v sensors that had changes in bright defects, R30 dominated the subgroup with 17 amplifiers (or 11.8\% of amplifiers on the raft) with a dynamic bright defect mask. Bright pixel masks of ITL sensors are more dynamic than for e2v sensors, with 18\% having changes in their bright defect masks. The most dynamic bright defect masks were for R10\_S02 and R10\_S10, which each have nine amplifiers with a dynamic bright defect mask.
 
 
 \begin{figure}[ht]
@@ -2065,9 +2067,6 @@ amplifiers.
 %in run E2136}
 %\end{figure}
 
-Further studies are required to converge on the best mitigation
-strategy for the start of the LSST survey.
-
 
 \clearpage
 \subsection{Glow search}
@@ -2145,8 +2144,8 @@ We compare these results from Run 7 to the earlier results for flat images. Figu
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/Spot_EO_comparison.png}
-    \caption{Comparison between the calculated Spot fullwell metrics and the EO metrics. All the Spot metrics are around the level of the linearity turnoff.}
+    \includegraphics[width=0.95\linewidth]{figures/Spot_EO_Comparison.png}
+    \caption{Comparison between the calculated Spot full well metrics and the EO metrics. All the Spot metrics are around the level of the linearity turnoff.}
     \label{fig:Spot_vs_EO_Metrics}
 \end{figure}
 
@@ -2462,6 +2461,31 @@ We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sens
     \label{fig:guider_noise_outliers}
 \end{figure}
 
+\subsection{Summary}
+
+In summary, the comprehensive analysis of the LSST Camera's characterization and performance stability reveals several key findings. The comparison of initial and final camera metrics on Cerro Pachón, using standard B protocol and dense red PTC data sets, highlights the consistency and stability of serial and parallel CTI measurements. Dark current measurements remain stable across the focal plane, with notable improvements in certain rafts due to effective light leak mitigation. Bright defects show close agreement between runs, with no significant new defects.
+
+Evaluations of linearity and PTC turnoff from PTC runs indicate a decrease in full-well capacity for e2v sensors, while PTC gain shows a minor increase. Read noise remains consistent for both e2v and ITL sensors, and PTC noise does not exhibit significant deviations. The brighter-fatter coefficient increases for e2v sensors due to lower parallel swing, and the brighter-fatter correlation remains consistent. Row-means variance shows close agreement, with a slight decrease for e2v sensors. Divisadero tearing experiences a significant decrease for e2v sensors in the final condition. Dark defects remain consistent between runs, affecting a very small fraction of pixels.
+
+A significant achievement is the substantial decrease in persistence signal for e2v sensors, attributed to the lower parallel swing. This optimization marks a notable improvement in the camera's performance.
+
+Differences between initial and final measurements emphasize minimized persistence in e2v sensors, decreased full-well capacity, increased brighter-fatter strength, and reduced divisadero tearing.
+
+Non-functional amplifiers are listed, classified as non-functional due to high noise or no signal, with insights into changes in amplifier status during testing periods.
+
+Defect stability is another critical aspect, with bright defects found to be stable and rare, while dark defects are more dynamic and abundant, showing significant temporal dependence.
+
+Bias stability is explored, revealing large variations in ITL bias jumps and residual 2D shapes in e2v yellow corners after correction. These instabilities depend on acquisition sequences and exposure times. Further studies are required to converge on the best mitigation strategy for the start of the LSST survey.
+
+The glow search identifies glowing regions in long dark images, noting some persistent issues. The illumination corrected flat section assesses gain matching and relative QE using a smooth model fit to illumination patterns.
+
+Full-well measurements are evaluated to set SAT and SUSPECT pixel masks, comparing spot images to flat illumination data. Non-linearity studies model non-linearity using spline functions, with results deemed sufficient for the camera's needs.
+
+Gain stability is scrutinized, noting temperature dependencies and potential issues with local amplifier changes. Maintaining stable conditions is crucial to ensure consistent gain.
+
+We describe the guider operations focusing on guider-specific acquisitions and performance verification. Noise investigations reveal the impact of various configurations on noise levels, and the comparison of science sensors when guide sensors operate in guider mode versus imaging mode.
+
+
 \clearpage
 \section{Sensor features}\label{sensor-features}
 
@@ -2475,7 +2499,7 @@ So far we have been using the four different average positions for each center o
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/TR_centers.png}
 \end{centering}
-\caption{The center of the tree rings pattern measured for all 189 LSSTCam science sensors. Red points indicate the average center for each direction.}
+\caption{The center of the tree rings pattern measured for all 189 LSST Camera science sensors. Red points indicate the average center for each direction.}
 \label{fig:tree_ring_center}
 \end{figure}
 
@@ -2569,7 +2593,7 @@ compared to the wings of the trail, with a flux $\sim$2\% less relative to the r
 bleed trail.
 
 We investigated whether ITL dips could also be observed in the CCDs of
-LSSTCam. For this study, we used spots and rectangles projected onto the focal plane by the 4K
+LSST Camera. For this study, we used spots and rectangles projected onto the focal plane by the 4K
 projector. The spots were approximately 30 pixels across
 and were projected onto every amplifier segment of each detector. The rectangles were only
 in the top right amplifier (C10). One consideration with this spot
@@ -2607,7 +2631,7 @@ pattern of the projector, but no 2\% dip.
 \end{figure}
 
 While we were not able to find evidence of the ITL dip in Run 7 data, it
-is still not clear whether the effect will be visible in LSSTCam on-sky data. It is possible that the contrast and brightness that we could achieve in the lab was not representative of the on-sky measurements. But the ComCam sensors were run with a different sequencer file, and potentially the different sequencer files could explain the effect. Also, the CCD operating temperature of ComCam, which was $\sim$ -90C or higher, was higher than -100C for the LSSTCam. It is not clear if this is related or not.
+is still not clear whether the effect will be visible in LSST Camera on-sky data. It is possible that the contrast and brightness that we could achieve in the lab was not representative of the on-sky measurements. But the ComCam sensors were run with a different sequencer file, and potentially the different sequencer files could explain the effect. Also, the CCD operating temperature of ComCam, which was $\sim$ -90C or higher, was higher than -100C for the LSST Camera. It is not clear if this is related or not.
 % The electron rate of the in-lab data was roughly XXX per second for the 15\,s exposures. The stars that were seen in ComCam with the ITL dip
 % have a magnitude of XXX corresponding to a electron rate of XXX. This is
 % combined with a sky background of XXX as compared with the lab sensor
@@ -2627,11 +2651,11 @@ All known cases appear to round or with circular symmetry. There are plenty of c
 Initial identification of these on ComCam may have been in a study that called them {\it bright pixels} by A. Roodman \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Bad%20Pixels%20and%20Bright%20Spots.pdf?version=1&modificationDate=1724769154615&api=v2}{(20240827)} and quantified in more depth by A. Fert\'e in a ComCam defects study \href{https://rubin-obs.slack.com/files/U07MZAE6V3P/F080JU4CH8A/isr_science_unit_meeting__11_12_2024_-_vampire_pixels.pdf}{(20241112)}. First electrostatic simulations performed to help understand them were made by C.~Lage \href{https://confluence.slac.stanford.edu/download/attachments/209355949/Vampire_Pixel_Simulations_18Nov24.pdf?version=1&modificationDate=1731964502136&api=v2}{(20241119)} who inferred that a circumferential surface charge variation\footnote{We suggest that any such variations would necessarily require that the backside electrode ceases to act as an electrostatic equipotential as it does elsewhere on the sensor, with total surface charge density governed only by the normal component of the electric field strength within the silicon, responding to the HV Bias potential, and so on.} 
 on the backside electrode could reproduce the sort of charge redistribution observed (while conserving photo-conversion charge) -- and so these may be effectively described as pixel boundary distortions throughout, mediated simply by lateral (non-axial) contributions to the drift field. Any such lateral fields would mean a localized loss in pixel fidelity, not limited to the sensor's thickness scale (10 pix) as are apparently relevant in other known pixel distortion mechanisms (brighter-fatter effect, tree rings, edge rolloff, tearing, pixel boundary distortions due to midline implant, and hot columns).
 
-Since ComCam on-sky data became available, more attention has been paid to these features and how they may impact source detection and photometric determination of nearby field sources. Luckily, {\it vampire pixels} are less common on average in the 88 ITL sensors of LSSTCam than they are in the nine sensors of ComCam. 
+Since ComCam on-sky data became available, more attention has been paid to these features and how they may impact source detection and photometric determination of nearby field sources. Luckily, {\it vampire pixels} are less common on average in the 88 ITL sensors of LSST Camera than they are in the nine sensors of ComCam. 
 
-\subsubsection{LSSTCam vampire pixel features}\label{lsstcam-vampire-pixel-features}
+\subsubsection{LSST Camera vampire pixel features}\label{lsstcam-vampire-pixel-features}
 
-One prominent example of such a feature is located in the LSSTCam focal plane on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity (when HV Bias is on). In Figure~\ref{fig:vamp:ffresp} and Table~\ref{tab:vamp:samples} we include this example along with two other prominent {\it vampire pixel} complexes (and others) located on ITL sensors in LSSTCam to describe their individual properties. Inspection reveals a broad parameter space describing these pixel complexes that can cause distortion in one way or another as soon as they are used to record cosmic sources: astrometric and shape transfer errors inferred from flat response, and background estimation or source confusion errors from the pixel complexes' phosphorescence properties.
+One prominent example of such a feature is located in the LSST Camera focal plane on R01\_S00\_C13-4. This feature is often overshadowed by the bright, dark current ``scratch'' in close proximity (when HV Bias is on). In Figure~\ref{fig:vamp:ffresp} and Table~\ref{tab:vamp:samples} we include this example along with two other prominent {\it vampire pixel} complexes (and others) located on ITL sensors in LSST Camera to describe their individual properties. Inspection reveals a broad parameter space describing these pixel complexes that can cause distortion in one way or another as soon as they are used to record cosmic sources: astrometric and shape transfer errors inferred from flat response, and background estimation or source confusion errors from the pixel complexes' phosphorescence properties.
 
 %Because of the variation in how they appear, no doubt a flexible finding algorithm will need to be written.
 
@@ -2662,7 +2686,7 @@ One prominent example of such a feature is located in the LSSTCam focal plane on
      \label{subfig:vamp_desc_R20_S20}
  \end{subfigure}  
  \newline
-\caption{Three prototypical {\it vampire pixel} complexes occurring in LSSTCam. Each of these have counterparts that appear in phosphorescence (transient dark). These are each described in Table XX. In R01\_S00, Two ``baby'' vampires appear in the 8:00 and 8:30 positions that each posess 300-400\% nominal flat response. The recorded phosphorescent counterparts for R03\_S10 and R20\_S20 are dependent on HV Bias (cf. Figs.~\ref{subfig:hvb_off_R03_S10} through \ref{subfig:hvb_on_R20_S20}) and should provide some constraints as to the pixel astrometric shifts at play near these {\it vampire pixel} complexes.}
+\caption{Three prototypical {\it vampire pixel} complexes occurring in LSST Camera. Each of these have counterparts that appear in phosphorescence (transient dark). These are each described in Table XX. In R01\_S00, Two ``baby'' vampires appear in the 8:00 and 8:30 positions that each posess 300-400\% nominal flat response. The recorded phosphorescent counterparts for R03\_S10 and R20\_S20 are dependent on HV Bias (cf. Figs.~\ref{subfig:hvb_off_R03_S10} through \ref{subfig:hvb_on_R20_S20}) and should provide some constraints as to the pixel astrometric shifts at play near these {\it vampire pixel} complexes.}
 \label{fig:vamp:ffresp}
 \end{figure}
 
@@ -2936,6 +2960,17 @@ A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage 
   phosphorescence on spot projections
 \end{itemize}
 
+\subsection{Summary}
+Tree rings are concentric variations in silicon doping concentration observed in flat images. The centers of these tree rings have four possible positions relative to the sensor center due to the way CCDs are cut from wafers. Recent data with 0V back bias voltage and a diffuser installed has allowed for better measurement of individual tree ring centers. The radial study confirms that tree rings are not perfectly circular. The use of a diffuser reduces the impact of other patterns, such as CMB and weather patterns, improving the visibility of tree rings. Voltage dependency tests show that back bias voltage reduces the tree ring effect. The tree ring effect is consistent across different wavelengths, although other sensor effects dominate at lower and higher wavelengths.
+
+ITL dips were observed in LSST ComCam on-sky data as bleed trails from bright stars with a dark core compared to the wings of the trail. Tests using spots and rectangles projected onto the focal plane did not find evidence of ITL dips in the LSST Camera CCDs. The contrast and brightness achieved in the lab may not be representative of on-sky measurements, and differences in sequencer files and operating temperatures could explain the effect.
+
+Vampire pixels are a feature found on some ITL sensors, characterized by a group of pixels with higher photo-response surrounded by pixels with lower photo-response. These complexes can extend to tens of pixels in radius and are also seen in phosphorescence response. Vampire pixels are less common in the LSST Camera than in ComCam. Prominent examples in the LSST Camera include features on sensors R01\_S00\_C13-4, R03\_S10\_C15, and R20\_S20\_C13. These complexes can cause astrometric and shape transfer errors and background estimation or source confusion errors.
+
+Phosphorescence was discovered during the persistence optimization process in Run 7. It affects a subset of ITL sensors and is morphologically distinct from the persistence seen in e2v sensors. The memory effect is reminiscent of "coffee stains" seen in flat field response but with opposite polarity. The attenuation timescale is similar to that of e2v sensors, suggesting a similar de-trapping mechanism. The origin of the stains may be related to raised spots on the sensors' backside surfaces. Phosphorescence is detected using a series of dark images following overexposure to a flat field. 
+
+The results show that phosphorescence is present in a subset of ITL sensors, with some sensors showing high-signal diffuse or morphologically unique structures. The presence of coffee stains in flat field response may suggest phosphorescence, but the correlation is not consistent. Localized phosphorescence centers are often associated with vampire pixels. The voltage dependency of phosphorescence shows that HV Bias affects the geometry and intensity of the phosphorescence.
+
 \clearpage
 
 \section{Overall operation and Issues}\label{sec:issues}
@@ -3044,7 +3079,7 @@ After 20:38 local time, two people on shift went up to the White Room from the h
 
 It's unclear when they arrived at the summit. Another incident occurred. R21/Reb[12] and R42 on P04 also lost power.
 
-We suspect that this was caused by static electricity events. The Utility Trunk door appeared to be floating electrically, and the people who had worked on the LSSTCam in the White Room up to that date did not wear ESD straps. To address this issue, we grounded the Utility Trunk door and implemented an administrative control to ensure that everyone working around the camera wore ESD straps. Since then, we have not observed any more of these events.
+We suspect that this was caused by static electricity events. The Utility Trunk door appeared to be floating electrically, and the people who had worked on the LSST Camera in the White Room up to that date did not wear ESD straps. To address this issue, we grounded the Utility Trunk door and implemented an administrative control to ensure that everyone working around the camera wore ESD straps. Since then, we have not observed any more of these events.
 \href{https://rubinobs.atlassian.net/wiki/spaces/CAM/pages/69763079/REB+trip+off+issue+08+29+24}{A full report is available}.
 
 \clearpage
@@ -3064,7 +3099,7 @@ With these fixes, the “stiff cable issue” is now resolved. AC1 has been re-q
 
 \clearpage
 \subsection{PCS degradation}\label{sec:pcsdegradation}
-After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, resulting in LSSTCam running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
+After a week of operation of the Pumped Coolant System (PCS), it was observed that its performance declined over time (Figure \ref{fig:pcsdegradation}). The PCS automatically shut down at 14:03 local time on October 15, 2024, resulting in LSST Camera running without cold cooling for 10 minutes. The REB temperatures reached nearly the maximum limit that triggered the REBs' self-shutdown, but the Camera survived as it regained cooling capacity by powering on the PCS again.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1\linewidth]{figures//Issues/PCSTXVBulbAug11toOct17.png}
