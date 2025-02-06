@@ -5,24 +5,24 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{pgfgantt}
 \usepackage{pdflscape}
-%\usepackage{tablefootnote}
 \usepackage{makecell}  %for multi-line cells in tables
 
 % local declarations
 \def\jinst{Journal of Instrumentation}            % JINST
 \usepackage{anyfontsize} 
 
-
-%\usepackage{fontspec}
-%\usepackage{opensans}
-%\setmainfont{Open Sans}
-%\setsansfont{Open Sans}
-%\setmonofont{Inconsolata}
-
+% compile error mitigations
+\setlength{\headheight}{61.9707pt}
+\setmonofont{Inconsolata}
+\usepackage{fontspec}
+\setmainfont{OpenSans}[
+  SmallCapsFont={OpenSans}, % Forces regular OpenSans for small caps
+  SmallCapsFeatures={FakeSlant} % Creates a fake small caps effect
+]
 
 %\hypersetup{
-%  pdftitle={LSST Camera Electro-Optical Test Results},
-%  hidelinks,
+%  pdftitle={LSSkT Camera Electro-Optical Test Results},
+%  hidelinksk,
 %  pdfcreator={LaTeX via pandoc}}
 
 \providecommand{\tightlist}{%
@@ -124,7 +124,6 @@ dips, and other sensor features.
 \bibliography{local,lsst,lsst-dm,refs,books,refs_ads}
 %\bibliographystyle{plain_notitle} % this doesn't work because the standard  style is defined in the official tex style.
 \clearpage
-
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
 \section{Acronyms} \label{sec:acronyms}

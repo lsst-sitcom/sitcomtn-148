@@ -45,7 +45,7 @@
   \setmonofont{Inconsolata}
 \else
   \RequirePackage[T1]{fontenc}
-  \RequirePackage[utf8x]{inputenc}
+%  \RequirePackage[utf8x]{inputenc}
   \RequirePackage[default]{opensans}
   \RequirePackage{inconsolata}
   \RequirePackage[uprightGreek]{newtxmath}
