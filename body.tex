@@ -165,7 +165,7 @@ The magnitude of the gain increase for e2v sensors in the final Run 7 configurat
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTCGainComp(1).jpg}
+    \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/PTCGainComp.jpg}
     \caption{Comparison of PTC gains for e2v science sensors, with a moderate increase in the final run condition. The black lines denote the median value for each population of measurements, shown in the legend.}
     \label{fig:finalChar-PTCGain_HistComp}
 \end{figure}
@@ -240,7 +240,7 @@ The strength of the brighter-fatter correlations  were extracted from the PTC ru
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_BF_XCORR.png}
-    \caption{Comparison of per-amplifier measurements of the brighter-fatter x-correlation for initial and final Run 7 conditions.  }
+    \caption{Comparison of per-amplifier measurements of the brighter-fatter x-correlation for initial and final Run 7 conditions. For the corner rafts, the correlations are outside of the ranges shown here.}
     \label{fig:finalChar-BFXCorr-5x5}
 \end{figure}
 
@@ -249,7 +249,7 @@ Both correlations vary by \lesssim 2.2\% on average, decreasing in both instance
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/finalCharacterization/E749_E1881_BF_YCORR.png}
-    \caption{Comparison of per-amplifier measurements of the brighter-fatter y-correlation for initial and final Run 7 conditions.}
+    \caption{Comparison of per-amplifier measurements of the brighter-fatter y-correlation for initial and final Run 7 conditions. For the corner rafts, the correlations are outside of the ranges shown here.}
     \label{fig:finalChar-BFYCorr-5x5}
 \end{figure}
 
@@ -257,7 +257,7 @@ Both correlations vary by \lesssim 2.2\% on average, decreasing in both instance
 \clearpage
 \paragraph{Row-means variance}\label{final-row-means-var}
 
-The row means variance is extracted from the PTC runs, and the correlation between the initial and final operating conditions of Run 7 is very tight. The agreement is close for ITL sensors and for e2v sensors row-means variance decreases by \textasciitilde1.8\% in the final operating conditions (Fig.~\ref{fig:finalChar-RowMeanVarSlope-5x5}).
+The row means variance is extracted from the PTC runs, and the correlation between the initial and final operating conditions of Run 7 is very tight. The agreement is close for ITL sensors and for e2v sensors row-means variance decreases by \textasciitilde1.8\% in the final operating conditions (Fig.~\ref{fig:finalChar-RowMeanVarSlope-5x5}). Several sensors show a significant change in their final run 7 row means variance, especially on R42 and R43 (see figure \ref{fig:finalChar-RowMeanVarSlope-5x5}). These sensors record erroneous measurements for other PTC metrics, and warrants further study before making a determination about overall sensor performance.
 
 \begin{figure}[ht]
     \centering
@@ -267,7 +267,7 @@ The row means variance is extracted from the PTC runs, and the correlation betwe
 \end{figure}
 
 \clearpage
-\paragraph{divisadero Tearing}\label{final-divisadero-tearing}
+\paragraph{Divisadero Tearing}\label{final-divisadero-tearing}
 
 Divisadero tearing measurements were extracted from the B protocol runs, and the results are significantly different for e2v sensors in the final operating condition (Fig.~\ref{fig:finalChar-Divisadero-5x5}). The change in divisadero strength is driven by whether idle flush is enabled.  Idle flush is described in detail in Section~\ref{section:disablingIDLEFLUSH}. The e2v sensors show a 61\% decrease in the original divisadero signal under the final operating conditions. ITL sensors show virtually no change (a 0.2\% increase) in the original divisadero signal under the final operating conditions.
 
@@ -304,7 +304,7 @@ dark pixel counts per detector centered on zero for both detector types (see Fig
 \clearpage
 \subsubsection{Persistence}\label{final-persistence}
 
-The primary optimization goal of Run 7 was to mitigate the persistence effect, described in Section~\ref{persistence-optimization-1}. The major change in the final LSST Camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the e2v sensors only, as they are the sensors that exhibit \geq 1 ADU persistence with the Run 7 initial operating parameters.
+The primary optimization goal of Run 7 was to mitigate the persistence effect, described in Section~\ref{persistence-optimization-1}. The major change in the final LSST Camera operating conditions to combat persistence is decreased parallel swing. This change is applied to the e2v sensors only, as they are the sensors that exhibit \geq 1 ADU persistence in 15s exposure intervals with the Run 7 initial operating parameters.
 
 \begin{figure}[ht]
     \centering
@@ -318,7 +318,7 @@ The per-amplifier measurements of persistence using the metric described in Sect
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/PersistenceE2V.jpg}
-    \caption{Demonstration of persistence mitigation in e2v sensors.}
+    \caption{Demonstration of persistence mitigation in e2v sensors in the final operating condition. Persistence runs are acquired at different flat illuminations and LEDs. For e2v sensors, $\geq95\%$ of segments show $\leq1$ ADU persistence for all exposures below linearity. The measurements of persistence below 0 ADU are due to offsets in the bias subtraction when making the frame calibration and not a feature of the persistence measurement.}
     \label{fig:finalChar-persistenceAllLEDs}
 \end{figure}
 
@@ -343,22 +343,22 @@ Comparing the initial and final Run 7 measurements, four metrics are impacted by
 \hline
 \multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                   &                                & \multicolumn{1}{l|}{R7 initial} & R7 final & \multicolumn{1}{l|}{R7 initial} & R7 final \\ \hline
-Serial CTI {[}\%{]}               &           $5\times10^{-4}$                     & \multicolumn{1}{l|}{1.1357E-5}              &      7.3015E-6       & \multicolumn{1}{l|}{1.6478E-4}              &        1.5221E-4     \\ \hline
-Parallel CTI {[}\%{]}             &           $3\times10^{-4}$                     & \multicolumn{1}{l|}{1.0555E-5}              &       1.1111E-5      & \multicolumn{1}{l|}{-4.7850E-6}              &       1.2103E-6      \\ \hline
-Dark current {[}e-/pix/s{]}       &             None                   & \multicolumn{1}{l|}{0.024783}              &       0.023188      & \multicolumn{1}{l|}{0.021217}              &       0.020734      \\ \hline
+Serial CTI {[}\%{]}               &           $5\times10^{-4}$                     & \multicolumn{1}{l|}{1.1$\times10^{-5}$}              &      7.3$\times10^{-6}$       & \multicolumn{1}{l|}{1.7$\times10^{-4}$}              &        1.5$\times10^{-4}$     \\ \hline
+Parallel CTI {[}\%{]}             &           $3\times10^{-4}$                     & \multicolumn{1}{l|}{1.1$\times10^{-5}$}              &       1.1$\times10^{-5}$      & \multicolumn{1}{l|}{-4.8$\times10^{-6}$}              &       1.2$\times10^{-6}$      \\ \hline
+Dark current {[}e-/pix/s{]}       &             None                   & \multicolumn{1}{l|}{0.025}              &       0.023      & \multicolumn{1}{l|}{0.021}              &       0.021      \\ \hline
 Bright defects {[}count{]}        &              None                  & \multicolumn{1}{l|}{0}              &   0          & \multicolumn{1}{l|}{0}              &          0   \\ \hline
-Linearity turnoff {[}e-{]}        &            >90,000 e-                          & \multicolumn{1}{l|}{167,796}              &        136,302     & \multicolumn{1}{l|}{178,153}              &      178,177       \\ \hline
-PTC turnoff {[}e-{]}              &           >90,000 e-                           & \multicolumn{1}{l|}{132,963}              &      102,713       & \multicolumn{1}{l|}{128,594}              &        128,487     \\ \hline
-PTC Gain {[}e- / ADU{]}           &          None                      & \multicolumn{1}{l|}{1.4812}              &      1.5107       & \multicolumn{1}{l|}{1.6761}              &       1.6752      \\ \hline
-PTC noise {[}e-{]}           &          None                         & \multicolumn{1}{l|}{5.5079}              &      5.6455       & \multicolumn{1}{l|}{6.5156}              &    6.4991         \\ \hline
-Read Noise {[}{]}           &                      <9 e-        & \multicolumn{1}{l|}{5.3147}              &      5.3993      & \multicolumn{1}{l|}{6.2576}              &      6.2121     \\ \hline
-PTC $a_{00}$ [$\frac{1}{pix^2}$]  &      None                          & \multicolumn{1}{l|}{3.0863E-6}              &       3.4899E-6      & \multicolumn{1}{l|}{1.7031E-6}              &        1.7009E-6     \\ \hline
-BF x-correlation                  &      None                          & \multicolumn{1}{l|}{0.51693}              &     0.51022        & \multicolumn{1}{l|}{0.75212}              &       0.73648      \\ \hline
-BF y-correlation                  &        None                        & \multicolumn{1}{l|}{0.17077}              &       0.16740      & \multicolumn{1}{l|}{0.28695}              &        0.28439     \\ \hline
-Row-means variance                &       None                         & \multicolumn{1}{l|}{0.88367}              &      0.86809       & \multicolumn{1}{l|}{0.94664}              &        0.94633     \\ \hline
+Linearity turnoff {[}e-{]}        &            >90,000 e-                          & \multicolumn{1}{l|}{168,000}              &        136,000     & \multicolumn{1}{l|}{178,000}              &      178,000       \\ \hline
+PTC turnoff {[}e-{]}              &           >90,000 e-                           & \multicolumn{1}{l|}{133,000}              &      103,000       & \multicolumn{1}{l|}{129,000}              &        129,000     \\ \hline
+PTC Gain {[}e- / ADU{]}           &          None                      & \multicolumn{1}{l|}{1.48}              &      1.51       & \multicolumn{1}{l|}{1.68}              &       1.68      \\ \hline
+PTC noise {[}e-{]}           &          None                         & \multicolumn{1}{l|}{5.51}              &      5.65       & \multicolumn{1}{l|}{6.52}              &    6.50         \\ \hline
+Read Noise {[}{]}           &                      <9 e-        & \multicolumn{1}{l|}{5.32}              &      5.40      & \multicolumn{1}{l|}{6.26}              &      6.21     \\ \hline
+PTC $a_{00}$ [$\frac{1}{pix^2}$]  &      None                          & \multicolumn{1}{l|}{3.09$\times10^{-6}$}              &       3.49$\times10^{-6}$      & \multicolumn{1}{l|}{1.70$\times10^{-6}$}              &        1.70$\times10^{-6}$     \\ \hline
+BF x-correlation                  &      None                          & \multicolumn{1}{l|}{0.517}              &     0.510        & \multicolumn{1}{l|}{0.75212}              &       0.737      \\ \hline
+BF y-correlation                  &        None                        & \multicolumn{1}{l|}{0.171}              &       0.167      & \multicolumn{1}{l|}{0.287}              &        0.284     \\ \hline
+Row-means variance                &       None                         & \multicolumn{1}{l|}{0.884}              &      0.868       & \multicolumn{1}{l|}{0.947}              &        0.946     \\ \hline
 Dark defects {[}count{]}          &       <2\%                          & \multicolumn{1}{l|}{3}              &       3      & \multicolumn{1}{l|}{7}              &       7      \\ \hline
-Divisadero tearing maximum {[}\%{]} &     None                     & \multicolumn{1}{l|}{0.62622}              &       0.24599      & \multicolumn{1}{l|}{0.27348}              &       0.27414      \\ \hline
-Persistence {[}ADU{]}             &       None                         & \multicolumn{1}{l|}{5.6673}              &       0.40181      & \multicolumn{1}{l|}{0.48018}              &       0.32639      \\ \hline
+Divisadero tearing maximum {[}\%{]} &     None                     & \multicolumn{1}{l|}{0.626}              &       0.246      & \multicolumn{1}{l|}{0.274}              &       0.274      \\ \hline
+Persistence {[}ADU{]}             &       None                         & \multicolumn{1}{l|}{5.67}              &       0.40      & \multicolumn{1}{l|}{0.48}              &       0.33      \\ \hline
 \end{tabular}
 }
 \caption{Comparison of median parameter values on each amplifier between Run 7 initial and final measurements, separated by detector type.}
@@ -555,9 +555,8 @@ relevant stability runs were recorded:
 To analyze these runs for bias instability, the {\tt eo\_pipe} bias
 stability task is used.  For the ISR part, a serial
 %(\textquotesingle mean\phantomsection\label{per_row}{per\_row}\textquotesingle)
-(`meanper\_row')
-overscan correction and a bias subtraction (computed from the
-corresponding B-protocol run) are applied. The final data product of the task is the
+(`mean\_per\_row')
+overscan correction is applied. The final data product of the task is the
 mean of the per-amplifier science image over the full set of exposures
 of the run. Two typical examples from Run E2136 are shown in Figure~\ref{fig:bias-instability}. In the stable case, the variations are typically at the 0.1 ADU
 level; in the unstable case, the variations range up to 4 ADUs.
@@ -579,7 +578,8 @@ level; in the unstable case, the variations range up to 4 ADUs.
 
 
 A comparison of the results for an unstable e2v CCD (R33\_S02) is shown in Figure~\ref{fig:r33_s02_bias} for the
-three runs.
+three runs. It has to be noted that this instability can be largely reduced at software level with the use of a two-dimensional overscan correction (serial and parallel), as illustrated in \
+the last panel of Figure~\ref{fig:r33_s02_bias}, but this approach brings other disadvantages whose impact needs to be estimated.
 
 \begin{figure}[htbp]
 \centering
@@ -606,12 +606,12 @@ three runs.
 \hfill
 \begin{minipage}[b]{0.45\textwidth}
     \centering
+    \includegraphics[width=\textwidth]{figures/E2236_2D_R33_S02.png}
     % kept as a blank cell
 \end{minipage}
-\caption{Bias level variations for R33\_S02, an unstable e2v CCD for three runs:  (upper left) E2136, (upper right) E2236, (lower left) E2330.  The segments CXX and CYY are most strongly variable in each run.  Note that the range of the time axis is different in each plot.}
+\caption{Bias level variations for R33\_S02, an unstable e2v CCD for three runs:  (upper left) E2136, (upper right) E2236, (lower left) E2330.  The segments C01 and C10 are most strongly variable in each run.  Note that the range of the time axis is different in each plot. The lower right panel shows the variations for the run E2236 with the parallel overscan correction applied.}
 \label{fig:r33_s02_bias}
 \end{figure}
-
 
 %\begin{figure}
 %\begin{centering}
@@ -697,8 +697,8 @@ stability task data products. More precisely, \emph{d} is defined, for a
 given amplifier in a given run, as the difference between the 5th and
 95th percentiles of the image mean over all the bias image acquisitions. The
 distribution of \emph{d} for run E2136 is shown in Figure~\ref{fig:stability_dist}. Applying a
-threshold at 0.3\,ADU, 51 amplifiers are identified as unstable (see the
-corresponding mosaic in Figure~\ref{fig:stability_mosaic}). This corresponds to \textasciitilde3\% of the e2v
+threshold at 0.3\,ADU (which corresponds to approximately 3 times the value of very stable amplifiers), 51 amplifiers are identified as unstable (see the
+corresponding mosaic in Figure~\ref{fig:stability_mosaic}). This corresponds to \sim3\% of the e2v
 amplifiers.
 
 \begin{figure}[htbp]
@@ -751,7 +751,7 @@ Otherwise, we did not find any other glowing regions in the focal plane.
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/glowsearch/R43S21.png}
+    \includegraphics[width=1.0\linewidth]{figures/glowsearch/R43S21.png}
     \caption{A close up of R43\_S21 of a 900\,s dark image MC\_C\_20240922\_000432}
     \label{fig:glowsearch:closeup}
 \end{figure}
@@ -1118,19 +1118,20 @@ We measure the noise level of ROIs acquired under various configurations, shown 
 \label{tab:gds_configs}
 \end{longtable}
 
-\subsubsection*{Impact on science sensors}\label{sec:guiderimpactonscience}
-We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sensors in guider mode), to study the impact on science sensors from running guide sensors in guider mode. Figure~\ref{fig:guider_noise} demonstrates that the read noise is mostly consistent between the two runs. The only exception is R01\_S02 on which a few channels have slightly lower read noise in E1290, and R01\_S11 C00 which has a higher noise in E1290. Figure~\ref{fig:guider_noise_outliers} shows the read noise comparison of R01.
+\subsubsection{Impact on science sensors}\label{sec:guiderimpactonscience}
+We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sensors in guider mode), to study the impact on science sensors from running guide sensors in guider mode. Figure~\ref{fig:guider_noise} demonstrates that the read noise is mostly consistent between the two runs. The only exception is R01\_S02 on which a few channels have slightly lower read noise in E1290, and R01\_S11 C00 which has a higher noise in E1290. Figure~\ref{fig:guider_noise_outliers} shows the read noise comparison of R01 as well as the temperature measurement on S02. E1290 has a slightly lower temperature, which might explain the lower read noise.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{figures/E1110_E1290_READ_NOISE.png}
-    \caption{Impact on science sensors read noise from guide sensors running in guider mode. E1110 has the guide sensors in imaging mode, and E1290 has the guide sensors in guiding mode. The two runs have consistent read noise.}
+    \caption{Impact on science sensors read noise from guide sensors running in guider mode. E1110 has the guide sensors in imaging mode, and E1290 has the guide sensors in guiding mode. The two runs have consistent read noise except for R01\_S02, where E1290 has slightly lower noises. This might be caused by a temperature fluctuation (see Fig~\ref{fig:guider_noise_outliers}).}
     \label{fig:guider_noise}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/E1110_E1290_READ_NOISE_outliers.png}
-    \caption{Read noise of R01 compared between run E1110 (guiders in imaging mode) and E1290 (guiders in guiding mode). Sensor S02 has lower read noises in E1290, and S11\_C00 has a higher noise in E1290.}
+    \includegraphics[width=0.4\linewidth]{figures/E1110_E1290_READ_NOISE_outliers.png}
+    \includegraphics[width=0.47\linewidth]{figures/temperature_E1110_E1290.png}
+    \caption{Left: Read noise of R01 compared between run E1110 (guiders in imaging mode) and E1290 (guiders in guiding mode). Sensor S02 has lower read noises in E1290, and S11\_C00 has a higher noise in E1290. Right: Temperature measurements from R01\_S02 in E1110 and E1290. Run E1290 has a slightly lower temperature.}
     \label{fig:guider_noise_outliers}
 \end{figure}
 

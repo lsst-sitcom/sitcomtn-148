@@ -415,7 +415,7 @@ The default eo-pipe configuration has no border masking. The largest region perm
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/baselineCharacterization/darkDefects_comparison_initial.jpg}
+    \includegraphics[width=0.7\linewidth]{figures/baselineCharacterization/darkDefects_comparison_initial.jpg}
     \caption{Comparison of dark pixel counts in Run 7 (E1071) and Run 6 (13550). Top: A histogram of amplifier measurements, separated by run number and sensor type. Bottom: A histogram of the amplifier dark pixel count differences, the difference is taken as the measurement from Run 6 and the measurement from Run 7.}
     \label{fig:initChar:DarkPixels:hists}
 \end{figure}
@@ -486,21 +486,21 @@ All camera performance metrics from the summit show close agreement with SLAC IR
 \hline
 \multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                    &                                & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
-Serial CTI {[}\%{]}                & $5\times10^{-4}$               & \multicolumn{1}{l|}{3.7068E-5} & 1.1357E-5 & \multicolumn{1}{l|}{1.1488E-4} & 1.6478E-4  \\ \hline
-Parallel CTI {[}\%{]}              & $3\times10^{-4}$               & \multicolumn{1}{l|}{1.2162E-5} & 1.1534E-5 & \multicolumn{1}{l|}{3.4067E-7} & -4.7849E-6 \\ \hline
-Dark current {[}e-/pix/s{]}        & None               & \multicolumn{1}{l|}{5.5439E-2} & 2.4783E-2 & \multicolumn{1}{l|}{4.6424E-2} & 2.1217E-2  \\ \hline
+Serial CTI {[}\%{]}                & $5\times10^{-4}$               & \multicolumn{1}{l|}{3.7$\times 10^{-5}$} & 1.1$\times 10^{-5}$& \multicolumn{1}{l|}{1.2$\times 10^{-4}$} & 1.7$\times 10^{-4}$ \\ \hline
+Parallel CTI {[}\%{]}              & $3\times10^{-4}$               & \multicolumn{1}{l|}{1.2$\times 10^{-5}$} & 1.2$\times 10^{-5}$& \multicolumn{1}{l|}{3.4$\times 10^{-7}$} & -4.8$\times 10^{-6}$\\ \hline
+Dark current {[}e-/pix/s{]}        & None               & \multicolumn{1}{l|}{0.055} & 0.025& \multicolumn{1}{l|}{0.046} & 0.021 \\ \hline % Fix this one
 Bright defects {[}count{]}         & None               & \multicolumn{1}{l|}{0}          & 0         & \multicolumn{1}{l|}{0}          & 0          \\ \hline
-Linearity turnoff {[}e-{]}         & >90,000 e-               & \multicolumn{1}{l|}{156,339} & 167,797 & \multicolumn{1}{l|}{172,580} & 178,154  \\ \hline
-PTC turnoff {[}e-{]}               & >90,000 e-               & \multicolumn{1}{l|}{126,002}  & 132,963  & \multicolumn{1}{l|}{117,019}  & 128,595   \\ \hline
-PTC Gain {[}e- / ADU{]}            & None               & \multicolumn{1}{l|}{1.4785}    & 1.4811    & \multicolumn{1}{l|}{1.6717}    & 1.6760     \\ \hline
-Read noise {[}e-{]}            & <9 e-               & \multicolumn{1}{l|}{5.2984}    &   5.3147  & \multicolumn{1}{l|}{6.1965}    &  6.2576    \\ \hline
-PTC $a_{00}$ [$\frac{1}{pix^2}$]   & None               & \multicolumn{1}{l|}{3.0854E-6} & 3.0863E-6 & \multicolumn{1}{l|}{1.7119E-6} & 1.7031E-6  \\ \hline
-BF x-correlation                   & None               & \multicolumn{1}{l|}{0.5236}    & 0.5169    & \multicolumn{1}{l|}{0.7155}    & 0.7521     \\ \hline
-BF y-correlation                   & None               & \multicolumn{1}{l|}{0.1785}    & 0.1707    & \multicolumn{1}{l|}{0.2859}    & 0.2869     \\ \hline
-Row-means variance                 & None               & \multicolumn{1}{l|}{0.9927}    & 0.8836    & \multicolumn{1}{l|}{0.9924}    & 0.9466     \\ \hline
+Linearity turnoff {[}e-{]}         & >90,000 e-               & \multicolumn{1}{l|}{156,000} & 168,000 & \multicolumn{1}{l|}{173,000} & 178,000  \\ \hline
+PTC turnoff {[}e-{]}               & >90,000 e-               & \multicolumn{1}{l|}{126,000}  & 133,000  & \multicolumn{1}{l|}{117,000}  & 129,000   \\ \hline
+PTC Gain {[}e- / ADU{]}            & None               & \multicolumn{1}{l|}{1.48}    & 1.48    & \multicolumn{1}{l|}{1.67}    & 1.68     \\ \hline
+Read noise {[}e-{]}            & <9 e-               & \multicolumn{1}{l|}{5.30}    &   5.32  & \multicolumn{1}{l|}{6.20}    &  6.26    \\ \hline
+PTC $a_{00}$ [$\frac{1}{pix^2}$]   & None               & \multicolumn{1}{l|}{3.09$\times 10^{-6}$} & 3.09$\times 10^{-6}$& \multicolumn{1}{l|}{1.71$\times 10^{-6}$} & 1.70$\times 10^{-6}$ \\ \hline
+BF x-correlation                   & None               & \multicolumn{1}{l|}{0.524}    & 0.517    & \multicolumn{1}{l|}{0.716}    & 0.752     \\ \hline
+BF y-correlation                   & None               & \multicolumn{1}{l|}{0.179}    & 0.170    & \multicolumn{1}{l|}{0.286}    & 0.287     \\ \hline
+Row-means variance                 & None               & \multicolumn{1}{l|}{0.993}    & 0.884    & \multicolumn{1}{l|}{0.992}    & 0.947     \\ \hline
 Dark defects {[}count{]}           & <2\%               & \multicolumn{1}{l|}{4} & 3 & \multicolumn{1}{l|}{9} & 8  \\ \hline
-divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.32709}   & 0.27348   & \multicolumn{1}{l|}{0.75191}   & 0.62622    \\ \hline
-Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.6673}    & 5.6435    & \multicolumn{1}{l|}{0.48018}   & 0.42051    \\ \hline
+Divisadero tearing maximum {[}\%{]}& None               & \multicolumn{1}{l|}{0.327}   & 0.274   & \multicolumn{1}{l|}{0.752}   & 0.626    \\ \hline
+Persistence {[}ADU{]}              & None               & \multicolumn{1}{l|}{5.67}    & 5.64    & \multicolumn{1}{l|}{0.48}   & 0.42    \\ \hline
 \end{tabular}
 }
 \caption{Comparison of the median values of different parameters between Run 6 and Run 7, separated by detector type. For this comparison, only science detectors are considered.}\label{tab:initRever:Table}
