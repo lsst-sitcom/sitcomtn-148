@@ -1311,6 +1311,7 @@ is still not clear whether the effect will be visible in LSST Camera on-sky data
 % combined with a sky background of XXX as compared with the lab sensor
 % background of XXX.
 
+\clearpage
 
 \subsection{Vampire pixels}\label{vampire-pixels}
 
@@ -1326,6 +1327,7 @@ Initial identification of these on ComCam may have been in a study that called t
 on the backside electrode could reproduce the sort of charge redistribution observed (while conserving photo-conversion charge) -- and so these may be effectively described as pixel boundary distortions throughout, mediated simply by lateral (non-axial) contributions to the drift field. Any such lateral fields would mean a localized loss in pixel fidelity, not limited to the sensor's thickness scale (10 pix) as are apparently relevant in other known pixel distortion mechanisms (brighter-fatter effect, tree rings, edge rolloff, tearing, pixel boundary distortions due to midline implant, and hot columns).
 
 Since ComCam on-sky data became available, more attention has been paid to these features and how they may impact source detection and photometric determination of nearby field sources. As a direct consequence of tighter device screening and selection, {\it vampire pixels} are less common on average in the 88 ITL sensors of LSST Camera than they are in the nine sensors of ComCam. 
+
 
 \subsubsection{LSST Camera vampire pixel features}\label{lsstcam-vampire-pixel-features}
 
@@ -1484,6 +1486,7 @@ As a \href{https://rubin-obs.slack.com/archives/C07QJMQAP6E/p1731348605966989?th
 %\end{itemize}
 
 
+\clearpage
 
 \subsection{Phosphorescence}\label{phosphorescence}
 
@@ -1511,6 +1514,7 @@ In this section, we describe the methods used to identify the transient term we 
 We parasitically used a series of B-protocol persistence acquisitions executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided a large number of instances of identical EO measurement conditions (although the acquisitions were captured over a span of a few weeks). These EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pix). The dark images acquired in succession following the FLAT image recorded the reemitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs that acquired this data, where the excitation flat properties were fixed. The first and the twentieth dark images were stacked and medianed following a nominal\footnote{Two approaches for ISR were performed and the results were evaluated: {\it serial overscan only}, and {\it serial and parallel overscan joint correction}. With the downstream arithmetic step (twentieth median subtracted from the first median), the result is independent of any {\it master dark} subtraction utilized. The differences were very small, but consistent with the extra noise imparted by a superfluous, parallel overscan correction, which was further attenuated by the {\it median} operation on the image stack. We finalized these data products by using the {\it serial overscan only} ISR algorithm.} instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the resulting pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence: the component contained in the early (first) dark image (expressed in 15\,s that has attenuated away by the final (twentieth) dark image, which was acquired 300\,s (5 minutes) later.
 
 %, because as far as we could tell, the 15\,s expression of the deferred signal %300\,s after overexposure had almost completely attenuated.
+\clearpage
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
@@ -1573,14 +1577,14 @@ pixel resolution images for follow-up inspection, because there is no guarantee 
 \end{figure}
 
 
-A subset of the 88 ITL sensors, specifically those that show either high-signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination. Just as Figure~\ref{fig:phos:stains} (top and bottom) provides this for R00\_SW1, further examples are given in Appendix~\ref{appendix:phos:coffeestains}, Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20}. It is apparent from viewing these comparisons that generally, expression of phosphorescence has a complex relationship with the {\it much easier-to-detect} coffee stains (or other diffuse variations in quantum efficiency) seen on the same sensors: Presence of a coffee stain seen in flat field response may be suggestive of phosphorescence on the sensor, but predicting where it might be (or its transient amplitude) is another matter entirely. In some cases (as in Fig.~\ref{fig:phos:stains} noted above), the phosphorescence appears to be correlated with the darker absorbed features of the coffee stain. In others (e.g., Fig.~\ref{fig:phos:stains:R02S02}), the opposite correlation is seen. In still other cases (e.g., Fig.~\ref{fig:phos:stains:R02S12}), there are regions of strong detail in the phosphorescence without very much coffee stain action at all. Our conclusions are that presence of coffee stains do not provide a useful proxy for the phosphorescent properties of the sensor.
+A subset of the 88 ITL sensors, specifically those that show either high-signal diffuse, or morphologically unique structure in the transient term of the phosphorescence detected, are singled out to compare side-by-side with {\it blue} CCOB LED flat illumination. These are given in Appendix~\ref{appendix:phos:coffeestains}, Figures~\ref{fig:phos:stains:R01S00} through \ref{fig:phos:stains:R43S20}. To illustrate their diagnostic power, Figure~\ref{fig:blue-phos:R02_S12:rois} provides an enlargement of four specific regions of sensor R02\_S12 for better detail. It is apparent from these comparisons that generally, expression of phosphorescence has a complex relationship with the {\it much easier-to-detect} coffee stains (or other diffuse variations in quantum efficiency) seen on the same sensors: Presence of a coffee stain seen in flat field response may be suggestive of phosphorescence on the sensor, but accurate predictions are elusive.  In some cases (as in Fig.~\ref{fig:phos:stains} noted above), the phosphorescence appears to be correlated with the darker absorbed features of the coffee stain. In others (e.g., Figs.~\ref{subfig:comp:phos:R02_S12_C03} \& \ref{subfig:comp:blue:R02_S12_C03}), the opposite correlation is seen. In still other cases (e.g., Figs.~\ref{subfig:comp:phos:R02_S12_C10} \& \ref{subfig:comp:blue:R02_S12_C10}, Figs.~\ref{subfig:comp:phos:R02_S12_C15} \& \ref{subfig:comp:blue:R02_S12_C15}), there are regions of strong detail in the phosphorescence without very much coffee stain action at all. Our conclusions are that the presence of coffee stains does not provide a useful proxy for the phosphorescent properties of the sensor.
 
 \input{phosphorescing_itls_datasets_table}
 \input{phosphorescence_vs_coffeestains_R00SW1_figure}
 
 While characterizing the phosphorescence expressed by ITL sensors using the data products described above, we have also identified correlations that concerns the localized, phosphorescence centers that tend to appear as circular disks. While we typically see a dozen or so (on average) per sensor, those with larger amplitude are strongly associated with {\it vampire pixels} (which are easily identified by their localized flat field response). The correlation is not perfect, meaning that not all localized (circular) phosphorescence centers can be associated with {\it vampire pixels} but that nearly all {\it vampire pixels} express localized phosphorescence with some amplitude. 
 
-When data products of the 88 ITL sensors are inspected for transient phosphorescent response, very few, perhaps only a single sensor, show insignificant phosphorescence. Although $\sim$24\% of the ITL sensors show diffuse phosphorescence, a majority of sensors ($\sim$83\%) show spot-like phosphorescence centers. Presence of diffuse phosphorescence probably can frustrate spot-like phosphorescence detection by eye, and the estimated frequency of the latter may consequently serve as a lower limit to the true frequency. The identification of the sensor groups is given in Table~\ref{qualitative_assessment:itl_sensors}.
+When data products of the 88 ITL sensors are inspected for transient phosphorescent response ({\it cf.} Table~\ref{qualitative_assessment:itl_sensors}), very few, perhaps only a single sensor (R44\_SW1), show insignificant phosphorescence. Although $\sim$24\% of the ITL sensors show diffuse phosphorescence, a majority of sensors ($\sim$83\%) show spot-like phosphorescence centers without diffuse phosphorescence. Presence of diffuse phosphorescence probably can frustrate spot-like phosphorescence detection by eye, and the estimated frequency of the latter may serve as a lower limit to the true frequency. The case of R02\_S12 ({\it cf.} Figure~\ref{fig:blue-phos:R02_S12:rois} provides a good example of this.
 
 \input{phosphorescing_sensors_table}
 
@@ -1669,29 +1673,14 @@ A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage 
 \end{figure}
 
 
-\subsubsection{Other properties of phosphorescence}
-\begin{itemize}
-\tightlist
-\item
-  Dependence on HVBiasOn vs. HVBiasOff
-\item
-  Dependence on wavelength of the triggering exposure
-\item
-  Kinetics of the phosphorescence (based on {\it blue} CCOB LED)
-  \item 
-  Phosphorescence response: triggering exposure dependence of the expressed phosphorescence, the wavelength- and signal level-dependence. 
-\end{itemize}
+\subsubsection{Summary of phosphorescence in ITL sensors}
+From the investigations above, we find that a number of small but perhaps significant systematic effects appear to be joined by the presence of deferred signal which we loosely call {\it phosphorescence}. It is a hysteretic phenomenon and may be corrected pixel-by-pixel with adequate characterization. There appear to be multiple time constants in its decay (ranging from a short timescale of 11\,s through longer timescales of 320\,s) with roughly 75\% of the integrated phosphorescence belonging to the longest timescales and only about 5\% associated to the shortest timescales. This statement is based on a sample kinetics study performed on a specific ROI explored in Appendix~\ref{appendix:phos:kinetics}. We also find that the phosphorescent response to illumination is dependent on wavelength and illumination level ({\it cf.} Appendix~\ref{appendix:phos:response}), which in certain cases appear to present a proportional response to trigger illumination.
 
+In principle, each group of pixels (or each individual pixel) may be characterized by specific populations of characteristic phosphorescence kinetics as well as trigger exposure wavelength- and illumination-response. A dedicated set of measurements that acquire sequential dark images following a trigger exposure may be performed repeatedly until adequate statistics are achieved. 
 
-\begin{itemize}
-\tightlist
-\item
-  phosphorescence background
-\item
-  phosphorescence on flat fields
-\item
-  phosphorescence on spot projections
-\end{itemize}
+We consistently find phosphorescent counterparts to both {\it vampire pixels} and often (but not always) to {\it coffee stains} that appear in short wavelength flat field response. These facts provide strong clues that the phosphorescent signal is tied to surface detail of the backside window or equipotential. The fact that the time constants measured are comparable to those found for {\it persistence} in the other set of sensors (e2v) cast some doubt on the presumed mechanism and the name choice of the phenomenon. We do not know for certain that what we call {\it phosphorescence} isn't indeed a deferred signal caused by an temporarily trapped, then liberated charge, rather than a deferred photon emission as the adopted name would imply. We believe this suggestion is bolstered by the observation that the phosphorescent signal is strongly modified by the electrical state of the {\it HV Bias} switch to these sensors ({\it cf.} Figure~\ref{fig:phos:hvbias_comp}).
+
+Whatever the underlying cause of the {\it phosphorescence} signal, it is a contribution to the instrumental signature in science data that attenuates over time, and is generally a hysteresis that responds to wavelength, illumination history, and has strong position dependence to its expression with time constants that may also be position dependent. Whether it is corrected to first order as part of the Instrument Signature Removal (ISR) effort or not, sources extracted from regions suffering significant {\it phosphorescence} may be labeled as {\it suspect} and two-sided (or asymmetric errors) may apply to the variance plane when such sources are characterized or fitted.  
 
 \clearpage
 

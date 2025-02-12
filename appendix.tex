@@ -211,14 +211,14 @@ B protocols include a persistence acquisition, which is a saturated flat (usuall
 \section{OCS integration}
 A secondary goal of the run 7 campaign is further testing of integration between the Camera Control System (CCS) and the Observatory Control System (OCS). The tests performed with OCS control of LSSTCam during this campaign are the first operations of the LSSTCam with OCS which will be the normal operating mode during operations of the Simonyi Survey Telescope. To this end, many tests were performed during the Run 7 campaign including basic functionality tests, short OpSim runs, long, scheduler-driven OpSim runs ("survey mode") and the start of mock calibrations.
 
-\subsection{LSSTCam in OCS}
+%\subsection{LSSTCam in OCS}
 
 \subsection{Testing steps and achievements in Run 7}
-CS testing with LSSTCam was part of three steps of the Run 7 campaign. Prior to starting any of the steps, basic functionality was confirmed with single exposures via an OCS script. The first image taken with OCS happened on September 13th, 2024 early in the campaign to give time to address potential issues. The 3 steps with OCS driven operation where then as follows:
+OCS testing with LSSTCam was part of three steps of the Run 7 campaign. Prior to starting any of the steps, basic functionality was confirmed with single exposures via an OCS script. The first image taken with OCS happened on September 13th, 2024 early in the campaign to give time to address potential issues. The 3 steps with OCS driven operation where then as follows:
 \begin{itemize}
-    \item Step 4: Step 4 consisted of 30 minute OpSim runs. These were pre-generated sequences pulled from survey simulations including filter changes and different observation strategies for different filters, which may be a feature of the LSST survey. Two runs were successfully completed: E1414 which included operation of the shutter and E1585 which did not operate the shutter.
-    \item Step 9: Step 9 consisted of fully scheduler driven OpSim runs. These runs used the Rubin Scheduler to dynamically choose targets, filter changes and exposure times depending on the filter. The scheduler was configured to choose targets at any time - not only with the sun down - and to only operate LSSTCam and not point the telescope, though simulated slew times were added. 
-    \item Step 15: Step 15 consisted of a run of an example calibration sequence that could be run as part of a daily calibration sequence. This was intended to include testing image ingestion and processing of the calibrations with the observatory control system.
+    \item 30 minute OpSim runs. These were pre-generated sequences pulled from survey simulations including filter changes and different observation strategies for different filters, which may be a feature of the LSST survey. Two runs were successfully completed: E1414 which included operation of the shutter and E1585 which did not operate the shutter.
+    \item Fully scheduler driven OpSim runs. These runs used the Rubin Scheduler to dynamically choose targets, filter changes and exposure times depending on the filter. The scheduler was configured to choose targets at any time - not only with the sun down - and to only operate LSSTCam and not point the telescope, though simulated slew times were added. 
+    \item A run of an example calibration sequence that could be run as part of a daily calibration sequence. This was intended to include testing image ingestion and processing of the calibrations with the observatory control system.
 \end{itemize}
 
 Together, these steps demonstrated the ability to operate LSSTCam in a mode similar to what night time operations are anticipated to be like in a steady state. The listed acquisitions include over 12 hours of operation under control of the OCS including filter changes, shutter operation, guider ROI setting and variable exposure times. These operations also included simulated slew times. Image acquisition also worked in conjunction with the observatory header service to populate image headers with additional details and telemetry from the observatory.
@@ -227,13 +227,13 @@ While testing was largely successful, some issues were encountered and resolved 
 
 
 \subsection{Further testing and development}
-Not all testing goals to verify the Camera-OCS interface were possible during Run 7. A future testing period for lingering items is planned in February or March to close the loop on the remaining tests. These tests will use playlists and playback of data taken during Run 7.
+Not all testing goals to verify the Camera-OCS interface were possible during Run 7. A future testing period for lingering items is planned in February or March, 2025 to close the loop on the remaining tests. These tests will use playlists and playback of data taken during Run 7.
 
 An item to test is the summit storage facility for operations (S3), which was not yet available. With the playback mode testing, we will verify proper ingestion of images into S3.
 
 Another open item to be tested is a complete loop of calibrations being processed with the Observatory Control Pipeline Service (OCPS) immediately after their acquisition. A calibration playlist is included as part of the planned OCS testing period. With this data can be collected and sent to the OCPS to verify near real time processing of calibrations.
 
-Lastly, between Run 7 and the first light of LSSTCam, the observatory changed the communication middleware software used within the OCS. The change from DDS to Kafka is expected to improve stability of the communication between distributed software components of the OCS. for LSSTCam, the playback testing will be used to test if both general performance in the new middleware environment, and to see if missing command acknowledgments found in Run 7 remain reproducible. 
+Lastly, between Run 7 and the first photon of LSSTCam, the observatory changed the communication middleware software used within the OCS. The change from DDS to Kafka is expected to improve stability of the communication between distributed software components of the OCS. For LSSTCam, the playback testing will be used to test if both general performance in the new middleware environment, and to see if missing command acknowledgments found in Run 7 remain reproducible. 
 
 \clearpage
 \section{Phosphorescence}\label{appendix:phosphorescence}
