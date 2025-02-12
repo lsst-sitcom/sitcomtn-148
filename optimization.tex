@@ -439,18 +439,18 @@ During parallel transfer, it is common to  protect the CCD amplifier from large 
 Following a dedicated investigation on ITL devices, this has been changed 2 years ago as a clear improvement in the biases  was observed  \citep{2024SPIE13103E..0WU}, when keeping the Reset Gate active during the full parallel transfer. 
 By analogy drawn with this ITL study  and noticing that today e2v vendor, in its current documentation, also recommends to keep the  Reset Gate active during the full parallel transfer, such approach  became an area of interest for e2v device. 
 
-At the end of Run 7, 2 runs ({\it E3578} and {\it E3628}) were collected using,for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
+At the end of Run 7, 2 runs ({\it E3578} and {\it E3628}) were collected using, for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
 
 Even if this was a limited data set a few observations can be made: 
 \begin{itemize}
     \item For 2D overscan corrected images, no improvement in the stability of the bias shape overtime  or in the bias shape dependencies with exposure time   
-    \item For 2D overscan bias correction, left over bias structures (Figure~\ref{fig:2DNoRGRaw}) are unchanged between  sequencer{\bf V30} and sequencer{\bf V30\_NoRG} (Fig.~\ref{fig:2DNoRGEffect}).
+    \item For 2D overscan bias correction, leftover bias structures (Figure~\ref{fig:2DNoRGRaw}) are unchanged between  sequencer {\bf V30} and sequencer {\bf V30\_NoRG} (Fig.~\ref{fig:2DNoRGEffect}).
     \item For 1D overscan bias correction (serial bias overscan correction only), for detectors with a large  bias residuals, a clear improvement (\textasciitilde2 ADU = \textasciitilde 30\% reduction) has been observed with the {\bf V30\_NoRG} sequencer compared to the {\bf V30} one (Figure~\ref{fig:1DNoRGEffect}). 
 \end{itemize}
 
-So in practice running with {\bf V30\_NoRG} sequencer reduce the amplitude of the 2D bias shape of the biases: residual are smaller after 1D overscan bias correction.  This confirms  that part the 2D bias shape in e2v sensors is related to parallel clock usage during readout. 
+So in practice running with {\bf V30\_NoRG} sequencer reduces the amplitude of the 2D bias shape of the biases: residual are smaller after 1D overscan bias correction.  This confirms that the 2D bias shape in e2v sensors is related to parallel clock usage during readout. 
 
-If the biases 2D shape is reduced, it is still there when using {\bf V30\_NoRG} sequencer and it will still request 2D overscan bias correction. The issue is that even after 2D overscan correction, we observe a few ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGRaw}). Unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residual after 2D overscan correction. The {\bf V30\_NoRG} sequencer will not be the solution to fix this problem. As those residuals are function of the exposure time, we still have to count on DARK to correct the 2D bias shape of some e2v sensors to reach residuals from bias correction below 1 ADU. 
+If the biases 2D shape is reduced but still present when using {\bf V30\_NoRG} sequencer, it will still request 2D overscan bias correction. The issue is that even after 2D overscan correction, we observe a few ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGRaw}). Unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residual after 2D overscan correction. The {\bf V30\_NoRG} sequencer will not be the solution to fix this problem. As those residuals are function of the exposure time, we still have to count on DARK to correct the 2D bias shape of some e2v sensors to reach residuals from bias correction below 1 ADU. 
 
 \begin{figure}[ht]
 \begin{centering}
@@ -492,7 +492,7 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 
 \begin{figure}[ht]
 \begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/divisadero.png}
+\includegraphics[width=0.5\textwidth]{figures/divisadero.png}
 \end{centering}
 \caption{Impact of disabling IDLE\_FLUSH on divisadero tearing metric.}\label{IdleFlushEffect:divisadero}
 \end{figure}

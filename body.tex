@@ -1265,7 +1265,14 @@ bleed trails from bright stars that traversed the entire detector,
 crossing the amplifier boundaries. These bleed trails are unique
 though in that the core of the bleed trail is actually `dark'
 compared to the wings of the trail, with a flux $\sim$2\% less relative to the rest of the
-bleed trail.
+bleed trail. 
+
+A possible explanation for these 'dark dips' involves the depletion of 
+holes from within the channel stop implants between columns, similarly to the
+divisadero effect at the segment edges of e2v sensors. The lower hole density 
+between those columns creates a local lateral distortion of the drift field that shifts a fraction of the signal away from the center columns and towards the outer columns. 
+When a highly saturated star is bleeding, electrons are flowing across potential barriers in both the column and row directions. It is possible that, with a sufficient influx, some electrons recombine with the holes in the channel stops. 
+In ITL sensors, the channel stop implants are continuous across the whole sensor, so it is possible for this lower hole density to propagate away from the saturated star, both above and below the source of electrons.
 
 We investigated whether ITL dips could also be observed in the CCDs of
 LSST Camera. For this study, we used spots and rectangles projected onto the focal plane by the 4K
@@ -1305,7 +1312,9 @@ pattern of the projector, but no 2\% dip.
 \end{figure}
 
 While we were not able to find evidence of the ITL dip in Run 7 data, it
-is still not clear whether the effect will be visible in LSST Camera on-sky data. It is possible that the contrast and brightness that we could achieve in the lab was not representative of the on-sky measurements. But the ComCam sensors were run with a different sequencer file, and potentially the different sequencer files could explain the effect. Also, the CCD operating temperature of ComCam, which was $\sim$ -90C or higher, was higher than -100C for the LSST Camera. It is not clear if this is related or not.
+is still not clear whether the effect will be visible in LSST Camera on-sky data. 
+Study of the effect on ComCam sensors showed that not all CCDs were affected to the same extent, ranging from one sensor that was particularly sensitive, to two that were almost not affected. 
+It is possible that the contrast and brightness that we could achieve in the lab was not representative of the on-sky measurements. But the ComCam sensors were run with a different sequencer file, and potentially the different sequencer files could explain the effect. Also, the CCD operating temperature of ComCam, which was $\sim$ -90C or higher, was higher than -100C for the LSST Camera. It is not clear if this is related or not.
 % The electron rate of the in-lab data was roughly XXX per second for the 15\,s exposures. The stars that were seen in ComCam with the ITL dip
 % have a magnitude of XXX corresponding to a electron rate of XXX. This is
 % combined with a sky background of XXX as compared with the lab sensor
