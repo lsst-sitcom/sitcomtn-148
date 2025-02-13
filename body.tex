@@ -613,27 +613,6 @@ the last panel of Figure~\ref{fig:r33_s02_bias}, but this approach brings other 
 \label{fig:r33_s02_bias}
 \end{figure}
 
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2136_R33_S02.png}
-%\end{centering}
-%\caption{Run E2136, R33 S02}
-%\end{figure}
-%
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2236_R33_S02.png}
-%\end{centering}
-%\caption{Run E2236, R33 S02}
-%\end{figure}
-%
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2330_R33_S02.png}
-%\end{centering}
-%\caption{Run E2330, R33 S02}
-%\end{figure}
-
 To highlight the 2D shape differences in e2v bias instability, a 2D-overscan correction
 is applied. A few exposures illustrating the variations of the 2D shape
 for the same unstable CCD R33\_S02 are shown in Figures~\ref{fig:r33_s02_1880}-\ref{fig:r33_s02_2136_delay}. The 2D shape of the image in
@@ -669,28 +648,6 @@ amplifier C01 is different in the 3 cases.
 \end{minipage}
 \end{figure}
 
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E1880_bias_R33_S02.png}
-%\end{centering}
-%\caption{Bias exposure, run 1880, R33 S02}
-%\end{figure}
-%
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2136_dark15_R33_S02.png}
-%\end{centering}
-%\caption{15-s dark exposure, run E2136 in
-%\textquotesingle stable\textquotesingle{} conditions, R33 S02}
-%\end{figure}
-%
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2136_dark15_delay_R33_S02.png}
-%\end{centering}
-%\caption{15-s dark exposure, run E2136 after a 3-minute delay, R33 S02}
-%\end{figure}
-
 In order to quantify the number of unstable e2v amplifiers, a stability
 metric \emph{d} is defined from the {\tt eo\_pipe}
 stability task data products. More precisely, \emph{d} is defined, for a
@@ -717,23 +674,6 @@ amplifiers.
     \label{fig:stability_mosaic}
 \end{minipage}
 \end{figure}
-
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2136_distribution_d.png}
-%\end{centering}
-%\caption{Distribution of the stability metric for the e2v amplifiers in
-%run E2136}
-%\end{figure}
-%
-%\begin{figure}
-%\begin{centering}
-%\includegraphics[width=0.9\textwidth]{figures/E2136_mosaic_d.png}
-%\end{centering}
-%\caption{Mosaic of e2v amplifiers identified as instable (white color)
-%in run E2136}
-%\end{figure}
-
 
 \clearpage
 \subsection{Glow search}
@@ -1422,7 +1362,7 @@ A handful of dust spots are seen in these images that were not included in Table
 %\end{itemize}
 %
 
-An imperfect listing of ITL sensors in the Main Camera focal-plane showing such {\it vampire pixel} complexes is given in a table in Section~\ref{phosphorescence}, Table~\ref{qualitative_assessment:itl_sensors}). This list shows that 83 of the 88 Main Camera ITL sensors contain finite numbers of {\it vampire pixel} complexes, typically fewer than 30, revealed by spot-like phosphorescence counts. There would be significant overlaps with pixel complex lists generated using only stacks of flat-field response, which would also be sensitive to dust spots (in {\it dark pixels}), which are likely to have greater numbers (and may be partially salvageable depending on host surface and dust opacity). Meanwhile, {\it bright pixels} will also pinpoint the larger particulates that reflect light while also casting shadows (such cases are seen in the data, but their discussion is outside scope of this section). 
+A listing of ITL sensors in the Main Camera focal-plane showing such {\it vampire pixel} complexes is given in a table in Section~\ref{phosphorescence}, Table~\ref{qualitative_assessment:itl_sensors}). Some fraction of the spot-like transient features counted on each sensor are associated with coincident reductions or enhancements in the flat-field response, consistent with the above descriptions of {\it vampire pixels}. The list shows that 83 of the 88 Main Camera ITL sensors contain finite numbers of potential {\it vampire pixel} complexes, typically fewer than 30, revealed by spot-like phosphorescence counts. There would be significant overlaps with pixel complex lists generated using only stacks of flat-field response, which would also be sensitive to dust spots (in {\it dark pixels}), which are likely to have greater numbers (and may be partially salvageable depending on host surface and dust opacity). Meanwhile, {\it bright pixels} will also pinpoint the larger particulates that reflect light while also casting shadows (such cases are seen in the data, but their discussion is outside scope of this section). 
 
 Based on this listing, a total of 17 ITL sensors in the Main Camera host more than 30 {\it vampire pixel} complexes each. These identifications may be used to study in depth more fully the science impact of their transverse electric fields as well as their phosphorescent properties (when recording is preceded directly by illumination by a star in the previous image).
 
@@ -1507,8 +1447,8 @@ The ITL sensors with the largest memory effect were evaluated, and the following
     \item[2.] The attenuation timescale of the memory effect is curiously comparable to the timescales that were seen in the persistence suffered by the e2v sensors (which are believed due to exposure of surface states by the collected conversions, on the semiconductor-insulator interface on the front side): exponential time constants of between 20 and 40\,s, which curiously are in turn very close to the nominal exposure cadence for the LSST survey.
     \item[3.] The similarity in memory effect time constants (de-trapping charges from surface states near the channel on the front side -- the e2v case -- vs. either de-trapping of charges located near the backside window surface or relaxation by photon emission by some excited states there -- the ITL case) can be thought to favor the electron de-trapping mechanism, if only from the other surface. Otherwise, the nearly matched time constants would have to be seen as an improbable coincidence.
     \item[4.] A list of 12 ITL sensor serial numbers corresponding to those showing the memory effect was communicated to Mike Lesser at ITL. The list of parts shared certain properties according to his notes, and led him to develop a placeholder theory that would partially explain the mechanism. If true, it could explain what might be responsible for both the coffee stains and the memory effect with similar spatial distribution. He wrote that he tried, but was unsuccessful in diagnosing, using optical characterization tools (e.g., ellipsometer), any changes in optical constants on the affected regions of the ``stained'' sensors. The origin of the ``stains'', according to this theory, is as a consequence of there being ``raised spots'' on the sensors' backside surfaces that survive the final silicon acid etch. The raised silicon areas could potentially be trapping the resist used during the cleaning process that directly follows the etching step. Lesser wrote that the resist is wax-based and {\it does} fluoresce. If the theory is correct, he suggests that the medium would definitely be located {\it under} the AR coating and related neither to the coating nor the oxidation processes.
-    \item[5.] Discussions among the Rubin team led to the following distinction of terminology that served to name the ITL memory effect in question. The main difference between ``fluorescence'' and ``phosphorescence'' is in that the former is considered prompt re-emission and the later could be re-emission following a finite characteristic time constant. Characteristic time constants are in the nanosecond scale for fluorescence, while for phosphorescence it would be in the milliseconds to seconds range. For the purpose of this discussion, we adopt the word ``phosphorescence'' to refer to the memory effect present in some ITL sensors.
-    \item[6.] Lesser mentioned that the wax-based resist fluoresces (that would be the prompt mechanism with very short relaxation time). If there is any such residual material between the coating and the passivated silicon, it would be natural to expect a halo that would accompany any sharp (PSF-scale features) illumination that passes through these ``stains'' on the sensor surface: a scatter term with low integrated amplitude, whose scale should depend upon the re-emission wavelength. This has not yet been seen in lab data but may appear once the Camera goes on-sky.
+    \item[5.] Discussions among the Rubin team (e.g., \href{https://rubin-obs.slack.com/archives/C07QS3Z25PU/p1730661864474399}{E.~Rykoff on 20241103}) led to the following distinction of terminology that served to name the ITL memory effect in question. The main difference between ``fluorescence'' and ``phosphorescence'' is in that the former is considered prompt re-emission and the later could be re-emission following a finite characteristic time constant. Characteristic time constants are in the nanosecond scale for fluorescence, while for phosphorescence it would be in the milliseconds to seconds range. For the purpose of this discussion, we adopt the word ``phosphorescence'' to refer to the memory effect present in some ITL sensors.
+    \item[6.] Lesser mentioned that the wax-based resist {\bf fluoresces} (that would be the prompt mechanism with very short relaxation time). If there is any such residual material between the coating and the passivated silicon, it would be natural to expect a halo that would accompany any sharp (PSF-scale features) illumination that passes through these ``stains'' on the sensor surface: a scatter term with low integrated amplitude, whose scale should depend upon the re-emission wavelength. This has not yet been seen in lab data but may appear once the Camera goes on-sky.
     
 % I highly doubt that they are the resist itself but more likely etch patterns in the silicon itself which could have an effect on scattering and perhaps surface charge. But they could be initially caused by resist issues in during etching process.
 % It’s rather obvious of course, but I checked the notes and device 231 was noted as “stained” during processing (after etching).
@@ -1527,9 +1467,7 @@ We parasitically used a series of B-protocol persistence acquisitions executed f
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
-Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} (top) displays the transient term in 8$\times$8 blocked image of the R00\_SW1 sensor. (More figures can be found in  Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. It should be noted that we retained the full 
-1$\times$1 
-pixel resolution images for follow-up inspection, because there is no guarantee that high spatial frequencies in the phosphorescence expression will not be washed out by the rebinning routinely performed for display purposes.
+Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} (top) displays the transient term in 8$\times$8 blocked image of the R00\_SW1 sensor. (More figures can be found in  Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. These full-resolution pixel images represent our most reliable data products to identify individual pixels with significant transient signal. 
 
 \begin{figure}[!htbp]
 \centering
