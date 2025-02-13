@@ -211,7 +211,82 @@ B protocols include a persistence acquisition, which is a saturated flat (usuall
 \section{OCS integration}
 A secondary goal of the run 7 campaign is further testing of integration between the Camera Control System (CCS) and the Observatory Control System (OCS). The tests performed with OCS control of LSSTCam during this campaign are the first operations of the LSSTCam with OCS which will be the normal operating mode during operations of the Simonyi Survey Telescope. To this end, many tests were performed during the Run 7 campaign including basic functionality tests, short OpSim runs, long, scheduler-driven OpSim runs ("survey mode") and the start of mock calibrations.
 
-%\subsection{LSSTCam in OCS}
+\subsection{LSSTCam in OCS}
+\subsubsection{Configurable SAL Components (CSC) - base unit of OCS}
+
+Every component controlled by the OCS is represented by a CSC. CSCs are remote objects capable of receiving command and publishing telemetry and events. During the run 7 campaign, CSC communicated with DDS middleware, which was replaced by Kafka middleware in early 2025. Most CSCs interact with lower level software such as an engineering interface, pipelines, or in the case of all cameras (LSSTCam, ComCam and LATISS) the ocs-bridge component of CCS.
+
+LSSTCam is represented by a a group of 3 CSCs:
+\begin{enumerate}
+    \item MTCamera: this is the ocs-bridge in CCS as seen by the OCS - not exactly a CSC in the traditional sense, but will often be called a CSC. ocs-bridge communicates over DDS/Kafka middleware just as any CSC would.
+    \item MTOODS: Main Telescope Observatory Operations Data Service - handles data ingestion to LSST butler and purging old data from disks once ingested.
+    \item MTHeaderService: manages fits header data for images (science program, scheduler config, weather data and more)
+\end{enumerate}
+
+These can all be seen on LOVE, LSST Observatory Visualization Environment, ASummaryState view under the LSSTCam group of CSCs in figure \ref{fig:app:lsstcamcsc}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/appendixFigs/lsstcamcsc.png}
+    \caption{LSSTCam CSCs in LOVE.}
+    \label{fig:app:lsstcamcsc}
+\end{figure}
+
+CSCs in general have 4 regular operation states and 2 other states with the general rules. Normal states:
+\begin{enumerate}
+    \item STANDBY (transitions only to DISABLED): software is running on OCS computing clusters, but is not doing anything.
+    \item DISABLED (Transitions to STANDBY, ENABLED, FAULT): Software is running and communicating with hardware. Telemetry is sent to the EFD.
+    \item ENABLED (Transitions to DISABLED, FAULT): Software is running and ready to receive commands.
+    \item FAULT (transitions only to STANDBY): Software encountered a critical issue. Watcher alarms will be activated.
+\end{enumerate}
+Extra states:
+\begin{enumerate}
+    \item OFFLINE: The software is not available and active within the OCS computing clusters. 
+    \item UNKNOWN: The software is not deployed within the OCS computing clusters. 
+\end{enumerate}
+
+Remember though, MTCamera, ATCamera and CCCamera are not exactly CSCs, but rather the OCS-bridge. OCS-bridge maintains all states, but practically only has different behavior for 3 of them: 
+\begin{enumerate}
+    \item OFFLINE: OCS-bridge is not being used by the OCS. This is the state it should be in when controlling a camera through lower level CCS commands.
+    \item STANDBY: OCS-bridge has control of camera systems. The OCS itself cannot issue commands to the camera in this state however. This is a “safe mode” during the day / end of night.
+    \item ENABLED: OCS-bridge has control of camera systems. The OCS can issues commands the Camera. The camera can be controlled through scripts and the scheduler. This is the state when the camera is in use for calibrations and operations.
+\end{enumerate}
+Telemetry is always sent to the EFD from CCS.
+
+\subsubsection{ts\_xml}
+The both the software interface definitions and official ICD of T\&S/OCS systems are handled by ts\_xml. The human readable ICD version of ts\_xml may be found here: . The github management of these files (+ machine readable versions) are found here: 
+
+ . 
+
+As the camera and ocs-bridge interface with OCS, the CCS team generates an xml file that defines all commands, events and telemetry that the OCS knows about from the ocs-bridge for each CCS release. This can be found under MTCamera (also ATCamera and CCCamera for the other cameras) here (human-readable): 
+  and here (machine-readable):  
+
+\subsubsection{OCS Scheduler and Script Queue}
+OCS is operated via python scripts, which can be seen in these repositories: Standard Scripts and External Scripts. Standard scripts undergo rigorous testing to ensure functionality across all versions. These form the basic functions of the observatory. External scripts have less rigorous testing and are not guaranteed to work across versions. These are for specific, sometimes one-off tests of observatory systems.
+
+Scripts to be executed are added to a script queue for the observatory. At the time of writing, 3 script queues are available: AuxTel, MainTel and OCS. AuxTel and MainTel are for operating their respective telescopes, the OCS queue is a backup queue for other operations, for example, LSSTCam EO testing.
+
+Aside from manual addition scripts to the queue, each script queue has an associated scheduler which may add scripts to the queue through predefined scripts (JSON blocks) or programatically with the Rubin Scheduler taking input data such as time of day, weather, feasibility and more based on a scheduler configuration. Configurations and JSON blocks may be found under the Scheduler section of ts\_config\_ocs.
+
+Both the script queues and their respective schedulers are represented through CSCs. SAL index 1 corresponds to MainTel, 2 corresponds to AuxTel and 3 corresponds to OCS.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/appendixFigs/lsstcamcsc.png}
+    \caption{Visualization of scripts queues and schedulers in LOVE.}
+    \label{fig:app:schedulerscriptqueue.png}
+\end{figure}
+
+\subsubsection{OCS-Bridge}
+ocs-bridge is a CCS sub-component that communicates with the OCS. Instead of being a standard CSC, it has its own interface to the observatory via DDS (soon to be kaftka) middleware. It issues commands to the camera via MCM. It also raises events upon command/activity completion. These events are used by the OCS/scripts to determine when to stop waiting for an action to complete.
+
+An example procedure for taking control of the camera with OCS / ocs-bridge can be viewed in this test case: BLOCK-T154
+
+ocs-bridge must be in offline-available to allow the OCS to take control. This is done with ocs-bridge setAvailable with a lock on ocs-bridge in a ccs-shell. For OCS to successfully bring MTCamera to enabled (ocs-bridge in ENABLED state) MCM must able to transition its controlled subsystems to normal mode. This requires a few conditions, some are listed here:
+\begin{itemize}
+    \item MCM must be able to enter normal mode
+    \item Shutter must be closed
+    \item Alarms on subsystems such as focal-plane must be cleared
+\end{itemize}
 
 \subsection{Testing steps and achievements in Run 7}
 OCS testing with LSSTCam was part of three steps of the Run 7 campaign. Prior to starting any of the steps, basic functionality was confirmed with single exposures via an OCS script. The first image taken with OCS happened on September 13th, 2024 early in the campaign to give time to address potential issues. The 3 steps with OCS driven operation where then as follows:

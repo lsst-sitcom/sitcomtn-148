@@ -736,7 +736,7 @@ For spot photometry, we used the spot centroid to place a 5\,pixel\footnote{We p
 
 For the spot PTC, we utilized the pair of images taken at each exposure level and again using the spot centroid, we used a 10$\times$10 pixel box around the core of the spot to use for our PTC. We then compared these 10$\times$10 pixel cutout between the two pairs, finding the average and the standard deviation of the sum of the two boxes. To find the turnoff level, we evaluated the derivative of the variance vs. spot mean and found the point that has the first large negative value (-2000 ADU/s/ADU). This curve and the turnoff are shown in Figure~\ref{fig:Spot_Metrics}.
 
-Lastly, we used the final full well measurement to evaluate the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cut out the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e_1$\footnote{$e_2$ is also measured but we found that $e1$ had more accurate measurements, mostly likely due to it being less sensitive to small changes in the spot shape.}. We then plotted this against the spot peak. Similarly to the spot photometry method, we were left with a constant value that drops off suddenly. We used an approach similar to that for the spot photometry measurements by finding the value that falls below $3\sigma$ of the constant value. The results from applying this method as well as the turnoff values are shown in Figure~\ref{fig:Spot_Metrics}.
+Lastly, we used the final full well measurement to evaluate the spot shape and its second moments. Instead of using just the centroid from the spot footprint, we utilized the corresponding bounding box to cut out the entire spot. We then ran \texttt{galsim.hsm.FindAdaptiveMom} on the image to measure the value $e_1$\footnote{$e_2$ is also measured but we found that $e1$ had more sensitive measurements, mostly likely due to it only measuring the differences in the spot shape in the X and Y direction while $e2$ measures the difference in the 45 degree direction.}. We then plotted this against the spot peak. Similarly to the spot photometry method, we were left with a constant value that drops off suddenly. We used an approach similar to that for the spot photometry measurements by finding the value that falls below $3\sigma$ of the constant value. The results from applying this method as well as the turnoff values are shown in Figure~\ref{fig:Spot_Metrics}.
 
 \begin{figure}[ht]
     \centering
@@ -1229,7 +1229,7 @@ pattern of the projector, but no 2\% dip.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/RectangleCutout.png}
+\includegraphics[width=0.8\textwidth]{figures/RectangleCutout.png}
 \caption{(Left) Cutout showing two of the amplifiers of the one of the images with a saturated rectangle 'spot' from the 4k projector. The red box shows the area that was used to highlight the saturated area while the  blue box shows the area below that was used to look for the ITL dip. (Right) The row averaged pixel counts in ADU for the saturated region and the region below. If there was an ITL dip, we would expect to see a 2-5\% dip around the saturated region in the amplifier below it.}
 \label{fig:ITLDip_Rectangle}
 \end{figure}
@@ -1318,7 +1318,7 @@ One prominent example of such a feature is located in the LSST Camera focal plan
 
 
 \begin{table}[ht!]
-\caption{Sample vampire pixel complex parameters. The last column indicates whether a concentric phosphorescence center is present.}
+\caption{Sample vampire pixel complex parameters. The last column "P" indicates whether a concentric phosphorescence center is present.}
 \label{tab:vamp:samples}
 \centering
 \begin{tabular}{llllll}
@@ -1375,64 +1375,6 @@ As a \href{https://rubin-obs.slack.com/archives/C07QJMQAP6E/p1731348605966989?th
     \label{fig:eopipe_brightdefects_task_result}
 \end{figure}
 
-%\paragraph{Vampire features across the focal
-%plane}\label{vampire-features-across-the-focal-plane}
-%
-%\begin{itemize}
-%\tightlist
-%\item
-%  sensor type
-%\item
-%  static or dynamic
-%\item
-%  higher concentrations? Particularly bad sensors?
-%\end{itemize}
-%
-%\subsubsection{Current masking
-%conditions}\label{current-masking-conditions}
-%
-%\begin{itemize}
-%\tightlist
-%\item
-%  Bright pixels
-%\item
-%  Dark pixels
-%\item
-%  Jim's task
-%\end{itemize}
-
-%\subsubsection{Analysis of flats}\label{analysis-of-flats}
-%
-%\begin{itemize}
-%\tightlist
-%\item
-%  LED effect
-%\item
-%  Intensity effect
-%\end{itemize}
-%
-%\subsubsection{Analysis of darks}\label{analysis-of-darks}
-%
-%\begin{itemize}
-%\tightlist
-%\item
-%  Previous LED effect
-%\item
-%  Intensity of LED effect
-%\item
-%  dark cadence and exposure times
-%\end{itemize}
-
-%\subsubsection{Current models of
-%vampires}\label{current-models-of-vampires}
-%
-%\begin{itemize}
-%\tightlist
-%\item
-%  Tony \& Craig model
-%\item
-%  Others?
-%\end{itemize}
 
 
 \clearpage
@@ -1460,14 +1402,14 @@ We mentioned above that certain phosphorescent morphologies strongly resemble th
 
 In this section, we describe the methods used to identify the transient term we consider phosphorescence in the ITL sensors, and we list the regions where it was detected. Following that, we describe in some detail the kinematics of its expression (cherry picking specific easy-to-measure cases), together with their wavelength and excitation flux-level dependencies.
 
-We parasitically used a series of B-protocol persistence acquisitions executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided a large number of instances of identical EO measurement conditions (although the acquisitions were captured over a span of a few weeks). These EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pix). The dark images acquired in succession following the FLAT image recorded the reemitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs that acquired this data, where the excitation flat properties were fixed. The first and the twentieth dark images were stacked and medianed following a nominal\footnote{Two approaches for ISR were performed and the results were evaluated: {\it serial overscan only}, and {\it serial and parallel overscan joint correction}. With the downstream arithmetic step (twentieth median subtracted from the first median), the result is independent of any {\it master dark} subtraction utilized. The differences were very small, but consistent with the extra noise imparted by a superfluous, parallel overscan correction, which was further attenuated by the {\it median} operation on the image stack. We finalized these data products by using the {\it serial overscan only} ISR algorithm.} instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the resulting pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence: the component contained in the early (first) dark image (expressed in 15\,s that has attenuated away by the final (twentieth) dark image, which was acquired 300\,s (5 minutes) later.
+We parasitically used a series of B-protocol persistence acquisitions executed for the purpose of tuning the operation of e2v sensors. The reason for this was that the ITL operating parameters were left unchanged from run to run, and thereby provided a large number of instances of identical EO measurement conditions (although the acquisitions were captured over a span of a few weeks). These EO runs acquired a series of dark images (with the nominal 15\,s integration time, or `EXPTIME') that followed a deliberate overexposure and readout of a FLAT (CCOB LED `red', target signal 400 ke$^-$/pix). The dark images acquired in succession following the FLAT image recorded the re-emitted or deferred signal collected within each 15\,s period, and there were 20 such dark images acquired within each EO run. In all, we identified and analyzed a total of 22 runs that acquired this data, where the excitation flat properties were fixed. The first and the twentieth dark images were stacked and medianed following a nominal\footnote{Two approaches for ISR were performed and the results were evaluated: {\it serial overscan only}, and {\it serial and parallel overscan joint correction}. With the downstream arithmetic step (twentieth median subtracted from the first median), the result is independent of any {\it master dark} subtraction utilized. The differences were very small, but consistent with the extra noise imparted by a superfluous, parallel overscan correction, which was further attenuated by the {\it median} operation on the image stack. We finalized these data products by using the {\it serial overscan only} ISR algorithm.} instrumental signal removal (ISR) step. The twentieth median dark images were then subtracted from the first median darks. This further suppressed any remaining ISR residuals from the resulting pixel data, which nominally now contain the {\it transient term} of the ITL phosphorescence: the component contained in the early (first) dark image (expressed in 15\,s that has attenuated away by the final (twentieth) dark image, which was acquired 300\,s (5 minutes) later.
 
 %, because as far as we could tell, the 15\,s expression of the deferred signal %300\,s after overexposure had almost completely attenuated.
 \clearpage
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
-Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} (top) displays the transient term in 8$\times$8 blocked image of the R00\_SW1 sensor. (More figures can be found in  Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. These full-resolution pixel images represent our most reliable data products to identify individual pixels with significant transient signal. 
+Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} (top) displays the transient term in 8$\times$8 blocked image of the R00\_SW1 sensor (More figures can be found in  Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. These full-resolution pixel images represent our most reliable data products to identify individual pixels with significant transient signal. 
 
 \begin{figure}[!htbp]
 \centering
