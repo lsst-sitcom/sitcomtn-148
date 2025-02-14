@@ -255,6 +255,7 @@ flush on top of the existing one at the end of the clear. This sequencer
 did improve the clear, but did  not fully fix the clear issue (see
 Table~\ref{tab:clears}).
 
+\clearpage
 {\tiny
 \begin{longtable}[tbh]{|p{0.2\linewidth}|p{0.12\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|}
 \caption{Clear methods used so far. \label{tab:clears}} \\
@@ -493,6 +494,7 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 \end{centering}
 \caption{Impact of disabling IDLE\_FLUSH on divisadero tearing metric.}\label{IdleFlushEffect:divisadero}
 \end{figure}
+
 Figure \ref{IdleFlushEffect:divisadero} shows the impact on the divisadero tearing. Shown there are selected B protocol runs with different settings in chronological order. A few changes of settings were tested: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some runs with these different settings also included some minor additional changes in settings, or changing the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the number of clears). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the upper one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought down the overall distribution. The two distributions became indistinguishable, which indicates that the majority of the divisadero tearing for e2v is mitigated.
 
 E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System (See Section \ref{ganttchart}).. The stability of the results confirms that the metric is consistent over power cycling of LSST Camera.
