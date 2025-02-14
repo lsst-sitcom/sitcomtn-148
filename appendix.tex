@@ -244,7 +244,7 @@ Extra states:
     \item UNKNOWN: The software is not deployed within the OCS computing clusters. 
 \end{enumerate}
 
-Remember though, MTCamera, ATCamera and CCCamera are not exactly CSCs, but rather the OCS-bridge. OCS-bridge maintains all states, but practically only has different behavior for 3 of them: 
+However, MTCamera, ATCamera and CCCamera are not exactly CSCs, but rather the OCS-bridge. OCS-bridge maintains all states, but practically only has different behavior for 3 of them: 
 \begin{enumerate}
     \item OFFLINE: OCS-bridge is not being used by the OCS. This is the state it should be in when controlling a camera through lower level CCS commands.
     \item STANDBY: OCS-bridge has control of camera systems. The OCS itself cannot issue commands to the camera in this state however. This is a “safe mode” during the day / end of night.
@@ -271,7 +271,7 @@ Both the script queues and their respective schedulers are represented through C
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/appendixFigs/lsstcamcsc.png}
+    \includegraphics[width=0.6\linewidth]{figures/appendixFigs/schedulerscriptqueue.png}
     \caption{Visualization of scripts queues and schedulers in LOVE.}
     \label{fig:app:schedulerscriptqueue.png}
 \end{figure}

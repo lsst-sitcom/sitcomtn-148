@@ -1019,7 +1019,7 @@ We also collected a set of data with ROIs of different sizes and with different 
 We measure the noise level of ROIs acquired under various configurations, shown in Table~\ref{tab:gds_configs}. We took 20 images in each configuration, where each image is acquired over a 15-second exposure time. Due to different ROI sizes (and thus different read-out frequencies), the number of frames within each image varies.  The noise is calculated as the standard deviation of the entire ROI from R00\_SG0, and averaged over all frames from all of the 20 images. For the split ROI (last row in Table~\ref{tab:gds_configs}), the noise is measured on the left and right half of the ROI respectively. The images were taken on 30 Nov. 2024 and 01 Dec. 2024. We note that all images taken on 30 Nov. 2024 suffer from an abnormally high-gain sensor state, where the counts level in each image is about one-tenth of the expected values (Section \ref{sec:guider:highgain}). This affects most of the rows in Table~\ref{tab:gds_configs} except the last two rows. The cause of such an abnormal state is under active investigation. Regardless of the issue, an increase in noise is seen when ROIs are unaligned on a single GREB, but not among GREBs.
 
 %% jgt - here's the table with the configuratons and results (noise results omitted)
-\begin{longtable}[ht]{|c|c|c|c|c|c|c|}
+\begin{longtable}[th]{|c|c|c|c|c|c|c|}
 \caption{Summary of results for the different Guider configurations.}\\
 \hline
 \makecell{\textbf{ROI} \\ \textbf{Size}} & 
@@ -1735,11 +1735,9 @@ The definitive resolution has not yet been made. Further analysis is required.
 \subsection{R24/Reb0 and UT leak fault issue}\label{sec:lowtempissue}
 We were recovering operations from the Pumped Coolant System (PCS) PCS issue on November 10, 2024, at 10:17 (UTC) when the PCS could not continue to operate. After the PCS tripped off, we let it sit for several hours. We warmed up the cold plate to -10°C.
 
-After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: ``Execution of command `powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)."
+After a few hours, we attempted to reestablish the cold condition. The PCS set point was lowered gradually, and we were adding heat load by powering on REBs. However, during this process, R24/Reb0 tripped off due to an error message: ``Execution of command `powerRebOn' failed unexpectedly due to: REB 0 power on sequencing failed: 0x00080020 (OD voltage or current out of range)." We power cycled the RebPS P02, which contains R24/Reb0, and it tripped off again with the same error.
 
-We power cycled the RebPS P02, which contains R24/Reb0, and it tripped off again with the same error.
-
-A few minutes later, we encountered a UTLeak Fault. UTLeak Fault became asserted, and the Camera was fully shut down. A crew went to the White Room but did not find any water leaks, nor did the leak detector. We have not identified the cause. (Note a few days later, we found a few drops of Dyanalene in the UT, although it was found that it was not enough to trigger UT leak.)
+A few minutes later, UTLeakFault became asserted, and the Camera was fully shut down. A crew went to the White Room but did not find any water leaks, nor did the leak detector. We have not identified the cause. (Note a few days later, we found a few drops of Dyanalene in the UT, although it was found that it was not enough to trigger UT leak. The possible leak place was sealed by TorrSeal.)
 
 On November 15, 2024, we set the Dynalene temperature to 4°C, then changed it to 8°C and 11°C. The temperature at the Camera side reached 12.5°C. RebPS/BoardTemp6 reached 13°C. Under these conditions, R24/Reb0 came on without any issues. Therefore, we determined that the low RebPS/PS02/BoardTemp6 of around 9°C was the cause of the problem. We note that this temperature is not a strict limit. Some power supply could run at this temperature. Also once it powers up the board temp (or Dynalene temp) needs to be as low as 9°C (4°C) so no to trip off the power supply by hitting the high temp limit (48°C) when the HV unit is on.
 
@@ -1754,16 +1752,21 @@ Regarding the UT Leak Fault issue, it is crucial to distinguish between ``UT Lea
 After the temporary fix to the PCS degradation has been made, when we tried to turn of the CCDs, we observed horizontal stripes in the raw images (Figure \ref{fig:horizontal-stripes}), which made the overscan subtracted-image looks not normal (Figure \ref{fig:thefirstobservationofdatacorruption}).
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/Issues/FirstObservationofCorruption.png}
-    \caption{The first observation of the data corruption in the full focal plane image.}
-    \label{fig:thefirstobservationofdatacorruption}
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Issues/FirstObservationofCorruption.png}
+        \caption{The first observation of the data corruption in the full focal plane image.}
+        \label{fig:thefirstobservationofdatacorruption}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Issues/horizontalstripes.png}
+        \caption{A close-up view of the section of the image showing the horizontal stripes (without the overscan subtraction).}
+        \label{fig:horizontal-stripes}
+    \end{minipage}
 \end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/Issues/horizontalstripes.png}
-    \caption{A close up view of the section of image showing the horizontal strips. (without the overscan subtraction)}
-    \label{fig:horizontal-stripes}
-\end{figure}
+
 
 We rebooted DAQ, power cycle CCDs, REBs, focal-plane subsystem and Image-handling subsystem, however, none of them fixed this issue. 
 
