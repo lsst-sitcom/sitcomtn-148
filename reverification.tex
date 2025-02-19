@@ -364,21 +364,21 @@ Differences in row-means variance between runs are evident, and are distinctly d
 \clearpage
 \subsubsection{Divisadero tearing}\label{sec:divisadero:init}
 
-Divisadero tearing (or Rabbit ears) is manifested as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
+Divisadero tearing (or Rabbit ears) manifests as signal variations near amplifier boundaries, connected features that are often jagged \cite{2020arXiv200209439J,2024SPIE13103E..0WU}. These variations are on the order of \textasciitilde1\% relative to the flat field signal. To quantify divisadero tearing in a given column, we measure the column signal, and compare it to the mean column signal from flat fields.
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{figures/baselineCharacterization/13550_E1071_DIVISADERO_TEARING_inset.png}
-\caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, Divisadero tearing is weaker in Run 7. The difference is more pronounced for e2v sensors, which have larger Divisadero tearing in general.}
+\caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, divisadero tearing is weaker in Run 7. The difference is more pronounced for e2v sensors, which have larger divisadero tearing in general.}
 \end{centering}
 \end{figure}
 
-Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower Divisadero tearing in Run 7. Taking amplifier differences, e2v sensors show a weaker Divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see Fig.~\ref{fig:divisadero_diff_baseline}).
+Divisadero tearing is broadly consistent between Run 6 and Run 7, with both sensor types demonstrating lower divisadero tearing in Run 7. Taking amplifier differences, e2v sensors show a weaker divisadero signal in Run 7 by 0.1\%, while ITL sensors demonstrate a weaker Divisadero signal in Run 7 by 0.05\% (see Fig.~\ref{fig:divisadero_diff_baseline}).
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/baselineCharacterization/DIVISIDERO_TEARING_13550_E1071_diff.png}
-    \caption{A comparison of Run 6 and Run 7 amplifier differences in Divisadero tearing, separated by sensor type. For both sensor types, divisadero tearing is weaker in Run 7.}
+    \caption{Comparison of Run 6 and Run 7 amplifier differences in divisadero tearing, separated by sensor type. For both sensor types, divisadero tearing is weaker in Run 7.}
     \label{fig:divisadero_diff_baseline}
 \end{figure}
 
@@ -442,9 +442,9 @@ image and the average of the residual ADU in the final dark images. This residua
 \end{centering}
 \end{figure}
 
-In the initial Run 7 measurements, we had not changed any operating
+In the initial Run~7 measurements, we had not changed any operating
 parameters of LSST Camera, so we would expect persistence to still be
-present images at the same level as in Run 6.
+present images at the same level as in Run~6.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -484,8 +484,8 @@ All camera performance metrics from the summit show close agreement with SLAC IR
 \hline
 \multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
                                    &                                & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
-Serial CTI {[}\%{]}                & $5\times10^{-4}$               & \multicolumn{1}{l|}{3.7$\times 10^{-5}$} & 1.1$\times 10^{-5}$& \multicolumn{1}{l|}{1.2$\times 10^{-4}$} & 1.7$\times 10^{-4}$ \\ \hline
-Parallel CTI {[}\%{]}              & $3\times10^{-4}$               & \multicolumn{1}{l|}{1.2$\times 10^{-5}$} & 1.2$\times 10^{-5}$& \multicolumn{1}{l|}{3.4$\times 10^{-7}$} & -4.8$\times 10^{-6}$\\ \hline
+Serial CTI {[}\%{]}                & 5$\times 10^{-4}$               & \multicolumn{1}{l|}{3.7$\times 10^{-5}$} & 1.1$\times 10^{-5}$& \multicolumn{1}{l|}{1.2$\times 10^{-4}$} & 1.7$\times 10^{-4}$ \\ \hline
+Parallel CTI {[}\%{]}              & 3$\times 10^{-4}$               & \multicolumn{1}{l|}{1.2$\times 10^{-5}$} & 1.2$\times 10^{-5}$& \multicolumn{1}{l|}{3.4$\times 10^{-7}$} & -4.8$\times 10^{-6}$\\ \hline
 Dark current {[}e-/pix/s{]}        & None               & \multicolumn{1}{l|}{0.055} & 0.025& \multicolumn{1}{l|}{0.046} & 0.021 \\ \hline % Fix this one
 Bright defects {[}count{]}         & None               & \multicolumn{1}{l|}{0}          & 0         & \multicolumn{1}{l|}{0}          & 0          \\ \hline
 Linearity turnoff {[}e-{]}         & >90,000 e-               & \multicolumn{1}{l|}{156,000} & 168,000 & \multicolumn{1}{l|}{173,000} & 178,000  \\ \hline
