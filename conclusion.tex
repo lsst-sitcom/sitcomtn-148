@@ -4,18 +4,18 @@ parameters}\label{run-7-final-operating-parameters}
 This section describes the conclusions of Run 7 optimization and the
 operating conditions of the camera. Decisions regarding these parameters
 were based upon the results of the
-\href{https://sitcomtn-148.lsst.io/\#persistence-optimization}{voltage
+\ref{sec:persistence-optimization}{voltage
 optimization},
-\href{https://sitcomtn-148.lsst.io/\#sequencer-optimization}{sequencer
+\ref{sequencer-optimization}{sequencer
 optimization}, and
-\href{https://sitcomtn-148.lsst.io/\#thermal-optimization}{thermal
+\ref{section:disablingIDLEFLUSH}{thermal
 optimization}.
 
 
 \subsubsection{Voltage conditions}\label{voltage-conditions}
 
 \begin{longtable}[ht]{@{}l|c|cc@{}}
-\caption{Voltage Conditions with Updated Run 5 for ITL Values} \\
+\caption{Voltage Conditions. ITL voltages have not changed since Run 5, and are reported here.} \\
 \toprule
 Parameter & Run 5 (ITL) & Run 5 (dp93; e2v) & Run 7 (dp80; new voltage for e2v) \\
 \midrule
@@ -68,17 +68,12 @@ ITL & FP\_ITL\_2s\_l3cp\_v30.seq \\
   repository}.
 \end{itemize}
 
-\subsubsection{Other camera conditions}\label{other-camera-conditions}
+For both sequencers, idle flush is disabled
 
-\begin{itemize}
-\tightlist
-\item
-  Idle flush disabled
-\end{itemize}
 
 \subsection{Record runs}\label{record-runs} 
 
-This section describes the record runs for Run 7. All runs use our camera operating configuration, unless otherwise noted.
+This section describes the record runs for Run 7, i.e., the electro-optical testing runs from which the Run 7 performance characterization described in this note was derived. All runs use our camera operating configuration, unless otherwise noted.
 \begin{longtable}[ht]{|p{5.0cm}|p{1.5cm}|p{8.5cm}|}
 \hline
 \textbf{Run Type} & \textbf{Run ID} & \textbf{Notes} \\ \hline
@@ -91,7 +86,7 @@ This section describes the record runs for Run 7. All runs use our camera operat
 \hline
 \endlastfoot
 
-\multirow{3}{*}{B-protocol} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1880/w_2024_35/}{E1880} & Initial B\_protocol taken with the new v30 definition. \\ \cline{2-3} 
+\multirow{3}{*}{B protocol} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1880/w_2024_35/}{E1880} & Initial B protocol run taken with the new v30 definition. \\ \cline{2-3} 
                             & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2233/w_2024_35/}{E2233} & dp80, first run after full CCS system reboot \\ \cline{2-3} 
                             & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3380/w_2024_35/}{E3380} & First B protocol post-chiller recovery \\ \hline
 
@@ -105,13 +100,13 @@ This section describes the record runs for Run 7. All runs use our camera operat
 
 \multirow{5}{*}{Gain Stability} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1955/w_2024_35/}{E1955} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \cline{2-3} 
                                 & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2008/w_2024_35/}{E2008} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
-                                & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2136/w_2024_35/}{E2136} & 15s darks with variable delays between acquisitions \\ \cline{2-3} 
+                                & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2136/w_2024_35/}{E2136} & 15\,s darks with variable delays between acquisitions \\ \cline{2-3} 
                                 & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2236/w_2024_35/}{E2236} & Dark and biases with consistent delays between acquisitions \\ \cline{2-3} 
                                 & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2330/w_2024_35/}{E2330} & Dark images with delay between acquisitions. \\ \hline
 
-\multirow{3}{*}{Long dark acquisitions} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3540/w_2024_35/}{E3540} & 900s dark. Shutter closed. \\ \cline{2-3} 
-                                       & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3539/w_2024_35/}{E3539} & 900s dark. Shutter closed. \\ \cline{2-3} 
-                                       & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3538/w_2024_35/}{E3538} & 900s dark. Shutter opened. \\ \hline
+\multirow{3}{*}{Long dark acquisitions} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3540/w_2024_35/}{E3540} & 900\,s dark. Shutter closed. \\ \cline{2-3} 
+                                       & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3539/w_2024_35/}{E3539} & 900\,s dark. Shutter closed. \\ \cline{2-3} 
+                                       & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3538/w_2024_35/}{E3538} & 900\,s dark. Shutter opened. \\ \hline
 
 \multirow{2}{*}{Projector acquisitions} & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2184/w_2024_35/}{E2184} & 10 30\,s dark images to capture background pattern. E2V:v29Nop, ITL:v29Nopp \\ \cline{2-3} 
                                         & \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2181/w_2024_35/}{E2181} & Flat pairs from 2--60\,s in 2\,s intervals. Two 15\,s darks interleaved after flat acquisition. Rectangle on C10 amplifier. E2V:v29Nop, ITL:v29Nopp \\ \hline
@@ -190,13 +185,13 @@ Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-fi
 \textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2016/w_2024_35/}{E2016}} & Final operating conditions of camera. Super dense red LED. HV Bias off for R13/Reb2. jGroups meltdown interrupted acquisitions, restarted \\ \hline
 \textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1886/w_2024_35/}{E1886}} & Final operating conditions of camera. Red LED dense. Dark interleaving between flat pairs \\ \hline
 \textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1881/w_2024_35/}{E1881}} & Final operating conditions of camera. Red LED dense. No dark interleaving between flat pairs \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1765/w_2024_35/}{E1765} & Dense PTC, red, thresholded dark interleaves, overlaps in signal level for adjacent LED currents. v29 Nop sequencer, idle flush ?? \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1765/w_2024_35/}{E1765} & Dense PTC, red, thresholded dark interleaves, overlaps in signal level for adjacent LED currents. v29 Nop sequencer, idle flush state unknown \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1495/w_2024_35/}{E1495} & dp80, nopp config. Idle flush ?? \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1364/w_2024_35/}{E1364} & v29, dp80, idle flush ??. Possible incomplete data transfer \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1364/w_2024_35/}{E1364} & v29, dp80, idle flush state unknown. Possible incomplete data transfer \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1335/w_2024_35/}{E1335} & dp80 configuration, v29, idle flush ??. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1275/w_2024_35/}{E1275} & Ordered flats. Failed dark interleaving, incomplete data transfer. v29 sequencer. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1259/w_2024_35/}{E1259} & Randomized flats. v29 sequencer. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1258/w_2024_35/}{E1258} & Randomized flux levels. Starting with 3 preimages, then 100 15s darks, then PTC set. No dark interleaving. v29 sequencer. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1258/w_2024_35/}{E1258} & Randomized flux levels. Starting with 3 preimages, then 100 15\,s darks, then PTC set. No dark interleaving. v29 sequencer. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1247/w_2024_35/}{E1247} & Re-do of E1188 (which lacked PD data). v29HalfOverlapping., Added pre-image acquisition to PTC-Red cfg file. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1212/w_2024_35/}{E1212} & 5\% overlapping sequencer \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1145/w_2024_35/}{E1145} & No pocket sequencer \\ \hline
@@ -219,14 +214,14 @@ Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-fi
 \hline
 \endlastfoot
 
-\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3540/w_2024_35/}{E3540}} & 900s dark. Shutter closed. \\ \hline
-\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3539/w_2024_35/}{E3539}} & 900s dark. Shutter closed. \\ \hline
-\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3538/w_2024_35/}{E3538}} & 900s dark. Shutter opened. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1140/w_2024_35/}{E1140} & Empty frame filter, shutter open, 24V clean and dirty FES changer powered off, one 900s dark image only. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1117/w_2024_35/}{E1117} & 900s dark. r filter, shutter open. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1116/w_2024_35/}{E1116} & 900s dark. y filter, shutter open. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1115/w_2024_35/}{E1115} & 900s dark. g filter, shutter open. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1114/w_2024_35/}{E1114} & 900s dark. EF filter, shutter open. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3540/w_2024_35/}{E3540}} & 900\,s dark. Shutter closed. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3539/w_2024_35/}{E3539}} & 900\,s dark. Shutter closed. \\ \hline
+\textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E3538/w_2024_35/}{E3538}} & 900\,s dark. Shutter opened. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1140/w_2024_35/}{E1140} & Empty frame filter, shutter open, 24\,V clean and dirty FES changer powered off, one 900\,s dark image only. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1117/w_2024_35/}{E1117} & 900\,s dark. r filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1116/w_2024_35/}{E1116} & 900\,s dark. y filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1115/w_2024_35/}{E1115} & 900\,s dark. g filter, shutter open. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1114/w_2024_35/}{E1114} & 900\,s dark. EF filter, shutter open. \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1076/w_2024_35/}{E1076} & PH filter in place. Shutter open. v26 no RG \\ \hline
 \href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1075/w_2024_35/}{E1075} & PH filter in place. v26 no RG \\ \hline
 
@@ -354,10 +349,10 @@ Runs that use the Run 7 final camera operating configuration (Sec.~\ref{run-7-fi
 \textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1955/w_2024_35/}{E1955}} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled \\ \hline
 \textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E2008/w_2024_35/}{E2008}} & 6h Stability run 10k 750 nm V30, dp80, idle flush disabled, after zero-ing CCOB \\ \hline
 \textbf{\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1968/w_2024_35/}{E1968}} & 6h Stability run 2k 750 nm V30, dp80, idle flush disabled \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1367/w_2024_35/}{E1367} & Changing PCS setpoint mid run., PCS changed from -45 deg C to -47 deg C at 10:40:06 AM UTC. 6h, 50k at 750nm, v29 seq, dp80 config. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1362/w_2024_35/}{E1362} & dp80, partial data ingestion. v29 sequencer. 6h 10k at 750nm. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E756/w_2024_35/}{E756} & dp 80, v29 sequencer. 6h 10k at 750nm. Partial data ingestion. \\ \hline
-\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1496/w_2024_35/}{E1496} & dp80, nopp config, 12h 750nm at 10k \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1367/w_2024_35/}{E1367} & Changing PCS setpoint mid run., PCS changed from -45 deg C to -47 deg C at 10:40:06 AM UTC. 6h, 50k at 750\,nm, v29 seq, dp80 config. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1362/w_2024_35/}{E1362} & dp80, partial data ingestion. v29 sequencer. 6h 10k at 750\,nm. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E756/w_2024_35/}{E756} & dp 80, v29 sequencer. 6h 10k at 750\,nm. Partial data ingestion. \\ \hline
+\href{https://s3df.slac.stanford.edu/data/rubin/lsstcam/E1496/w_2024_35/}{E1496} & dp80, nopp config, 12h 750\,nm at 10k \\ \hline
 
 \end{longtable}
 

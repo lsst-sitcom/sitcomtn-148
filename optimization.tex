@@ -432,17 +432,17 @@ for ITL, i.e., serial phase 3 always, slightly extended in time to match the Nop
 R01\_S10 are foreseen (e.g., investigation of using a continuous
 serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 
-\subsubsection{No toggling the RG bit during parallel transfer for e2v sensors}\label{noRGe2v}
-During parallel transfer, protecting the CCD amplifier from large signal injection associated with the parallel clock swing is commonly done, by activating the Reset Gate of the CCD amplifiers. Although our initial default configuration, following ITL and e2v vendors' practice at the time, this ``RG protection" was not active during the last parallel clock swing.  This was because 
-following a dedicated investigation of ITL devices two years ago we found that keeping the Reset Gate (RG) active during the full parallel transfer provided a clear improvement in the biases \citep{2024SPIE13103E..0WU}. 
-By analogy drawn with this ITL study and noticing that today Teledyn e2v, in its current documentation, also recommends to keep the  Reset Gate active during the full parallel transfer, such approach  became an area of interest for e2v devices as well. 
+\subsubsection{Not toggling the RG bit during parallel transfer for e2v sensors}\label{noRGe2v}
+During parallel transfer, protecting the CCD amplifier from large signal injection associated with the parallel clock swing is commonly done by activating the Reset Gate (RG) of the CCD amplifier. Although our initial default configuration, following ITL and e2v vendors' practice at the time, this ``RG protection" was not active during the last parallel clock swing.  This was because 
+following a dedicated investigation of ITL devices two years ago we found that keeping the RG active during the full parallel transfer provided a clear improvement in the biases \citep{2024SPIE13103E..0WU}. 
+By analogy drawn with this ITL study and noticing that today Teledyn e2v, in its current documentation, also recommends to keep the  RG active during the full parallel transfer, such approach  became an area of interest for e2v devices as well. 
 
 At the end of Run 7, two runs ({\it E3578} and {\it E3628}) were collected using, for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
 
 Although this was a limited data set a few observations can be made: 
 \begin{itemize}
     \item  1D overscan bias corrected image , as they still show 2D structure , are the best place to see first order  2D shape change for various sequencer. For 1D overscan bias correction (serial bias overscan correction only), for detectors with large  bias residuals, a clear improvement (\textasciitilde2 ADU = \textasciitilde 30\% reduction) has been observed with the {\bf V30\_NoRG} sequencer compared to the {\bf V30} one (Figure~\ref{fig:1DNoRGEffect}).
-    \item For 2D overscan corrected images, no improvement was found in the stability of the bias shape with exposure time  .  
+    \item For 2D overscan corrected images, no improvement was found in the stability of the bias shape with exposure time.  
     \item For 2D overscan bias correction, leftover bias structures  are unchanged between  sequencer {\bf V30} and sequencer {\bf V30\_NoRG} (Fig.~\ref{fig:2DNoRGEffect}).
 
 \end{itemize}
@@ -451,7 +451,7 @@ So in practice running with {\bf V30\_NoRG} sequencer  reduces the amplitude of 
 
 Nevertheless if the biases' 2D shape is reduced, it is still present when using {\bf V30\_NoRG} sequencer, and the corresponding issues in the removal of this 2D shape are unchanged : 
 \begin{itemize}
-\item The 2D overscan bias correction  presents a few-ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGRaw}): unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residuals. 
+\item The 2D overscan bias correction  presents  up to \textasciitilde1 ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGEffect}): unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residuals. 
 \item Also the {\bf V30\_NoRG} sequencer will not be the solution to remove the dependency of the 2D bias shape with the exposure time (Figure~\ref{fig:BiasVSDark}).
 \end{itemize}
 

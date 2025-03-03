@@ -247,7 +247,7 @@ No easily visible difference can be seen between the two images. This is most li
 \begin{centering}
 \includegraphics[width=0.48\textwidth]{figures/E1075_ShutterClosed.png}
 \includegraphics[width=0.48\textwidth]{figures/E1076_ShutterOpen.png}
-\caption{ (left) An example image of run E1075 (shutter closed). (right) An example image of run E1076 (shutter open). If there was a light leak, we would expect to see the 21 spots of the pinhole filter. However, there is no noticeable difference between the images, insuring that our shrouding in Section \ref{light-leak-mitigation-with-shrouding-the-camera-body} is good and that the shutter being open and closed does not affect the dark current. \label{fig:shutter-darkcurrent}}
+\caption{ (left) An example image of run E1075 (shutter closed). (right) An example image of run E1076 (shutter open). If there was a light leak, we would expect to see the 21 spots of the pinhole filter. However, there is no noticeable difference between the images, confirming that our shrouding described in Section \ref{light-leak-mitigation-with-shrouding-the-camera-body} is good and that the shutter being open and closed does not affect the dark current. \label{fig:shutter-darkcurrent}}
 \end{centering}
 \end{figure}
 
@@ -258,10 +258,9 @@ No easily visible difference can be seen between the two images. This is most li
     \label{fig:DarkCurrent_ShutterOpenvClosed}
 \end{figure}
 
-\subsection{Filter condition impact on
-darks}\label{filter-condition-impact-on-darks}
+\subsection{Impact of filters on dark images}\label{filter-condition-impact-on-darks}
 
-To investigate how the filter affects the dark measurement, we took 900 second darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from EO pipe can be found in Figure \ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents drop from 0.026 e-/s with the empty filter to 0.0035 e-/s for $r$, 0.0011 e-/s for $y$, and 0.00063 e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other 3 filters to confirm this.
+To investigate how the filter affects the dark measurement, we took 900\,s darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from {\tt eo\_pipe} can be found in Figure~\ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents decrease from $26 \times 10^{-3}$ e-/s with the empty filter to $3.5 \times 10^{-3}$ e-/s for $r$, $1.1 \times 10^{-3}$ e-/s for $y$, and $0.63 \times 10^{-3}$ e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other three filters to confirm this.
 
 \begin{figure}[ht]
 \begin{centering}
