@@ -30,7 +30,7 @@ The final operating parameters of LSSTCam for Run 7 are presented in Section \re
 
 \paragraph{Serial CTI}\label{sec:finalChar-serial-cti}
 
-Serial CTI is extracted from the B protocol runs, and show high consistency between initial and final operating parameters (Fig.~\ref{fig:finalChar-SCTI-5x5}). 
+Serial CTI is extracted from the B protocol runs, and shows high consistency between initial and final operating parameters (Fig.~\ref{fig:finalChar-SCTI-5x5}). 
 
 \begin{figure}[ht]
     \centering
@@ -371,18 +371,18 @@ No other metrics were significantly impacted by the final operating conditions. 
 
 
 \clearpage
-\subsection{List of non-functional amplifiers}\label{deadamplifiers}
+\subsection{List of problematic amplifiers}\label{deadamplifiers}
 
-We classify amplifier sections as non-functional if they produce effectively no signal ({\it dead}) when subject to incident light, or if the read noise level is above $18e^{-}$ ({\it high-noise}).  Dead amplifiers are found with either read noise levels below 4\,$e^{-}$ which indicates that no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2--2.0\,$e^{-}$/ADU (or 0.8--1.8\,$e^{-}$/ADU for BOT data, i.e., Run 6 and earlier, and single-raft testing). 
+We classify amplifier sections as problematic if they produce effectively no signal ({\it dead}) when subject to incident light, or if the read noise level is above $18e^{-}$ ({\it high-noise}).  Dead amplifiers are found with either read noise levels below 4\,$e^{-}$ which indicates that no signal is reaching the ADC, or from anomalous PTC gain values, outside the range 1.2--2.0\,$e^{-}$/ADU (or 0.8--1.8\,$e^{-}$/ADU for BOT data, i.e., Run 5 and earlier, and single-raft testing). 
 
-A list of nonfunctional amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data-taking period ( Table~\ref{tab:BOTbadamp}). As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as high-noise during single-raft or BOT testing, only one (R41\_S21\_C02) remained as high-noise at the end of BOT testing.
+A list of problematic amplifiers on Science Rafts was produced from both single-raft testing as well as a selection of runs from the BOT data-taking period during Runs 3--5 (Table~\ref{tab:BOTbadamp}). As the table indicates, two amplifiers (R01\_S01\_C00 and R10\_S00\_C00) transitioned from dead to working during the course of the BOT testing, and another channel (R03\_S11\_C00) was dead in single-raft testing, then began working during BOT testing but was dead at the end of BOT testing. At the end of the BOT testing, only (R03\_S11\_C00 and R30\_S00\_C10) were classified as dead. Furthermore, of the six channels that were flagged as high-noise during single-raft or BOT testing, only one (R41\_S21\_C02) remained as high-noise at the end of BOT testing.
 
 \begin{table}[!ht]
     \tiny
     \centering
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
     \hline
-        Channel & Problem & \makecell{ Single Raft \\ testing } & \makecell{ Run 12433 \\ Oct 19} & \makecell{ Run 12610 \\ Oct 20} & \makecell{ Run 12795 \\ Nov 20} & \makecell{ Run 12845 \\ Jan 21} & \makecell{ Run 13016 \\ Nov 21} & \makecell{ Run 13101 \\ Nov 21} & \makecell{Run 13137 \\ Dec 21} \\ \hline
+        Channel & Problem & \makecell{ Single Raft \\ testing } & \makecell{ Run 12433 \\ 2020/07/07} & \makecell{ Run 12610 \\ 2020/10/8} & \makecell{ Run 12795 \\ 2020/11/13} & \makecell{ Run 12845 \\ 2021/1/27} & \makecell{ Run 13016 \\ 2021/11/7} & \makecell{ Run 13101 \\ 2021/11/25} & \makecell{Run 13137 \\ 2021/12/3} \\ \hline
         R01\_S01\_C00  & Dead Amp & Dead & Dead & OK & OK & OK & OK & OK & OK \\ \hline
         R01\_S02\_C07  & HiNoise & OK & 27e & 22e & 20e & 21e & 15e & 14e & 14e \\ \hline
         R01\_S11\_C00  & HiNoise & OK & 24e & OK & OK & 12e & OK & OK & OK \\ \hline
@@ -395,22 +395,22 @@ A list of nonfunctional amplifiers on Science Rafts was produced from both singl
         R43\_S20\_C14  & HiNoise & OK & NA & OK & OK & 69e & 145e & OK & OK \\ \hline
 
     \end{tabular}
-    \caption{Table of non-functional Science Raft amplifiers during BOT and single raft testing. For high-noise amplifiers the measured read noise is listed for levels above 12\,$e^{-}$. \label{tab:BOTbadamp}}
+    \caption{Table of dead and high-noise Science Raft amplifiers during BOT and single raft testing. The column ``Problem'' is the status {\it at some point during this time}.  The columns to the right indicate the status of these segments during single raft testing prior to integration in the BOT and then throughout BOT-era data taking from Run 3 (July 2020) to the end of Run 5 (December 2021). For high-noise amplifiers the measured read noise is listed for levels above 12\,$e^{-}$. \label{tab:BOTbadamp}}
 \end{table}
 
-Next, we list non-functional amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially non-functional amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391, 13557, E1110, E1363, E1880, E2233, E3380) and PTC runs (13412, 13591, E1113, E1364, E1881, E2237, E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as non-functional.  For further study, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figures~\ref{fig:ptc-badamps} and \ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it Dead} come in two flavors: no signal whatsoever (e.g., R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $\sim10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two with tiny signals had low current measurements of around 0.5\,mA when they were found to be non-functional, compared to 1.0\,mA when they were functional. 
+Next, we list problematic amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially problematic amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391, 13557, E1110, E1363, E1880, E2233, E3380) and PTC runs (13412, 13591, E1113, E1364, E1881, E2237, E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as problematic.  For further study, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figures~\ref{fig:ptc-badamps} and \ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it dead} come in two flavors: no signal whatsoever (e.g., R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $\sim10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two with tiny signals had low current measurements of around 0.5\,mA when they were found to be problematic, compared to 1.0\,mA when they were functional. 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{figures/ptc_badamps.png}
-    \caption{PTC plots for amplifiers flagged as potentially non-functional, from dense PTC runs}
+    \caption{PTC plots for amplifiers flagged as potentially problematic, from dense PTC runs}
     \label{fig:ptc-badamps}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{figures/lin_badamps.png}
-    \caption{Linearity plots for amplifiers flagged as potentially non-functional, from dense PTC runs}
+    \caption{Linearity plots for amplifiers flagged as potentially problematic, from dense PTC runs}
     \label{fig:lin-badamps}
 \end{figure}
 
@@ -421,26 +421,26 @@ Next, we list non-functional amplifiers detected in full Camera EO testing durin
     \hline
         Channel & Summary & Comments  \\ \hline
 
-R01\_S01\_C00  & Sometimes Dead & Usually OK, turns Dead in E3577, previously seen as Dead \\ \hline
+R01\_S01\_C00  & Sometimes Dead & Usually OK, turns dead in E3577, previously seen as dead \\ \hline
 R01\_S02\_C07  & OK & Noise fluctuates sometimes over $18e^-$ consistent with previous behavior \\ \hline
 R01\_S11\_C00  & OK & Noise fluctuates sometimes over $18e^-$ consistent with previous behavior \\ \hline
-R03\_S01\_C05  & Sometimes HiNoise & previously OK,  High Noise in E3577 for first time, NEW bad amp \\ \hline
-R03\_S11\_C00  & Sometimes Dead & Usually OK, turns Dead in E3577, previously seen as Dead \\ \hline
-R30\_S00\_C10  & Dead & Always Dead \\ \hline
-R41\_S21\_C02  & HiNoise & Always Hi Noise \\ \hline
-R43\_S20\_C14  & HiNoise & Always Hi Noise \\ \hline
+R03\_S01\_C05  & Sometimes HiNoise & Previously OK,  high noise in E3577 for first time, NEW bad amp \\ \hline
+R03\_S11\_C00  & Sometimes Dead & Usually OK, turns dead in E3577, previously seen as dead \\ \hline
+R30\_S00\_C10  & Dead & Always dead \\ \hline
+R41\_S21\_C02  & HiNoise & Always high noise \\ \hline
+R43\_S20\_C14  & HiNoise & Always high noise \\ \hline
 
     \end{tabular}
-    \caption{Table of potentially non-functioning Science Raft amplifiers, from Runs 6a, 6b, and 7. Categories are OK, Sometimes HiNoise, Sometimes Dead, HiNoise, Dead. \label{tab:gds_amps}}
+    \caption{Table of potentially problematic Science Raft amplifiers, from Runs 6a, 6b, and 7. The Summary column gives the status at the end of Run~7.  Categories are OK, Sometimes HiNoise, Sometimes Dead, HiNoise, Dead. \label{tab:gds_amps}}
 \end{table}
 
-Finally, we list non-functional Corner raft amplifiers, selected with the same filter.  Three such amplifiers, all in Guide sensors, have been non-functional since single CCD testing.  These CCDs were selected for the Guiders due to their single non-functional amplifier, rather than use a fully working Science-grade device. PTC and linearity curves for these channels, for three dense PTC runs, are shown in Figure~\ref{fig:ptclin-badamps-corner}, to classify these channels as either Dead or HiNoise. These three channels are listed in Table~\ref{tab:badamps-corner}
+Finally, we list problematic Corner raft amplifiers, selected with the same filter.  Three such amplifiers, all in Guide sensors, have been problematic since single CCD testing.  These CCDs were selected for the Guiders due to their single problematic amplifiers, rather than use a fully working Science-grade device. PTC and linearity curves for these channels, for three dense PTC runs, are shown in Figure~\ref{fig:ptclin-badamps-corner}, to classify these channels as either Dead or HiNoise. These three channels are listed in Table~\ref{tab:badamps-corner}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.45\linewidth]{figures/ptc_badamps_corner.png}
     \includegraphics[width=0.45\linewidth]{figures/lin_badamps_corner.png}
-    \caption{PTC and Linearity plots for Corner Raft amplifiers flagged as potentially non-functional, from Dense PTC runs}
+    \caption{PTC and Linearity plots for Corner Raft amplifiers flagged as potentially problematic, from Dense PTC runs}
     \label{fig:ptclin-badamps-corner}
 \end{figure}
 
@@ -451,12 +451,12 @@ Finally, we list non-functional Corner raft amplifiers, selected with the same f
     \hline
         Channel & Summary & Comments  \\ \hline
 
-R04\_SG0\_C11  & Dead & Always Dead \\ \hline
-R40\_SG1\_C10  & HiNoise & Always Hi Noise \\ \hline
-R44\_SG0\_C02  & HiNoise & Always Hi Noise\\ \hline
+R04\_SG0\_C11  & Dead & Always dead \\ \hline
+R40\_SG1\_C10  & HiNoise & Always high noise \\ \hline
+R44\_SG0\_C02  & HiNoise & Always high noise\\ \hline
 
     \end{tabular}
-    \caption{Table of non-functioning Corner Raft amplifiers, from Runs 6a, 6b, and 7. Categories are OK, SometimesHiNoise, SometimesDead, HiNoise, Dead. \label{tab:badamps-corner}}
+    \caption{Table of problematic Corner Raft amplifiers, from Runs 6a, 6b, and 7. The Summary column gives the status at the end of Run~7. Categories are as in Table~\ref{tab:gds_amps}. \label{tab:badamps-corner}}
 \end{table}
 
 \subsection{Defect stability}\label{defect-stability}
@@ -476,9 +476,9 @@ To measure differences between defect masks from different runs, we can compare 
 
 %% Maybe add a figure/cartoon here that shows the process of combining the different masks
 
-Each individual defect mask can be scaled by $2^{n}$, where $\{n:0,1,2,3,... \}$ denotes an index associated with a defect mask (from Run 6, early Run 7, or late Run 7). These individual defect masks are added together to created a composite defect mask, ranging in value from $[0,2^{n}-1]$, with each bitvalue becoming associated with a different composition of mask planes. By comparing the defect mask bit values of different masks, it is then possible to recover on the segment level the uniqueness and stability of a defect mask by comparing the composition bit values to the mask indices. For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bitvalues 0 and $2^n$ only. This analysis is performed on dark and bright defects for Run 6, initial run 7 and final run 7 data (see table \ref{table:defectStability:measurements}). 
+Each individual defect mask can be scaled by $2^{n}$, where $\{n:0,1,2,3,... \}$ denotes an index associated with a defect mask (from Run 6, early Run 7, or late Run 7). These individual defect masks are added together to created a composite defect mask, ranging in value from $[0,2^{n}-1]$, with each bit value becoming associated with a different composition of mask planes. By comparing the defect mask bit values of different masks, it is then possible to recover on the segment level the uniqueness and stability of a defect mask by comparing the composition bit values to the mask indices. For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bit values 0 and $2^n$ only. This analysis is performed on dark and bright defects for Run 6, initial Run 7 and final Run 7 data (see Table \ref{table:defectStability:measurements}). 
 
-\begin{table}[ht]\label{table:defectStability:measurements}
+\begin{table}[ht]
 \centering
 \begin{tabular}{|ccc|}
 \hline
@@ -496,6 +496,7 @@ Each individual defect mask can be scaled by $2^{n}$, where $\{n:0,1,2,3,... \}$
 \multicolumn{1}{|c|}{ITL} & \multicolumn{1}{c|}{11.6319}  & 39.5833     \\ \hline
 \end{tabular}
 \caption{Measurements of the percentages of science sensor amplifiers that meet different masking criteria, when compared across 13550 (Run 6), E1071 (Run 7 initial), and E1880 (Run 7 final). For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bitvalues 0 and $2^3-1=7$ only. For this tabulation we removed a 9-pixel border from each dark mask to remove the edge response from the dark defect data set. Other masking configurations were set to the LSSTCam defaults.}
+\label{table:defectStability:measurements}
 \end{table}
 
 \subsubsection{Bright defects}
@@ -533,9 +534,7 @@ We have found bias instabilities, typically above the 1 ADU level, for a number 
 \end{enumerate}
 
 Both issues were observed and deeply studied in Run 6 EO data. The ITL
-issue is believed to be phase shifts in clocks between Readout
-Electronics Boards (REBs) because REBs rely on the frequency converted
-from their natural frequency. We tried to mitigate the e2v issue by
+issue is believed to be random phase shifts in clocks due to the fact that REBs convert their natural clock units of 6.4ns to an artificial one of 10ns. In this conversion, there could be ambiguity in timing with respect to the natural clock. We tried to mitigate the e2v issue by
 optimizing the acquisition configuration in Run 7.
 
 For the baseline acquisition configuration (see Section~\ref{conclusions}), three
@@ -677,10 +676,10 @@ amplifiers.
 
 \clearpage
 \subsection{Glow search}
-A long dark image can be used to identify glowing regions. Figure \ref{fig:glowsearch} shows an example of a 900\,s dark after ISR application, with a very narrow stretch from -5 to -5 ADUs. 
-Obvious glow can be found in 3 guider sensors of S04\_SG0, S40\_SG1 and S44\_SG0 (see Fig.~\ref{fig:focal-plane-layout} to locate each sensor). The glows in the guider sensors have been identified and present since their construction.
+A long dark image can be used to identify glowing regions. Figure \ref{fig:glowsearch} shows an example of a 900\,s dark after ISR application, with a very narrow stretch from -6 to -6 ADUs. 
+Obvious glow can be found in 3 guider sensors of S04\_SG0, S40\_SG1 and S44\_SG0 (see Fig.~\ref{fig:focal-plane-layout} to locate each sensor). The glows in the guider sensors have been identified and present since their first testing after the Raft construction.
 Glowing regions can be observed in R12\_S22, R14\_S22, R23\_S11, as well, along with some other minor glowing regions elsewhere. These are the so-called yellow corner, which we discussed in Section \ref{sec:bias-stability-2}.
-In R43\_S21 between Segments 13 and 14, we found a very weak leak at a rate of 40--50\,ADU/900\,s (Fig. \ref{fig:glowsearch:closeup}). This was also present in Run 6 data (e.g., in MC\_C\_20231102\_000085).
+In R43\_S21 between Segments 13 and 14, we found a very weak glow at a rate of 40--50\,ADU/900\,s (Fig. \ref{fig:glowsearch:closeup}). This was also present in Run 6 data (e.g., in MC\_C\_20231102\_000085).
 Otherwise, we did not find any other glowing regions in the focal plane.
 
 \begin{figure}
@@ -803,21 +802,21 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5\% of the data points (this small rate validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
 
-\subsection{ADC differential nonlinearity}
-ADC differential nonlinearity (DNL) was studied in earlier runs and will be analyzed separately for Run 7.
+%\subsection{ADC differential nonlinearity}
+%ADC differential nonlinearity (DNL) was studied in earlier runs and will be analyzed separately for Run 7.
+% Renee this section later using her method based on runs taken during Run 7.
 
 
 \subsection{Gain stability}\label{sec:gain-stability-2}
 We have used ``relative gain'' in this section to study gain stability over time. 
 The relative gain is defined as the ratio of the signal observed in a CCD image segment divided by the integration of the photodiode current with respect to an arbitrary normalization.
 With a fixed flat illumination, the variation of the relative gain over successive exposures can be utilized to investigate the gain stability. 
-In the past run \citep{2024SPIE13103E..0WU}, we used a run during which the temperature was constant
-, which reflects the real observing condition. We repeated this test during Run 7 and we acquired flat images at two representative flux levels with two distinct temperature conditions: either intentionally altered or maintained constant.
+In the past Run 6 \citep{2024SPIE13103E..0WU}, we used a run during which the Cold plate target temperature was kept constant, which reflects the real observing condition. We repeated this test during Run 7 and we acquired flat images at two representative flux levels with two distinct temperature conditions: either intentionally altered or maintained constant.
 \begin{itemize}
-    \item E1496 (dp80, 12\,, constant temperature, v29\_Nop, nm750, 10k e-)
-    \item E1367 (dp80, 6\,hr, temperature swing, v29, nm750, 50k e-)
-    \item E756 (dp80, 6\,, gain stability @ 50k e-), unprocessed because there was a data transfer issue
-    \item E1362 (dp80, 6\,, 10k e-), unprocessed because there was data transfer issue
+    \item E1496 (dp80, 12\,hr, constant temperature, v29\_Nop, nm750, 10k e-)
+    \item E1367 (dp80, 6\,hr, temperature swing of 2 degrees, v29, nm750, 50k e-)
+    \item E756 (dp80, 6\,hr, gain stability @ 50k e-), unprocessed because there was a data transfer issue
+    \item E1362 (dp80, 6\,hr, 10k e-), unprocessed because there was data transfer issue
 \end{itemize}
 
 Here we focus on E1496 (steady temperature) and E1367 (variable temperature).
@@ -870,14 +869,14 @@ Clearly, Figure~\ref{fig:gaintempE1367} shows not only temperature dependency bu
 During this run the LED board temperature also decreased by more than 1\,C over the testing period.
 
 
-The reason why the relationship between gain and temperature became much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temperature, 2) illumination from the LED is somehow changing over time, which is not correlated with the LED temperature, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As hysteresis is observed, possibility 1) is definitely present but it cannot explain the gain changes when the temperature is constant. Possibility 2) is unlikely given the fact that the complicated relationship was observed as well in Run 6. Possibility 3) could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to turbulence of the air in the lens volume. However, it is not clear if any kind of long-term trend over 6 hours can be explained by this. For possibility 4), we made a visual check in a different period and we did not find anything obvious. 
+The reason why the relationship between gain and temperature became much more complicated is not clear. It is understandable that hysteresis was not observed in Run 6 because there was no intentional temperature change in the cold plate, which means the cold plate/REB temperature swing was minimal. However, looking at the result from E1496 where we took images at the same temperature, the relationship is much more complicated than what it looked like before. A number of possibilities can be considered to explain this: 1) there is a hidden variable that changes the gain other than the REB temperature, 2) illumination from the LED is somehow changing over time, which is not correlated with the LED temperature, 3) air turbulence in the lens volume contributes to this, or 4) condensation on the lens might come into play. As hysteresis is observed, possibility 1) is definitely relevant but the particular hidden variable is not clear because it cannot explain the gain changes when the temperature is constant. Possibility 2) is unlikely given the fact that the complicated relationship was observed as well in Run 6. Possibility 3) could play some role since \citet{2024arXiv241113386B} discovered illumination changes due to turbulence of the air in the lens volume. However, it is not clear if any kind of long-term trend over 6 hours can be explained by this. For possibility 4), we made a visual check for condensation (not during the run) and we did not find anything obvious. 
 
-Gain changes can be categorized in two ways: global or local to an amplifier.  A global coherent change can be, in principle, correctable as it is degenerate with atmospheric transparency variations, which will be corrected by the calibration process. A local amplifier-by-amplifier change would be a more serious issue because the number of stars in an amplifier segment might not be sufficient for sufficiently precise photometric calibration. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1367} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
+Gain changes can be categorized in two ways: global or local to an amplifier.  A global coherent change can be, in principle, correctable as it is degenerate with atmospheric transparency variations, which will be corrected by the calibration process. A local amplifier-by-amplifier change would be a more serious issue because the number of stars in an amplifier segment might not be sufficient for making precise photometric calibration. In order to study the local amp-by-amp gain change, Figures \ref{fig:relative-gain-E1496} for the constant temperature condition and \ref{fig:relative-gain-E1367} for the temperature swing condition show the differential gain changes with respect to the medianed relative gain for the entire focal plane. %: $\delta g_i-\delta g_0;~{\rm where}~\delta g_i(t_j)=\delta G_i (t_j)/\delta G_i(0)~{\rm and}~\delta G_i(t_j)=({\rm CCD~count}(t_j))/({\rm PD~measurement}(t_j))_i$~{\rm and}~{i~is~the~index~of~amplifier}. 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1\linewidth]{figures/gaintemp/E1496gainoverall_global.png}
-    \caption{Differential gain change with respect to the median of relative gain change for the whole focal plane, for E1496}
+    \caption{Time dependence of relative gain change relative to the overall median gain, for E1496}
     \label{fig:relative-gain-E1496}
 \end{figure}
 The differential gain change with respect to the global change for the constant temperature case appears mostly stable within the level of $10^{-4}$. Some of the measurements deviated from zero because of the normalization of the first measurement. R11\_S12, R12\_S10, R12\_S22, R24\_S11, R34\_S20 have one amplifier that has a higher relative gain up to $5\times 10^{-4}$ but others behave stably. This could be contaminated by the yellow corner in e2v sensors (Sec.~\ref{sec:bias-stability-2}) but this could be mitigated by discarding the first few exposures, which is probably required for other reasons such as bias instability. Further investigation is needed. Another interesting behavior is seen in R11\_S2x. The three sensors had a spike of gain simultaneously. We have not figured out what happened at that time.
@@ -1081,13 +1080,13 @@ We compare two runs, E1110 (guide sensors in imaging mode) and E1290 (guide sens
 
 In summary, our comprehensive characterization of the  performance and stability of LSSTCam reveals several key findings. The comparison of initial and final Run 7 camera metrics on Cerro Pachón, using standard B protocol and dense red PTC data sets, highlights the consistency and stability of serial and parallel CTI measurements. Dark current measurements remain stable across the focal plane, with notable improvements in certain rafts due to effective light leak mitigation. Bright defects show close agreement between runs, with no significant new defects.
 
-Evaluations of linearity and PTC turnoff from PTC runs indicate a decrease in full-well capacity for e2v sensors, while PTC gain shows a minor increase. Read noise remains consistent for both e2v and ITL sensors, and PTC noise does not exhibit significant deviations. The brighter-fatter coefficient increases for e2v sensors due to lower parallel swing, and the brighter-fatter correlation remains consistent. Row-means variance shows close agreement, with a slight decrease for e2v sensors. Divisadero tearing experiences a significant decrease for e2v sensors in the final condition. Dark defects remain consistent between runs, affecting a very small fraction of pixels.
+Evaluations of linearity and PTC turnoff from PTC runs indicate a decrease in full-well capacity for e2v sensors, while PTC gain shows a minor increase. Read noise remains consistent with Run~6 for both e2v and ITL sensors, and PTC noise does not exhibit significant deviations. The brighter-fatter coefficient increases for e2v sensors due to lower parallel swing, and the brighter-fatter correlation remains consistent. Row-means variance shows close agreement, with a slight decrease for e2v sensors. Divisadero tearing experiences a significant decrease for e2v sensors in the final condition. Dark defects remain consistent between runs, affecting a very small fraction of pixels.
 
 A significant achievement is the substantial decrease in persistence signal for e2v sensors, attributed to the lower parallel swing. This optimization marks a notable improvement in the camera's performance.
 
 Differences between initial and final measurements emphasize minimized persistence in e2v sensors, decreased full-well capacity, increased brighter-fatter strength, and reduced divisadero tearing.
 
-Non-functional amplifiers are listed, classified as non-functional due to high noise or no signal, with insights into changes in amplifier status during testing periods.
+Problematic amplifiers are listed, classified as high noise or dead/limited signal, with insights into changes in amplifier status during testing periods.
 
 Defect stability is another critical aspect, with bright defects found to be stable and rare, while dark defects are more dynamic and abundant, showing significant temporal dependence.
 
@@ -1097,9 +1096,9 @@ The glow search identifies glowing regions in long dark images, noting some pers
 
 Full-well measurements are evaluated to set SAT and SUSPECT pixel masks, comparing spot images to flat illumination data. Nonlinearity studies model the nonlinearity using spline functions, with results deemed sufficient for the camera's needs.
 
-Gain stability is scrutinized, noting temperature dependencies and potential issues with local amplifier changes. Maintaining stable conditions is crucial to ensure consistent gain.
+Gain stability is scrutinized, with temperature dependencies and potential issues with local amplifier changes noted. Maintaining stable conditions is crucial to ensure consistent gain.
 
-We describe the guider operation, focusing on guider-specific acquisitions and performance verification. Noise investigations reveal the impact of various configurations on noise levels, and the comparison of science sensors when guide sensors operate in guider mode versus imaging mode.
+We describe guider sensor operation, focusing on guider-specific acquisitions and performance verification. Noise investigations reveal the impact of various configurations on noise levels, and we provide a comparison to science sensors when guide sensors are operated in imaging mode.
 
 
 \clearpage

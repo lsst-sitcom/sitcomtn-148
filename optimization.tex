@@ -3,7 +3,7 @@
 
 
 Leftover signal (``persistence") in the first dark image acquired after intense illumination has
-been observed Section \ref{sec:initPersistenceChar}.  Persistence has been observed
+been observed (Sec.~\ref{sec:initPersistenceChar}).  Persistence has been observed
 in an early prototype e2v sensor as early as 2014
 \citep{2014SPIE.9154E..18D}. It was confirmed that the amplitude of
 the persistence decreased as the parallel swing voltage was decreased.
@@ -13,20 +13,20 @@ at the surface layer. The level of persistence is about 10--20 ADU,
 and the decay time constant is about 30\,s
 \citep{dmtn-276}.
 
-During the EO testing in 2021 (Run 13177, for example, Run 5), we also found the persistence made a
-streak toward the readout direction from the place where a bright spot illumination occurred 
+During the EO testing in 2021 (e.g., Run 13177 in Run~5), we also found the persistence made a
+streak toward the readout direction from the place where bright spot illumination occurred 
 in a previous image. We call this ``trailing persistence".
 
 As noted in Section \ref{sec:divisadero:init}, depending on operating conditions e2v sensors have another major non-ideality, so-called ``tearing", which is
-considered a consequence of the non-uniform distribution of holes. Over the past few years, our
+considered a consequence of the nonuniform distribution of holes. Over the past few years, our
 primary focus in the optimization of the operating parameters was mitigation of the tearing, and we successfully eliminated the tearing by changing the
 e2v voltages from unipolar (both parallel rails high and low
-are positive) to bipolar (the parallel high is positive, and
+are kept at positive voltages) to bipolar (the parallel high is positive, and
 the low is negative) following \href{https://github.com/lsst-camera-dh/mkconfigs/blob/master/newformula.py}{the Bipolar voltage formula}.
 However, the persistence issue
 remained unchanged.
 
-For the persistence issue, if this is a residual surface image, two
+If the persistence is an RSI, two
 approaches could be taken as discussed in \citet{2024SPIE13103E..0WU}:  
 either 1) establishing the pinning condition where the holes make a thin
 layer at the front surface so that the excess charges recombine with
@@ -45,14 +45,14 @@ Also, the excess charges could be recombined by the thin layer of
  holes, which could affect linearity at high flux levels when
 charges start to interact with the holes.
 
-The parallel swing determines the full-well. Depending on whether the
+The parallel swing determines the full-well capacity. Depending on whether the
 accumulated charges spread over the columns or interact with the surface
-layer, there are blooming full-well regimes and the surface full-well
-regime. A full-well level between these two regimes is considered to be
+layer, blooming full-well regime and surface full-well
+regimes can become relevant. A full-well level between these two regimes is considered to be
 optimal \citep{2001sccd.book.....J}, with no persistence and dynamic range as great as
 possible. Because we observe the persistence effect, we likely operate the sensor in the
 surface full-well condition and we need to decrease the parallel swing to
-get the blooming full-well or the optimal full-well. The obvious downside is
+get the blooming full-well or the optimal full-well level. The obvious downside is
 decreasing the full-well capacity.
 
 The sensor control voltages are defined relative to each other. Changing, e.g., the parallel
@@ -70,38 +70,38 @@ The summary is as follows:
 \begin{itemize}
 \tightlist
 \item
-  The new voltages following the persistence mitigation voltage rule produces reasonable bias, dark, flat images visually.
+  The new voltages following the persistence mitigation voltage rule produce visually reasonable bias, dark, flat images.
 \item
   Narrowing the parallel swing eliminates the persistence.
-\item Just decreasing the collecting voltage (PclkH) even without changing swing will decrease persistence as the charge packet is not pulled as close to the surface. 
+\item Just decreasing the collecting voltage (PclkH) even without changing the swing will decrease persistence as the charge packet is not pulled as close to the surface. 
 \item
   Lowering the parallel low voltage did not work
   as we expected; going to a more negative voltage is probably needed.
   \end{itemize}
 
-Note that the e2v sensor in the UCD setup did not exhibit the same magnitude of persistence as the LSST Camera.
+Note that the e2v sensor in the UCD setup did not exhibit the same magnitude of persistence as the e2v sensors in LSSTCam.
 This might be due to the characteristics of the sensor, or perhaps
-the differences in the electronics (e.g., the long cable between CCD and REB). They need to move the both parallel high and low up to reproduce persistence as the similar as the main Camera.
+the differences in the electronics (e.g., the long cable between CCD and REB in the UCD setup). At UCD both the parallel high and low voltages need to be increased to reproduce persistence at a level similar to that observed in LSSTCam.
 
 \subsubsection{Persistence optimization}\label{persistence-optimization-1}
 Based on this test result, we decided to test the new voltages with
-the narrower parallel swing on the LSST Camera focal plane. Keeping the
+the narrower parallel swing on the LSSTCam focal plane. Keeping the
 parallel low voltage at -6.0\,V in order to operate the sensor safely (very
 conservative limit), we changed the parallel swing voltage from 9.3\,V to
 8.0\,V as well as all the other voltages using the new formula. We
 overexposed the CCDs and took 20 darks afterward. Figure~\ref{fig:peristence-swing} compares the
 mean and median of pixel-by-pixel differences between the first and the
-last dark exposures, as a function of the parallel swing (We note that this is not the persistence metric defined in Sec.~\ref{sec:initPersistenceChar}, but almost identical).
+last dark exposures, as a function of the parallel swing. (We note that this is not the persistence metric defined in Sec.~\ref{sec:initPersistenceChar}, but almost identical.)
 As the parallel swing is decreased, the residual signal decreases, reaching
 roughly 10$\times$ less than the original level at 9.3\,V. Although we sampled
 at 8.0 (E1363), 8.4 (E1430), 8.65 (E1411), 8.8 (E1424)and 9.3\,V (E1110), 8.0\,V appears to work the best and could
-be lower with the penalty of decreasing the full-well capacity.
+be lower with the penalty of further decreasing the full-well capacity.
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/e2v_transient_dark_vs_dp.png}
 
-\caption{The remaining charges measured in every amplifier but
+\caption{The remaining charges measured in every e2v amplifier but
 aggregated by mean and median as a function of the parallel clock swing
 are shown.}
 \label{fig:peristence-swing}
@@ -112,12 +112,11 @@ Figure~\ref{fig:persistence-reduction} displays how the persistence is reduced b
 parallel swing decrease. The images were processed with the standard instrumental
 signature removal and assembled in the full focal-plane view. The
 dark exposure was taken immediately after a 400\,ke-equivalent flat exposure.
-The figure shows the distinct pattern of elevated signal associated with
+The left-hand image shows the distinct pattern of elevated signal associated with
 the e2v sensors, which fill the inner part of the focal plane.
 
-The right-hand figure shows the same dark exposure but taken with the narrow
-parallel swing voltage of 8.0\,V. The distinct pattern goes away. This
-demonstrates the persistence in e2v sensors becomes the (low) level of the 
+The right-hand image shows the same dark exposure but taken with the narrow
+parallel swing voltage of 8.0\,V. The distinct pattern of persistence in the e2v sensors is mitigated to the (low) level of the 
 ITL sensors.
 
 
@@ -141,13 +140,13 @@ ITL sensors.
 \subsubsection{Impact on full-well}\label{impact-on-full-well}
 
 Reduction of the full well is expected from narrowing the parallel swing
-voltage. This subsection explores how much reduction in the PTC turnoff
+voltage. This subsection explores how much reduction in the PTC turnoff level
 is observed in the dense PTC runs. Two runs were acquired with identical
 settings except for the CCD operating voltage (E1113 for 9.3\,V and E1335
 for 8.0\,V). As the PTC turnoff is defined in ADU, it needs to be
 multiplied by PTC\_GAIN to compare the turnoff values in electrons.
 Figure~\ref{fig:ptc-turnoff} compares the PTC turnoffs in electrons and also shows their
-fractional difference. The medians of the peaks are 133,065e$^-$, 102,728e$^-$, and the median reduction was 22\%.
+fractional difference. The medians of the peaks are 133,065e$^-$ and 102,728e$^-$, and the median reduction was 22\%.
 
 \begin{figure}[ht]
 \begin{centering}
@@ -187,8 +186,7 @@ risk increasing systematic uncertainty of the PSF ellipticity.
 \end{centering}
 \caption{Scatter plots of area coefficients $a_{ij}$ (one entry per amplifier)
 measured at 8.0\,V and 9.3\,V. The sub-figures correspond to separations in rows ($j$) and columns ($i$)
-between the source of the area distortion and its target, with the self
-interaction coefficient $a_{00}$ at the bottom left. The first neighbors increase
+between the source of the area distortion and its target, with the self-interaction coefficient $a_{00}$ at the bottom left. The first neighbors increase
 respectively by 19\% in the parallel direction and by 14\% in the serial
 direction. So the BFE is slightly greater at 8.0\,V but not dramatically
 more anisotropic: the ratio of parallel to serial nearest-neighbor correlations increases only from 3.43 to 3.54 with the reduction of the parallel swing.}
@@ -200,8 +198,8 @@ more anisotropic: the ratio of parallel to serial nearest-neighbor correlations 
 Several efforts were undertaken to optimize the sequencer configurations during Run 7. The following points summarize the key investigations:
 
 \begin{itemize}
-\item {\bf Clear}: Addressing the leftover charges at the image/serial register. The discussion is provided in Section \ref{sec:improved-clear}.
-\item {\bf Whether toggling the RG output during the parallel transfer for the e2v sensors is needed}: As such configuration flatten the bias shape for ITL device, the same type of configuration has been tested for e2v sensors during run 7 . Details are provided in Section~\ref{noRGe2v}
+\item {\bf Clear}: Addressing the leftover charges at the image/serial register, discussed in Section \ref{sec:improved-clear}.
+\item {\bf Whether toggling the RG output during the parallel transfer for the e2v sensors is needed}: As such configuration flatten the bias shape for ITL device, the same type of configuration has been tested for e2v sensors during Run 7. Details are provided in Section~\ref{noRGe2v}
 \item {\bf Whether running IDLE\_FLUSH is needed}: Whether running IDLE\_FLUSH had an effect on the tearing. Details are presented in Section~\ref{section:disablingIDLEFLUSH}
 \item {\bf Phase overlap during parallel transfer for e2v}: e2v sensors feature four parallel phases. To improve the uniformity of the full well across a sensor, overlapping two phases during each time slice of the parallel transfer was introduced.
 \begin{itemize}
@@ -223,7 +221,7 @@ The problem we wanted to address is the presence of residual charges in
 the first rows read for an image taken just after the clear of a saturated
 image. These ``hard to clear" charges are associated with highly
 saturated flats or columns (or stars as observed in AuxTel or ComCam),
-which leave signal in the first row of the subsequent exposure. The effect has a sensor-specific signature:
+which leave signal in the first rows of the subsequent exposure. The effect has a sensor-specific signature:
 
 \begin{itemize}
 \item
@@ -349,7 +347,7 @@ In Figures~\ref{fig:clear_ITL} and \ref{fig:clear_e2v}, we present for three typ
 right: V29, Nop, and NopSf), a zoom on the first rows of an ITL or e2v
 amplifier (for ITL R03\_S11\_C14 and for e2v
 R12\_S20\_C10 shown as a 2D row-columns
-image (top plots) or as the mean signal per rows for the first row
+image (top plots) or as the mean signal per row for the first row
 read of an amplifier (bottom plots).
 
 As seen in the left-hand panel of Figure~\ref{fig:clear_e2v}
@@ -358,7 +356,7 @@ residual signal in the first lines read when using the default clear
 (left images, clear= V29): the first row has an almost saturated signal
 ($\sim$100 kADU here), and a significant signal is seen up
 to row \textasciitilde50. In practice, depending on the 
-amplifier, signal can be seen up to row 20--50. When using the Nop clear
+amplifier, signal can be seen up to rows 20--50. When using the Nop clear
 (central plots), we can already see a strong reduction of the uncleared
 charges in the first acquired bias after a saturated flat.  Still a small
 residual signal is visible in the first $\sim$ 20 rows. The
