@@ -1,13 +1,13 @@
 \textbf{Introduction} \\
-The LSST Camera was constructed at the SLAC National Accelerator Laboratory in California, US. Its functionality and performance were evaluated through various integration phases, leading to the identification and mitigation of non-ideal features.
+The LSST Camera (LSSTCam) was constructed at the SLAC National Accelerator Laboratory in Menlo Park, California, USA. Its functionality and performance were evaluated through various integration phases, leading to the identification and mitigation of non-ideal features.
 %\textbf{Transportation and Installation} \\
-In May 2024, LSST Camera was transported from Menlo Park to Cerro Pachón, Chile, where the Vera C. Rubin Observatory is being constructed. The Camera was installed in the clean room (White Room) on Level 3 of the observatory. After connecting power and cooling lines and verifying the vacuum performance, the Camera underwent the seventh series of electro-optical (EO) testing (Run 7) from September 2024 to December 2024, collecting 56,066 exposures. This report describes the results from Run 7.
+In May 2024, LSSTCam was transported from Menlo Park to Cerro Pachón, Chile, where the Vera C. Rubin Observatory is being constructed. LSSTCam was installed in the clean room (White Room) on Level 3 of the observatory. After the power and cooling lines were connected and the vacuum performance verified, the LSSTCam underwent the seventh series of electro-optical (EO) testing (Run 7) from September 2024 to December 2024, collecting 56,066 exposures. This report describes the results from Run 7.
 
 \textbf{Key Testing Points} \\
 \begin{itemize}
-    \item \textit{Testing Setup Differences}: The EO test setup in the White Room differed from previous setups, primarily using the CCOB Wide Beam projector with a new diffuser system.
+    \item \textit{Testing Setup Differences}: The EO test setup in the White Room differed from previous setups, primarily in using the CCOB Wide Beam projector with a new diffuser system.
     \item \textit{Performance Verification Post-Transportation}: The Camera's performance was reverified after transportation to ensure it matched the pre-transportation checks.
-    \item \textit{Optimization of Features}: Previous EO testings identified issues such as persistence and bias instability, which were optimized during Run 7.
+    \item \textit{Optimization of Features}: Previous EO testing identified issues such as persistence and bias instability, which were optimized during Run 7.
     \item \textit{Camera Performance Post-Optimization}: The Camera's performance was evaluated after implementing optimizations.
     \item \textit{Investigation of Other Features}: Additional sensor features were investigated.
     \item \textit{Summary of Run 7 Operations and Issues}: Overall operations and issues encountered during Run 7 were summarized.
@@ -15,8 +15,8 @@ In May 2024, LSST Camera was transported from Menlo Park to Cerro Pachón, Chile
 
 \textbf{Electro-Optical Setup} \\
 \begin{itemize}
-    \item \textit{Run 7 Optical Modifications}: The EO test setup in the White Room included a cone attached to the L1 cover and a shroud to create a dark environment. A diffuser was installed to reduce weather patterns and uniformly illuminate the focal plane.
-    \item \textit{Projector Spots}: A 4K projector was used for EO testing, illuminating all 3206 amplifiers. The projector's background illumination posed challenges, but adjustments were made to improve contrast.
+    \item \textit{Run 7 Optical Modifications}: The EO test setup in the White Room included a cone attached to the L1 cover and a shroud to create a dark environment. A diffuser was installed to reduce weather patterns from turbulence of the air between the L1+L2 lenses and L3 and uniformly illuminate the focal plane.
+    \item \textit{Projector Spots}: A 4K projector was used for EO testing, illuminating all 3206 amplifiers with individual spots. The projector's background illumination posed challenges, but adjustments were made to improve contrast.
     \item \textit{Dark Current and Light Leaks}: Initial measurements identified light leaks, which were mitigated by covering gaps and using a blackout fabric shroud.
 \end{itemize}
 
@@ -26,7 +26,7 @@ In May 2024, LSST Camera was transported from Menlo Park to Cerro Pachón, Chile
     \item \textit{Stability Flat Metrics}: Charge transfer inefficiency (CTI) measurements showed consistent performance between runs.
     \item \textit{Dark Metrics}: Dark current measurements indicated improved performance, likely due to better shrouding.
     \item \textit{Bright Defects}: Bright defects were evaluated, showing a small increase in Run 7.
-    \item \textit{Flat Pair Metrics}: Linearity and PTC turnoff metrics were consistent, with minor differences in e2v sensors due to voltage changes.
+    \item \textit{Flat Pair Metrics}: Linearity and PTC turnoff metrics were consistent, with minor differences for e2v sensors due to voltage changes.
 \end{itemize}
 
 \textbf{Camera Optimization} \\
@@ -57,8 +57,8 @@ In May 2024, LSST Camera was transported from Menlo Park to Cerro Pachón, Chile
 \begin{itemize}
     \item \textit{Tree Rings}: Tree rings are concentric variations in silicon doping concentration observed in flat images. The centers of the tree rings were measured for all 189 LSST Camera science sensors, showing consistent positions around the average center for each direction.
     \item \textit{ITL Dips}: ITL dips were investigated using spot and rectangle projections. No evidence of ITL dips was found in the lab data, but further investigation is needed for on-sky data.
-    \item \textit{Vampire Pixels}: Vampire pixels are characterized by a group of pixels with high photo-response surrounded by pixels with low photo-response. These features were identified on ITL sensors and correlated with phosphorescence.
-    \item \textit{Phosphorescence}: Phosphorescence was observed in some ITL sensors, showing a transient signal after exposure. The effect was dependent on the HV Bias state and varied with wavelength and signal level.
+    \item \textit{Vampire Pixels}: Vampire pixels are a group of pixels with high photo-response surrounded by pixels with low photo-response. These features were identified on ITL sensors and correlated with phosphorescence.
+    \item \textit{Phosphorescence}: Phosphorescence was observed in some ITL sensors, showing a transient signal after exposure. The effect was dependent on the HV bias state and varied with wavelength and signal level.
 \end{itemize}
 
 \textbf{Operations and issues} \\
@@ -67,11 +67,11 @@ In May 2024, LSST Camera was transported from Menlo Park to Cerro Pachón, Chile
     \item \textit{REB PS Power Trip}: Power trips were mitigated by grounding the Utility Trunk door and implementing ESD controls.
     \item \textit{FES Latch Sensor Failure}: A faulty cable was replaced, resolving the issue.
     \item \textit{PCS Degradation}: Performance degradation was managed through various mitigation strategies, with further analysis required.
-    \item \textit{R24/Reb0 and UT Leak Fault}: Low temperature issues were resolved by adjusting the Dynalene temperature and adding a load resistor to the DC-DC converter.
+    \item \textit{R24/Reb0 and UT Leak Fault}: Low temperature issues were resolved by adjusting the Dynalene temperature and adding a load resistor to the DC-DC converter of the leak detector.
     \item \textit{Data Corruption}: Data corruption issues were resolved by restarting Data store RCEs.
     \item \textit{Guider High Gain Issue}: The guider issue was resolved by power cycling and resetting the RCE.
 \end{itemize}
 
-Run 7 successfully demonstrated the LSST Camera's readiness for installation on the Telescope Mount Assembly (TMA). The optimizations and mitigations are implemented balancing both the required specification and the real scientific needs, with robust performance across various metrics. The tests highlighted a few potential issues that need to be addressed. 
+Run 7 successfully demonstrated LSSTCam's readiness for installation on the Telescope Mount Assembly (TMA). The optimizations and mitigations are implemented balancing both the required specifications and the real scientific needs, with robust performance across various metrics. The tests highlighted a few potential issues that need to be addressed. 
 
 \clearpage

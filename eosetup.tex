@@ -1,7 +1,7 @@
 
 \subsection{Run 7 optical modifications}\label{run-7-optical-modifications}
 
-For Run 7 in the white room on Level 3 our EO test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources to configure it. As
+For Run 7 in the White Room on Level 3 our EO test setup had a few differences from the Run 6 setup in IR2 at SLAC. One difference was that we were not able to use the CCOB Narrow/Thin beam because we did not have the resources to configure it. As
 such, the majority of the testing was done with the CCOB Wide Beam
 projector\citep{2024SPIE13103E..0WU}. We did obtain an additional projector, the 4K projector, partway through Run 7 that will be discussed later. With the CCOB Wide Beam,
 we used a cone attached to the L1 cover as well as a shroud to create a
@@ -11,7 +11,7 @@ dark environment (Fig.~\ref{fig:LSSTCam_config}).
 \centering
     \includegraphics[width=0.6\textwidth]{figures/Camera_Shroud.jpg} 
     \includegraphics[width=0.35\textwidth]{figures/CCOB_Wide_Shroud.jpg} \\
-\caption{(left) Final shroud configuration of LSST Camera in Level 3 to reduce light leaks. (right) CCOB Wide Beam attached to the cone and shrouded.}
+\caption{(left) Final shroud configuration of LSSTCam in Level 3 to reduce light leaks. (right) CCOB Wide Beam attached to the cone and shrouded.}
 \label{fig:LSSTCam_config}
 \end{figure}
 
@@ -67,7 +67,7 @@ The diffuser was installed for all B protocol and PTC runs (see Sec. \ref{sec:re
 
 \subsection{Projector spots}\label{projector-spots}
 The addition to the projectors used for EO testing was a 4K projector (Epson LS11000 LCD), similar to those used in conference rooms. This projector was first tested at SLAC and arrived at the observatory about halfway through Run 7. It was used primarily as a spot projector, as the pinhole filter was not available at that time because of the Filter Exchange System was temporarily inoperable. The projector has an advantage, instead, as it could illuminate all 3206 amplifiers instead of just the 21 illuminated by the
-pinhole projector. Figure \ref{fig:SpotProjector_L3_FP} shows both the setup of the projector on Level 3 and an example of a spot image and the spots across the focal plane. Since the projector does not have fast illumination control, we primarily used the LSST camera main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had structure that changed with time and could not be easily subtracted. Figure \ref{fig:SpotProjector_Spots} shows an example of a spot image of just one detector as well as a zoomed in image of a single spot which highlights the background structure. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
+pinhole projector. Figure \ref{fig:SpotProjector_L3_FP} shows both the setup of the projector on Level 3 and an example of a spot image and the spots across the focal plane. Since the projector does not have fast illumination control, we primarily used the LSSTCam main shutter instead of any flashing of the light source (e.g., as we did with the LEDs of the CCOB Wide Beam). One downside that was found was that the projector illuminated the entire focal plane at some background level, not just the spot regions. The background illumination also had structure that changed with time and could not be easily subtracted. Figure \ref{fig:SpotProjector_Spots} shows an example of a spot image of just one detector as well as a zoomed in image of a single spot which highlights the background structure. The resulting contrast between the spot and the background was only about a factor of 6. Changing the spot shape to large rectangles for crosstalk
 measurements increased the contrast ratio to 30. Examples of the rectangles can be seen in Figure \ref{fig:SpotProjector_Rect}. Though the contrast was much improved, there was still a background structure as can be seen in the saturated image of the figure.
 
 \begin{figure}[htbp]
@@ -114,7 +114,7 @@ leaks}\label{dark-current-and-light-leaks}
 \subsubsection{Light leak mitigation with shrouding the camera
 body}\label{light-leak-mitigation-with-shrouding-the-camera-body}
 
-One of the first tests we attempted with LSST Camera was measuring dark
+One of the first tests we attempted with LSSTCam was measuring dark
 current and sources of light leaks in the camera body. Before beginning we covered gaps between the L1 cover and the gaskets with tape, in accessible locations . Figure \ref{fig:L1_Gaps} shows the gaps that we could see between L1 and its cover. The inaccessible locations were later covered with shroud.
 
 \begin{figure}[htbp]
@@ -127,7 +127,7 @@ current and sources of light leaks in the camera body. Before beginning we cover
 \end{figure}
 
 Once these were sealed, we took some initial measurements and then
-started to cover the LSST Camera body with a Thorlabs blackout fabric shroud (BK5). Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
+covered the LSSTCam body with a Thorlabs blackout fabric shroud (BK5). Figure~\ref{fig:LSSTCam_config} shows the final configuration of the shroud covering the
 camera.
 We also found light leaks where the light cone attached to L1 was housed, and from the Utility Trunk, which were covered with shroud. Table~\ref{tab:leak_chasing} includes the observations, the corresponding measured dark currents, and comments on what changed during the chasing of the leaks.
 
@@ -168,7 +168,7 @@ in summer 2023 and a localized faint light source of up to
 the AC.
 
 In the AC this voltage is used to power some probes and all
-controllers. In February 2024, as AC-1 was extracted from LSST Camera for
+controllers. In February 2024, as AC-1 was extracted from LSSTCam for
 global maintenance, a direct investigation to localize the light
 source was performed unsuccessfully. A light source in the AC
 was not expected, as in the AC all controllers' LEDs have
@@ -186,7 +186,7 @@ of the five main motors of the AC had only partial documentation from the
 vendor that did not mention the presence of LEDs. After interaction with the
 vendor, the encoders were understood to contain \textasciitilde700\,nm LEDs. The hypothesis of \textasciitilde700\,nm LED sources has been
 found compatible with the observation as no AC light leaks were detected
-using various filters (g, r, and y ; all opaque at 700 nm ) in LSST Camera at the start of Run 7 (g, r, and y
+using various filters (g, r, and y ; all opaque at 700 nm ) in LSSTCam at the start of Run 7 (g, r, and y
 filters). A dedicated test in Paris using an AC spare encoder and a
 precision photometric set-up allowed identification of the leak in the masking of
 those LEDs in the vendor packaging (see Figure \ref{fig:CoderLight}). A complementary masking method based
@@ -194,7 +194,7 @@ on a 3D printed part + tape + cable tie was qualified in Paris.  It was
 found to mask the light leak and to be safe (all parts correctly secured, see Figure \ref{fig:CoderLight})).
 
 In November 2024, we masked all the lights in the back of the Level 3 white
-room (not the part containing LSST Camera) to set up a high-quality dark room
+room (not the part containing LSSTCam) to set up a high-quality dark room
 allowing a direct observation with a CMOS camera of the light leak on
 the AC2 motor encoders. The level of darkness reached allowed us to
 validate the quality of the light masking of the AC encoders. Notice that the
@@ -207,7 +207,7 @@ mask (see Figure \ref{fig:CoderLight}).
 
 We note that the AC was turned off starting on 27 September 2024 at 21:15 UTC in the
 first part of Run 7. For the second part of Run 7 (i.e., after
-mid-November) the AC was back on: as the AC 1 was back in LSST Camera with
+mid-November) the AC was back on: as the AC 1 was back in LSSTCam with
 the new light masks in place on the motor encorders, we were able to take a new series of
 900\,s darks with the AC turned on and off, confirming that the light leak
 associated with the FES was eliminated (see right-hand image of Fig.~\ref{fig:ac-light-leak}).
@@ -225,7 +225,7 @@ associated with the FES was eliminated (see right-hand image of Fig.~\ref{fig:ac
   \centering
   \includegraphics[width=1\textwidth]{figures/X-OnlineCoder.png}
 \end{subfigure}
-\caption{On the left a picture of one AC coder . In the center a 60\,s exposure , with the same coder On , light in the room off : light leak is obvious , mainly associated to holes on the top of the coder cover . On the left , the X- Online coder after masking .}
+\caption{On the left a picture of one AC encoder. In the center a 60\,s exposure, with the same encoder turned on, light in the room off: light leak is obvious, mainly associated with holes on the top of the encoder cover. On the right, the X- Online encoder after masking.}
 \label{fig:CoderLight}
 \end{figure}
 
@@ -260,7 +260,7 @@ No easily visible difference can be seen between the two images. This is most li
 
 \subsection{Impact of filters on dark images}\label{filter-condition-impact-on-darks}
 
-To investigate how the filter affects the dark measurement, we took 900\,s darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from {\tt eo\_pipe} can be found in Figure~\ref{fig:filter-darkcurrent}. The major effect of including the filters was reducing the glow the AC (see Figure \ref{fig:ac-light-leak}). The global average of the median amplifier dark currents decrease from $26 \times 10^{-3}$ e-/s with the empty filter to $3.5 \times 10^{-3}$ e-/s for $r$, $1.1 \times 10^{-3}$ e-/s for $y$, and $0.63 \times 10^{-3}$ e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other three filters to confirm this.
+To investigate how the filter affects the dark images, we took 900\,s darks with the available filters in the filter wheel: E1114 (empty filter), E1115 ($g$), E1116 ($y$), and E1117 ($r$). The heat maps of the dark currents from {\tt eo\_pipe} can be found in Figure~\ref{fig:filter-darkcurrent}. The primary effect of including the filters was reducing the glow due to the AC (see Fig.~\ref{fig:ac-light-leak}). The global average of the median amplifier dark currents decreased from $26 \times 10^{-3}$ e-/s with the empty filter to $3.5 \times 10^{-3}$ e-/s for $r$, $1.1 \times 10^{-3}$ e-/s for $y$, and $0.63 \times 10^{-3}$ e-/s for $g$. The discrepancy between the filters could arise if the AC light shines more brightly in the redder wavelengths and even the IR. Unfortunately, we were not able to obtain data with the other three filters to confirm this.
 
 \begin{figure}[ht]
 \begin{centering}

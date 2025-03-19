@@ -235,7 +235,7 @@ which leave signal in the first rows of the subsequent exposure. The effect has 
 
 These leftover electrons are not associated with what we usually call residual image or persistence. They are suspected to be associated with pockets, induced by the electric field configuration in the sensor and the field associated with saturated pixels.
 Investigation has revealed that only the first exposure taken after an image with saturated overscan is impacted. Our standard clear is not able to flush away those charges, while a standard readout of $\gtrsim$ 2000 rows does remove them.
-There is a chance that a change of the electric field (e.g., a change in the clocking scheme defined in sequencer files) can remove the pockets, and free the charges, allowing them to be cleared.
+There is a chance that a change of the electric field (e.g., a change in the clocking scheme defined in the sequencer files) can remove the pockets, and free the charges, allowing them to be cleared.
 
 The location of these uncleared electrons in the first row of the
 CCDs indicates that the pockets are in the interface between the image area and the serial register. For this reason we investigated
@@ -249,13 +249,13 @@ the changes introduced should not significantly increase the clear
 execution time. It should be noted that in 2021 we tried a sequencer
 called ``Deep Clear" \href{https://github.com/lsst-camera-dh/sequencer-files/blob/master/run5/FP_E2V_2s_ir2_v23_DC.seq}{sequencerV23\_DC} as a first attempt to address the clear issue; it added one full row 
 flush on top of the existing one at the end of the clear. This sequencer
-did improve the clear, but did  not fully fix the clear issue (see
+did improve the clear, but did  not fully fix the issue (see
 Table~\ref{tab:clears}).
 
 \clearpage
 {\tiny
 \begin{longtable}[tbh]{|p{0.2\linewidth}|p{0.12\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|}
-\caption{Clear methods used so far. \label{tab:clears}} \\
+\caption{Clear methods used so far \label{tab:clears}} \\
 \hline
 \textbf{Clear Type} & \textbf{Duration (ms)} & \textbf{e2v after Saturated Flat} & \textbf{ITL after Saturated Flat} & \textbf{R01\_S10 ITL ``unique"} \\
 \hline
@@ -272,12 +272,12 @@ Table~\ref{tab:clears}).
 \hline
 \endlastfoot
 
-\textbf{Default Clear} 1~clear (seq. V29) & 65.5 & First row saturated signal up to row 50 & 1st row saturated signal up to 2nd row & First 500 rows saturated for 4 amps, 13 amps with signals \\
+\textbf{Default Clear} 1~clear (seq. V29) & 65.5 & First row saturated signal up to row 50 & First row saturated signal up to 2nd row & First 500 rows saturated for 4 amps, 13 amps with signals \\
 \textbf{Multi Clear} 3~clears (seq. V29) & 196.5 & No residual electrons & No residual electrons & First 150 rows saturated for 2 amps, 5 amps with signals \\
 \textbf{Multi Clear} 5~clears (seq. V29) & 327.4 & No residual electrons & No residual electrons & First 100 rows saturated for 2 amps, 2 amps impacted \\
-\textbf{Deep Clear} 1~clear (Seq. V23 DC) & 64.69 & 1st row saturated signal up to row <20 & Tiny signal left in the first row & not measured \\
-\textbf{No Pocket (Nop)} 1~clear (seq. V29) & 65.8 & signal up to row 20 & No residual electrons & First 1000 rows saturated for 16 amps, 16 amps with signals \\
-\textbf{No Pocket Serial Flush (NopSf)} 1~clear (seq. V29, V30) & 67.0 & No residual electrons & No residual electrons & first 750 rows saturated for 16 amps, 16 amps with signals \\
+\textbf{Deep Clear} 1~clear (Seq. V23 DC) & 64.69 & First row saturated signal up to row <20 & Tiny signal left in the first row & not measured \\
+\textbf{No Pocket (Nop)} 1~clear (seq. V29) & 65.8 & Signal up to row 20 & No residual electrons & First 1000 rows saturated for 16 amps, 16 amps with signals \\
+\textbf{No Pocket Serial Flush (NopSf)} 1~clear (seq. V29, V30) & 67.0 & No residual electrons & No residual electrons & First 750 rows saturated for 16 amps, 16 amps with signals \\
 \end{longtable}
 }
 
@@ -414,14 +414,14 @@ with the standard clear.
 
 At this time we do not have a correct way to clear this
 sensor once the CCD heavily saturates by uniform illumination, but it is not
-clear yet if a saturated star in this sensor, leaving signal in the
+known yet if a saturated star in this sensor, leaving signal in the
 parallel overscan, will present the same clear issue.
 
 \paragraph{Conclusion on clears}\label{conclusion}
-For e2v sensors, Run 7 finds the NopSf clear fully clears the leftover electrons at the image and the serial register interface.
+For e2v sensors, Run 7 finds the NopSf clear fully clears the leftover electrons at the interface between the image and the serial register.
 The NopSf clear grants that the first 50 rows of e2v CCDs that had leftover electrons from the previous exposure are now free of such contamination. NopSf will be the default clear method.
 
-For the ITL sensors, the improvement is still needed even if Nop or NopSf overcome the clear issue because there is the significant exception of R01\_S10 that prevented the usage of those sequencers for ITL devices for Run 7. Note that
+For the ITL sensors, an improvement is still needed even if Nop or NopSf overcome the clear issue because there is the significant exception of R01\_S10 that prevented the usage of those sequencers for ITL devices for Run 7. Note that
 aside from R01\_S10 the numbers of lines potentially
 ``not cleared" in ITL devices after saturated images are small (2 first rows), and they
 correspond to a CCD area that is difficult to use anyway (sensor edges with low
@@ -433,13 +433,13 @@ serial flush during exposure at low rate, 10$^6$ pixel flushes in 15\,s).
 \subsubsection{Not toggling the RG bit during parallel transfer for e2v sensors}\label{noRGe2v}
 During parallel transfer, protecting the CCD amplifier from large signal injection associated with the parallel clock swing is commonly done by activating the Reset Gate (RG) of the CCD amplifier. Although our initial default configuration, following ITL and e2v vendors' practice at the time, this ``RG protection" was not active during the last parallel clock swing.  This was because 
 following a dedicated investigation of ITL devices two years ago we found that keeping the RG active during the full parallel transfer provided a clear improvement in the biases \citep{2024SPIE13103E..0WU}. 
-By analogy drawn with this ITL study and noticing that today Teledyn e2v, in its current documentation, also recommends to keep the  RG active during the full parallel transfer, such approach  became an area of interest for e2v devices as well. 
+By analogy drawn with this ITL study and noticing that today Teledyne e2v, in its current documentation, also recommends to keep the  RG active during the full parallel transfer, such approach  became an area of interest for e2v devices as well. 
 
 At the end of Run 7, two runs ({\it E3578} and {\it E3628}) were collected using, for the e2v devices, the  sequencer {\bf V30\_NoRG}  which activates the Reset Gate during the full parallel transfer. 
 
 Although this was a limited data set a few observations can be made: 
 \begin{itemize}
-    \item  1D overscan bias corrected image , as they still show 2D structure , are the best place to see first order  2D shape change for various sequencer. For 1D overscan bias correction (serial bias overscan correction only), for detectors with large  bias residuals, a clear improvement (\textasciitilde2 ADU = \textasciitilde 30\% reduction) has been observed with the {\bf V30\_NoRG} sequencer compared to the {\bf V30} one (Figure~\ref{fig:1DNoRGEffect}).
+    \item  1D overscan bias corrected images, as they still show 2D structure, are the best place to see a first-order  2D shape change for various sequencers. For 1D overscan bias correction (serial bias overscan correction only), for detectors with large  bias residuals, a clear improvement (\textasciitilde2 ADU = \textasciitilde 30\% reduction) has been observed with the {\bf V30\_NoRG} sequencer compared to the {\bf V30} one (Fig.~\ref{fig:1DNoRGEffect}).
     \item For 2D overscan corrected images, no improvement was found in the stability of the bias shape with exposure time.  
     \item For 2D overscan bias correction, leftover bias structures  are unchanged between  sequencer {\bf V30} and sequencer {\bf V30\_NoRG} (Fig.~\ref{fig:2DNoRGEffect}).
 
@@ -447,40 +447,40 @@ Although this was a limited data set a few observations can be made:
 
 So in practice running with {\bf V30\_NoRG} sequencer  reduces the amplitude of the 2D bias shape of the biases: 2D residuals are smaller after 1D overscan bias correction.  This confirms that part of the 2D bias shape in e2v sensors is related to parallel clock usage during readout. 
 
-Nevertheless if the biases' 2D shape is reduced, it is still present when using {\bf V30\_NoRG} sequencer, and the corresponding issues in the removal of this 2D shape are unchanged : 
+Nevertheless if the biases' 2D shape is reduced, it is still present when using the {\bf V30\_NoRG} sequencer, and the corresponding issues in the removal of this 2D shape are unchanged: 
 \begin{itemize}
 \item The 2D overscan bias correction  presents  up to \textasciitilde1 ADU bias residual in some amplifiers (Figure~\ref{fig:2DNoRGEffect}): unfortunately there is no improvement when using  {\bf V30\_NoRG} sequencer in those 2D bias residuals. 
-\item Also the {\bf V30\_NoRG} sequencer will not be the solution to remove the dependency of the 2D bias shape with the exposure time (Figure~\ref{fig:BiasVSDark}).
+\item Also the {\bf V30\_NoRG} sequencer will not be the solution to remove the dependency of the 2D bias shape with the exposure time (Fig.~\ref{fig:BiasVSDark}).
 \end{itemize}
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/Bias_PA_2D_raw_RG_NoRG_2024113000334_2024120200302.png}
 \end{centering}
-\caption{For e2v sensors , biases residuals after a 2D overscan correction : left plot, bias in run {\it E3380} collected  with sequencer {\bf V30}), central plot, bias in run {\it E3628} collected with sequencer {\bf V30\_NoRG}, right plot the difference of the two biases :  No obvious difference is observed.}\label{fig:2DNoRGEffect}
+\caption{For e2v sensors, bias residuals after a 2D overscan correction: left plot, bias in run {\it E3380} collected  with sequencer {\bf V30}), central plot, bias in run {\it E3628} collected with sequencer {\bf V30\_NoRG}, right plot the difference of the two biases:  No obvious difference is observed.}\label{fig:2DNoRGEffect}
 \end{figure}
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/Bias_PA_1D_raw_RG_NoRG_2024113000334_2024120200302.png}
 \end{centering}
-\caption{For e2v sensors , biases residuals after 1D overscan correction : left plot, bias in run {\it E3380} collected  with sequencer {\bf V30}), central plot, bias in run {\it E3628} collected with sequencer {\bf V30\_NoRG}, right plot the difference of the two biases : \textasciitilde40 amplifiers show a smaller (1--2 ADU)  bias residual level in  the case of the {\it NoRG} sequencer run. }\label{fig:1DNoRGEffect}
+\caption{For e2v sensors, biases residuals after 1D overscan correction: left plot, bias in run {\it E3380} collected  with sequencer {\bf V30}), central plot, bias in run {\it E3628} collected with sequencer {\bf V30\_NoRG}, right plot the difference of the two biases: \textasciitilde40 amplifiers show a smaller (1--2 ADU)  bias residual level in  the case of the {\it NoRG} sequencer run. }\label{fig:1DNoRGEffect}
 \end{figure}
 
 \begin{figure}[ht]
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/1D_raw_NoRG_E3628_Bias-Dark_2024120200302_2024120200260.png}
 \end{centering}
-\caption{For 1D overscan corrected biases, here from {\it E3628} collected with sequencer {\bf V30\_NoRG}, we observe that the 2D shape is still function of the exposure length : on the left we have a Bias , in the center a 15s Dark (corrected for light leak) and on the right the difference : up to \textasciitilde+/-1 ADU residuals difference are observed for a few amplifiers. Notice that this has been identified as a change in bias structure in function of the exposure time and is unrelated to dark current that are negligible for those exposure times. This is similar to what we observed in run {\it E3380} collected  with sequencer {\bf V30}) }\label{fig:BiasVSDark}
+\caption{For 1D overscan corrected biases, here from {\it E3628} collected with sequencer {\bf V30\_NoRG}, we observe that the 2D shape is still a function of the exposure length: on the left we have a bias image, in the center a 15\,s dark (corrected for light leak) and on the right the difference: up to \textasciitilde$\pm$1 ADU residuals difference are observed for a few amplifiers. Notice that this has been identified as a change in bias structure as a function of the exposure time and is unrelated to dark current that is negligible for those exposure times. This is similar to what we observed in run {\it E3380} collected  with sequencer {\bf V30}) }\label{fig:BiasVSDark}
 \end{figure}
 
 \clearpage
 
 \subsubsection{Disabling IDLE FLUSH}\label{section:disablingIDLEFLUSH}
 
-IDLE\_FLUSH is one of the ``mains" settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \citet{2024SPIE13103E..0WU}).
+IDLE\_FLUSH is one of the ``main" settings in the sequencer file that enables the sequencer output to run while in the IDLE state (the period between one exposure and the next). The specific implementation of IDLE\_FLUSH can be selected from various functions in the sequencer file. In Run 5, we chose the \texttt{ReadPixel} function, which reads out a pixel. This choice was initially made to mitigate the so-called yellow corner issue, a 2D structure of elevated signal near an amplifier corner observed in bias and dark exposures for certain amplifiers on e2v CCDs (see details in \citet{2024SPIE13103E..0WU}).
 
-However, it was reported that running IDLE\_FLUSH exacerbates the divisadero tearing issue. Divisadero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the greatest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2~deg C between periods of image acquisition and idle periods (Figure~\ref{fig:IdleFlushEffect}).
+However, it was reported that running IDLE\_FLUSH exacerbates the divisadero tearing issue. Divisadero tearing appears as a signal deficiency at amplifier boundaries in e2v sensors, accompanied by increased signal in adjacent columns. Additionally, using \texttt{ReadPixel} as the IDLE\_FLUSH function has the greatest thermal impact because it continuously operates the Analog-to-Digital Converter at its maximum rate. This results in a significant difference in power consumption, more than 50\,W over all rafts, between the exposure state and the IDLE state. Consequently, the focal plane experiences a temperature variation of approximately 2~deg C between periods of image acquisition and idle periods (Fig.~\ref{fig:IdleFlushEffect}).
 
 \begin{figure}[ht]
 \begin{centering}
@@ -500,7 +500,7 @@ This temperature variation in the focal plane can lead to changes in the REB tem
 
 Figure \ref{IdleFlushEffect:divisadero} shows the impact on the divisadero tearing. Shown there are selected B protocol runs with different settings in chronological order. A few changes of settings were tested: (1) switching to narrower parallel swing voltage, (2) changing the number of clears before the exposure, (3) disabling IDLE\_FLUSH.  Some runs with these different settings also included some minor additional changes in settings, or a change of the sequencer file (the change from v29 to v30  is primarily incorporation of the change in the number of clears). The figure includes both ITL and e2v results. The two distinct distributions in earlier runs correspond to the differences between the two types of CCD (the upper one is e2v and the lower one is ITL). The greatest change can be seen when we switched to not running IDLE\_FLUSH at E1429, which brought down the overall distribution. The two distributions became indistinguishable, which indicates that the majority of the divisadero tearing for e2v is mitigated.
 
-E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System (see Sec. \ref{ganttchart}). The stability of the results confirms that the metric is consistent across power cycling of LSSTCam.
+E3380 was the run taken after the recovery from the shutdown due to poor performance of the Pumped Coolant System (see Sec.~\ref{ganttchart}). The stability of the results confirms that the metric is consistent across power cycling of LSSTCam.
 
 \subsection{Summary}\label{summary:optimization}
 
@@ -515,7 +515,7 @@ RG bit is not toggled during parallel transfer. This modification
 enhances the stability of the bias structure for most ITL
 amplifiers.
 
-During Run 7, several changes were implemented, as described below:
+During Run 7, several sequencer changes were implemented, as described below:
 
 \begin{itemize}
 \tightlist

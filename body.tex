@@ -127,7 +127,7 @@ Both linearity and PTC turnoff were evaluated from the PTC runs (Fig.~\ref{fig:f
     \label{fig:finalChar-Linearity-5x5}
 \end{figure}
 
-For e2v sensors we find the reduction in full-well to be significant, \textasciitilde20 - 25\% depending on the full-well metric used (see Fig.~\ref{fig:finalChar-fullWell}). 
+For e2v sensors we find the reduction in full-well to be significant, \textasciitilde20--25\% depending on the full-well metric used (see Fig.~\ref{fig:finalChar-fullWell}). 
 
 \begin{figure}[ht]
     \centering
@@ -398,7 +398,7 @@ A list of problematic amplifiers on Science Rafts was produced from both single-
     \caption{Table of dead and high-noise Science Raft amplifiers during BOT and single raft testing. The column ``Problem'' is the status {\it at some point during this time}.  The columns to the right indicate the status of these segments during single raft testing prior to integration in the BOT and then throughout BOT-era data taking from Run 3 (July 2020) to the end of Run 5 (December 2021). For high-noise amplifiers the measured read noise is listed for levels above 12\,$e^{-}$. \label{tab:BOTbadamp}}
 \end{table}
 
-Next, we list problematic amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially problematic amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range $1.2 - 2.0 e^{-}/ADU$ in a number of B sequence runs (13391, 13557, E1110, E1363, E1880, E2233, E3380) and PTC runs (13412, 13591, E1113, E1364, E1881, E2237, E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as problematic.  For further study, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figures~\ref{fig:ptc-badamps} and \ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it dead} come in two flavors: no signal whatsoever (e.g., R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $\sim10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two with tiny signals had low current measurements of around 0.5\,mA when they were found to be problematic, compared to 1.0\,mA when they were functional. 
+Next, we list problematic amplifiers detected in full Camera EO testing during Runs 6a, 6b and 7. We filter for potentially problematic amplifiers with the same cuts as above a) read noise less than $4e^{-}$, b) read noise greater than $18e^{-}$, or c) PTC gain outside the range 1.2--2.0\,$e^{-}/ADU$ in a number of B sequence runs (13391, 13557, E1110, E1363, E1880, E2233, E3380) and PTC runs (13412, 13591, E1113, E1364, E1881, E2237, E3577).  Note that one amplifier flagged in the BOT EO period (R10\_S00\_C00) is not flagged here, while there is one new amplifier (R03\_S01\_C05) which had never previously been flagged as problematic.  For further study, the PTC and linearity plots for these eight amplifiers are shown in PTC runs in Figures~\ref{fig:ptc-badamps} and \ref{fig:lin-badamps}. The eight amplifiers flagged by this selection are listed in Table~\ref{tab:gds_amps}, with comments.  Note that the amplifiers listed as {\it dead} come in two flavors: no signal whatsoever (e.g., R30\_S00\_C10) or a tiny signal roughly linear with input but reduced by $\sim10^3$ (R01\_S01\_C00, R03\_S11\_C00). The two with tiny signals had low current measurements of around 0.5\,mA when they were found to be problematic, compared to 1.0\,mA when they were functional. 
 
 \begin{figure}[ht]
     \centering
@@ -495,7 +495,7 @@ Each individual defect mask can be scaled by $2^{n}$, where $\{n:0,1,2,3,... \}$
 \multicolumn{1}{|c|}{E2V} & \multicolumn{1}{c|}{23.9316}  & 60.5769     \\ \hline
 \multicolumn{1}{|c|}{ITL} & \multicolumn{1}{c|}{11.6319}  & 39.5833     \\ \hline
 \end{tabular}
-\caption{Measurements of the percentages of science sensor amplifiers that meet different masking criteria, when compared across 13550 (Run 6), E1071 (Run 7 initial), and E1880 (Run 7 final). For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bitvalues 0 and $2^3-1=7$ only. For this tabulation we removed a 9-pixel border from each dark mask to remove the edge response from the dark defect data set. Other masking configurations were set to the LSSTCam defaults.}
+\caption{Measurements of the percentages of science sensor amplifiers that meet different masking criteria, when compared across 13550 (Run 6), E1071 (Run 7 initial), and E1880 (Run 7 final). For a completely unmasked segment, the defect mask will be composed of 0's only. For a static defect mask, the composite defect mask will be composed of bit values 0 and $2^3-1=7$ only. For this tabulation we removed a 9-pixel border from each dark mask to remove the edge response from the dark defect data set. Other masking configurations were set to the LSSTCam defaults.}
 \label{table:defectStability:measurements}
 \end{table}
 
@@ -771,18 +771,12 @@ where $a$, $b$, and $c$ are constants to be solved with the model via \texttt{sc
     \label{fig:Spot_Model}
 \end{figure}
 
-This also needs some tuning but should be less susceptible to changes across the focal plane (i.e., noisier data and different spot light levels). The work to apply this method to whole focal plane is still on-going.
+This also needs some tuning but should be less susceptible to changes across the focal plane (i.e., noisier data and different spot light levels). The work to apply this method to the whole focal plane is still on-going.
 % Figure XXX then compares this with the linearity turnoff for the whole focal plane.
 
 \clearpage
 \subsection{Non-linearity studies}\label{nonlinearity}
-\begin{figure}[ht]
-\begin{centering}
-\includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
-\end{centering}
-\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of R22\_S11. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right: r.m.s. of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
 
-\end{figure}
 
 PTC runs are meant primarily to measure variance and co-variance curves. We collect pairs of flat images, obtained using the CCOB wide-beam described in Section~\ref{sec:electro-optical-setup}. To cover the entire dynamic range of the CCDs, we vary the length of the LED flash, the number of flashes, and the current of the LED. These data sets can be used to measure nonlinearity by comparing the CCD response to the integrated signal measured from a photodiode installed on a port of the integrating sphere that feeds a picoammeter. To avoid any shortcomings from picoammeter nonlinearity, we only compare photodiode signals of the same amplitude (illumination intensity) but different durations. We do not assume that integrated charges measured at different LED currents (and hence different photodiode currents) are on the same scale, although this turns out to be essentially true, as discussed later. 
 
@@ -801,6 +795,13 @@ Q = \sum_{ij} w_{ij}^2 \left( \frac{ S(\mu_{ij}) +\mu_{ij}  }{D_{ij} f_i} -1 \ri
 \end{equation}
 We fit the spline coefficients, the $f_i$ factors (there are typically 3 of them), and the weight parameters $c$ and $v$, for every image segment separately. We perform an iterative 5$\sigma$ outlier rejection which rejects on average $\sim $0.5\% of the data points (this small rate validates the modeling of weights). Figure~\ref{fig:nonlin_model} displays some results of the fits. The quality of the measured non-linearity is sufficient for our needs.   
 
+\begin{figure}[ht]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{figures/nonlin_plots.png}
+\end{centering}
+\caption{top: fitted nonlinearity spline (divided by the signal level) for the 16 channels of R22\_S11. The main feature is due to the distortion introduced by the preamplifier. Left bottom: The fit residuals for channel 0 of the same CCD. Different colors refer to different LED current settings. Bottom right: r.m.s. of high-flux fit residuals (the $c$ parameter of the fitted dispersion model) for all camera channels. Those are about $10^{-4}$ on average, and some are correlated within REBs, for an unknown reason. The quality of the obtained correction is well within goals.\label{fig:nonlin_model}}
+
+\end{figure}
 
 %\subsection{ADC differential nonlinearity}
 %ADC differential nonlinearity (DNL) was studied in earlier runs and will be analyzed separately for Run 7.
@@ -965,7 +966,7 @@ In Figures \ref{fig:tempE1496} and \ref{fig:tempE2008} we present the temperatur
 \item Figure \ref{fig:tempE2008}, run E2008, no IDLE\_FLUSH, there is for most of the REB a temperature dispersion $<$ 0.02 deg C, except for some REBs (e.g., R24/Reb2) which have dispersions more than 3 times greater (a kind of oscillation with peak-to-peak variation of \textasciitilde 0.3 deg) 
 \end{itemize}
 
-All those temperature changes and non-uniformity are small: at maximum we observe a temperatuer change of 0.6 deg in Run E1496, which will induce a gain change of \textasciitilde $4\times 10^{-4}$. Also running the focal plane with more stable temperature over time, e.g., by not using IDLE\_FLUSH (in run E2008, temperature changes induces a gain change of at most \textasciitilde$2\times 10^{-4}$), will further improve the gain stability. Note that on this front we have a plan to further uniformize over time the REB usage (mimicking exposure readout, even when not taking an exposure). Still it is interesting to notice that the temperature change over the focal plane has a dispersion for the REB electronics, with larger temperature variation always in the same REBs (e.g., R24/Reb2). At this stage the origin of this  non-uniformity is unknown. 
+All those temperature changes and non-uniformity are small: at maximum we observe a temperature change of 0.6 deg in Run E1496, which will induce a gain change of \textasciitilde $4\times 10^{-4}$. Also running the focal plane with more stable temperature over time, e.g., by not using IDLE\_FLUSH (in run E2008, temperature changes induces a gain change of at most \textasciitilde$2\times 10^{-4}$), will further improve the gain stability. Note that on this front we have a plan to further uniformize over time the REB usage (mimicking exposure readout, even when not taking an exposure). Still it is interesting to notice that the temperature change over the focal plane has a dispersion for the REB electronics, with larger temperature variation always in the same REBs (e.g., R24/Reb2). At this stage the origin of this  non-uniformity is unknown. 
 In Figure~\ref{fig:R24divR14}, we underline this non-uniformity by comparing the average signal measurement in R24 (large temperature variation observed) and R14 (minimal temperature variation) during run E1496 (stable temperature). A crude temperature correction (we did apply a gain correction of $6.5\times10^{-4}$ per deg C to all amplifiers based on their REB temperature)  brings the agreement of response  between the two rafts to better than $1\times10^{-4}$.  
 
 
@@ -1034,26 +1035,26 @@ We measure the noise level of ROIs acquired under various configurations, shown 
 \endhead
 \multicolumn{7}{|c|}{\textbf{Noise Study Configurations}} \\
 \hline
-50x50   & 50  & 1 & 1 & n/a       &  9.28 & 5.60 \\ % gds_noise_01.cfg
-50x50   & 50  & 2 & 1 & aligned   &  9.27 & 5.64 \\ % gds_noise_02.cfg
-50x50   & 50  & 2 & 1 & unaligned &  9.26 & 8.63 \\ % gds_noise_03.cfg
-50x50   & 50  & 4 & 4 & aligned   &  9.26 & 5.61 \\ % gds_noise_04.cfg
-50x50   & 50  & 4 & 4 & unaligned &  9.26 & 5.64 \\ % gds_noise_05.cfg
-50x50   & 50  & 8 & 4 & aligned   &  9.23 & 5.65 \\ % gds_noise_06.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & 5.68 \\ % gds_noise_07.cfg
+50$\times$50   & 50  & 1 & 1 & n/a       &  9.28 & 5.60 \\ % gds_noise_01.cfg
+50$\times$50   & 50  & 2 & 1 & aligned   &  9.27 & 5.64 \\ % gds_noise_02.cfg
+50$\times$50   & 50  & 2 & 1 & unaligned &  9.26 & 8.63 \\ % gds_noise_03.cfg
+50$\times$50   & 50  & 4 & 4 & aligned   &  9.26 & 5.61 \\ % gds_noise_04.cfg
+50$\times$50   & 50  & 4 & 4 & unaligned &  9.26 & 5.64 \\ % gds_noise_05.cfg
+50$\times$50   & 50  & 8 & 4 & aligned   &  9.23 & 5.65 \\ % gds_noise_06.cfg
+50$\times$50   & 50  & 8 & 4 & unaligned &  9.23 & 5.68 \\ % gds_noise_07.cfg
 \hline
 \multicolumn{7}{|c|}{\textbf{Nominal Configurations}} \\
 \hline
-50x50   & 50  & 8 & 4 & aligned   &  9.22 & 5.65 \\ % gds_nom_aligned.cfg
-50x50   & 50  & 8 & 4 & unaligned &  9.23 & 8.67 \\ % gds_nom_unaligned.cfg
+50$\times$50   & 50  & 8 & 4 & aligned   &  9.22 & 5.65 \\ % gds_nom_aligned.cfg
+50$\times$50   & 50  & 8 & 4 & unaligned &  9.23 & 8.67 \\ % gds_nom_unaligned.cfg
 \hline
 \multicolumn{7}{|c|}{\textbf{ROI Study Configurations}} \\
 \hline
-400x400 & 200 & 1 & 1 & n/a       &  1.67 & 4.03 \\ % gds_roi_01.cfg
-400x400 &  50 & 1 & 1 & n/a       &  2.23 & 3.95 \\ % gds_roi_02.cfg
-400x400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
-10x10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
-400x400 &  50 & 1 & 1 & SplitROI  &  2.23 & 7.24, 7.09 \\ % gds_roi_05.cfg
+400$\times$400 & 200 & 1 & 1 & n/a       &  1.67 & 4.03 \\ % gds_roi_01.cfg
+400$\times$400 &  50 & 1 & 1 & n/a       &  2.23 & 3.95 \\ % gds_roi_02.cfg
+400$\times$400 &   5 & 1 & 1 & n/a       &  2.48 & 3.91 \\ % gds_roi_03.cfg
+10$\times$10   &  50 & 1 & 1 & n/a       & 11.80 & 13.56 \\ % gds_roi_04.cfg
+400$\times$400 &  50 & 1 & 1 & SplitROI  &  2.23 & 7.24, 7.09 \\ % gds_roi_05.cfg
 \hline
 \label{tab:gds_configs}
 \end{longtable}
@@ -1102,10 +1103,10 @@ We describe guider sensor operation, focusing on guider-specific acquisitions an
 
 
 \clearpage
-\section{Sensor features}\label{sensor-features}
+\section{Sensor Features}\label{sensor-features}
 
 \subsection{Tree rings}\label{tree-rings}
-Tree rings are concentric variations in silicon doping concentration the effects of which can be observed in flat images. The tree rings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe =measurements of the tree rings for each LSSTCam sensor from the test data taken in Run 6 and Run 7.
+Tree rings are concentric variations in silicon doping concentration the effects of which can be observed in flat images. The tree rings are characterized in \citet{2017Jinst..12C05015,2020JATIS...6a1005P} and the impact of the tree rings is assessed in \citet{2023PASP..135k5003E}. In this section we describe measurements of the tree rings for each LSSTCam sensor from the test data taken in Run 6 and Run 7.
 \subsubsection{Centers of the tree rings}
 From the characterization study cited above, the center of the tree ring pattern is known to have four possible positions with respect to the center of a sensor. This is because four CCDs are cut from one wafer. 
 To date we have been using the four different average positions for each center of the tree ring pattern, according to the pattern direction, because measuring the tree ring pattern for each sensor is difficult due to their low amplitude, and low contrast with respect to other features such as the ``CMB" pattern. However, in Run 7 we obtained new data with 0\,V of back bias voltage with the diffuser installed (Sec.~\ref{differences-from-previous-runs} and Fig. \ref{fig:diffuser}), which increases the amplitude of the tree ring pattern in the images, allowing us to revisit the measurement of each individual center (E1050 for red, E1052 for blue, E1055 for nm850, E1056 for nm960 LEDs).
@@ -1173,8 +1174,8 @@ We expected that with the diffuser installed, contributions from effects such as
 \caption{Comparison of the tree ring patterns on the sensor R01\_S20 with (left) and without (right) back bias voltage (50\,V) applied.  The applied back bias voltage clearly reduces the impact of the tree ring effect.}
 \end{figure}
 
-\subsubsection{Wavelength dependency}
-The tree ring effect does not depend much on wavelength, as studied in \citep{2017Jinst..12C05015,2020JATIS...6a1005P}. However, when the flat images for different wavelengths are compared, we can see the other sensor effects dominate in shorter wavelength (laser annealing) and longer wavelength (fringing) over the tree ring patterns. Figure~\ref{fig:tree_ring_wavelength_dep} shows the tree rings in red and blue flat images, and Figure~\ref{fig:tree_ring_subtract_red_blue} shows the difference image between red and blue to highlight the differences. We can see that the laser annealing effect is left since the amplitudes of the tree ring effect of blue and red images are similar. 
+\subsubsection{Wavelength dependence}
+The tree ring effect does not depend much on wavelength, as studied in \citep{2017Jinst..12C05015,2020JATIS...6a1005P}. However, when the flat images for different wavelengths are compared, we can see the other sensor effects dominate in shorter wavelength (laser annealing) and longer wavelength (fringing) over the tree ring patterns. Figure~\ref{fig:tree_ring_wavelength_dep} shows the tree rings in red and blue flat images, and Figure~\ref{fig:tree_ring_subtract_red_blue} shows the difference image between red and blue to highlight the differences. We can see that the laser annealing effect is left since the amplitudes of the tree ring effect in blue and red images are similar. 
 
 \begin{figure}[ht]
 \centering
@@ -1268,7 +1269,7 @@ It is possible that the contrast and brightness that we could achieve in the lab
 
 A category of sensor feature found on some ITL sensors, that has recently benefited from fresh attention, now has a new name. They are called {\it vampire pixels} because of their curious flat field response: a group of pixels with photo-response exceeding the flat-field mean, surrounded by a concentric distribution of pixels with photo-response below the same flat-field mean. The {\it vampire pixel} name sticks because the over-responsive pixels have apparently ``sucked'' signal from the rightful receivers, a sort of {\it reverse brighter-fatter} effect excited simply with flat-field illumination. 
 
-The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius, which place strong constraints on their origin. Also, it turns out that all prominent {\it vampire pixel} complexes are also seen in their (ITL) phosphorescence response which is indicative of the backside surface layer ({\it cf.} Sec.~\ref{phosphorescence}). This means that {\it vampire pixels} are likely to appear also in dark images, but only if trigger illumination is delivered a few tens of seconds prior to the dark acquisition ({\it cf.} vampire transients, Tab.~\ref{qualitative_assessment:itl_sensors}).
+The sizes of these {\it vampire pixel} complexes can typically extend to tens of pixels in radius, which place strong constraints on their origin. Also, it turns out that all prominent {\it vampire pixel} complexes are also seen in their (ITL) phosphorescence response which is indicative of the backside surface layer (cf. Sec.~\ref{phosphorescence}). This means that {\it vampire pixels} are likely to appear also in dark images, but only if trigger illumination is delivered a few tens of seconds prior to the dark acquisition (cf. vampire transients, Tab.~\ref{qualitative_assessment:itl_sensors}).
 
 All known cases appear to round or with circular symmetry. There are plenty of cases with similar pixel complexes that lack the central group of pixels with {\it high-amplitude} photo-response excess, but that the photo-response deviation is simply divided into a larger number of pixels or in locations further from the center of the complex. We suggest that the underlying origin of these is common with the easier-to-detect {\it bright pixels} (cf. Sec.~\ref{first-observations}) but appear with different response properties simply because of mundane geometric details. Different detection algorithms may therefore be required finding those {\it vampire pixel} complexes that do {\it not} show central bright pixels as opposed those that {\it do}. Moving forward, we choose not to invent a new name for the former type, but refer to them all as {\it vampire pixel} complexes.
 
@@ -1411,7 +1412,7 @@ We parasitically used a series of B-protocol persistence acquisitions executed f
 
 \subsubsection{Results of phosphorescence detection in ITL sensors}\label{phos-results}
 
-Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} (top) displays the transient term in an 8$\times$8 blocked image of the R00\_SW1 sensor (More examples can be found in Figures~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. These full-resolution pixel images represent our most reliable data products for identifying individual pixels with significant transient signal. 
+Table~\ref{tab:phosphorescence:datasets} provides the EO run IDs analyzed according to the process outlined above. Figure~\ref{fig:phos:stains} (top) displays the transient term in an 8$\times$8 blocked image of the R00\_SW1 sensor. (More examples can be found in Figs.~\ref{fig:phos:R00} through \ref{fig:phos:R44} in Appendix \ref{appendix:phosphorescence}). These serve primarily to help identify which ITL sensors exhibit regions where we suspect presence of the phosphorescence effect. These full-resolution pixel images represent our most reliable data products for identifying individual pixels with significant transient signal. 
 
 \begin{figure}[!htbp]
 \centering
@@ -1473,13 +1474,13 @@ A subset of the 88 ITL sensors, specifically those that show either high-signal 
 \input{phosphorescing_itls_datasets_table}
 \input{phosphorescence_vs_coffeestains_R00SW1_figure}
 
-While characterizing the phosphorescence expressed by ITL sensors using the data products described above, we have also identified correlations that concerns the localized, phosphorescence centers that tend to appear as circular disks. While we typically see a dozen or so (on average) per sensor, those with larger amplitude are strongly associated with {\it vampire pixels} (which are easily identified by their localized flat field response). The correlation is not perfect, meaning that not all localized (circular) phosphorescence centers can be associated with {\it vampire pixels} but that nearly all {\it vampire pixels} express localized phosphorescence with some amplitude. 
+While characterizing the phosphorescence expressed by ITL sensors using the data products described above, we have also identified correlations that concern the localized, phosphorescence centers that tend to appear as circular disks. While we typically see a dozen or so (on average) per sensor, those with larger amplitude are strongly associated with {\it vampire pixels} (which are easily identified by their localized flat field response). The correlation is not perfect, meaning that not all localized (circular) phosphorescence centers can be associated with {\it vampire pixels} but that nearly all {\it vampire pixels} express localized phosphorescence with some amplitude. 
 
-When data products of the 88 ITL sensors are inspected for transient phosphorescent response ({\it cf.} Table~\ref{qualitative_assessment:itl_sensors}), very few, perhaps only a single sensor (R44\_SW1), show insignificant phosphorescence. Although $\sim$24\% of the ITL sensors show diffuse phosphorescence, a majority of sensors ($\sim$83\%) show spot-like phosphorescence centers without diffuse phosphorescence. Presence of diffuse phosphorescence probably can frustrate spot-like phosphorescence detection by eye, and the estimated frequency of the latter may serve as a lower limit to the true frequency. The case of R02\_S12 ({\it cf.} Figure~\ref{fig:blue-phos:R02_S12:rois} provides a good example of this.
+When data products of the 88 ITL sensors are inspected for transient phosphorescent response (cf. Table~\ref{qualitative_assessment:itl_sensors}), very few, perhaps only a single sensor (R44\_SW1), show insignificant phosphorescence. Although $\sim$24\% of the ITL sensors show diffuse phosphorescence, a majority of sensors ($\sim$83\%) show spot-like phosphorescence centers without diffuse phosphorescence. Presence of diffuse phosphorescence probably can frustrate spot-like phosphorescence detection by eye, and the estimated frequency of the latter may serve as a lower limit to the true frequency. The case of R02\_S12 (cf. Fig.~\ref{fig:blue-phos:R02_S12:rois}) provides a good example of this.
 
 \input{phosphorescing_sensors_table}
 
-The correspondence between {\it vampire pixels} and spot-like phosphorescence is laid out in Figure~\ref{fig:vamp-phos:R03_S10-R20_S20}, for two prominent cases.  These two {\it vampire pixels} may appear intrinsically different in that their flat-field responses {\bf do} (or do {\bf not}) exhibit a central bright pixel, which could aid in their identification. Details of the underlying distribution of trapped surface charges near the back-side electrode - or variations in the conductive properties of the same - apparently drive these details of the flat field response. However, it remains intriguing that these surface electrostatic properties are accompanied by an unmistakable transient phosphorescence signature.
+The correspondence between {\it vampire pixels} and spot-like phosphorescence is laid out in Figure~\ref{fig:vamp-phos:R03_S10-R20_S20}, for two prominent cases.  These two {\it vampire pixels} may appear intrinsically different in that their flat-field responses {\bf do} (or do {\bf not}) exhibit a central bright pixel, which could aid in their identification. Details of the underlying distribution of trapped surface charges near the back-side electrode -- or variations in the conductive properties of the same -- apparently drive these details of the flat field response. However, it remains intriguing that these surface electrostatic properties are accompanied by an unmistakable transient phosphorescence signature.
 
 
 
@@ -1507,7 +1508,7 @@ The correspondence between {\it vampire pixels} and spot-like phosphorescence is
      \label{subfig:phosresp_R20_S20}
 \end{subfigure}
 \newline
-\caption{Vampire pixel comparisons between their flat field response and their transient phosphorescence. Signal levels are given (relative for flat field response, absolute electrons per 15\,s following overexposure for transient phosphorescence). The relative flat field response amplitudes swing between 0.2 \& 16 (reaching full well) for R03\_S10, and between 0.4 \& 8 for R20\_S20. The transient phosphorescence response also reaches nominal full well (135ke$^-$/pix/15s for the central pixel) for R03\_S10, and a lower amplitude (3-4Ke$^-$/pix/15s for several hundred pixels) is reached for R20\_S20.}
+\caption{Vampire pixel comparisons between their flat field response and their transient phosphorescence. Signal levels are given (relative for flat field response, absolute electrons per 15\,s following overexposure for transient phosphorescence). The relative flat field response amplitudes swing between 0.2 \& 16 (reaching full well) for R03\_S10, and between 0.4 \& 8 for R20\_S20. The transient phosphorescence response also reaches nominal full well (135\,ke$^-$/pix/15s for the central pixel) for R03\_S10, and a lower amplitude (3--4\,ke$^-$/pix/15s for several hundred pixels) is reached for R20\_S20.}
 \label{fig:vamp-phos:R03_S10-R20_S20}
 \end{figure}
 
@@ -1565,11 +1566,11 @@ A curious aspect of the phosphorescence seen in ITL sensors lies in its voltage 
 
 
 \subsubsection{Summary of phosphorescence in ITL sensors}
-From the investigations above, we find that a number of small but perhaps significant systematic effects appear to be joined by the presence of deferred signal which we loosely call {\it phosphorescence}. It is a hysteretic phenomenon and may be corrected pixel-by-pixel with adequate characterization. There appear to be multiple time constants in its decay (ranging from a short timescale of 11\,s through longer timescales of 320\,s) with roughly 75\% of the integrated phosphorescence belonging to the longest timescales and only about 5\% associated to the shortest timescales. This statement is based on a sample kinetics study performed on a specific ROI explored in Appendix~\ref{appendix:phos:kinetics}. We also find that the phosphorescent response to illumination is dependent on wavelength and illumination level ({\it cf.} Appendix~\ref{appendix:phos:response}), which in certain cases appear to present a proportional response to trigger illumination.
+From the investigations above, we find that a number of small but perhaps significant systematic effects appear to be joined by the presence of deferred signal which we loosely call {\it phosphorescence}. It is a hysteretic phenomenon and may be corrected pixel-by-pixel with adequate characterization. There appear to be multiple time constants in its decay (ranging from a short timescale of 11\,s through longer timescales of 320\,s) with roughly 75\% of the integrated phosphorescence belonging to the longest timescales and only about 5\% associated to the shortest timescales. This statement is based on a sample kinetics study performed on a specific ROI explored in Appendix~\ref{appendix:phos:kinetics}. We also find that the phosphorescent response to illumination is dependent on wavelength and illumination level (cf. Appendix~\ref{appendix:phos:response}), which in certain cases appear to present a proportional response to trigger illumination.
 
 In principle, each group of pixels (or each individual pixel) may be characterized by specific populations of characteristic phosphorescence kinetics as well as trigger exposure wavelength- and illumination-response. A dedicated set of measurements that acquire sequential dark images following a trigger exposure may be performed repeatedly until adequate statistics are achieved. 
 
-We consistently find phosphorescent counterparts to both {\it vampire pixels} and often (but not always) to {\it coffee stains} that appear in short wavelength flat field response. These facts provide strong clues that the phosphorescent signal is tied to surface detail of the backside window or equipotential. The fact that the time constants measured are comparable to those found for {\it persistence} in the other set of sensors (e2v) cast some doubt on the presumed mechanism and the name choice of the phenomenon. We do not know for certain that what we call {\it phosphorescence} isn't indeed a deferred signal caused by an temporarily trapped, then liberated charge, rather than a deferred photon emission as the adopted name would imply. We believe this suggestion is bolstered by the observation that the phosphorescent signal is strongly modified by the electrical state of the {\it HV Bias} switch to these sensors ({\it cf.} Figure~\ref{fig:phos:hvbias_comp}).
+We consistently find phosphorescent counterparts to both {\it vampire pixels} and often (but not always) to {\it coffee stains} that appear in short wavelength flat field response. These facts provide strong clues that the phosphorescent signal is tied to surface detail of the backside window or equipotential. The fact that the time constants measured are comparable to those found for {\it persistence} in the other set of sensors (e2v) cast some doubt on the presumed mechanism and the name choice of the phenomenon. We do not know for certain that what we call {\it phosphorescence} isn't indeed a deferred signal caused by an temporarily trapped, then liberated charge, rather than a deferred photon emission as the adopted name would imply. We believe this suggestion is bolstered by the observation that the phosphorescent signal is strongly modified by the electrical state of the {\it HV Bias} switch to these sensors (cf. Fig.~\ref{fig:phos:hvbias_comp}).
 
 Whatever the underlying cause of the {\it phosphorescence} signal, it is a contribution to the instrumental signature in science data that attenuates over time, and is generally a hysteresis that responds to wavelength, illumination history, and has strong position dependence to its expression with time constants that may also be position dependent. Whether it is corrected to first order as part of the Instrument Signature Removal (ISR) effort or not, sources extracted from regions suffering significant {\it phosphorescence} may be labeled as {\it suspect} and two-sided (or asymmetric errors) may apply to the variance plane when such sources are characterized or fitted.  
 
@@ -1659,7 +1660,7 @@ The blue bars show the actions that were taken while the red bars show the issue
 \end{ganttchart}
 }
 
-Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of the Cryo plate, one of CCDs, R01\_S10, and the REBs over the whole run period. These show smooth behavior except for the timing where we had troubles.
+Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of the Cryo plate, one of CCDs, R01\_S10, and the REBs over the whole run period. These show smooth behavior except intervals where we had troubles of one kind or another.
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{figures/Issues/LSSTCam_Temps_Run7.png}
@@ -1672,19 +1673,19 @@ Figure \ref{fig:tempsoverthewholeperiod} shows the temperature trending of the C
 
 The Camera Control System (CCS) is a distributed system composed of processes running on servers in the summit computer room, desktop machines in the control room and the cleanroom, as well as embedded computers (Hardware Control Units) in the camera utility trunk, and attached to the camera refrigeration system. The communication mechanism relies on a peer-to-peer communication system implemented using \href{http://jgroups.org/}{JGroups}. This system functioned reliably with the LSSTCam at SLAC during the Run~6 testing, as well as with AuxTel and ComCam in Chile, but with the LSSTCam at Cerro Pachón we encountered previously unseen problems, the symptoms of which were apparently spontaneous loss of communication between camera subsystems (``CCS meltdowns") which typically required manually shutting down a large fraction of the system to restore communication, rendering the setup unsustainable for long-term operations.
 
-At SLAC the entire network was configured using a single network switch in the IR2 cleanroom, but the setup in Chile was significantly more complex with different network switches on different levels of the observatory. We worked closely with the Rubin Chilean IT team to understand the network configuration, and to track down the cause of the problem. Key observations indicated that while normal CCS traffic was light (3.5Mb/s), meltdowns generated traffic exceeding 2Gb/s. Tests revealed that moderate multicast traffic (100MB/s), deliberately created using iperf, could consistently induce the failures. 
+At SLAC the entire network was configured using a single network switch in the IR2 cleanroom, but the setup in Chile was significantly more complex with different network switches on different levels of the observatory. We worked closely with the Rubin Chilean IT team to understand the network configuration, and to track down the cause of the problem. Key observations indicated that while normal CCS traffic was light (3.5\,Mb/s), meltdowns generated traffic exceeding 2],Gb/s. Tests revealed that moderate multicast traffic (100\,MB/s), deliberately created using iperf, could consistently induce the failures. 
 
 Ultimately a number of changes were made:
 
 \begin{itemize}
-\item The network switch controlling the cleanroom was replaced, and the network configuration in general was simplified to reduce the number of different switches used by LSSTCam.
+\item The network switch controlling the White Room was replaced, and the network configuration in general was simplified to reduce the number of different switches used by LSSTCam.
 \item The total volume of network traffic generated by the camera was reduced and made more uniform over time by adjusting when large-volume telemetry, in particular from the focal plane and REB power systems, was published.
 \item Extensive diagnostics were added to CCS to help us identify the cause of the meltdowns. This was ultimately understood to be `retransmission storms" triggered by the mechanism built-in to jGroups to recover from packet loss, but which was in fact causing far more message retransmissions than the network could handle. This was perhaps exacerbated by the fact that we were using a mixture of 10\,Gb and 1\,Gb connections, so the control room servers (with 10\,Gb connections) were able to generate far more traffic than the MOXA switch in LSSTCam (1\,Gb) could handle.
 \item After discussing with the jGroups maintainers we upgraded the entire CCS from jGroups4 to jGroups5, and added some custom code to reduce the maximum volume of retransmission messages.
 \item We discovered that the Beckhoff PTP module used in the LSSTCam shutter (lsstcam-shutter01-ptp) was only capable of handling 100\,Mb/s traffic, and this seemed to contribute to some of the problems. This was fixed by enabling IGMP in the MOXA network switch in the utility trunk to partition the network so that the CCS multicast traffic would not be sent to the PTP module.
 \end{itemize}
 
-Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400x400 ROIs, which at the current time has not been understood. While we do not think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
+Once these changes were made the network worked much more reliably, although there was one reoccurrence of the problem towards the end of the test period, caused by operating the camera in Guider mode with 400$\times$400 ROIs, which at the current time has not been understood. While we do not think a single fix solved the problems, we are now in a much better position to diagnose and fix any future problems that arise.
 
 \clearpage
 \subsection{REB PS power trip}\label{sec:rebpstripped}
