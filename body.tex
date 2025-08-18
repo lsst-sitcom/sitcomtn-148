@@ -137,7 +137,7 @@ For e2v sensors we find the reduction in full-well to be significant, \textascii
 \end{figure}
 
 
-Since early in the planning for LSST, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands \citep{Document-10512}. If linearity turnoff is the metric used to quantify full-well, all e2v amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.4\% of e2v amplifiers do not pass this system requirement (120/1872 total amplifiers). Photometry is possible up to the linearity turnoff without a nonlinearity correction, whereas shape measurements can be made accurately up to the PTC turnoff. Shapes are not measured at high flux, near turnoff. For these reasons, we consider this requirement passed.
+Since early in the planning for LSST, a 90,000 e- full-well capacity was established as a requirement for an 8 magnitude dynamic range across all bands \citedsp{Document-10512}. If linearity turnoff is the metric used to quantify full-well, all e2v amplifiers pass this system requirement. If PTC turnoff is the metric used to quantify full-well, 6.4\% of e2v amplifiers do not pass this system requirement (120/1872 total amplifiers). Photometry is possible up to the linearity turnoff without a nonlinearity correction, whereas shape measurements can be made accurately up to the PTC turnoff. Shapes are not measured at high flux, near turnoff. For these reasons, we consider this requirement passed.
 
 In PTC turnoff (see Fig.~\ref{fig:finalChar-PTCTurnoff-5x5}), several sensors (R13\_S21 and R32\_S00) show a feature indicative of a range of values for the final Run 7 data, but a closer distribution of values in the initial Run 7 data. The reason for this difference in distributions is not clear. Both of these sensors pass the PTC turnoff requirement.
 
@@ -985,7 +985,7 @@ Based on the studies done for Run 6, this effect will be extremely difficult to 
 \end{figure}
 
 \subsection{Guider operation}\label{guider-operation}
-Beginning with Run 7, it became common to run the corner rafts in their nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citep{LCA-20583}.
+Beginning with Run 7, it became common to run the corner rafts in their nominal (guiding) configuration while acquiring the EO data for the rest of the focal plane. This section describes guider-specific acquisitions designed to verify guider requirements and measure performance. For a complete description of guider requirement verification, please refer to \citeds{LCA-20583}.
 
 \subsubsection{Guide mode}
 Because different regions of pixels on each GREB sensor can be read out, the guider requires a version of GREB firmware that implements a separate sequencer for each sensor. When in science or full frame mode, there is only one sequencer in the GREB. However, because the GREB can be configured to read out a different portion of each sensor, special firmware must be loaded that contains a sequencer for each sensor. Additionally, the DAQ embedded processor connected to the GREB must also run special guide software and the DAQ synchronous timing system must be configured to allow the separation of readout commands between the guider and the rest of the focal plane. Thus, switching between guide and science modes is a non-trivial operation.
