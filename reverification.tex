@@ -95,7 +95,7 @@ CTI, or charge transfer inefficiency, measures the fraction of charge that fails
 The CTI along the serial registers of the amplifier segments of the LSST Camera CCDs is consistent between Run 6 and
 Run 7 (Fig.~\ref{fig:serial-cti}). Both sensor types show low CTI,
 span a range  of \textasciitilde$2 \times 10^{-5}$ \% for e2v sensors, and
-by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}). 
+by \textasciitilde$4 \times 10^{-6}$  \% for ITL sensors (Fig.~\ref{fig:serial-cti-dist}).
 
 \begin{figure}[ht]
 \begin{centering}
@@ -160,7 +160,7 @@ Run 6 (Fig.~\ref{fig:dark}). We do not attach particular significance to the fin
 \clearpage
 \subsubsection{Bright defects}\label{bright-defects}
 
-Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the semiconductor material or manufacturing process of the CCD. Bright defects can manifest as ``hot pixels" with consistently high dark current, small clusters of pixels with elevated dark current, or as ``hot columns" (pixels along the same column that have high dark current). 
+Bright defects are localized regions or individual pixels that produce abnormally high signal levels, even in the absence of light. These defects are typically caused by imperfections in the semiconductor material or manufacturing process of the CCD. Bright defects can manifest as ``hot pixels" with consistently high dark current, small clusters of pixels with elevated dark current, or as ``hot columns" (pixels along the same column that have high dark current).
 
 In the context of LSST Camera, we identify and exclude bright pixels from the dark current measurement, with the threshold for a bright defect set at 5 e$^-$/pix/s, above which the pixel/cluster/column is registered as a bright defect. In addition to the bright pixel metric, eo-pipe also computes a bright column metric, which is any region of bright pixels that is contiguous over 50 pixels or more.
 
@@ -293,7 +293,7 @@ PTC noise differs by $\lesssim$ 0.1 e- on average for science sensors. Notably, 
 \subsubsection{Brighter-fatter coefficients}\label{brighter-fatter-a00-coefficient}
 
 
-The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter-fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from  
+The brighter-fatter effect in CCDs refers to the phenomenon where brighter sources appear larger (or ``fatter" than dimmer ones). This occurs due to electrostatic interactions within the pixel wells of the CCDs, when a pixel accumulates a high charge from incoming photons and creates an electric field that slightly repels incoming charge carriers into neighboring pixels. The brighter-fatter effect can be modeled as the most dominant source of pixel-pixel correlations. Following the PTC model from
 \citet{2019A&A...629A..36A}, $a_{00}$ describes the change of a pixel area due to its own charge content, or the relative strength of the brighter-fatter effect. Since same-charge carriers repel each other, the pixel area decreases as charge accumulates inside the pixel well, which implies $a_{00}$ \textless{} 0. Similarly $a_{10}$ describes the area change cause by a pixel to its nearest serial neighbor, and $a_{01}$ to the parallel nearest neighbor. Figs. \ref{fig:hist_as_run6_7} and \ref{fig:ratio_bf_coeff_6_7} compare the measurement of these coefficients carried out at SLAC and at the summit. We see that the variations are modest (and could be explained by noise) except for two rafts: R10 and R11. The Run 6 data used for this comparison was acquired with a high voltage of 45V applied to these two rafts, rather than the usual 50\,V. The sensitivity of our measurements of the brighter-fatter coefficients is sufficient to detect the change of electrostatic conditions due to this change of drift field in the sensors. In {\tt eo\_pipe}, an absolute value is taken of the $a_{00}$ parameter, so the tabulated quantities are positive.
 
 \begin{figure}[ht]
@@ -315,7 +315,7 @@ The brighter-fatter effect in CCDs refers to the phenomenon where brighter sourc
    \minipage{0.32\textwidth}
   \includegraphics[width=\linewidth]{figures/baselineCharacterization/a10_ratios.png}
   \endminipage\hfill
-  
+
 
 \caption{Ratio of measurements of $a_{00}$, $a_{01}$ and $a_{10}$ coefficients (one per amplifier) for Run 6 and Run 7. They are very consistent, except for two rafts (R10 and R11) where the high voltage was changed between the two runs.\label{fig:ratio_bf_coeff_6_7}}
   \end{centering}
@@ -409,7 +409,7 @@ The eo-pipe configuration for evaluating dark defects considers a border pixel r
 \end{centering}
 \end{figure}
 
-The default eo-pipe configuration has no border masking. The largest region permitted for the picture frame region is 9 pixels, determined by LCA-19363. Using a 9 pixel mask, the picture frame signal is removed, leaving true dark defects to be measured without contamination.
+The default eo-pipe configuration has no border masking. The largest region permitted for the picture frame region is 9 pixels, determined by \citeds{LCA-19636}. Using a 9 pixel mask, the picture frame signal is removed, leaving true dark defects to be measured without contamination.
 
 \begin{figure}[ht]
     \centering
@@ -475,14 +475,14 @@ persistence measurements are due to higher initial residual ADU in a subset of r
 \clearpage
 \subsection{Differences between Run 6 and Run 7}\label{differences-from-previous-runs}
 
-All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and divisadero tearing show improved performance compared to Run 6, while the Persistence feature is still prominent in e2v sensors. 
+All camera performance metrics from the summit show close agreement with SLAC IR2 tests. PTC/full-well metrics were consistent, and no significant bright cosmetic defects developed. Dark cosmetic defects are difficult to quantify due to the edge sensor effects, though the consistency in CTI measurements would indicate that dark defects did not change from previous runs. Dark current and divisadero tearing show improved performance compared to Run 6, while the Persistence feature is still prominent in e2v sensors.
 
 \begin{table}[ht]
 \centering
 \resizebox{\textwidth}{!}{ % Resize the table to the page width
 \begin{tabular}{|l|l|ll|ll|}
 \hline
-\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6} 
+\multirow{2}{*}{Parameter [unit]} & \multirow{2}{*}{Specification} & \multicolumn{2}{l|}{e2v}                   & \multicolumn{2}{l|}{ITL}                    \\ \cline{3-6}
                                    &                                & \multicolumn{1}{l|}{Run 6}     & Run 7     & \multicolumn{1}{l|}{Run 6}     & Run 7      \\ \hline
 Serial CTI {[}\%{]}                & 5$\times 10^{-4}$               & \multicolumn{1}{l|}{3.7$\times 10^{-5}$} & 1.1$\times 10^{-5}$& \multicolumn{1}{l|}{1.2$\times 10^{-4}$} & 1.7$\times 10^{-4}$ \\ \hline
 Parallel CTI {[}\%{]}              & 3$\times 10^{-4}$               & \multicolumn{1}{l|}{1.2$\times 10^{-5}$} & 1.2$\times 10^{-5}$& \multicolumn{1}{l|}{3.4$\times 10^{-7}$} & -4.8$\times 10^{-6}$\\ \hline
