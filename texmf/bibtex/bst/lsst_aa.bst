@@ -71,6 +71,7 @@ ENTRY
     edition
     editor
     eprint
+    eid
     howpublished
     institution
     journal
@@ -732,6 +733,24 @@ FUNCTION {format.eprint}
       * "} {" * eprint * "})" * }
     if$
 }
+FUNCTION {format.ascl.eid}
+{ eid empty$
+    { "" }
+    {
+      % if eid starts with "ascl:"
+      eid #1 #5 substring$ "ascl:" =
+        {
+          % extract the part after the colon
+          eid #6 eid text.length$ #5 - substring$
+          % wrap like eprint style
+          " (\mn@eprint {ascl} {" swap$ * "})" *
+        }
+        { "" }
+      if$
+    }
+  if$
+}
+
 
 FUNCTION {format.doi}
 { doi empty$
@@ -1210,6 +1229,7 @@ FUNCTION {article}
   if$
   format.note output
   format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
   format.doi "doi" output.check.nocomma
   format.adsurl output
   fin.entry
@@ -1290,6 +1310,7 @@ FUNCTION {inbook}
   format.edition output
   format.note output
   format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
   format.doi "doi" output.check.nocomma
   fin.entry
 }
@@ -1314,6 +1335,7 @@ FUNCTION {incollection}
   if$
   format.note output
   format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
   format.doi "doi" output.check.nocomma
   fin.entry
 }
@@ -1342,6 +1364,7 @@ FUNCTION {inproceedings}
   if$
   format.note output
   format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
   format.doi "doi" output.check.nocomma
   format.adsurl output
   fin.entry
@@ -1386,6 +1409,23 @@ FUNCTION {misc}
   howpublished "howpublished" bibinfo.check output
   format.note output
   format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
+  format.doi "doi" output.check.nocomma
+  format.adsurl output
+  fin.entry
+}
+FUNCTION {software}
+{ output.bibitem
+  format.authors output
+  author format.key output
+  format.date output
+  date.block
+  format.title output
+  howpublished "howpublished" bibinfo.check output
+  format.note output
+  format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
+  format.doi "doi" output.check.nocomma
   format.adsurl output
   fin.entry
 }
@@ -1437,6 +1477,8 @@ FUNCTION {techreport}
   address "address" bibinfo.check output
   format.note output
   format.eprint "eprint" output.check.nocomma
+  format.ascl.eid output
+  format.doi "doi" output.check.nocomma
   format.adsurl output
   fin.entry
 }
@@ -1759,24 +1801,71 @@ FUNCTION {initialize.extra.label.stuff}
   #0 'last.extra.num :=
   #0 'number.label :=
 }
-FUNCTION {forward.pass}
-{ last.label label =
-    { last.extra.num #1 + 'last.extra.num :=
-      last.extra.num int.to.chr$ 'extra.label :=
+% Extra-label incrementer using string ops only (BibTeX 0.99d-safe).
+% Produces a..z, aa, ab, ..., az, ba, ...
+INTEGERS { alphaLen alphaCarry alphaCode }
+STRINGS  { alphaStr alphaNewCh }
+FUNCTION {alphalabel.next}
+{ 'alphaStr :=
+  alphaStr text.length$ 'alphaLen :=
+  alphaLen #0 =
+    { "a" }
+    {
+      #1 'alphaCarry :=
+      { alphaCarry #0 > }
+      {
+        alphaStr alphaLen alphaLen substring$ chr.to.int$ 'alphaCode :=
+        alphaCode "z" chr.to.int$ =
+          { alphaStr #1 alphaLen #1 - substring$ "a" * 'alphaStr :=
+            alphaLen #1 - 'alphaLen :=
+            alphaLen #0 =
+              { "a" alphaStr * 'alphaStr :=
+                #0 'alphaCarry :=
+              }
+              { #1 'alphaCarry := }
+            if$
+          }
+          { alphaCode #1 + int.to.chr$ 'alphaNewCh :=
+            alphaStr #1 alphaLen #1 - substring$ alphaNewCh * 'alphaStr :=
+            #0 'alphaCarry :=
+          }
+        if$
+      }
+      while$
+      alphaStr
     }
-    { "a" chr.to.int$ 'last.extra.num :=
+  if$
+}
+FUNCTION {forward.pass}
+{
+  last.label label =
+    { % same author+year group: assign next suffix and advance it
+      next.extra empty$
+        { "b" 'next.extra := }
+        'skip$
+      if$
+      next.extra 'extra.label :=
+      next.extra alphalabel.next 'next.extra :=
+    }
+    { % new group starts here
       "" 'extra.label :=
+      "b" 'next.extra :=
       label 'last.label :=
     }
   if$
   number.label #1 + 'number.label :=
 }
+
 FUNCTION {reverse.pass}
 { next.extra "b" =
     { "a" 'extra.label := }
     'skip$
   if$
   extra.label 'next.extra :=
+  handle empty$ not number empty$ not or
+    { "" 'extra.label := }
+    'skip$
+  if$
   extra.label
   duplicate$ empty$
     'skip$
@@ -1787,6 +1876,7 @@ FUNCTION {reverse.pass}
 }
 EXECUTE {initialize.extra.label.stuff}
 ITERATE {forward.pass}
+EXECUTE {initialize.extra.label.stuff}
 REVERSE {reverse.pass}
 FUNCTION {bib.sort.order}
 { sort.label
