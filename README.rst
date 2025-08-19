@@ -25,11 +25,18 @@ Build this technical note
 
 Refer this: https://developer.lsst.io/project-docs/technotes.html
 
+Build this technical note locally
+=================================
+```
+docker run --rm -v `pwd`:/build -w /build lsstsqre/lsst-texmf:latest sh -c 'make'
+```
+
 Publishing changes to the web
 =============================
 
 This technote is published to https://sitcomtn-148.lsst.io whenever you push changes to the ``main`` branch on GitHub.
 When you push changes to a another branch, a preview of the technote is published to https://sitcomtn-148.lsst.io/v.
+
 
 Editing this technical note
 ===========================
